@@ -28,6 +28,7 @@ let
 
   mkUser = cfg: {
     name = cfg.user;
+    shell = "${pkg.git}/bin/git-shell";
     isSystemUser = true;
   };
 

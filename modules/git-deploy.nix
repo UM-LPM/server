@@ -5,7 +5,7 @@ with lib;
 let 
   cfg = config.services.git-deploy;
 
-  gitDeploy = {name, config, ...}: {
+  gitDeploy = {...} : {
     options = {
       path = mkOption {
         type = types.path;
@@ -80,13 +80,15 @@ let
   };
 in
 {
-  options.git-deploy = mkOption {
+  options.services.git-deploy = mkOption {
     default = {};
     type = types.attrsOf (types.submodule gitDeploy);
     description = "Git based deployment";
   };
 
-  config = mkIf (cfg != []) {
+  config = mkIf (cfg != {}) {
+    environment.systemPackages = [pkgs.git];
+
     users.users = mapAttrs' (name: cfg: nameValuePair name (mkUser cfg)) cfg;
 
     systemd = let

@@ -32,3 +32,8 @@ Port: 12022
 Just for testing
 apt install qemu-utils
 apt install virtinst
+
+* Images
+
+** error: writing to file: No space left on device
+tempfs is full, terraform destroy

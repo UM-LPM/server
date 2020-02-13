@@ -32,7 +32,7 @@ let
     isSystemUser = true;
   };
 
-  mkSetupService = name: cfg: {
+  mkSetupService = name: cfg: { # XXX add missing git hook
     wantedBy = ["multi-user.target"];
     requires = ["network-online.target"];
     after = ["network-online.target"];

@@ -5,13 +5,13 @@ provider "libvirt" {
 resource "libvirt_pool" "pool" {
     name = "pool"
     type = "dir"
-    path = "/tmp/local-pool/"
+    path = "/tmp/local-pool"
 }
 
 resource "libvirt_volume" "image" {
     name = "nixos"
     pool = libvirt_pool.pool.name
-    source = "${path.module}/result/nixos.qcow2"
+    source = "${path.module}/result/nixos.img"
     format = "qcow2"
 }
 

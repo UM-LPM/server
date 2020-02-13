@@ -1,5 +1,7 @@
 {config, lib, ...}:
 {
+  users.mutableUsers = false;
+
   users.users.user = {
     isNormalUser = true;
     description = "Default user";

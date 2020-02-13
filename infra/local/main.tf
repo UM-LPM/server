@@ -9,4 +9,7 @@ resource "libvirt_network" "network" {
   dhcp {
     enabled = true
   }
+  dns {
+    enabled = true
+  }
 }

@@ -1,7 +1,6 @@
 {config, lib, ...}:
 {
-  users.mutableUsers = false;
-
+  security.sudo.wheelNeedsPassword = false;
   users.users.user = {
     isNormalUser = true;
     description = "Default user";

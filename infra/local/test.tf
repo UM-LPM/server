@@ -4,7 +4,7 @@ resource "libvirt_domain" "test" {
   vcpu = 1
 
   network_interface {
-    network_name = libvirt_network.network.name
+    network_name = libvirt_network.local_network.name
   }
 
   console {
@@ -14,7 +14,6 @@ resource "libvirt_domain" "test" {
   }
 
   disk {
-    volume_id = libvirt_volume.minimal_image.id
+    volume_id = libvirt_volume.test_image.id
   }
 }
-

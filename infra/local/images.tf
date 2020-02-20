@@ -1,30 +1,22 @@
-locals {
+module "images" {
+  source = "../modules/images"
+
   machines_path = "../../machines"
+  pool_path = "/var/lib/pools/images"
 }
 
-resource "libvirt_pool" "image_pool" {
-  name = "image_pool"
-  type = "dir"
-  path = "/tmp/local_image_pool"
-}
-
-resource "libvirt_volume" "minimal_image" {
-  name = "minimal"
-  pool = libvirt_pool.image_pool.name
-  source = "${local.machines_path}/minimal/result/nixos.qcow2"
+resource "libvirt_volume" "bastion_image" {
+  name = "bastion_image"
+  pool = module.images.image_pool_name
+  base_volume_id = module.images.bastion_image_id
+  base_volume_pool = module.images.image_pool_name
   format = "qcow2"
 }
 
-resource "libvirt_volume" "docker_host_image" {
-  name = "docker_host"
-  pool = libvirt_pool.image_pool.name
-  source = "${local.machines_path}/docker-host/result/nixos.qcow2"
-  format = "qcow2"
-}
-
-resource "libvirt_volume" "docker_registry_image" {
-  name = "docker_registry"
-  pool = libvirt_pool.image_pool.name
-  source = "${local.machines_path}/docker-registry/result/nixos.qcow2"
+resource "libvirt_volume" "test_image" {
+  name = "test_image"
+  pool = module.images.image_pool_name
+  base_volume_id = module.images.minimal_image_id
+  base_volume_pool = module.images.image_pool_name
   format = "qcow2"
 }

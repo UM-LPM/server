@@ -3,9 +3,9 @@
 with lib;
 
 {
-  imports = [
+  /*imports = [
     <nixpkgs/nixos/modules/profiles/headless.nix>
-  ];
+  ];*/
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
@@ -14,14 +14,15 @@ with lib;
   };
 
   boot.growPartition = true;
+  boot.kernelParams = ["console=ttyS0"];
   boot.initrd.availableKernelModules = ["virtio_balloon" "virtio_blk" "virtio_pci" "virtio_ring"];
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
+  #boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sda";
-  boot.loader.timeout = 0;
+  #boot.loader.timeout = 0;
 
-  services.udisks2.enable = false;
+  #services.udisks2.enable = false;
 
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;

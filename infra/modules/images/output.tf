@@ -23,3 +23,8 @@ output "bastion_image_id" {
   description = "Bastion image id"
 }
 
+output "gateway_image_id" {
+  value = libvirt_volume.gateway_image.id
+  description = "Gateway image id"
+}
+

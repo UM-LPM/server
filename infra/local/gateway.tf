@@ -1,11 +1,15 @@
-resource "libvirt_domain" "test" {
-  name = "test"
+resource "libvirt_domain" "gateway" {
+  name = "gateway"
   memory = "1024"
   vcpu = 1
 
   network_interface {
     network_id = libvirt_network.local_network.id
-    addresses = ["10.17.3.2"]
+    hostname = "gateway"
+  }
+
+  network_interface {
+    macvtap = "enp0s31f6"
   }
 
   console {
@@ -15,6 +19,7 @@ resource "libvirt_domain" "test" {
   }
 
   disk {
-    volume_id = libvirt_volume.test_image.id
+    volume_id = libvirt_volume.gateway_image.id
   }
 }
+

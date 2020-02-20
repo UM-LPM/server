@@ -13,6 +13,14 @@ resource "libvirt_volume" "bastion_image" {
   format = "qcow2"
 }
 
+resource "libvirt_volume" "gateway_image" {
+  name = "gateway_image"
+  pool = module.images.image_pool_name
+  base_volume_id = module.images.gateway_image_id
+  base_volume_pool = module.images.image_pool_name
+  format = "qcow2"
+}
+
 resource "libvirt_volume" "test_image" {
   name = "test_image"
   pool = module.images.image_pool_name

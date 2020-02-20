@@ -35,3 +35,10 @@ resource "libvirt_volume" "bastion_image" {
   source = "${local.machines_path}/bastion/result/nixos.qcow2"
   format = "qcow2"
 }
+
+resource "libvirt_volume" "gateway_image" {
+  name = "gateway"
+  pool = libvirt_pool.image_pool.name
+  source = "${local.machines_path}/gateway/result/nixos.qcow2"
+  format = "qcow2"
+}

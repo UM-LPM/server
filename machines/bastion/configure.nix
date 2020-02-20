@@ -3,31 +3,21 @@
 {
   imports = [
     ../../modules/image.nix
-    ../../users/user.nix
+    ../../modules/bridge.nix
     ../../users/root.nix
+    ../../users/user.nix
   ];
 
-  users.users.test = {
-    isNormalUser = true;
-    description = "Test user";
-    extraGroups = ["wheel"];
-    password = "test";
-  };
+  networking.bridge = {
+    interface = "ens4";
 
-  networking = {
-    interfaces.ens4 = {
-      useDHCP = false;
-      ipv4.addresses = [
-        {
-          address = "164.8.230.209";
-          prefixLength = 24;
-        }
-      ];
+    address = {
+      address = "164.8.230.209";
+      prefixLength = 24;
     };
+
     defaultGateway = {
       address = "164.8.230.1";
-      interface = "ens4";
-      metric = 0;
     };
   };
 }

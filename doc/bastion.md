@@ -12,10 +12,12 @@ You cannot ping the bastion server from the hypervisor, you always get Host unre
 
 ### ProxyCommand
 
-ssh -o ProxyCommand='ssh -i ~/.ssh/lpm -W %h:%p <bastion>' -i ~/.ssh/lpm <target>
+```ssh -o ProxyCommand='ssh -i ~/.ssh/lpm -W %h:%p <bastion>' -i ~/.ssh/lpm <target>```
 
 ### ProxyJump
 
+```
 eval $(ssh-agent)
 ssh-add <key-path>
 ssh -J user@10.17.3.14 user@10.17.3.140
+```

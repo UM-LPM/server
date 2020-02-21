@@ -24,15 +24,12 @@
   #security.acme.email = "zigaleber7@gmail.com";
   #security.acme.acceptTerms = true;
 
+  networking.hostName = "gateway";
   networking.firewall.allowedTCPPorts = [80];
+  networking.firewall.interfaces.ens3.allowedTCPPorts = [22];
 
   services.nginx = {
     enable = true;
-
-    appendHttpConfig = ''
-      access_log syslog:server=unix:/dev/log combined;
-      server_names_hash_bucket_size 64;
-    '';# Our domain names are too long, lol
 
     virtualHosts = 
     let
@@ -57,5 +54,10 @@
         };
       };
     };
+
+    appendHttpConfig = ''
+      server_names_hash_bucket_size 64;
+    ''; # Our domain names are too long, lol
+
   };
 }

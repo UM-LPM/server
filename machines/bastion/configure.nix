@@ -8,6 +8,9 @@
     ../../users/user.nix
   ];
 
+  networking.hostName = "bastion";
+  networking.firewall.allowedTCPPorts = [22];
+
   networking.bridge = {
     interface = "ens4";
 

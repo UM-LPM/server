@@ -22,10 +22,12 @@ with lib;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.timeout = 0;
 
+  # Disable gtk (taken from amazon image) 
   services.udisks2.enable = false;
 
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
+  services.openssh.openFirewall = false;
 
   system.build.image = import <nixpkgs/nixos/lib/make-disk-image.nix> {
     inherit lib config pkgs;

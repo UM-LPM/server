@@ -8,4 +8,5 @@
   ];
 
   networking.hostName = "minimal";
+  networking.firewall.allowedTCPPorts = [22];
 }

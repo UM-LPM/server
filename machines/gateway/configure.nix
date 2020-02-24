@@ -24,7 +24,6 @@
   #security.acme.email = "zigaleber7@gmail.com";
   #security.acme.acceptTerms = true;
 
-  networking.hostName = "gateway";
   networking.firewall.allowedTCPPorts = [80];
   networking.firewall.interfaces.ens3.allowedTCPPorts = [22];
 

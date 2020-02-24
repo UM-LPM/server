@@ -29,6 +29,12 @@ with lib;
   services.openssh.passwordAuthentication = false;
   services.openssh.openFirewall = false;
 
+  # Take hostname from dhcpcd
+  networking.hostName = mkDefault "";
+
+  # Disable fonts (we don't have X)
+  fonts.fontconfig.enable = false;
+
   system.build.image = import <nixpkgs/nixos/lib/make-disk-image.nix> {
     inherit lib config pkgs;
     diskSize = 8192; # XXX: This probably shouldn't be hard coded? The qcow2 is compressed, which means there is no much difference though

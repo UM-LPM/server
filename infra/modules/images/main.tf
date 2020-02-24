@@ -3,6 +3,9 @@ locals {
     minimal: "${var.machines_path}/minimal/result/nixos.qcow2"
     bastion: "${var.machines_path}/bastion/result/nixos.qcow2"
     gateway: "${var.machines_path}/gateway/result/nixos.qcow2"
+    spum_docker_registry: "${var.machines_path}/spum-docker-registry/result/nixos.qcow2"
+    spum_platform: "${var.machines_path}/spum-platform/result/nixos.qcow2"
+    spum_mqtt: "${var.machines_path}/spum-mqtt/result/nixos.qcow2"
   }
 }
 

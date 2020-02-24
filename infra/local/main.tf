@@ -25,3 +25,6 @@ output "private_network_id" {
   value = module.network.private_network_id
 }
 
+output "hosts" {
+  value = module.network.hosts
+}

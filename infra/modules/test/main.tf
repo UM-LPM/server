@@ -18,13 +18,7 @@ resource "libvirt_domain" "test" {
 
   network_interface {
     network_id = var.private_network_id
-    hostname = "test"
-  }
-
-  console {
-    type = "pty"
-    target_type = "serial"
-    target_port = "0"
+    addresses = [var.hosts["test"]]
   }
 
   disk {

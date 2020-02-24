@@ -1,5 +1,5 @@
-resource "libvirt_network" "local_network" {
-  name = "local_network"
+resource "libvirt_network" "private_network" {
+  name = "private_network"
   mode = "nat"
   addresses = ["10.17.3.0/24"]
   dhcp {

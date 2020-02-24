@@ -5,7 +5,7 @@ terraform {
 }
 
 provider "libvirt" {
-  uri = "qemu:///system"
+  uri = "qemu+ssh://user@lpm-server.feri.um.si/system"
 }
 
 module "images" {

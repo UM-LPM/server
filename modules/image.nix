@@ -3,9 +3,9 @@
 with lib;
 
 {
-  /*imports = [
+  imports = [
     <nixpkgs/nixos/modules/profiles/headless.nix>
-  ];*/
+  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
@@ -14,7 +14,7 @@ with lib;
   };
 
   boot.growPartition = true;
-  boot.kernelParams = ["console=ttyS0"];
+  #boot.kernelParams = ["console=ttyS0"];
   boot.initrd.availableKernelModules = ["virtio_balloon" "virtio_blk" "virtio_pci" "virtio_ring"];
 
   boot.loader.grub.enable = true;
@@ -31,7 +31,7 @@ with lib;
 
   system.build.image = import <nixpkgs/nixos/lib/make-disk-image.nix> {
     inherit lib config pkgs;
-    diskSize = 8192; # XXX: This probably shouldn't be hard coded?
+    diskSize = 8192; # XXX: This probably shouldn't be hard coded? The qcow2 is compressed, which means there is no much difference though
     format = "qcow2";
   };
 }

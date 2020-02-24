@@ -1,8 +1,9 @@
-machines=(
-    ./bastion/
-    ./gateway/
-    ./minimal/
-)
+#machines=(
+#    ./bastion/
+#    ./gateway/
+#    ./minimal/
+#)
+machines=("$@")
 
 for machine in "${machines[@]}"
 do

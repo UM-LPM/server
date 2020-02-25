@@ -5,7 +5,7 @@ terraform {
 }
 
 provider "libvirt" {
-  uri = "qemu+ssh://user@lpm-server.feri.um.si/system"
+  uri = "qemu+ssh://user@lpm-server.feri.um.si:12022/system"
 }
 
 module "images" {
@@ -25,3 +25,6 @@ output "private_network_id" {
   value = module.network.private_network_id
 }
 
+output "hosts" {
+  value = module.network.hosts
+}

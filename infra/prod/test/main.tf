@@ -1,5 +1,5 @@
 provider "libvirt" {
-  uri = "qemu+ssh://user@lpm-server.feri.um.si/system"
+  uri = "qemu+ssh://user@lpm-server.feri.um.si:12022/system"
 }
 
 data "terraform_remote_state" "core" {

@@ -1,7 +1,7 @@
 # Adding users
 
 1. Create ```/users/<user>.nix``` with the following contents:
-```
+```Nix
 {config, lib, ...}:
 {
   users.users.<user> = {

@@ -1,6 +1,6 @@
 # Adding users
 
-1. Create ```/users/<user>``` with the following contents:
+1. Create ```/users/<user>.nix``` with the following contents:
 ```
 {config, lib, ...}:
 {
@@ -12,3 +12,5 @@
   };
 }
 ```
+
+2. Import the ```<user>``` module in ```/machines/bastion.nix```

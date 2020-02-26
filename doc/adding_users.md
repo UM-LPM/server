@@ -13,4 +13,4 @@
 }
 ```
 
-2. Import the ```<user>``` module in ```/machines/bastion.nix``` and other desired machines
+2. Import the ```<user>.nix``` module in ```/machines/bastion.nix``` and other desired machines

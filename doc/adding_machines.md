@@ -11,7 +11,7 @@ nix-build '<nixpkgs/nixos>' -A config.system.build.image -I nixos-config=configu
 5. Add the hostname and ip to ```hosts``` in ```/infra/modules/network/variables.tf```
 
 6. Create a new folder ```/infra/modules/<project>```
-7. Put the following in ```variables.tf```:
+7. Create ```variables.tf``` with following content:
 ```
 variable "global" {
   type = object({
@@ -23,7 +23,7 @@ variable "global" {
 ```
 8. Write ```main.tf```. The essential components are a machine image, based on the created base image and the domain.
 9. Create a new folder ```/infra/local/<project>```
-10. Put the following in ```main.tf```:
+10. Create ```main.tf``` with following content:
 ```
 provider "libvirt" {
   uri = "qemu:///system"
@@ -46,7 +46,7 @@ data "terraform_remote_state" "global" {
 13. Run ```terraform apply``` in ```/infra/local/<folder>```
 14. Make sure everything works
 15. Create a new folder ```/infra/prod/<project>```
-16. Put the following in ```main.tf```:
+16. Create ```main.tf``` with following content:
 ```
 provider "libvirt" {
   uri = "qemu+ssh://user@lpm-server.feri.um.si:12022/system"
@@ -65,6 +65,6 @@ data "terraform_remote_state" "global" {
   }
 }
 ```
-17. Get the recent ```terraform.tfstate``` files
+17. Get the recent ```terraform.tfstate``` files //currently at Žiga computer (push and ask Žiga for next step)
 18. Run ```terraform apply``` in ```/infra/prod```
 19. Run ```terraform apply``` in ```/infra/prod/<folder>```

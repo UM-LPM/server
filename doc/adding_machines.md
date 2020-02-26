@@ -1,5 +1,6 @@
 # Adding machines
 
+0. Select name of the project machine taged in instruction as <project> for example see test
 1. Create a new folder ```/machines/<project>```
 2. Write ```configuration.nix```
 3. Build the image by running:

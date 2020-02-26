@@ -13,7 +13,7 @@ nix-build '<nixpkgs/nixos>' -A config.system.build.image -I nixos-config=configu
 
 6. Create a new folder ```/infra/modules/<project>```
 7. Create ```variables.tf``` with following content:
-```
+```HCL
 variable "global" {
   type = object({
     base_image_id = map(string)
@@ -25,7 +25,7 @@ variable "global" {
 8. Write ```main.tf```. The essential components are a machine image, based on the created base image and the domain.
 9. Create a new folder ```/infra/local/<project>```
 10. Create ```main.tf``` with following content:
-```
+```HCL
 provider "libvirt" {
   uri = "qemu:///system"
 }
@@ -48,7 +48,7 @@ data "terraform_remote_state" "global" {
 14. Make sure everything works
 15. Create a new folder ```/infra/prod/<project>```
 16. Create ```main.tf``` with following content:
-```
+```HCL
 provider "libvirt" {
   uri = "qemu+ssh://user@lpm-server.feri.um.si:12022/system"
 }

@@ -28,19 +28,19 @@ ssh -J <bastion> <target>
 ```
 ```
 Host bastion
-      User <user>
-      HostName lpm-bastion.feri.um.si
-      IdentityFile <path>
+    User <user>
+    HostName lpm-bastion.feri.um.si
+    IdentityFile <path>
   
-  Host spum_platform
-      User <user>
-      HostName spum_platform
-      ProxyJump bastion
-      IdentityFile <path>
+Host spum_platform
+    User <user>
+    HostName spum_platform
+    ProxyJump bastion
+    IdentityFile <path>
   
-  Host gateway
-      User <user>
-      HostName gateway
-      ProxyJump bastion
-      IdentityFile <path>
+Host gateway
+    User <user>
+    HostName gateway
+    ProxyJump bastion
+    IdentityFile <path>
 ```

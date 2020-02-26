@@ -21,3 +21,20 @@ eval $(ssh-agent)
 ssh-add <key-path>
 ssh -J <bastion> <target>
 ```
+
+Host bastion
+      User root
+      HostName lpm-bastion.feri.um.si
+      IdentityFile /home/ziga/.ssh/lpm
+  
+  Host spum_platform
+      User root
+      HostName spum_platform
+      ProxyJump bastion
+      IdentityFile /home/ziga/.ssh/lpm
+  
+  Host gateway
+      User root
+      HostName gateway
+      ProxyJump bastion
+      IdentityFile /home/ziga/.ssh/lpm

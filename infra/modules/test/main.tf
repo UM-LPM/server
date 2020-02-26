@@ -7,7 +7,7 @@ resource "libvirt_pool" "pool" {
 resource "libvirt_volume" "image" {
   name = "test_image"
   pool = libvirt_pool.pool.name
-  base_volume_id = var.base_image_id["minimal"]
+  base_volume_id = var.global.base_image_id.minimal
   format = "qcow2"
 }
 
@@ -17,8 +17,8 @@ resource "libvirt_domain" "test" {
   vcpu = 1
 
   network_interface {
-    network_id = var.private_network_id
-    addresses = [var.hosts["test"]]
+    network_id = var.global.private_network_id
+    addresses = [var.global.hosts.test]
   }
 
   disk {

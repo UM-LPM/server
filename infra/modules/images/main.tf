@@ -15,9 +15,16 @@ resource "libvirt_pool" "pool" {
   path = "/var/lib/pools/base_images"
 }
 
+data "null_data_source" "hashsum" {
+  for_each = local.image_paths
+  inputs = {
+    sha1 = "${filesha1(each.value)}"
+  } 
+}
+
 resource "libvirt_volume" "base_image" {
   for_each = local.image_paths
-  name = "${each.key}-base"
+  name = "${data.null_data_source.hashsum[each.key].outputs.sha1}-${each.key}-base"
   pool = libvirt_pool.pool.name
   source = each.value
   format = "qcow2"

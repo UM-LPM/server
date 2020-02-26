@@ -1,11 +1,7 @@
-variable "base_image_id" {
-  type = map(string)
-}
-
-variable "hosts" {
-  type = map(string)
-}
-
-variable "private_network_id" {
-  type = string
+variable "global" {
+  type = object({
+    base_image_id = map(string)
+    private_network_id = string
+    hosts = map(string)
+  })
 }

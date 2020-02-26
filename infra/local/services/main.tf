@@ -2,7 +2,7 @@ provider "libvirt" {
   uri = "qemu:///system"
 }
 
-data "terraform_remote_state" "core" {
+data "terraform_remote_state" "global" {
   backend = "local"
   
   config = {
@@ -12,8 +12,6 @@ data "terraform_remote_state" "core" {
 
 module "services" {
   source = "../../modules/services"
-  base_image_id = data.terraform_remote_state.core.outputs.base_image_id
-  private_network_id = data.terraform_remote_state.core.outputs.private_network_id
-  hosts = data.terraform_remote_state.core.outputs.hosts
+  global = data.terraform_remote_state.global.outputs.global
   public_network_interface = "enp0s31f6"
 }

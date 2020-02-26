@@ -7,14 +7,14 @@ resource "libvirt_pool" "pool" {
 resource "libvirt_volume" "bastion" {
   name = "bastion"
   pool = libvirt_pool.pool.name
-  base_volume_id = var.base_image_id["bastion"]
+  base_volume_id = var.global.base_image_id.bastion
   format = "qcow2"
 }
 
 resource "libvirt_volume" "gateway" {
   name = "gateway"
   pool = libvirt_pool.pool.name
-  base_volume_id = var.base_image_id["gateway"]
+  base_volume_id = var.global.base_image_id.gateway
   format = "qcow2"
 }
 
@@ -24,8 +24,8 @@ resource "libvirt_domain" "bastion" {
   vcpu = 1
 
   network_interface {
-    network_id = var.private_network_id
-    addresses = [var.hosts["bastion"]]
+    network_id = var.global.private_network_id
+    addresses = [var.global.hosts.bastion]
   }
 
   network_interface {
@@ -43,8 +43,8 @@ resource "libvirt_domain" "gateway" {
   vcpu = 1
 
   network_interface {
-    network_id = var.private_network_id
-    addresses = [var.hosts["gateway"]]
+    network_id = var.global.private_network_id
+    addresses = [var.global.hosts.gateway]
   }
 
   network_interface {

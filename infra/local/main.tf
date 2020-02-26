@@ -17,14 +17,9 @@ module "network" {
   source = "../modules/network"
 }
 
-output "base_image_id" {
-  value = module.images.base_image_id
-}
-
-output "private_network_id" {
-  value = module.network.private_network_id
-}
-
-output "hosts" {
-  value = module.network.hosts
+output "global" {
+  value = {
+    base_image_id = module.images.base_image_id
+    private_network_id = module.network.private_network_id
+  }
 }

@@ -43,6 +43,15 @@
     in
     {
       #"test.lpm.feri.um.si" = mkHost "http://10.17.3.2"; 
+      "sc.lpm.feri.um.si" = {
+
+        locations."/" = {
+          root = pkgs.runCommand "testdir" {} ''
+            mkdir "$out"
+            echo 'yes' > "$out/index.html"
+          '';
+        };
+      };
       "noodle.lpm.feri.um.si" = {
 
         locations."/" = {

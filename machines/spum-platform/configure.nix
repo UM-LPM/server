@@ -9,5 +9,7 @@
     ../../users/spum.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [22 80];
+  environment.systemPackages = [pkgs.docker-compose pkgs.mongodb];
+
+  networking.firewall.allowedTCPPorts = [22 80 5000];
 }

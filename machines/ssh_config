@@ -1,0 +1,23 @@
+Host bastion
+    User root
+    HostName lpm-bastion.feri.um.si
+
+Host gateway
+    User root
+    HostName gateway
+    ProxyJump bastion
+
+Host spum_platform
+    User root
+    HostName spum_platform
+    ProxyJump bastion
+
+Host spum_mqtt
+    User root
+    HostName spum_mqtt
+    ProxyJump bastion
+
+Host spum_docker_registry
+    User root
+    HostName spum_docker_registry
+    ProxyJump bastion

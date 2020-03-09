@@ -68,6 +68,9 @@
         };
         locations."/" = {
           proxyPass = "http://spum_platform";
+          extraConfig = ''
+            add_header Cache-Control "no-store, no-cache, must-revalidate";
+          '';
         };
         extraConfig = ''
           if ($host != $server_name) {

@@ -14,7 +14,7 @@ Host spum_platform
 
 Host spum_mqtt
     User root
-    HostName spum_mqtt
+    HostName 10.17.3.132
     ProxyJump bastion
 
 Host spum_docker_registry

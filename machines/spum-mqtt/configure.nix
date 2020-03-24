@@ -10,4 +10,6 @@
   ];
 
   networking.firewall.allowedTCPPorts = [22];
+
+  networking.hostName = "spum-mqtt";
 }

@@ -8,6 +8,9 @@
     ../../users/user.nix
     ../../users/spum.nix
   ];
+  nixpkgs.config.permittedInsecurePackages = [ # XXX: Insecure!
+    "openssl-1.0.2u"
+  ];
 
   environment.systemPackages = [pkgs.docker-compose pkgs.mongodb];
 

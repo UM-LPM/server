@@ -4,7 +4,7 @@
 deploy() {
     local host=$1
     local config=$2
-    NIX_SSHOPTS='-F ./ssh_config' nixos-rebuild switch --target-host "$host"  -I nixos-config="$config"
+    NIX_SSHOPTS='-F ./ssh_config' nixos-rebuild switch --target-host "$host" -I nixos-config="$config"
 }
 
 deploy bastion './bastion/configure.nix'

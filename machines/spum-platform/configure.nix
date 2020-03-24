@@ -9,7 +9,7 @@
     ../../users/spum.nix
   ];
   
-  environment.systemPackages = [pkgs.docker-compose pkgs.mongodb-tools];
+  environment.systemPackages = [pkgs.docker-compose];
 
   networking.firewall.allowedTCPPorts = [22 80 5000];
 }

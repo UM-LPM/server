@@ -1,3 +1,6 @@
+Host *
+    UserKnownHostsFile ./ssh_hosts
+
 Host bastion
     User root
     HostName lpm-bastion.feri.um.si

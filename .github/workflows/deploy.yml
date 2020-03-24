@@ -1,0 +1,20 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+    - uses: cachix/install-nix-action@v7
+
+    # Runs a single command using the runners shell
+    - name: Run a one-line script
+    - run: |
+        eval "$(ssh-agent)"
+        ssh-add - <<< "${{secrets.sshkey}}"
+        ./machines/deploy.sh

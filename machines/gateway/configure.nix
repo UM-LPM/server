@@ -115,6 +115,7 @@
 
     mapHashBucketSize = 64;
     appendHttpConfig = ''
+      types_hash_bucket_size 64;
       server_names_hash_bucket_size 64;
     ''; # Our domain names are too long, lol
   };

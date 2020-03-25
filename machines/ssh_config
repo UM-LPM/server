@@ -1,5 +1,5 @@
 Host *
-    UserKnownHostsFile ./ssh_hosts
+    UserKnownHostsFile ./known_hosts/known_hosts
 
 Host bastion
     User root

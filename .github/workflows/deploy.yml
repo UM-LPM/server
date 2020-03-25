@@ -10,6 +10,10 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+      with:
+        repository: UM-LPM/known_hosts 
+        path: machines
     - uses: cachix/install-nix-action@v7
 
     # Runs a single command using the runners shell

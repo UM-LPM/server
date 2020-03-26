@@ -1,0 +1,25 @@
+name: Build workspace
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: cachix/install-nix-action@v7
+      
+    - name: Run a multi-line script
+      run: |
+        cd machines
+        ./build.sh workspace
+        mv workspace/result/*-linux.ova workspace/result/linux.ova
+
+    - uses: actions/upload-artifact@v1
+      with:
+        name: image
+        path: machines/workspace/result/linux.ova

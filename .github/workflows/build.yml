@@ -16,7 +16,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         cd machines/workspace
-        nix-build '<nixpkgs/nixos>' -A system.build.virtualBoxOVA -I nixos-config=configure.nix &
+        nix-build '<nixpkgs/nixos>' -A system.build.virtualBoxOVA -I nixos-config=configure.nix
         mv result/*-linux.ova result/linux.ova
 
     - uses: actions/upload-artifact@v1

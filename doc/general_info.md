@@ -1,0 +1,3 @@
+# General info
+
+- hypervisor: KVM

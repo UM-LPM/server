@@ -5,6 +5,6 @@
     isNormalUser = true;
     description = "Default user";
     extraGroups = ["wheel"];
-    openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [ziga];
+    openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [mario ziga];
   };
 }

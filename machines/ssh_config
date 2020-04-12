@@ -10,17 +10,17 @@ Host gateway
     HostName gateway
     ProxyJump bastion
 
-Host spum_platform
+Host spum-platform
     User root
-    HostName spum_platform
+    HostName spum-platform
     ProxyJump bastion
 
-Host spum_mqtt
+Host spum-mqtt
     User root
-    HostName 10.17.3.132
+    HostName spum-mqtt
     ProxyJump bastion
 
-Host spum_docker_registry
+Host spum-docker-registry
     User root
-    HostName spum_docker_registry
+    HostName spum-docker-registry
     ProxyJump bastion

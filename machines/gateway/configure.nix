@@ -64,10 +64,10 @@
         enableACME = true;
 
         locations."/api/" = {
-          proxyPass = "http://spum_platform:5000/";
+          proxyPass = "http://spum-platform:5000/";
         };
         locations."/" = {
-          proxyPass = "http://spum_platform";
+          proxyPass = "http://spum-platform";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

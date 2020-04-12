@@ -19,7 +19,7 @@ with lib;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.device = "nodev";
   boot.loader.timeout = 0;
 
   # Disable gtk (taken from amazon image) 

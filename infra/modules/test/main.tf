@@ -18,7 +18,10 @@ resource "libvirt_domain" "test" {
 
   network_interface {
     network_id = var.global.private_network_id
-    addresses = [var.global.hosts.test]
+    mac = "02:a2:cd:0c:46:78"
+    addresses = ["10.17.3.10"]
+    hostname = "test"
+    
   }
 
   disk {

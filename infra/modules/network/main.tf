@@ -1,6 +1,7 @@
 resource "libvirt_network" "private_network" {
   name = "private_network"
   mode = "nat"
+  autostart = true
 
   addresses = ["10.17.3.0/24"]
 
@@ -9,13 +10,5 @@ resource "libvirt_network" "private_network" {
   }
   dns {
     enabled = true
-    
-    dynamic "hosts" {
-      for_each = var.hosts
-      content {
-        hostname = hosts.key
-        ip = hosts.value
-      }
-    }
   }
 }

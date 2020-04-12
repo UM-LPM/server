@@ -21,6 +21,5 @@ output "global" {
   value = {
     base_image_id = module.images.base_image_id
     private_network_id = module.network.private_network_id
-    hosts = module.network.hosts
   }
 }

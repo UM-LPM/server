@@ -1,0 +1,29 @@
+<!ELEMENT domain (name, memory, vcpu, cpu?, disk*, network-interface*, direct-interface*)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT memory (#PCDATA)>
+<!ATTLIST memory
+    unit CDATA #IMPLIED
+>
+<!ELEMENT vcpu (#PCDATA)>
+
+<!ELEMENT cpu EMPTY>
+<!ATTLIST cpu
+    mode CDATA #IMPLIED
+>
+
+<!ELEMENT disk EMPTY>
+<!ATTLIST disk
+    pool CDATA #REQUIRED
+    volume CDATA #REQUIRED
+>
+
+<!ELEMENT network-interface EMPTY>
+<!ATTLIST network-interface
+    network CDATA #REQUIRED
+    mac CDATA #REQUIRED
+>
+
+<!ELEMENT direct-interface EMPTY>
+<!ATTLIST direct-interface
+    dev CDATA #REQUIRED
+>

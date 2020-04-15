@@ -1,6 +1,7 @@
 # LPM server
 
 - [general info](doc/general_info.md)
+- [domains](doc/general_info.md)
 - [setup](doc/setup.org)
 - [bastion](doc/bastion.md)
 - [adding machines](doc/adding_machines.md)

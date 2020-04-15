@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../domain.xsl"?>
+<!DOCTYPE domain SYSTEM '../domain.dtd'>
+
+<domain>
+    <name>grades</name>
+    <memory unit="G">1</memory>
+    <vcpu>1</vcpu>
+    <disk pool='images' volume='grades.qcow2'/>
+    <network-interface
+        network='private-network' 
+        mac='02:c4:28:97:46:27'/>
+</domain>

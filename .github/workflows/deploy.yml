@@ -20,7 +20,7 @@ jobs:
     - uses: cachix/install-nix-action@v7
 
     - name: Set known hosts
-      run: cp known_hosts/known_hosts ~/.ssh/known_hosts
+      run: mkdir -p ~/.ssh && cp known_hosts/known_hosts ~/.ssh/known_hosts
     
     - name: Deploy
       run: |

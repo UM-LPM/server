@@ -1,10 +1,12 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -i bash -p "(nixos {}).nixos-rebuild"
 
+. ./env.sh
+
 deploy() {
     local host=$1
     local config=$2
-    NIX_SSHOPTS='-F ./ssh_config' nixos-rebuild switch --target-host "$host" -I nixos-config="$config" -I nixpkgs='https://github.com/nixos/nixpkgs/archive/708cb6b307b04ad862cc50de792e57e7a4a8bb5a.tar.gz'
+    nixos-rebuild switch --target-host "$host" -I nixos-config="$config"
 }
 
 deploy bastion './bastion/configure.nix'

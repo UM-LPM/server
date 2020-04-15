@@ -1,6 +1,3 @@
-Host *
-    UserKnownHostsFile /home/ziga/Development/projects/server/machines/known_hosts/known_hosts
-
 Host bastion
     User root
     HostName lpm-bastion.feri.um.si

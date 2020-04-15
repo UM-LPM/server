@@ -1,15 +1,10 @@
-#machines=(
-#    ./bastion/
-#    ./gateway/
-#    ./minimal/
-#)
-machines=("$@")
+. ./env.sh
 
-for machine in "${machines[@]}"
-do
-    pushd "$machine"
-    nix-build '<nixpkgs/nixos>' -A config.system.build.image -I nixos-config=configure.nix &
-    popd
-done
+build() {
+    local attr=${1:?attr}
+    local config=${2:?config}
+    nix-build '<nixpkgs/nixos>' -A "$attr" -I nixos-config="$config"
+}
 
-wait $(jobs -p)
+build 'config.system.build.image' ./minimal/configure.nix
+

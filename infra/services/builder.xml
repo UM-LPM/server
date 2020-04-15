@@ -4,8 +4,8 @@
 
 <domain>
     <name>builder</name>
-    <memory unit="G">1</memory>
-    <vcpu>1</vcpu>
+    <memory unit="G">10</memory>
+    <vcpu>4</vcpu>
     <cpu mode='host-passthrough'/>
 
     <disk pool='images' volume='builder.qcow2'/>

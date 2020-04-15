@@ -12,7 +12,7 @@
   networking.firewall.allowedTCPPorts = [22];
 
   networking.bridge = {
-    interface = "ens4";
+    interface = "ens3";
 
     address = {
       address = "164.8.230.209";

@@ -22,6 +22,9 @@
                     <xsl:apply-templates select="direct-interface"/>
                 </xsl:for-each>
                 <console type="pty"/>
+                <rng model='virtio'>
+                    <backend model='random'>/dev/urandom</backend>
+                </rng>
             </devices>
         </domain>
     </xsl:template>

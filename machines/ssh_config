@@ -1,5 +1,5 @@
 Host *
-    UserKnownHostsFile ./known_hosts/known_hosts
+    UserKnownHostsFile /home/ziga/Development/projects/server/machines/known_hosts/known_hosts
 
 Host bastion
     User root
@@ -8,6 +8,11 @@ Host bastion
 Host gateway
     User root
     HostName gateway
+    ProxyJump bastion
+
+Host builder
+    User root
+    HostName builder
     ProxyJump bastion
 
 Host spum-platform

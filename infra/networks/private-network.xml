@@ -13,6 +13,8 @@
             <host mac="02:fe:9e:a7:5b:30" name="bastion" ip="10.17.3.100"/>
             <host mac="02:63:81:cd:d5:b8" name="gateway" ip="10.17.3.101"/>
             <host mac="02:ef:7e:cb:54:3e" name="builder" ip="10.17.3.102"/>
+            <host mac="02:a2:cd:0c:46:78" name="spum-platform" ip="10.17.3.110"/>
+            <host mac="02:38:60:94:88:cc" name="spum-mqtt" ip="10.17.3.111"/>
         </dhcp>
     </ip>
 </network>

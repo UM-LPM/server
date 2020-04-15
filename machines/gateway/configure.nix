@@ -9,7 +9,7 @@
   ];
 
   networking.bridge = {
-    interface = "ens4";
+    interface = "ens3";
 
     address = {
       address = "164.8.230.208";
@@ -21,11 +21,16 @@
     };
   };
 
-  security.acme.email = "zigaleber7@gmail.com";
+  #security.acme.email = "zigaleber7@gmail.com";
+
+  security.acme.certs = {
+    "umplatforma.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
+    "test.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
+  };
   security.acme.acceptTerms = true;
 
   networking.firewall.allowedTCPPorts = [80 443];
-  networking.firewall.interfaces.ens3.allowedTCPPorts = [22];
+  networking.firewall.interfaces.ens2.allowedTCPPorts = [22];
 
   services.nginx = {
     enable = true;
@@ -60,7 +65,8 @@
 
     virtualHosts = {
       "umplatforma.lpm.feri.um.si" = {
-        forceSSL = true;
+        #forceSSL = true;
+        addSSL = true;
         enableACME = true;
 
         locations."/api/" = {
@@ -79,7 +85,6 @@
         '';
       };
       "1.lpm.feri.um.si" = {
-
         locations."/" = {
           root = pkgs.runCommand "testdir" {} ''
             mkdir "$out"
@@ -87,14 +92,9 @@
           '';
         };
       };
-      "noodle.lpm.feri.um.si" = {
+      "test.lpm.feri.um.si" = {
         addSSL = true;
         enableACME = true;
-
-        listen = [
-          {addr="0.0.0.0"; port = 80;} 
-          {addr="0.0.0.0"; port = 443; ssl = true;} 
-        ];
 
         locations."/" = {
           root = pkgs.runCommand "testdir" {} ''

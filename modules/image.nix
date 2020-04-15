@@ -4,7 +4,7 @@ with lib;
 
 {
   imports = [
-    <nixpkgs/nixos/modules/profiles/headless.nix>
+    <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
   ];
 
   fileSystems."/" = {
@@ -14,12 +14,12 @@ with lib;
   };
 
   boot.growPartition = true;
-  #boot.kernelParams = ["console=ttyS0"];
-  boot.initrd.availableKernelModules = ["virtio_balloon" "virtio_blk" "virtio_pci" "virtio_ring"];
+  boot.kernelParams = ["console=ttyS0"];
+  services.acpid.enable = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  boot.loader.grub.device = "nodev";
+  boot.loader.grub.device = "/dev/vda";
   boot.loader.timeout = 0;
 
   # Disable gtk (taken from amazon image) 

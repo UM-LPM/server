@@ -1,4 +1,5 @@
 machines/known_hosts
+infra/images
 
 .terraform
 *.tfstate*

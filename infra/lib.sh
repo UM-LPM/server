@@ -4,10 +4,20 @@ extract-name() {
     cut -d' ' -f 2
 }
 
+foreach() {
+    local cmd=${1:?cmd}
+    shift
+    for name in "$@"
+    do
+        $cmd "$name"
+    done
+}
+
 # Network
 network-create() {
     local file=${1:?file}
     local name=$(virsh net-define "$file" | extract-name)
+    [[ ! -z $name ]] || return
     virsh net-start "${name:?name}"
     virsh net-autostart "$name"
 }
@@ -37,9 +47,10 @@ network-leases() {
 # Domain
 domain-create() {
     local file=${1:?file}
-    xmllint --valid "$file" --noout
+    $(xmllint --valid "$file" --noout) || return
     local name=$(virsh define <(xsltproc "$file") | extract-name)
-    virsh start "${name:?name}"
+    [[ ! -z $name ]] || return
+    virsh start "$name"
     virsh autostart "$name"
 }
 

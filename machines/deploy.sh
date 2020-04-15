@@ -8,7 +8,7 @@ deploy() {
 }
 
 #deploy bastion './bastion/configure.nix'
-deploy gateway './gateway/configure.nix'
+#deploy gateway './gateway/configure.nix'
 #deploy spum-platform './spum-platform/configure.nix'
 #deploy spum-mqtt './spum-mqtt/configure.nix'
 #deploy spum-docker-registry './spum-docker-registry/configure.nix'

@@ -1,5 +1,5 @@
 machines/known_hosts
-infra/images
+infra/images/*.qcow2
 
 .terraform
 *.tfstate*

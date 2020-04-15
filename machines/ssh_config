@@ -15,6 +15,11 @@ Host builder
     HostName builder
     ProxyJump bastion
 
+Host grades
+    User root
+    HostName grades
+    ProxyJump bastion
+
 Host spum-platform
     User root
     HostName spum-platform

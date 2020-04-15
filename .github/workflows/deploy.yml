@@ -16,11 +16,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: UM-LPM/known_hosts
-        path: ~/.ssh
+        path: known_hosts
     - uses: cachix/install-nix-action@v7
 
-  #  - name: Set known hosts
-  #    run: mkdir -p ~/.ssh && cp known_hosts/known_hosts ~/.ssh/known_hosts
+    - name: Set known hosts
+      run: install -D -m 400 known_hosts/known_hosts ~/.ssh/known_hosts
     
     - name: Deploy
       run: |

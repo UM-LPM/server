@@ -12,3 +12,5 @@
 | staff.lpm.feri.um.si       | 164.8.230.208 |
 | students.lpm.feri.um.si    | 164.8.230.208 |
 | mqtt2.lpm.feri.um.si       | 164.8.230.208 |
+| mqtt3.lpm.feri.um.si       | 164.8.230.208 |
+| mqtt4.lpm.feri.um.si       | 164.8.230.208 |

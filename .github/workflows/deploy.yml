@@ -17,7 +17,7 @@ jobs:
       with:
         repository: UM-LPM/known_hosts
         path: known_hosts
-    - uses: cachix/install-nix-action@v7
+    - uses: cachix/install-nix-action@v10
 
     - name: Set known hosts
       run: install -D -m 400 known_hosts/known_hosts ~/.ssh/known_hosts

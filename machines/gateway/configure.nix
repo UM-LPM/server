@@ -26,6 +26,7 @@
   security.acme.certs = {
     "umplatforma.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
     "test.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
+    "ps.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
   };
   security.acme.acceptTerms = true;
 
@@ -74,6 +75,23 @@
         };
         locations."/" = {
           proxyPass = "http://spum-platform";
+          extraConfig = ''
+            add_header Cache-Control "no-store, no-cache, must-revalidate";
+          '';
+        };
+        extraConfig = ''
+          if ($host != $server_name) {
+            return 444;
+          }
+        '';
+      };
+      "ps.lpm.feri.um.si" = {
+        #forceSSL = true;
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          proxyPass = "http://ps";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

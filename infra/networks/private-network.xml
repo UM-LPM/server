@@ -16,6 +16,7 @@
             <host mac="02:a2:cd:0c:46:78" name="spum-platform" ip="10.17.3.110"/>
             <host mac="02:38:60:94:88:cc" name="spum-mqtt" ip="10.17.3.111"/>
             <host mac="02:c4:28:97:46:27" name="grades" ip="10.17.3.120"/>
+            <host mac="02:17:14:14:5a:c4" name="ps" ip="10.17.3.130"/>
         </dhcp>
     </ip>
 </network>

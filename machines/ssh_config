@@ -31,3 +31,8 @@ Host spum-docker-registry
     User root
     HostName spum-docker-registry
     ProxyJump bastion
+
+Host ps
+    User root
+    HostName ps
+    ProxyJump bastion

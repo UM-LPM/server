@@ -16,3 +16,5 @@ deploy spum-mqtt './spum-mqtt/configure.nix'
 #deploy spum-docker-registry './spum-docker-registry/configure.nix'
 deploy builder './builder/configure.nix'
 deploy grades './grades/configure.nix'
+deploy ps './ps/configure.nix'
+

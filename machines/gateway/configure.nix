@@ -89,7 +89,11 @@
         #forceSSL = true;
         addSSL = true;
         enableACME = true;
-
+        
+        locations."/api/" = {
+          proxyPass = "http://ps:5050/";
+        }; 
+        
         locations."/" = {
           proxyPass = "http://ps";
           extraConfig = ''

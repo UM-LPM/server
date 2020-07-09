@@ -8,6 +8,7 @@
     ../../users/user.nix
     ../../users/spum.nix
     ../../users/ps.nix
+    ../../users/bass.nix
   ];
 
   networking.firewall.allowedTCPPorts = [22];

@@ -2,7 +2,7 @@
 {
   users.users.bass = {
     isNormalUser = true;
-    description = "Bass forwarding user";
+    description = "Bass user (forwarding)";
     openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [bass-actions];
   };
 }

@@ -86,10 +86,14 @@
         '';
       };
       "esp.lpm.feri.um.si" = {
+        addSSL = true;
+        sslCertificate = "/var/ssl/esp.lpm.feri.um.si.crt";
+        sslCertificateKey = "/var/ssl/esp.lpm.feri.um.si.key";
+        
         locations."/" = {
           root = pkgs.runCommand "testdir" {} ''
             mkdir "$out"
-            echo 'hello' > "$out/index.txt"
+            echo 'hello' > "$out/index.html"
           '';
         };
       };

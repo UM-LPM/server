@@ -85,6 +85,14 @@
           }
         '';
       };
+      "esp.lpm.feri.um.si" = {
+        locations."/" = {
+          root = pkgs.runCommand "testdir" {} ''
+            mkdir "$out"
+            echo 'hello' > "$out/index.txt"
+          '';
+        };
+      };
       "ps.lpm.feri.um.si" = {
         #forceSSL = true;
         addSSL = true;

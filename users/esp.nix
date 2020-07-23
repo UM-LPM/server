@@ -2,7 +2,7 @@
 {
   security.sudo.wheelNeedsPassword = false;
 
-  users.users.ps = {
+  users.users.esp = {
     isNormalUser = true;
     description = "Esp user";
     extraGroups = ["wheel" "docker"];

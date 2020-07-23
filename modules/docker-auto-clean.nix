@@ -1,0 +1,17 @@
+{ pkgs, ... }:
+
+{
+  systemd = {
+    timers.docker-auto-clean = {
+      wantedBy = ["timers.target"];
+      partOf = ["docker-auto-clean"];
+      timerConfig.OnCalendar = "weekly";
+    };
+    services.docker-auto-clean = {
+      serviceConfig.Type = "oneshot";
+      script = ''
+        docker system prune -f
+      '';
+    };
+  };
+}

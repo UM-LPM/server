@@ -91,10 +91,7 @@
         sslCertificateKey = "/var/ssl/esp.lpm.feri.um.si.key";
         
         locations."/" = {
-          root = pkgs.runCommand "testdir" {} ''
-            mkdir "$out"
-            echo 'hello' > "$out/index.html"
-          '';
+          proxyPass = "http://esp";
         };
       };
       "ps.lpm.feri.um.si" = {

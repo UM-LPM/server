@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/image.nix
+    ../../modules/base.nix
     ../../modules/bridge.nix
     ../../users/root.nix
     ../../users/user.nix

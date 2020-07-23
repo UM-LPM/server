@@ -17,6 +17,7 @@
             <host mac="02:38:60:94:88:cc" name="spum-mqtt" ip="10.17.3.111"/>
             <host mac="02:c4:28:97:46:27" name="grades" ip="10.17.3.120"/>
             <host mac="02:17:14:14:5a:c4" name="ps" ip="10.17.3.130"/>
+            <host mac="02:aa:bc:09:52:6d" name="esp" ip="10.17.3.140"/>
         </dhcp>
     </ip>
 </network>

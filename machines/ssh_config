@@ -36,3 +36,8 @@ Host ps
     User root
     HostName ps
     ProxyJump bastion
+
+Host esp
+    User root
+    HostName esp
+    ProxyJump bastion

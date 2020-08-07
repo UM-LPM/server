@@ -5,7 +5,7 @@
   
   matej = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINyxpJW2YEfE02KfHVNmqg07x+pBxTJYcINOdYI+r442 matej@DESKTOP-RAEL084";
   
-  mario = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAylE4uEVAspQU8b8y3YD+GT2uaexE0ZpRi3qatWIXbN ed25519-key-20200807";
+  mario = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPA/LJdq7+/N7svDvmkeHZex6QO2lykjmx6hinuGe/EH test@lpmgigab";
 
   matej-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrih3C4okDkz4bMe7FTej2kWKyN7U2dNq/VooSHu7mu matej@DESKTOP-BT2IIE9";
   

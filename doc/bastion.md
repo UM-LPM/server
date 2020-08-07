@@ -32,15 +32,9 @@ Host bastion
     HostName bastion.lpm.feri.um.si
     IdentityFile <path>
   
-Host spum-platform
+Host gateway builder spum-platform spum-mqtt grades ps esp
     User <user>
-    HostName spum-platform
-    ProxyJump bastion
-    IdentityFile <path>
-  
-Host gateway
-    User <user>
-    HostName gateway
+    HostName %h
     ProxyJump bastion
     IdentityFile <path>
 ```

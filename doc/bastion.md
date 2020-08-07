@@ -12,14 +12,14 @@ You cannot ping the bastion server from the hypervisor, you always get ```Host u
 
 ### ProxyCommand
 
-```ssh -o ProxyCommand='ssh -i <key-path> -W %h:%p <bastion>' -i <key-path> <target>```
+```ssh -o ProxyCommand='ssh -i <key-path> -W %h:%p bastion.lpm.feri.um.si' -i <key-path> <target>```
 
 ### ProxyJump
 
 ```
 eval $(ssh-agent)
 ssh-add <key-path>
-ssh -J <bastion> <target>
+ssh -J bastion.lpm.feri.um.si <target>
 ```
 
 ### SSH configuration
@@ -29,12 +29,12 @@ ssh -J <bastion> <target>
 ```
 Host bastion
     User <user>
-    HostName lpm-bastion.feri.um.si
+    HostName bastion.lpm.feri.um.si
     IdentityFile <path>
   
-Host spum_platform
+Host spum-platform
     User <user>
-    HostName spum_platform
+    HostName spum-platform
     ProxyJump bastion
     IdentityFile <path>
   

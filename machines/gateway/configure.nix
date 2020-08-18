@@ -95,6 +95,11 @@
           proxyPass = "http://esp";
         };
       };
+       "usatour.lpm.feri.um.si" = {
+        locations."/" = {
+          proxyPass = "http://usatour";
+        };
+      };
       "ps.lpm.feri.um.si" = {
         #forceSSL = true;
         addSSL = true;

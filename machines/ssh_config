@@ -2,7 +2,7 @@ Host bastion
     User root
     HostName lpm-bastion.feri.um.si
 
-Host gateway builder grades spum-platform spum-mqtt spum-docker-registry ps esp
+Host gateway builder grades spum-platform spum-mqtt spum-docker-registry ps esp usatour
     User root
     HostName %h
     ProxyJump bastion

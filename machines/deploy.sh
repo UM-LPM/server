@@ -18,4 +18,4 @@ deploy builder './builder/configure.nix'
 deploy grades './grades/configure.nix'
 deploy ps './ps/configure.nix'
 deploy esp './esp/configure.nix'
-
+deploy usatour './usatour/configure.nix'

@@ -3,7 +3,7 @@ with lib;
 let
   cfg = config.services.backup; 
 in {
-  options = {
+  options.backup = {
     enabled = mkEnableOption "Backup machine";
     interval = mkOption {
       type = types.str;

@@ -15,6 +15,7 @@
   networking.firewall.allowedTCPPorts = [22 5050];
 
   backup = {
+    enabled = true;
     interval = "weekly";
     script = ''
       mkdir -p /var/lib/backup

@@ -4,16 +4,14 @@ let
   cfg = config.services.backup; 
 in {
   options = {
-    options = {
-      enabled = mkEnableOption "Backup machine";
-      interval = mkOption {
-        type = types.str;
-        description = "Backup interval";
-      };
-      script = mkOption {
-        type = types.str;
-        description = "Backup script to run";
-      };
+    enabled = mkEnableOption "Backup machine";
+    interval = mkOption {
+      type = types.str;
+      description = "Backup interval";
+    };
+    script = mkOption {
+      type = types.str;
+      description = "Backup script to run";
     };
   };
   config = {

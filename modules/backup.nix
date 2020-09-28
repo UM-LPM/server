@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 with lib;
 let
-  cfg = config.services.backup; 
+  cfg = config.backup; 
 in {
   options.backup = {
     enabled = mkEnableOption "Backup machine";

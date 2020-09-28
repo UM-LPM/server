@@ -18,7 +18,7 @@ in {
     systemd.timers.backup = {
       wantedBy = [ "timers.target" ];
       partOf = [ "backup.service" ];
-      timerConfig.OnCalendar = cfg.when;
+      timerConfig.OnCalendar = cfg.interval;
     };
     systemd.services.backup = {
       serviceConfig.Type = "oneshot";

@@ -5,12 +5,12 @@
     timers.docker-auto-clean = {
       wantedBy = ["timers.target"];
       partOf = ["docker-auto-clean"];
-      timerConfig.OnCalendar = "weekly";
+      timerConfig.OnCalendar = "daily";
     };
     services.docker-auto-clean = {
       serviceConfig.Type = "oneshot";
       script = ''
-        docker system prune -f
+        docker system prune -f --filter "until=720h"
       '';
     };
   };

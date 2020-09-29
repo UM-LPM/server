@@ -5,6 +5,7 @@
     ../../modules/image.nix
     ../../modules/base.nix
     ../../modules/docker-host.nix
+    ../../modules/docker-auto-clean.nix 
     ../../users/root.nix
     ../../users/user.nix
     ../../users/spum.nix

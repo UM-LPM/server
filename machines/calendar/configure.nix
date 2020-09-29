@@ -18,7 +18,7 @@ in
     ../../users/calendar.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [22 8080];
+  networking.firewall.allowedTCPPorts = [22 8080 9100];
   fonts.fontconfig.enable = pkgs.lib.mkForce true; # Make overridable?
   environment.systemPackages = [pkgs.chromium calendar];
 

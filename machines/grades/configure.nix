@@ -10,5 +10,5 @@
     ../../users/grades.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [22];
+  networking.firewall.allowedTCPPorts = [22 9100];
 }

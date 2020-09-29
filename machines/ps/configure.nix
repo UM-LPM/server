@@ -13,7 +13,7 @@
   ];
 
   environment.systemPackages = [pkgs.docker-compose];
-  networking.firewall.allowedTCPPorts = [22 5050];
+  networking.firewall.allowedTCPPorts = [22 5050 9100];
 
   backup = {
     enabled = true;

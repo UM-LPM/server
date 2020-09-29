@@ -13,8 +13,6 @@
     ../../users/bass.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [22];
-
   networking.bridge = {
     interface = "ens3";
 
@@ -27,4 +25,7 @@
       address = "164.8.230.1";
     };
   };
+
+  networking.firewall.allowedTCPPorts = [22];
+  networking.firewall.interfaces.ens2.allowedTCPPorts = [9100];
 }

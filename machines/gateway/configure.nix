@@ -140,6 +140,11 @@
           '';
         };
       };
+      "calendar.brokenpylons.com" = {
+        locations."/" = {
+          proxyPass = "http://calendar:8080/";
+        };
+      };
       "_" = {
         listen = [
           {addr="0.0.0.0"; port = 80; extraParameters = ["default_server"];}

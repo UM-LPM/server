@@ -4,7 +4,7 @@
   imports = [
     ../../modules/image.nix
     ../../modules/base.nix
-    ../../modules/bridge.nix
+    ../../modules/bridge-new.nix
     ../../users/root.nix
     ../../users/user.nix
   ];
@@ -12,10 +12,16 @@
   networking.bridge = {
     interface = "ens3";
 
-    address = {
-      address = "164.8.230.208";
-      prefixLength = 24;
-    };
+    addresses = [ 
+      {
+        address = "164.8.230.208";
+        prefixLength = 24;
+      }
+      {
+        address = "164.8.230.210";
+        prefixLength = 24;
+      }
+    ];
 
     defaultGateway = {
       address = "164.8.230.1";
@@ -31,40 +37,20 @@
   };
   security.acme.acceptTerms = true;
 
-  networking.firewall.allowedTCPPorts = [80 443];
+  networking.firewall.allowedTCPPorts = [80 443 1883];
   networking.firewall.interfaces.ens2.allowedTCPPorts = [22 9100];
 
   services.nginx = {
     enable = true;
 
-    /*appendConfig = ''
-
+    appendConfig = ''
       stream {
-        map_hash_bucket_size 64;
-
-        map $ssl_preread_server_name $target {
-          umplatforma.lpm.feri.um.si accept;
-          noodle.lpm.feri.um.si accept;
-          default reject;
-        }
-
-        upstream accept {
-          server localhost:10443;
-        }
-
-        upstream reject {
-          server localhost:10000 down;
-        }
-
         server {
-          listen 443;
-          ssl_preread on;
-
-          proxy_pass $target;
+          listen 164.8.230.210:1883;
+          proxy_pass spum-mqtt:1883;
         }
       }
-    '';*/
-
+    '';
     virtualHosts = {
       "umplatforma.lpm.feri.um.si" = {
         #forceSSL = true;
@@ -123,6 +109,7 @@
       };
       "1.lpm.feri.um.si" = {
         locations."/" = {
+          proxyPass = "http://spum-platform";
           root = pkgs.runCommand "testdir" {} ''
             mkdir "$out"
             echo 'yes' > "$out/index.html"

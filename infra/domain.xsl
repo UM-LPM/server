@@ -20,6 +20,7 @@
                     <xsl:apply-templates select="disk"/>
                     <xsl:apply-templates select="network-interface"/>
                     <xsl:apply-templates select="direct-interface"/>
+					<xsl:apply-templates select="spice"/>
                 </xsl:for-each>
                 <console type="pty"/>
                 <rng model='virtio'>
@@ -73,4 +74,11 @@
             <model type='virtio'/>
         </interface>
     </xsl:template>
+	
+	<xsl:template match='spice'>
+		<graphics type='spice'/>
+		<video>
+			<model type='qxl' />
+		</video>
+	</xsl:template>
 </xsl:stylesheet>

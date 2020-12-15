@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../domain.xsl"?>
+<!DOCTYPE domain SYSTEM '../domain.dtd'>
+
+<domain>
+	<name>win10hpc</name>
+    <memory unit="G">8</memory>
+    <vcpu>4</vcpu>
+    <disk pool='images' volume='win10hpc.qcow2'/>
+    <network-interface
+       network='private-network' 
+       mac='02:1c:05:6b:6e:fb'/>
+	<spice />
+</domain>

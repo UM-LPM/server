@@ -6,7 +6,6 @@
 deploy() {
     local host=$1
     local config=$2
-    echo "HERE"
     nixos-rebuild switch --target-host "$host" -I nixos-config="$config" --show-trace
 }
 

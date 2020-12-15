@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -I nixpkgs="$nixpkgs" -i bash -p "(nixos {}).nixos-rebuild"
+#! NIX_PATH="$nixpkgs" nix-shell -i bash -p "(nixos {}).nixos-rebuild"
 
 . ./env.sh
 

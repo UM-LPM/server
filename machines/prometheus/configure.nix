@@ -13,7 +13,7 @@ let
     "esp:9100"
     "usatour:9100"
     "calendar:9100"
-    "win10hpc:9100"
+    "win10hpc:9182"
     "prometheus:9100"
   ];
 in

@@ -7,6 +7,10 @@
     enabledCollectors = [
       "filesystem"
       "meminfo"
+      "cpu"
+      "loadavg"
+      "netdev"
+      "diskstats"
     ];
   };
 }

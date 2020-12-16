@@ -26,6 +26,10 @@ in
   ];
 
   networking.firewall.allowedTCPPorts = [22];
+  
+  services.grafana = {
+    enable = true;
+  };
 
   services.prometheus = {
     enable = true;

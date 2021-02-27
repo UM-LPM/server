@@ -27,6 +27,7 @@ with lib;
 
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
+  services.openssh.challengeResponseAuthentication = false;
   services.openssh.openFirewall = false;
 
   # Take hostname from dhcpcd

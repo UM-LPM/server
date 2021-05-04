@@ -15,3 +15,5 @@
 | mqtt2.lpm.feri.um.si       | 164.8.230.208 |
 | mqtt3.lpm.feri.um.si       | 164.8.230.208 |
 | mqtt4.lpm.feri.um.si       | 164.8.230.208 |
+| gemini.lpm.feri.um.si      | 164.8.230.208 |
+| network.lpm.feri.um.si     | 164.8.230.211 |

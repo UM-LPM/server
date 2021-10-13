@@ -31,6 +31,7 @@
   #security.acme.email = "zigaleber7@gmail.com";
 
   security.acme.certs = {
+    "bioma2022.um.si".email = "zigaleber7@gmail.com"; 
     "umplatforma.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
     "test.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
     "ps.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
@@ -71,6 +72,15 @@
             return 444;
           }
         '';
+      };
+      "bioma2022.um.si" = {
+        #forceSSL = true;
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          proxyPass = "http://bioma:8080";
+        };
       };
       "esp.lpm.feri.um.si" = {
         addSSL = true;

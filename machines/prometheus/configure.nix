@@ -8,7 +8,7 @@ let
     "grades:9100"
     "spum-platform:9100"
     "spum-mqtt:9100"
-    "spum-docker-registry:9100"
+    /* "spum-docker-registry:9100" */
     "ps:9100"
     "esp:9100"
     "usatour:9100"

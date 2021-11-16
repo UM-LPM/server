@@ -6,7 +6,7 @@
 deploy() {
     local host=$1
     local config=$2
-    nixos-rebuild switch --target-host "$host" -I nixos-config="$config" --show-trace
+    nixos-rebuild switch --upgrade --target-host "$host" -I nixpkgs="https://channels.nixos.org/nixos-21.05/nixexprs.tar.xz" -I nixos-config="$config" --show-trace
 }
 
 deploy bastion './bastion/configure.nix'

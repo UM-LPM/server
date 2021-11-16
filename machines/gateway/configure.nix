@@ -67,11 +67,6 @@
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';
         };
-        extraConfig = ''
-          if ($host != $server_name) {
-            return 444;
-          }
-        '';
       };
       "bioma2022.um.si" = {
         forceSSL = true;

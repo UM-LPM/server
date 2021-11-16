@@ -74,8 +74,8 @@
         '';
       };
       "bioma2022.um.si" = {
-        #forceSSL = true;
-        addSSL = true;
+        forceSSL = true;
+        #addSSL = true;
         enableACME = true;
 
         locations."/" = {

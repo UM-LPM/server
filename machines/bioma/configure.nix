@@ -20,10 +20,7 @@
           {addr="0.0.0.0"; port = 8080;}
         ];
         locations."/" = {
-          root = pkgs.runCommand "source" {} ''
-            mkdir "$out"
-            echo 'bioma' > "$out/index.html"
-          '';
+          root = "/srv/bioma";
         };
       };
     };

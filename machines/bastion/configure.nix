@@ -11,6 +11,7 @@
     ../../users/ps.nix
     ../../users/esp.nix
     ../../users/bass.nix
+    ../../users/bioma.nix
   ];
 
   networking.bridge = {

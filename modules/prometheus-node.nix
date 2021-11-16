@@ -3,8 +3,8 @@
 {
   services.prometheus.exporters.node = {
     enable = true;
-    extraFlags = ["--collector.disable-defaults"];
     enabledCollectors = [
+      "disable-defaults"
       "filesystem"
       "meminfo"
       "cpu"

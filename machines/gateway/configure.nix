@@ -75,6 +75,9 @@
 
         locations."/" = {
           proxyPass = "http://bioma:8080";
+          extraConfig = ''
+            add_header Cache-Control "no-store, no-cache, must-revalidate";
+          '';
         };
       };
       "esp.lpm.feri.um.si" = {

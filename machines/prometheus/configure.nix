@@ -15,6 +15,7 @@ let
     "calendar:9100"
     "win10hpc:9182"
     "prometheus:9100"
+    "mihaelhpc:9100"
     "_gateway:9100" /* the host machine */
   ];
 in

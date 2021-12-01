@@ -6,9 +6,16 @@
 >
 <!ELEMENT vcpu (#PCDATA)>
 
-<!ELEMENT cpu EMPTY>
+<!ELEMENT cpu (topology?)>
 <!ATTLIST cpu
     mode CDATA #IMPLIED
+>
+
+<!ELEMENT topology EMPTY>
+<!ATTLIST topology
+    sockets CDATA #REQUIRED
+    cores CDATA #REQUIRED
+    threads CDATA #REQUIRED
 >
 
 <!ELEMENT disk EMPTY>

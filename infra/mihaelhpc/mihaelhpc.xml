@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../domain.xsl"?>
+<!DOCTYPE domain SYSTEM '../domain.dtd'>
+
+<domain>
+	<name>mihaelhpc</name>
+    <memory unit="G">100</memory>
+    <vcpu>32</vcpu>
+    <cpu>
+        <topology sockets='2' cores='8' threads='2'/>
+    </cpu>
+    <disk pool='images' volume='mihaelhpc.qcow2'/>
+    <network-interface
+       network='private-network' 
+       mac='02:4a:24:fe:f5:39'/>
+	<spice />
+</domain>

@@ -12,6 +12,7 @@
     ../../users/esp.nix
     ../../users/bass.nix
     ../../users/bioma.nix
+    ../../users/mihaelhpc.nix
   ];
 
   networking.bridge = {

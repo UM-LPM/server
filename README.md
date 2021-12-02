@@ -5,6 +5,7 @@
 - [setup](doc/setup.org)
 - [firewall](doc/firewall.md)
 - [bastion](doc/bastion.md)
+- [monitoring](doc/monitoring.md)
 - [adding machines](doc/adding_machines.md)
 - [adding users](doc/adding_users.md)
 - [getting access](doc/getting_access.md)

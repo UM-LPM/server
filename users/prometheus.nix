@@ -1,8 +1,8 @@
 {config, lib, ...}:
 {
-  users.users.prometheus = {
+  users.users.monitor = {
     isNormalUser = true;
-    description = "Prometheus user";
+    description = "Monitoring user";
     openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [mario ziga mihael];
   };
 }

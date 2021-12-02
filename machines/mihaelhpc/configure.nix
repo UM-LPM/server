@@ -11,4 +11,9 @@
   ];
 
   networking.firewall.allowedTCPPorts = [22 9100];
+  
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
 }

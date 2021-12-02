@@ -25,6 +25,7 @@ in
     ../../modules/base.nix
     ../../users/root.nix
     ../../users/user.nix
+    ../../users/prometheus.nix
   ];
 
   networking.firewall.allowedTCPPorts = [22];

@@ -11,7 +11,7 @@ To connect to the Prometheus or Graphana frontend:
 ### Prometheus
 
 ```
-ssh -L 9090:localhost:9090 prometheus@prometheus
+ssh -L 9090:localhost:9090 monitor@prometheus
 ```
 
 ```
@@ -21,7 +21,7 @@ localhost:9090
 ### Grafana
 
 ```
-ssh -L 3000:localhost:3000 prometheus@prometheus
+ssh -L 3000:localhost:3000 monitor@prometheus
 ```
 
 ```

@@ -1,5 +1,7 @@
 # Monitoring server
 
+Note: ```_gateway:9100``` is the host machine, not the gateway (which is  ```gateway:9100```).
+
 ## Connecting
 
 To connect to the Prometheus or Graphana frontend: 

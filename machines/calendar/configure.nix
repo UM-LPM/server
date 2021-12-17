@@ -4,10 +4,17 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "brokenpylons";
     repo = "Calendar";
-    rev = "7085ae0be638751af4872714bb50e9e7b6499132";
-    sha256 = "0daxijvn0n8g9nb525jbxqsx8gj0d7caafay5vgfz181vjlwkvqk";
+    rev = "0fc790f436aa910608a1f74a3ed88b4049c2e11f";
+    sha256 = "1r73mlrzj2l7288n6719ss0swayqh6xm0y6lygmiwyi9z5fdpnn5";
   };
   calendar = (pkgs.callPackage src {}).package;
+
+  pinpkgs = import (pkgs.fetchFromGitHub {
+    owner = "NixOS";
+    repo = "nixpkgs";
+    rev = "7e9b0dff974c89e070da1ad85713ff3c20b0ca97";
+    sha256 = "1ckzhh24mgz6jd1xhfgx0i9mijk6xjqxwsshnvq789xsavrmsc36";
+  }) {};
 in
 {
   imports = [
@@ -20,7 +27,7 @@ in
 
   networking.firewall.allowedTCPPorts = [22 8080 9100];
   fonts.fontconfig.enable = pkgs.lib.mkForce true; # Make overridable?
-  environment.systemPackages = [pkgs.chromium calendar];
+  environment.systemPackages = [pinpkgs.chromium calendar];
 
   systemd.services.calendar = {
     wantedBy = ["multi-user.target"]; 

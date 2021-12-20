@@ -18,6 +18,7 @@
             <devices>
                 <xsl:for-each select=".">
                     <xsl:apply-templates select="disk"/>
+                    <xsl:apply-templates select="disk-data"/>
                     <xsl:apply-templates select="network-interface"/>
                     <xsl:apply-templates select="direct-interface"/>
 					<xsl:apply-templates select="spice"/>
@@ -42,6 +43,21 @@
                 </xsl:attribute>
             </source>
             <target dev='vda' bus='virtio'/>
+        </disk>
+    </xsl:template>
+
+    <xsl:template match="disk-data">
+        <disk type='volume' device='disk'>
+            <driver name='qemu' type='qcow2'/>
+            <source>
+                <xsl:attribute name='pool'>
+                    <xsl:value-of select='@pool'/>
+                </xsl:attribute>
+                <xsl:attribute name='volume'>
+                    <xsl:value-of select='@volume'/>
+                </xsl:attribute>
+            </source>
+            <target dev='vdb' bus='virtio'/>
         </disk>
     </xsl:template>
 

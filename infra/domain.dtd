@@ -1,4 +1,4 @@
-<!ELEMENT domain (name, memory, vcpu, cpu?, disk*, network-interface*, direct-interface*, spice?)>
+<!ELEMENT domain (name, memory, vcpu, cpu?, disk?, disk-data?, network-interface*, direct-interface*, spice?)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT memory (#PCDATA)>
 <!ATTLIST memory
@@ -20,6 +20,12 @@
 
 <!ELEMENT disk EMPTY>
 <!ATTLIST disk
+    pool CDATA #REQUIRED
+    volume CDATA #REQUIRED
+>
+
+<!ELEMENT disk-data EMPTY>
+<!ATTLIST disk-data
     pool CDATA #REQUIRED
     volume CDATA #REQUIRED
 >

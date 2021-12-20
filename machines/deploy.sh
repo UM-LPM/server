@@ -6,7 +6,8 @@
 deploy() {
     local host=$1
     local config=$2
-    nixos-rebuild switch --upgrade --target-host "$host" -I nixpkgs="https://channels.nixos.org/nixos-21.05/nixexprs.tar.xz" -I nixos-config="$config" --show-trace
+    local pkgs=${3:-https://channels.nixos.org/nixos-21.05/nixexprs.tar.xz}
+    nixos-rebuild switch --upgrade --target-host "$host" -I nixpkgs="$pkgs" -I nixos-config="$config" --show-trace
 }
 
 deploy bastion './bastion/configure.nix'
@@ -22,4 +23,4 @@ deploy usatour './usatour/configure.nix'
 deploy calendar './calendar/configure.nix'
 deploy prometheus './prometheus/configure.nix'
 deploy bioma './bioma/configure.nix'
-deploy mihaelhpc './mihaelhpc/configure.nix'
+deploy mihaelhpc './mihaelhpc/configure.nix' 'https://github.com/NixOS/nixpkgs/archive/7e9b0dff974c89e070da1ad85713ff3c20b0ca97.tar.gz'

@@ -37,7 +37,7 @@ in
       NODE_ENV = "production";
       PORT = "8080";
       HOST = "0.0.0.0";
-      BROWSER_PATH = "${pkgs.chromium}/bin/chromium";
+      BROWSER_PATH = "${pinpkgs.chromium}/bin/chromium";
     };
     serviceConfig = {
       Type = "simple";

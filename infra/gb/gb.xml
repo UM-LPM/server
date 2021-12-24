@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../domain.xsl"?>
+<!DOCTYPE domain SYSTEM '../domain.dtd'>
+
+<domain>
+    <name>gb</name>
+    <memory unit="G">1</memory>
+    <vcpu>1</vcpu>
+    <disk pool='images' volume='gb.qcow2'/>
+    <network-interface
+        network='private-network' 
+        mac='02:af:e7:1b:e5:de'/>
+</domain>

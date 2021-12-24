@@ -14,6 +14,8 @@
     ../../users/bioma.nix
     ../../users/mihaelhpc.nix
     ../../users/prometheus.nix
+    ../../users/gb.nix
+    ../../users/ears.nix
   ];
 
   networking.bridge = {

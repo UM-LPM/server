@@ -4,8 +4,8 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "brokenpylons";
     repo = "Calendar";
-    rev = "0fc790f436aa910608a1f74a3ed88b4049c2e11f";
-    sha256 = "1r73mlrzj2l7288n6719ss0swayqh6xm0y6lygmiwyi9z5fdpnn5";
+    rev = "7281e741dc0eb73841ccded47bd75c3836db7f6b";
+    sha256 = "0kpzfawk4qhlzscsbih1g538y0mjz3q1svb92yw710l0lpm38j1m";
   };
   calendar = (pkgs.callPackage src {}).package;
 
@@ -15,6 +15,7 @@ let
     rev = "7e9b0dff974c89e070da1ad85713ff3c20b0ca97";
     sha256 = "1ckzhh24mgz6jd1xhfgx0i9mijk6xjqxwsshnvq789xsavrmsc36";
   }) {};
+  browser = pinpkgs.chromium;
 in
 {
   imports = [
@@ -27,7 +28,7 @@ in
 
   networking.firewall.allowedTCPPorts = [22 8080 9100];
   fonts.fontconfig.enable = pkgs.lib.mkForce true; # Make overridable?
-  environment.systemPackages = [pinpkgs.chromium calendar];
+  environment.systemPackages = [browser calendar];
 
   systemd.services.calendar = {
     wantedBy = ["multi-user.target"]; 
@@ -37,7 +38,7 @@ in
       NODE_ENV = "production";
       PORT = "8080";
       HOST = "0.0.0.0";
-      BROWSER_PATH = "${pinpkgs.chromium}/bin/chromium";
+      BROWSER_PATH = "${browser}/bin/chromium";
     };
     serviceConfig = {
       Type = "simple";

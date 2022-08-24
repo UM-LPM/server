@@ -18,4 +18,6 @@
   mihael = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMojC4atG7apQOPZVaqWTC8t1TGIYRA2VbfzW7naZOaG uporabnik@DESKTOP-OR15MIH";
   
   bass-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfGSLLsWeZKaAqoSO/r0AcB8SZrvuv3U+oJ/oUhDVy1 bass";
+  
+  gb = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/7Hws6dbBbkL/nk4NFSRc3n2Y4mW5FmhI/w05HmCvi mir@Mirs-MacBook-Pro.local";
 }

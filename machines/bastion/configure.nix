@@ -16,6 +16,7 @@
     ../../users/prometheus.nix
     ../../users/gb.nix
     ../../users/ears.nix
+    ../../users/collab.nix
   ];
 
   networking.bridge = {

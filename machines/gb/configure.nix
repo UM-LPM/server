@@ -10,6 +10,7 @@
     ../../users/user.nix
     ../../users/gb.nix
   ];
-
+  
+  environment.systemPackages = [pkgs.docker-compose];
   networking.firewall.allowedTCPPorts = [22 5050 9100];
 }

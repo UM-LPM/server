@@ -18,3 +18,5 @@
 | gemini.lpm.feri.um.si      | 164.8.230.208 |
 | network.lpm.feri.um.si     | 164.8.230.211 |
 | bioma2022.um.si            | 164.8.230.208 |
+| collab.lpm.feri.um.si      | 164.8.230.208 |
+| gb.lpm.feri.um.si          | 164.8.230.208 |

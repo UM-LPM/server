@@ -35,6 +35,8 @@
     "umplatforma.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
     "test.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
     "ps.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
+    "collab.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
+    "gb.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
   };
   security.acme.acceptTerms = true;
 
@@ -105,6 +107,48 @@
         
         locations."/" = {
           proxyPass = "http://ps";
+          extraConfig = ''
+            add_header Cache-Control "no-store, no-cache, must-revalidate";
+          '';
+        };
+        extraConfig = ''
+          if ($host != $server_name) {
+            return 444;
+          }
+        '';
+      };
+      "collab.lpm.feri.um.si" = {
+        #forceSSL = true;
+        addSSL = true;
+        enableACME = true;
+        
+        locations."/api/" = {
+          proxyPass = "http://collab:5050/";
+        }; 
+        
+        locations."/" = {
+          proxyPass = "http://collab";
+          extraConfig = ''
+            add_header Cache-Control "no-store, no-cache, must-revalidate";
+          '';
+        };
+        extraConfig = ''
+          if ($host != $server_name) {
+            return 444;
+          }
+        '';
+      };
+      "gb.lpm.feri.um.si" = {
+        #forceSSL = true;
+        addSSL = true;
+        enableACME = true;
+        
+        locations."/api/" = {
+          proxyPass = "http://gb:5050/";
+        }; 
+        
+        locations."/" = {
+          proxyPass = "http://gb";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

@@ -6,7 +6,6 @@
     ../../modules/base.nix
     ../../modules/docker-host.nix
     ../../modules/docker-auto-clean.nix 
-    ../../modules/backup.nix
     ../../users/root.nix
     ../../users/user.nix
     ../../users/collab.nix

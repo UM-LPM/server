@@ -40,7 +40,7 @@
   };
   security.acme.acceptTerms = true;
 
-  networking.firewall.allowedTCPPorts = [80 443 1883];
+  networking.firewall.allowedTCPPorts = [80 443 1883 5050];
   networking.firewall.interfaces.ens2.allowedTCPPorts = [22 9100];
 
   services.nginx = {

@@ -148,7 +148,7 @@
         }; 
         
         locations."/" = {
-          proxyPass = "http://gb";
+          proxyPass = "http://gb:8080/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

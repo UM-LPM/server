@@ -120,14 +120,10 @@
       "collab.lpm.feri.um.si" = {
         #forceSSL = true;
         addSSL = true;
-        enableACME = true;
-        
-        locations."/api/" = {
-          proxyPass = "http://collab:5050/";
-        }; 
+        enableACME = true; 
         
         locations."/" = {
-          proxyPass = "http://collab";
+          proxyPass = "http://collab:8080/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';
@@ -142,10 +138,6 @@
         #forceSSL = true;
         addSSL = true;
         enableACME = true;
-        
-        locations."/api/" = {
-          proxyPass = "http://gb:5050/";
-        }; 
         
         locations."/" = {
           proxyPass = "http://gb:8080/";

@@ -12,5 +12,5 @@
   ];
   
   environment.systemPackages = [pkgs.docker-compose];
-  networking.firewall.allowedTCPPorts = [22 5050 9100];
+  networking.firewall.allowedTCPPorts = [22 8080 5050 9100];
 }

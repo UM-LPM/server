@@ -121,9 +121,13 @@
         #forceSSL = true;
         addSSL = true;
         enableACME = true; 
+
+        locations."/api/" = {
+          proxyPass = "http://collab:8080/api/";
+        }; 
         
         locations."/" = {
-          proxyPass = "http://collab:8080/";
+          proxyPass = "http://collab:8000/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

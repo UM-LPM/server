@@ -27,7 +27,8 @@ with lib;
 
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
-  services.openssh.challengeResponseAuthentication = false;
+  #services.openssh.challengeResponseAuthentication = false;
+  services.openssh.kbdInteractiveAuthentication = false;
   services.openssh.openFirewall = false;
 
   # Take hostname from dhcpcd
@@ -35,6 +36,8 @@ with lib;
 
   # Disable fonts (we don't have X)
   fonts.fontconfig.enable = false;
+
+  system.stateVersion = "21.05";
 
   system.build.image = import <nixpkgs/nixos/lib/make-disk-image.nix> {
     inherit lib config pkgs;

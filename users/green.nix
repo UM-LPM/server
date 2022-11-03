@@ -1,8 +1,8 @@
 {config, lib, ...}:
 {
-  users.users.aeneas = {
+  users.users.green = {
     isNormalUser = true;
-    description = "Aeneas project user";
+    description = "Green project user";
     extraGroups = ["wheel"];
 
     openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [mario ziga matej ziga-actions];

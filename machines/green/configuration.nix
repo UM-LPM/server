@@ -4,7 +4,7 @@
   imports = [
     ../../users/root.nix
     ../../users/user.nix
-    ../../users/aeneas.nix
+    ../../users/green.nix
     ./hardware-configuration.nix
   ];
 
@@ -17,7 +17,7 @@
   environment.systemPackages = with pkgs; [neovim];
 
   networking = {
-    hostName = "aeneas";
+    hostName = "green";
     nameservers = ["1.1.1.1"];
 
     interfaces.eno1 = {

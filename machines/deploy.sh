@@ -10,7 +10,7 @@ deploy() {
     nixos-rebuild switch --upgrade --target-host "$host" -I nixpkgs="$pkgs" -I nixos-config="$config" --show-trace
 }
 
-deploy aeneas './aeneas/configuration.nix'
+deploy green './green/configuration.nix'
 deploy bastion './bastion/configure.nix'
 deploy gateway './gateway/configure.nix'
 deploy spum-platform './spum-platform/configure.nix'

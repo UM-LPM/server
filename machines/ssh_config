@@ -2,7 +2,7 @@ Host bastion
     User root
     HostName lpm-bastion.feri.um.si
 
-Host aeneas
+Host green
     User root
     HostName 164.8.230.240
 

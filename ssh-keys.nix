@@ -11,7 +11,7 @@
   
   dragana-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPDbRBeqE7/bFLkVvYg7XYjtmXeedArf2j7z08LkS243 ostoj@DR-LAPTOP";
   
-  ziga-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGqc/EAmASZ06EZvmGQx4kz3AQtpZr7xFhfxmUSiGwCi ziga@nixos";
+  ziga-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMBhy/17XIqRbkTyMhz1ckNYiVXEexcAvgG6QT7blP2 ziga@archlinux";
 
   ziga-docker = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDPYUSeJA0GdePS5hsMf+94+aneQsbj50HGEzPpwJVMKIUtAqDWHZi9x10wTa+59AFTX1O+0++u63JChBeWl9vkJdqsW11Oy84zWjfmI56NYE/Ydc62XVeNtNPBZjR7jhnpV+30jamTh77+bbKH4dnD+aybcq2cOmANUi/tYypIrSfAWCQ/n3vf8KgPgZC2bXQYWeY4UOCqLqW/PJFGpqi+uTZmj8KtC665DEXXmF+pTL2J8XGpHfyeLcZhHYxz6gCfWWcomI0WNHIe8bIsJrfGTsCxJpzTralTc6Brb/7c6KL0ch++2NF6DZK6cv3duWSId+sk7GTP51I/sMbKGfap68r9mxsTuFFnPfpsy8D9xqUxGDK1BX8WvOY6GZBKja7u6K4ePAG9R4p8vW411hqAE5SSnOEplXn1iITlQ/jky4jvXHsNexuWmJ6XQYSdtOr3PxZzc+6shR9ttfu75TFDb1+IUmImKfe7XLxyoO+dCuj/LTZX5SZdSbIaPsmg/Lc= ziga@archlinux";
   

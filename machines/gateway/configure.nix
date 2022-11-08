@@ -169,10 +169,7 @@
         enableACME = true;
 
         locations."/" = {
-          root = pkgs.runCommand "testdir" {} ''
-            mkdir "$out"
-            echo '~' > "$out/index.html"
-          '';
+          root = "/var/serve/";
         };
       };
       "calendar.brokenpylons.com" = {

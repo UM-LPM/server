@@ -11,6 +11,10 @@ concurrency: deploy
 
 jobs:
   build:
+    strategy:
+      matrix:
+        machine: [gateway, spum-platform , spum-mqtt , builder , grades, ps , esp, usatour, calendar, prometheus, bioma, gb , ears, collab]
+
     runs-on: ubuntu-latest
     steps:
 
@@ -31,4 +35,4 @@ jobs:
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
         cd machines
-        ./deploy.sh
+        ./deploy.sh ${{matrix.machine}

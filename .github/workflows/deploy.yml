@@ -11,21 +11,21 @@ concurrency: deploy
 
 jobs:
   bastion:
-    - uses: UM-LPM/server/.github/workflows/deploy-machine.yml@main
-      with:
-        machine: bastion
-        sshkey: ${{secrets.sshkey}}
+    uses: UM-LPM/server/.github/workflows/deploy-machine.yml@main
+    with:
+      machine: bastion
+      sshkey: ${{secrets.sshkey}}
 
   machines:
     strategy:
       matrix:
         machine: [gateway, spum-platform, builder, grades, ps, esp, usatour, calendar, prometheus, bioma, gb, ears, collab]
 
-    - needs: bastion
+    needs: bastion
 
-    - uses: UM-LPM/server/.github/workflows/deploy-machine.yml@main
-      with:
-        machine: ${{matrix.machine}}
+    uses: UM-LPM/server/.github/workflows/deploy-machine.yml@main
+    with:
+      machine: ${{matrix.machine}}
       secrets: inherit
 
 

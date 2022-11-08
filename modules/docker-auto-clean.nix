@@ -4,7 +4,7 @@
   systemd = {
     timers.docker-auto-clean = {
       wantedBy = ["timers.target"];
-      partOf = ["docker-auto-clean"];
+      partOf = ["docker-auto-clean.service"];
       timerConfig.OnCalendar = "daily";
     };
     services.docker-auto-clean = {

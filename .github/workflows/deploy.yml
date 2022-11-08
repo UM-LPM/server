@@ -14,7 +14,7 @@ jobs:
     uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master
     with:
       machine: bastion
-      sshkey: ${{secrets.sshkey}}
+    secrets: inherit
 
   machines:
     strategy:
@@ -26,7 +26,7 @@ jobs:
     uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master
     with:
       machine: ${{matrix.machine}}
-      secrets: inherit
+    secrets: inherit
 
 
 

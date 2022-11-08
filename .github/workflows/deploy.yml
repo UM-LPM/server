@@ -5,7 +5,7 @@ on:
     branches: [ master ]
     paths-ignore:
       - README.md
-      - doc/
+      - doc/**
 
 concurrency: deploy
 

@@ -7,19 +7,20 @@
   
   mario = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPA/LJdq7+/N7svDvmkeHZex6QO2lykjmx6hinuGe/EH test@lpmgigab";
 
-  matej-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrih3C4okDkz4bMe7FTej2kWKyN7U2dNq/VooSHu7mu matej@DESKTOP-BT2IIE9";
-  
-  dragana-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPDbRBeqE7/bFLkVvYg7XYjtmXeedArf2j7z08LkS243 ostoj@DR-LAPTOP";
-  
-  ziga-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMBhy/17XIqRbkTyMhz1ckNYiVXEexcAvgG6QT7blP2 ziga@archlinux";
-
-  ziga-docker = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDPYUSeJA0GdePS5hsMf+94+aneQsbj50HGEzPpwJVMKIUtAqDWHZi9x10wTa+59AFTX1O+0++u63JChBeWl9vkJdqsW11Oy84zWjfmI56NYE/Ydc62XVeNtNPBZjR7jhnpV+30jamTh77+bbKH4dnD+aybcq2cOmANUi/tYypIrSfAWCQ/n3vf8KgPgZC2bXQYWeY4UOCqLqW/PJFGpqi+uTZmj8KtC665DEXXmF+pTL2J8XGpHfyeLcZhHYxz6gCfWWcomI0WNHIe8bIsJrfGTsCxJpzTralTc6Brb/7c6KL0ch++2NF6DZK6cv3duWSId+sk7GTP51I/sMbKGfap68r9mxsTuFFnPfpsy8D9xqUxGDK1BX8WvOY6GZBKja7u6K4ePAG9R4p8vW411hqAE5SSnOEplXn1iITlQ/jky4jvXHsNexuWmJ6XQYSdtOr3PxZzc+6shR9ttfu75TFDb1+IUmImKfe7XLxyoO+dCuj/LTZX5SZdSbIaPsmg/Lc= ziga@archlinux";
+  #ziga-docker = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDPYUSeJA0GdePS5hsMf+94+aneQsbj50HGEzPpwJVMKIUtAqDWHZi9x10wTa+59AFTX1O+0++u63JChBeWl9vkJdqsW11Oy84zWjfmI56NYE/Ydc62XVeNtNPBZjR7jhnpV+30jamTh77+bbKH4dnD+aybcq2cOmANUi/tYypIrSfAWCQ/n3vf8KgPgZC2bXQYWeY4UOCqLqW/PJFGpqi+uTZmj8KtC665DEXXmF+pTL2J8XGpHfyeLcZhHYxz6gCfWWcomI0WNHIe8bIsJrfGTsCxJpzTralTc6Brb/7c6KL0ch++2NF6DZK6cv3duWSId+sk7GTP51I/sMbKGfap68r9mxsTuFFnPfpsy8D9xqUxGDK1BX8WvOY6GZBKja7u6K4ePAG9R4p8vW411hqAE5SSnOEplXn1iITlQ/jky4jvXHsNexuWmJ6XQYSdtOr3PxZzc+6shR9ttfu75TFDb1+IUmImKfe7XLxyoO+dCuj/LTZX5SZdSbIaPsmg/Lc= ziga@archlinux";
   
   mihael = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMojC4atG7apQOPZVaqWTC8t1TGIYRA2VbfzW7naZOaG uporabnik@DESKTOP-OR15MIH";
   
-  bass-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfGSLLsWeZKaAqoSO/r0AcB8SZrvuv3U+oJ/oUhDVy1 bass";
-  
-  gb = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/7Hws6dbBbkL/nk4NFSRc3n2Y4mW5FmhI/w05HmCvi mir@Mirs-MacBook-Pro.local";
+  gb = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/7Hws6dbBbkL/nk4NFSRc3n2Y4mW5FmhI/w05HmCvi mir@Mirs-MacBook-Pro.local"; # FIXME: Why is this needed?
+
+  # GitHub Actions keys
+  server-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMBhy/17XIqRbkTyMhz1ckNYiVXEexcAvgG6QT7blP2 ziga@archlinux";
   
   bioma-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKzmi/imWoJJoSFG5GJhozhv0sYUm+Ln4nNTUKAClyny ziga@nixos";
+
+  bass-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfGSLLsWeZKaAqoSO/r0AcB8SZrvuv3U+oJ/oUhDVy1 bass";
+
+  matej-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrih3C4okDkz4bMe7FTej2kWKyN7U2dNq/VooSHu7mu matej@DESKTOP-BT2IIE9"; #FIXME: Replace with per service keys
+
+  dragana-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPDbRBeqE7/bFLkVvYg7XYjtmXeedArf2j7z08LkS243 ostoj@DR-LAPTOP"; #FIXME: Replace with per service keys
 }

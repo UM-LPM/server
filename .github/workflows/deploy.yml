@@ -13,7 +13,7 @@ jobs:
   build:
     strategy:
       matrix:
-        machine: [gateway, spum-platform , spum-mqtt , builder , grades, ps , esp, usatour, calendar, prometheus, bioma, gb , ears, collab]
+        machine: [gateway, spum-platform , builder , grades, ps , esp, usatour, calendar, prometheus, bioma, gb , ears, collab]
 
     runs-on: ubuntu-latest
     steps:

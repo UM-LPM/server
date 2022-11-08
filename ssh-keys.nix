@@ -21,5 +21,5 @@
   
   gb = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/7Hws6dbBbkL/nk4NFSRc3n2Y4mW5FmhI/w05HmCvi mir@Mirs-MacBook-Pro.local";
   
-  bioma-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKzmi/imWoJJoSFG5GJhozhv0sYUm+Ln4nNTUKAClyny ziga@nixos"
+  bioma-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKzmi/imWoJJoSFG5GJhozhv0sYUm+Ln4nNTUKAClyny ziga@nixos";
 }

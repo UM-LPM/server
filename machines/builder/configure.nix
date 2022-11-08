@@ -8,7 +8,7 @@
     ../../users/user.nix
   ];
 
-  security.polkit.enable = true
+  security.polkit.enable = true;
 
   networking.firewall.allowedTCPPorts = [22];
   boot.kernelModules = ["kvm-intel"];

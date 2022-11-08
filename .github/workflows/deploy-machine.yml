@@ -7,8 +7,8 @@ on:
         required: true
         type: string
       secrets:
-        sshkey:
-          required: true
+        required: true
+        type: string
 
 concurrency: deploy
 

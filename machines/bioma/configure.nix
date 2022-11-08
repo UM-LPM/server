@@ -4,7 +4,7 @@
   imports = [
     ../../modules/image.nix
     ../../modules/base.nix
-    ../../modules/docker-auto-clean.nix 
+    #../../modules/docker-auto-clean.nix 
     ../../users/root.nix
     ../../users/user.nix
     ../../users/bioma.nix

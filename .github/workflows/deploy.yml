@@ -35,4 +35,4 @@ jobs:
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
         cd machines
-        ./deploy.sh ${{matrix.machine}
+        ./deploy.sh ${{matrix.machine}}

@@ -6,9 +6,9 @@ on:
       machine:
         required: true
         type: string
-      secrets:
+    secrets:
+      sshkey:
         required: true
-        type: string
 
 concurrency: deploy
 

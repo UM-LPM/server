@@ -10,8 +10,6 @@ on:
       sshkey:
         required: true
 
-concurrency: deploy
-
 jobs:
   deploy:
     runs-on: ubuntu-latest

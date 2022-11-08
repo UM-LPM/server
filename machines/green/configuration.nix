@@ -38,6 +38,21 @@
     kbdInteractiveAuthentication = false;
   };
 
+  systemd.services.green = {
+    wantedBy = ["multi-user.target"];
+    after = ["network.target"];
+    description = "Start the green service";
+    environment = {
+      JAVA_HOME = "${pkgs.jdk}/lib/openjdk";
+    };
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+      Restart = "always";
+      ExecStart = "/home/green/green/bin/green";
+    };
+  };
+
   system.stateVersion = "22.05";
 }
 

@@ -4,8 +4,8 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "brokenpylons";
     repo = "Calendar";
-    rev = "7281e741dc0eb73841ccded47bd75c3836db7f6b";
-    sha256 = "0kpzfawk4qhlzscsbih1g538y0mjz3q1svb92yw710l0lpm38j1m";
+    rev = "edea86259ba452cba87b11cc2bbaf74fad47a630";
+    sha256 = "0zi5b2zbi011b8p1y422kgsws63rfwdwp0k0wn4fa8184fikk35p";
   };
   calendar = (pkgs.callPackage src {}).package;
 

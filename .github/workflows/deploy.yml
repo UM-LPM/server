@@ -10,29 +10,23 @@ on:
 concurrency: deploy
 
 jobs:
-  build:
+  bastion:
+    - uses: UM-LPM/server/.github/workflows/deploy-machine.yml@main
+      with:
+        machine: bastion
+        sshkey: ${{secrets.sshkey}}
+
+  machines:
     strategy:
       matrix:
-        machine: [gateway, spum-platform , builder , grades, ps , esp, usatour, calendar, prometheus, bioma, gb , ears, collab]
+        machine: [gateway, spum-platform, builder, grades, ps, esp, usatour, calendar, prometheus, bioma, gb, ears, collab]
 
-    runs-on: ubuntu-latest
-    steps:
+    - needs: bastion
 
-    - uses: actions/checkout@v3
-    - uses: actions/checkout@v3
+    - uses: UM-LPM/server/.github/workflows/deploy-machine.yml@main
       with:
-        repository: UM-LPM/known_hosts
-        path: known_hosts
-    - uses: cachix/install-nix-action@v18
-      with: 
-        nix_path: nixpkgs=channel:nixos-21.05
+        machine: ${{matrix.machine}}
+      secrets: inherit
 
-    - name: Set known hosts
-      run: install -D -m 400 known_hosts/known_hosts ~/.ssh/known_hosts
-    
-    - name: Deploy
-      run: |
-        eval "$(ssh-agent)"
-        ssh-add - <<< "${{secrets.sshkey}}"
-        cd machines
-        ./deploy.sh ${{matrix.machine}}
+
+

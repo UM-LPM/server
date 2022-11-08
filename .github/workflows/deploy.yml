@@ -7,6 +7,8 @@ on:
       - README.md
       - doc/
 
+concurrency: deploy
+
 jobs:
   bastion:
     uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master

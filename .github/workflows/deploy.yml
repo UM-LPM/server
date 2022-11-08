@@ -23,7 +23,7 @@ jobs:
 
     needs: bastion
 
-    uses: UM-LPM/server/.github/workflows/deploy-machine.yml@main
+    uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master
     with:
       machine: ${{matrix.machine}}
       secrets: inherit

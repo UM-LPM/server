@@ -19,7 +19,7 @@ jobs:
   machines:
     strategy:
       matrix:
-        machine: [gateway, spum-platform, builder, grades, ps, esp, usatour, calendar, prometheus, bioma, gb, ears, collab]
+        machine: [gateway, spum-platform, builder, grades, ps, esp, usatour, calendar, prometheus, bioma, gb, ears, collab, green]
 
     needs: bastion
 

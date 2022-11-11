@@ -4,7 +4,7 @@ Host bastion
 
 Host green
     User root
-    HostName 164.8.230.240
+    HostName green.lpm.feri.um.si
 
 Host gateway builder grades spum-platform spum-mqtt spum-docker-registry ps esp usatour calendar prometheus bioma mihaelhpc gb ears collab
     User root

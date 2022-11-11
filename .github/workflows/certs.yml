@@ -1,4 +1,4 @@
-name: Deploy
+name: Certs
 
 on:
   workflow_dispatch:

@@ -32,7 +32,7 @@ jobs:
             shift
             local mod=$2
             shift
-            rsync -e 'ssh -F ./machines/ssh_config' prometheus:prometheus -og --chown:"$og" --perms --chmod="$mod" "$@"
+            rsync -e 'ssh -F ./machines/ssh_config' prometheus:prometheus -og --chown="$og" --perms --chmod="$mod" "$@"
           }
         
           eval "$(ssh-agent)"

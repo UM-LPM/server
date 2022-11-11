@@ -35,6 +35,6 @@ jobs:
         
           eval "$(ssh-agent)"
           ssh-add - <<< "${{secrets.sshkey}}"
-          copy 600 ./certs/prometheus.key prometheus:/etc/ssl/private
+          copy 600 ./certs/prometheus.key prometheus:/etc/ssl/private/
           copy 644 ./certs/prometheus.crt prometheus:/etc/ssl/certs/
           copy 644 ./certs/prometheus.crt green:/etc/ssl/certs/

@@ -16,6 +16,7 @@ let
     "win10hpc:9182"
     "prometheus:9100"
     "mihaelhpc:9100"
+    "green:9100"
     "_gateway:9100" /* the host machine */
   ];
 in
@@ -44,6 +45,9 @@ in
     scrapeConfigs = [
       {
         job_name = "node";
+        cert_file = "/etc/ssl/certs/prometheus.crt";
+        key_file = "/etc/ssl/private/prometheus.key";
+
         static_configs = [ 
           {
             inherit targets;

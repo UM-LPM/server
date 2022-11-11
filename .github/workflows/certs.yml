@@ -28,13 +28,15 @@ jobs:
       - name: Deploy
         run: |
           copy() {
-            local mod=$1
+            local og=$1
             shift
-            rsync -e 'ssh -F ./machines/ssh_config' --perms --chmod="$mod" "$@"
+            local mod=$2
+            shift
+            rsync -e 'ssh -F ./machines/ssh_config' prometheus:prometheus -og --chown:"$og" --perms --chmod="$mod" "$@"
           }
         
           eval "$(ssh-agent)"
           ssh-add - <<< "${{secrets.sshkey}}"
-          copy 600 ./certs/prometheus.key prometheus:/etc/ssl/private/
-          copy 644 ./certs/prometheus.crt prometheus:/etc/ssl/certs/
-          copy 644 ./certs/prometheus.crt green:/etc/ssl/certs/
+          copy prometheus:prometheus 600 ./certs/prometheus.key prometheus:/etc/ssl/private/
+          copy prometheus:prometheus 644 ./certs/prometheus.crt prometheus:/etc/ssl/certs/
+          copy node-exporter:node-exporter 644 ./certs/prometheus.crt green:/etc/ssl/certs/

@@ -19,6 +19,14 @@ let
     "green:9100"
     "_gateway:9100" /* the host machine */
   ];
+  webConfig = pkgs.writeTextFile {
+    name = "web-config.yml";
+    text = ''
+    tls_server_config:
+      cert_file: "/etc/ssl/certs/prometheus.crt"
+      key_file: "/etc/ssl/private/prometheus.key"
+    '';
+  };
 in
 {
   imports = [
@@ -45,16 +53,15 @@ in
     scrapeConfigs = [
       {
         job_name = "node";
-        
-        tls_config = {
-          cert_file = "/etc/ssl/certs/prometheus.crt";
-          key_file = "/etc/ssl/private/prometheus.key";
-        };
 
         static_configs = [ 
           {
             inherit targets;
           }
+        ];
+        
+        extraFlags = [
+          "--web.config.file=${webConfig}"
         ];
       }
     ];

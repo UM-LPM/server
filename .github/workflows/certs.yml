@@ -18,6 +18,8 @@ jobs:
         with:
           repository: UM-LPM/known_hosts
           path: known_hosts
+      - name: Set known hosts
+        run: install -D -m 600 known_hosts/known_hosts ~/.ssh/known_hosts
       
       - name: Generate
         working-directory: ./certs

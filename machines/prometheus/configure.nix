@@ -45,6 +45,10 @@ in
 
   services.prometheus = {
     enable = true;
+    
+    extraFlags = [
+      "--web.config.file=${webConfig}"
+    ];
 
     globalConfig = {
       scrape_interval = "15s";
@@ -58,10 +62,6 @@ in
           {
             inherit targets;
           }
-        ];
-        
-        extraFlags = [
-          "--web.config.file=${webConfig}"
         ];
       }
     ];

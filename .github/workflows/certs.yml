@@ -1,0 +1,32 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 0 * * *'
+    
+
+concurrency: cert
+
+jobs:
+  prometheus:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      
+      - name: Generate
+        working-directory: ./certs
+        run: ./genprometheus.sh
+      
+      - name: Deploy
+        run: |
+          copy() {
+            scp -F ./machines/ssh_config "$@"
+          }
+        
+          eval "$(ssh-agent)"
+          ssh-add - <<< "${{secrets.sshkey}}"
+          copy prometheus.key prometheus:/etc/ssl/private
+          copy prometheus.crt prometheus:/etc/ssl/certs/
+          copy prometheus.crt green:/etc/ssl/certs/

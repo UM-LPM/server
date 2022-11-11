@@ -45,8 +45,11 @@ in
     scrapeConfigs = [
       {
         job_name = "node";
-        cert_file = "/etc/ssl/certs/prometheus.crt";
-        key_file = "/etc/ssl/private/prometheus.key";
+        
+        tls_config = {
+          cert_file = "/etc/ssl/certs/prometheus.crt";
+          key_file = "/etc/ssl/private/prometheus.key";
+        };
 
         static_configs = [ 
           {

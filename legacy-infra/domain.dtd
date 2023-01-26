@@ -1,8 +1,4 @@
-<!ELEMENT domain (name, memory, vcpu, cpu?, image, disk?, network-interface*, direct-interface*, spice?)>
-<!ATTLIST domain
-    boot (bios|efi) #REQUIRED
->
-
+<!ELEMENT domain (name, memory, vcpu, cpu?, disk?, disk-data?, network-interface*, direct-interface*, spice?)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT memory (#PCDATA)>
 <!ATTLIST memory
@@ -22,14 +18,14 @@
     threads CDATA #REQUIRED
 >
 
-
-<!ELEMENT image EMPTY>
-<!ATTLIST image
+<!ELEMENT disk EMPTY>
+<!ATTLIST disk
+    pool CDATA #REQUIRED
     volume CDATA #REQUIRED
 >
 
-<!ELEMENT disk EMPTY>
-<!ATTLIST disk
+<!ELEMENT disk-data EMPTY>
+<!ATTLIST disk-data
     pool CDATA #REQUIRED
     volume CDATA #REQUIRED
 >
@@ -37,6 +33,7 @@
 <!ELEMENT network-interface EMPTY>
 <!ATTLIST network-interface
     network CDATA #REQUIRED
+    mac CDATA #REQUIRED
 >
 
 <!ELEMENT direct-interface EMPTY>

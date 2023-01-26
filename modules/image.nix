@@ -27,7 +27,6 @@ with lib;
 
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
-  #services.openssh.challengeResponseAuthentication = false;
   services.openssh.kbdInteractiveAuthentication = false;
   services.openssh.openFirewall = false;
 
@@ -35,13 +34,13 @@ with lib;
   networking.hostName = mkDefault "";
 
   # Disable fonts (we don't have X)
-  fonts.fontconfig.enable = false;
+  fonts.fontconfig.enable = mkDefault false;
 
   system.stateVersion = "21.05";
 
   system.build.image = import <nixpkgs/nixos/lib/make-disk-image.nix> {
     inherit lib config pkgs;
-    diskSize = 8192; # XXX: This probably shouldn't be hard coded? The qcow2 is compressed, which means there is no much difference though
+    diskSize = 8192;
     format = "qcow2";
   };
 }

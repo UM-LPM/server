@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<network>
+    <name>isolated-network</name>
+    <bridge name="visolated" />
+    <ip address="10.17.4.1" netmask="255.255.255.0">
+        <dhcp>
+            <range start="10.17.4.2" end="10.17.4.254"/>
+            <host mac="02:6e:55:99:d9:5a" name="backup" ip="?"/>
+        </dhcp>
+    </ip>
+</network>
+

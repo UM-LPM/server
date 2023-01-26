@@ -27,7 +27,6 @@
             <host mac='02:af:e7:1b:e5:de' name='gb' ip='10.17.3.190' />
             <host mac='02:33:74:0c:86:ee' name='ears' ip='10.17.3.200' />
             <host mac='02:da:bb:9f:f8:54' name='collab' ip='10.17.3.210' />
-            <host mac='02:02:7a:a0:a3:ad' name='sso-test' ip='10.17.3.220' />
         </dhcp>
     </ip>
 </network>

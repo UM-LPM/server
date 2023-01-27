@@ -30,6 +30,12 @@ with lib;
   services.openssh.kbdInteractiveAuthentication = false;
   services.openssh.openFirewall = false;
 
+  # Prevent rescue user from logging in via SSH
+  services.openssh.extraConfig = ''
+    DenyUsers rescue
+    AuthenticationMethods publickey
+  '';
+
   # Take hostname from dhcpcd
   networking.hostName = mkDefault "";
 

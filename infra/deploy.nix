@@ -146,6 +146,22 @@ let
       };
     };
 
+    dhcpHostOptions = {
+      options.mac = mkOption {
+        type = types.str;
+        description = "MAC address";
+        default = macOf name;
+      };
+      options.hostname = mkOption {
+        type = types.str;
+        description = "Hostname";
+      };
+      options.address = mkOption {
+        type = types.str;
+        description = "IP address";
+      };
+    };
+
     dhcpOptions = {
       options.start = mkOption {
         type = types.str;
@@ -154,6 +170,11 @@ let
       options.end = mkOption {
         type = types.str;
         description = "End IP address";
+      };
+      options.hosts = mkOption {
+        type = with types; listOf (submodule dhcpHostOptions);
+        description = "Hosts";
+        default = [];
       };
     };
 
@@ -196,46 +217,11 @@ let
       };
     };
 
-    diskOptions = {
-      options.device = mkOption {
-        type = types.str;
-        description = "Device";
-      };
-      options.pool = mkOption {
-        type = types.str;
-        description = "Pool";
-      };
-      options.volume = mkOption {
-        type = types.str;
-        description = "Volume";
-      };
-    };
-
-    interfaceOptions = {
-      options.network = mkOption {
-        type = types.str;
-        description = "Network";
-      };
-      options.hostname = mkOption {
-        type = types.str;
-        description = "Hostname";
-      };
-      options.address = mkOption {
-        type = types.str;
-        description = "IP address";
-      };
-    };
-
     domainOptions = {name, ...}: {
       options.uuid = mkOption {
         type = types.str;
         description = "UUID";
         default = uuidOf namespaces.pool name;
-      };
-      options.mac = mkOption {
-        type = types.str;
-        description = "MAC address";
-        default = macOf name;
       };
       options.start = mkOption {
         type = types.bool;
@@ -256,11 +242,42 @@ let
         description = "Number of VCPUs";
       };
       options.disks = mkOption {
-        type = with types; listOf (submodule diskOptions);
+        type = with types; listOf (submodule {
+          options.device = mkOption {
+            type = types.str;
+            description = "Device";
+          };
+          options.pool = mkOption {
+            type = types.str;
+            description = "Pool";
+          };
+          options.volume = mkOption {
+            type = types.str;
+            description = "Volume";
+          };
+        });
         description = "Disks";
       };
       options.interfaces = mkOption {
-        type = with types; listOf (submodule interfaceOptions);
+        type = with types; listOf (submodule {
+          options.network = mkOption {
+            type = types.str;
+            description = "Network";
+          };
+          options.mac = mkOption {
+            type = types.str;
+            description = "MAC address";
+            default = macOf name;
+          };
+          options.hostname = mkOption {
+            type = types.str;
+            description = "Hostname";
+          };
+          options.address = mkOption {
+            type = types.str;
+            description = "IP address";
+          };
+        });
         description = "Network interfaces";
       };
     };
@@ -288,10 +305,10 @@ let
       </pool>
     '';
 
-    mkInterfaceConfig = mac: x: ''
+    mkInterfaceConfig = x: ''
       <interface type="network">
         <source network="${x.network}" />
-        <mac address="${mac}" />
+        <mac address="${x.mac}" />
         <model type="virtio" />
       </interface>
     '';
@@ -307,9 +324,13 @@ let
     mkHostConfig = name: mac: ip:
     ''<host mac="${mac}" name="${name}" ip="${ip}" />'';
 
+    mkDhcpHostConfig = x:
+    ''<host mac="${x.mac}" name="${x.hostname}" ip="${x.address}" />'';
+
     mkDhcpConfig = x: ''
       <dhcp>
         <range start="${x.start}" end="${x.end}"/>
+      ${indent (strings.concatStrings (map mkDhcpHostConfig x.hosts))}
       </dhcp>
     '';
 
@@ -328,25 +349,28 @@ let
       </network>
     '';
 
-    mkDomainConfig = name: uuid: mac: x: ''
+    #<os firmware="efi">
+    #  <type arch="x86_64" machine="pc-q35-5.1">hvm</type>
+    #  <firmware>
+    #    <feature enabled="no" name="secure-boot"/>
+    #  </firmware>
+    #</os>
+
+    mkDomainConfig = name: uuid: x: ''
       <domain type="kvm">
         <name>${name}</name>
         <memory unit="b">${toString x.memory}</memory>
         <vcpu>${toString x.vcpu}</vcpu>
         <uuid>${uuid}</uuid>
-
-        <os firmware="efi">
-          <type arch="x86_64" machine="pc-q35-5.1">hvm</type>
-          <firmware>
-            <feature enabled="no" name="secure-boot"/>
-          </firmware>
+        <os>
+          <type arch="x86_64">hvm</type>
         </os>
         <features>
             <acpi/>
         </features>
         <devices>
         ${indent (strings.concatStrings (map mkDiskConfig x.disks))}
-        ${indent (strings.concatStrings (map (mkInterfaceConfig mac) x.interfaces))}
+        ${indent (strings.concatStrings (map (mkInterfaceConfig) x.interfaces))}
           <console type="pty"/>
           <rng model="virtio">
             <backend model="random">/dev/urandom</backend>
@@ -356,7 +380,10 @@ let
     '';
 
     createVolume = pool: x: ''
-      virsh vol-create-as --pool '${pool}' --name '${x.name}' --capacity '${toString x.capacity}' ${strings.optionalString (x.allocation != null) "--allocation '${toString x.allocation}'"} --format qcow2
+      if ! virsh vol-key --pool '${pool}' --vol '${x.name}'
+      then
+        virsh vol-create-as --pool '${pool}' --name '${x.name}' --capacity '${toString x.capacity}' ${strings.optionalString (x.allocation != null) "--allocation '${toString x.allocation}'"} --format qcow2
+      fi
     '';
 
 
@@ -395,13 +422,13 @@ let
       ${strings.optionalString x.autoStart "virsh net-autostart ${x.uuid}"}
     '';
 
-    updateHost = mac: x: ''
-      virsh net-update '${x.network}' add ip-dhcp-host "${mkHostConfig x.hostname mac x.address}" --live --config
+    updateHost = x: ''
+      virsh net-update '${x.network}' add ip-dhcp-host '${mkHostConfig x.hostname x.mac x.address}' --live
     '';
 
     createDomain = name: x:
     let
-      xml = writeConfig (mkDomainConfig name x.uuid x.mac x);
+      xml = writeConfig (mkDomainConfig name x.uuid x);
     in ''
       : '
       ${indent (builtins.readFile xml)}
@@ -410,7 +437,7 @@ let
       ${if x.start then "virsh start ${x.uuid}" else "virsh shutdown ${x.uuid}"}
       ${if x.autoStart then "virsh autostart ${x.uuid}" else "virsh autostart ${x.uuid} --disable"}
 
-      ${strings.concatStrings (map (updateHost x.mac) x.interfaces)}
+      ${strings.concatStrings (map updateHost x.interfaces)}
     '';
 
     deploymentScript = pkgs.writeShellScript "builder.sh" ''
@@ -444,6 +471,7 @@ let
     };
 
     config._module.args = {
+      inherit macOf;
       unit = {
         kB = x: 1000 * x;
         MB = x: 1000000 * x;
@@ -454,10 +482,20 @@ let
       };
     };
 
+    config.networks = pipe config.domains [
+      (attrsets.mapAttrsToList (_: x: x.interfaces))
+      lists.flatten
+      (builtins.groupBy (i: i.network))
+      (builtins.mapAttrs (_: is: {
+        dhcp.hosts = map (i: {inherit (i) mac hostname address;}) is;
+      }))
+    ];
+
     config.toplevel =
+      debug.traceSeq (null) (
       pkgs.linkFarm "virsh-scripts" {
         deploy = deploymentScript;
-      };
+      });
   };
 in
 (import <nixpkgs/lib>).evalModules {

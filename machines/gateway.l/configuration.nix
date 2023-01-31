@@ -4,15 +4,15 @@
   imports = [
     ../../modules/image.nix
     ../../modules/base.nix
-    ../../modules/bridge-new.nix
+    ../../modules/bridge.nix
     ../../users/root.nix
-    ../../users/user.nix
+    ../../users/rescue.nix
   ];
 
   networking.bridge = {
     interface = "ens3";
 
-    addresses = [ 
+    addresses = [
       {
         address = "164.8.230.208";
         prefixLength = 24;
@@ -71,8 +71,8 @@
         };
       };
       "bioma2022.um.si" = {
-        forceSSL = true;
-        #addSSL = true;
+        #forceSSL = true;
+        addSSL = true;
         enableACME = true;
 
         locations."/" = {
@@ -174,7 +174,7 @@
       };
       "calendar.brokenpylons.com" = {
         locations."/" = {
-          proxyPass = "http://calendar:8080/";
+          proxyPass = "http://calendar.l:8080/";
         };
       };
       "_" = {

@@ -6,13 +6,13 @@
 deploy() {
     local host=$1
     local config=$2
-    local pkgs=${3:-https://channels.nixos.org/nixos-22.05/nixexprs.tar.xz}
+    local pkgs=${3:-https://channels.nixos.org/nixos-22.11/nixexprs.tar.xz}
     nixos-rebuild switch --upgrade --target-host "$host" -I nixpkgs="$pkgs" -I nixos-config="$config" --show-trace
 }
 
 machine=${1:?Machine not specified}
 
-deploy "$machine" "./$machine/configure.nix"
+deploy "$machine" "./$machine/configuration.nix"
 
 #deploy gateway './gateway/configure.nix'
 #deploy spum-platform './spum-platform/configure.nix'

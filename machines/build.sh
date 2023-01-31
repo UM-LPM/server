@@ -9,6 +9,7 @@ build() {
     popd
 }
 
-build 'config.system.build.image' ./minimal
+#build 'config.system.build.image' ./minimal
+build 'config.system.build.image' ./bastion
 #build 'config.system.build.isoImage' ./aeneas-workstation/
 

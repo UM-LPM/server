@@ -49,6 +49,11 @@
           backing = "minimal-base-v2";
           capacity = unit.GiB 8;
         }
+        {
+          name = "sso-test";
+          backing = "minimal-base-v2";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -188,6 +193,26 @@
           network = "private-network";
           hostname = "minimal.l";
           address = "10.17.3.220";
+        }
+      ];
+    };
+    "sso-test" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "default";
+          volume = "sso-test";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "sso-test.l";
+          address = "10.17.3.222";
         }
       ];
     };

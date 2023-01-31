@@ -22,7 +22,6 @@ in
     ../../modules/image.nix
     ../../modules/base.nix
     ../../users/root.nix
-    ../../users/user.nix
     ../../users/calendar.nix
   ];
 

@@ -4,6 +4,19 @@ with lib;
 
 let
   cfg = config.networking.bridge;
+  address = with types; submodule {
+      options = {
+        address = mkOption {
+          description = "Address of the interface";
+          type = types.str;
+        };
+
+        prefixLength = mkOption {
+          description = "Subnet mask of the interface";
+          type = types.int;
+        };
+      };
+    };
 in
 {
   options.networking.bridge = {
@@ -12,21 +25,9 @@ in
       type = types.str;
     };
 
-    address = mkOption {
-      description = "Bridge address";
-      type = with types; submodule {
-        options = {
-          address = mkOption {
-            description = "Address of the interface";
-            type = types.str;
-          };
-
-          prefixLength = mkOption {
-            description = "Subnet mask of the interface";
-            type = types.int;
-          };
-        };
-      };
+    addresses = mkOption {
+      description = "Addresses";
+      type = types.listOf address;
     };
 
     defaultGateway = mkOption {
@@ -45,15 +46,9 @@ in
   config = {
     networking = {
       interfaces.${cfg.interface} = {
-
         # There is no DHCP on the network
         useDHCP = false;
-        ipv4.addresses = [
-          {
-            address = cfg.address.address;
-            prefixLength = cfg.address.prefixLength;
-          }
-        ];
+        ipv4.addresses = cfg.addresses;
       };
       defaultGateway = {
         address = cfg.defaultGateway.address;

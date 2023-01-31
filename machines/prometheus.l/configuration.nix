@@ -19,21 +19,13 @@ let
     "green:9100"
     "_gateway:9100" /* the host machine */
   ];
-  webConfig = pkgs.writeTextFile {
-    name = "web-config.yml";
-    text = ''
-    tls_server_config:
-      cert_file: "/etc/ssl/certs/prometheus.crt"
-      key_file: "/etc/ssl/private/prometheus.key"
-    '';
-  };
 in
 {
   imports = [
     ../../modules/image.nix
     ../../modules/base.nix
     ../../users/root.nix
-    ../../users/user.nix
+    ../../users/rescue.nix
     ../../users/prometheus.nix
   ];
 
@@ -41,15 +33,13 @@ in
   
   services.grafana = {
     enable = true;
+
+    settings = {};
   };
 
   services.prometheus = {
     enable = true;
     
-    extraFlags = [
-      "--web.config.file=${webConfig}"
-    ];
-
     globalConfig = {
       scrape_interval = "15s";
     };

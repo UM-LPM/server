@@ -10,11 +10,17 @@ on:
 concurrency: deploy
 
 jobs:
+  infra:
+    uses: UM-LPM/server/.github/workflows/deploy-infra.yml@master
+    secrets: inherit
+    
   bastion:
     uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master
     with:
       machine: bastion
     secrets: inherit
+    
+    needs: infra
 
   machines:
     strategy:

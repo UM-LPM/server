@@ -16,7 +16,7 @@ in
 {
   imports = [
     ../../users/root.nix
-    ../../users/user.nix
+    ../../users/rescue.nix
     ../../users/green.nix
     ./hardware-configuration.nix
   ];

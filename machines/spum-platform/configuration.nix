@@ -7,7 +7,7 @@
     ../../modules/docker-host.nix
     ../../modules/docker-auto-clean.nix 
     ../../users/root.nix
-    ../../users/user.nix
+    ../../users/rescue.nix
     ../../users/spum.nix
   ];
   

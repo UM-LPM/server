@@ -109,6 +109,115 @@ let
       (strings.concatStringsSep ":")
     ];
 
+    sortVolumes = volumes:
+    let 
+      ord = lists.toposort (x: y: x.name == y.backing) volumes;
+    in
+    assert assertMsg (!(ord?loops || ord?cycle)) "The dependency graph of volumes needs to be acyclic!";
+    ord.result;
+
+    prefixStringLines = prefix: str:
+      concatMapStringsSep "\n" (line: prefix + line) (splitString "\n" str);
+
+    indent1 = prefixStringLines "  ";
+    indent2 = prefixStringLines "    ";
+
+    mkPoolXML = name: cfg: ''
+      <pool type="dir">
+        <name>${name}</name>
+        <uuid>${cfg.uuid}</uuid>
+        <source />
+        <target>
+          <path>${cfg.path}</path>
+        </target>
+      </pool>
+    '';
+
+    mkQosXML = type: cfg: ''
+      <${type} average="${toString (inUnit.KB cfg.average)}" ${strings.optionalString (cfg.burst != null) ''burst="${toString (inUnit.KiB cfg.burst)}"''} />
+    '';
+
+    mkBandwidthXML = cfg: ''
+      <bandwidth>
+      ${strings.optionalString (cfg.inbound != null) (indent1 (mkQosXML "inbound" cfg.inbound))}
+      ${strings.optionalString (cfg.outbound != null) (indent1 (mkQosXML "outbound" cfg.outbound))}
+      </bandwidth>
+    '';
+
+    mkNetworkInterfaceXML = cfg: ''
+      <interface type="network">
+        <source network="${cfg.network}" />
+        <mac address="${cfg.mac}" />
+        <model type="virtio" />
+      ${strings.optionalString (cfg.bandwidth != null) (indent1 (mkBandwidthXML cfg.bandwidth))}
+      </interface>
+    '';
+
+    mkDirectInterfaceXML = cfg: ''
+      <interface type="direct">
+        <source dev="${cfg.device}" />
+        <model type="virtio"/>
+      </interface>
+    '';
+
+    mkDiskXML = cfg: ''
+      <disk type="volume" device="disk">
+        <driver name="qemu" type="qcow2"/>
+        <source pool="${cfg.pool}" volume="${cfg.volume}" />
+        <target dev="${cfg.device}" bus="virtio" />
+      </disk>
+    '';
+
+    mkDhcpHostXML = cfg: 
+    ''<host mac="${cfg.mac}" name="${cfg.hostname}" ip="${cfg.address}" />'';
+
+    mkDhcpXML = cfg: ''
+      <dhcp>
+        <range start="${cfg.start}" end="${cfg.end}"/>
+      ${indent1 (strings.concatStringsSep "\n" (map mkDhcpHostXML cfg.hosts))}
+      </dhcp>
+    '';
+
+    mkNetworkXML = name: cfg: ''
+      <network>
+        <name>${name}</name>
+        <uuid>${cfg.uuid}</uuid>
+        <bridge name="${cfg.bridge}" />
+        <domain name="l" localOnly="yes" />
+        <forward mode="nat" />
+        <dns>
+            <forwarder addr="${cfg.dns}"/>
+        </dns>
+        <ip address="${cfg.address}" prefix="${toString cfg.prefixLength}">
+        ${strings.optionalString (cfg.dhcp != null) (indent1 (mkDhcpXML cfg.dhcp))}
+        </ip>
+      </network>
+    '';
+
+    mkDomainXML = name: cfg: ''
+      <domain type="kvm">
+        <name>${name}</name>
+        <memory>${toString (inUnit.KiB cfg.memory)}</memory>
+        <vcpu>${toString cfg.vcpu}</vcpu>
+        <uuid>${cfg.uuid}</uuid>
+        <os>
+          <type arch="cfg86_64">hvm</type>
+        </os>
+        <features>
+            <acpi/>
+        </features>
+        <devices>
+      ${indent2 (strings.concatStrings (map mkDiskXML cfg.disks))}
+      ${indent2 (strings.concatStrings (map mkNetworkInterfaceXML cfg.networkInterfaces))}
+      ${indent2 (strings.concatStrings (map mkDirectInterfaceXML cfg.directInterfaces))}
+          <console type="pty"/>
+          <rng model="virtio">
+            <backend model="random">/dev/urandom</backend>
+          </rng>
+        </devices>
+      </domain>
+    '';
+
     volumeOptions = {
       options.name = mkOption {
         type = types.str;
@@ -130,7 +239,7 @@ let
       };
     };
 
-    poolOptions = {name, ...}: {
+    poolOptions = {name, config, ...}: {
       options.uuid = mkOption {
         type = types.str;
         description = "UUID";
@@ -154,13 +263,17 @@ let
         type = with types; listOf (submodule volumeOptions);
         description = "Volumes";
       };
+      options.xml = mkOption {
+        type = types.str;
+        description = "XML";
+        default = mkPoolXML name config;
+      };
     };
 
-    dhcpHostOptions = {config, ...}: {
+    dhcpHostOptions = {
       options.mac = mkOption {
         type = types.str;
         description = "MAC address";
-        default = macOf config.hostname;
       };
       options.hostname = mkOption {
         type = types.str;
@@ -188,7 +301,7 @@ let
       };
     };
 
-    networkOptions = {name, ...}: {
+    networkOptions = {name, config, ...}: {
       options.uuid = mkOption {
         type = types.str;
         description = "UUID";
@@ -224,6 +337,26 @@ let
         type = with types; nullOr (submodule dhcpOptions);
         description = lib.mdDoc "DHCP";
         default = null;
+      };
+      options.xml = mkOption {
+        type = types.str;
+        description = "XML";
+        default = mkNetworkXML name config;
+      };
+    };
+
+    diskOptions = {
+      options.device = mkOption {
+        type = types.str;
+        description = "Device";
+      };
+      options.pool = mkOption {
+        type = types.str;
+        description = "Pool";
+      };
+      options.volume = mkOption {
+        type = types.str;
+        description = "Volume";
       };
     };
 
@@ -284,7 +417,7 @@ let
       };
     };
 
-    domainOptions = {name, ...}: {
+    domainOptions = {name, config, ...}: {
       options.uuid = mkOption {
         type = types.str;
         description = "UUID";
@@ -302,27 +435,14 @@ let
       };
       options.memory = mkOption {
         type = types.ints.positive;
-        description = "Memory in KiB";
+        description = "Memory";
       };
       options.vcpu = mkOption {
         type = types.ints.positive;
         description = "Number of VCPUs";
       };
       options.disks = mkOption {
-        type = with types; listOf (submodule {
-          options.device = mkOption {
-            type = types.str;
-            description = "Device";
-          };
-          options.pool = mkOption {
-            type = types.str;
-            description = "Pool";
-          };
-          options.volume = mkOption {
-            type = types.str;
-            description = "Volume";
-          };
-        });
+        type = with types; listOf (submodule diskOptions);
         description = "Disks";
       };
       options.networkInterfaces = mkOption {
@@ -335,116 +455,12 @@ let
         description = "Direct interfaces";
         default = [];
       };
+      options.xml = mkOption {
+        type = types.str;
+        description = "XML";
+        default = mkDomainXML name config;
+      };
     };
-
-    sortVolumes = volumes:
-    let 
-      ord = lists.toposort (x: y: x.name == y.backing) volumes;
-    in
-    assert assertMsg (!(ord?loops || ord?cycle)) "The dependency graph of volumes needs to be acyclic!";
-    ord.result;
-
-    prefixStringLines = prefix: str:
-      concatMapStringsSep "\n" (line: prefix + line) (splitString "\n" str);
-
-    indent1 = prefixStringLines "  ";
-    indent2 = prefixStringLines "    ";
-
-    mkPoolXML = name: x: ''
-      <pool type="dir">
-        <name>${name}</name>
-        <uuid>${x.uuid}</uuid>
-        <source />
-        <target>
-          <path>${x.path}</path>
-        </target>
-      </pool>
-    '';
-
-    mkQosXML = type: {average, burst}: ''
-      <${type} average="${toString (inUnit.KB average)}" ${strings.optionalString (burst != null) ''burst="${toString (inUnit.KiB burst)}"''} />
-    '';
-
-    mkBandwidthXML = {inbound, outbound}: ''
-      <bandwidth>
-      ${strings.optionalString (inbound != null) (indent1 (mkQosXML "inbound" inbound))}
-      ${strings.optionalString (outbound != null) (indent1 (mkQosXML "outbound" outbound))}
-      </bandwidth>
-    '';
-
-    mkNetworkInterfaceXML = {network, mac, bandwidth, ...}: ''
-      <interface type="network">
-        <source network="${network}" />
-        <mac address="${mac}" />
-        <model type="virtio" />
-      ${strings.optionalString (bandwidth != null) (indent1 (mkBandwidthXML bandwidth))}
-      </interface>
-    '';
-
-    mkDirectInterfaceXML = x: ''
-      <interface type="direct">
-        <source dev="${x.device}" />
-        <model type="virtio"/>
-      </interface>
-    '';
-
-    mkDiskXML = x: ''
-      <disk type="volume" device="disk">
-        <driver name="qemu" type="qcow2"/>
-        <source pool="${x.pool}" volume="${x.volume}" />
-        <target dev="${x.device}" bus="virtio" />
-      </disk>
-    '';
-
-    mkDhcpHostXML = x: 
-    ''<host mac="${x.mac}" name="${x.hostname}" ip="${x.address}" />'';
-
-    mkDhcpXML = x: ''
-      <dhcp>
-        <range start="${x.start}" end="${x.end}"/>
-      ${indent1 (strings.concatStringsSep "\n" (map mkDhcpHostXML x.hosts))}
-      </dhcp>
-    '';
-
-    mkNetworkXML = name: x: ''
-      <network>
-        <name>${name}</name>
-        <uuid>${x.uuid}</uuid>
-        <bridge name="${x.bridge}" />
-        <domain name="l" localOnly="yes" />
-        <forward mode="nat" />
-        <dns>
-            <forwarder addr="${x.dns}"/>
-        </dns>
-        <ip address="${x.address}" prefix="${toString x.prefixLength}">
-        ${strings.optionalString (x.dhcp != null) (indent1 (mkDhcpXML x.dhcp))}
-        </ip>
-      </network>
-    '';
-
-    mkDomainXML = name: x: ''
-      <domain type="kvm">
-        <name>${name}</name>
-        <memory unit="b">${toString x.memory}</memory>
-        <vcpu>${toString x.vcpu}</vcpu>
-        <uuid>${x.uuid}</uuid>
-        <os>
-          <type arch="x86_64">hvm</type>
-        </os>
-        <features>
-            <acpi/>
-        </features>
-        <devices>
-      ${indent2 (strings.concatStrings (map mkDiskXML x.disks))}
-      ${indent2 (strings.concatStrings (map mkNetworkInterfaceXML x.networkInterfaces))}
-      ${indent2 (strings.concatStrings (map mkDirectInterfaceXML x.directInterfaces))}
-          <console type="pty"/>
-          <rng model="virtio">
-            <backend model="random">/dev/urandom</backend>
-          </rng>
-        </devices>
-      </domain>
-    '';
 
     writeConfig = xml: pkgs.runCommand "xml" {
       buildInputs = with pkgs; [coreutils libxml2];
@@ -454,58 +470,58 @@ let
     '';
       #xmllint --format <(cat <<<'${xml}') > $out
 
-    createVolume = pool: x: ''
-      if ! virsh vol-key --pool '${pool}' --vol '${x.name}'
+    createVolume = pool: cfg: ''
+      if ! virsh vol-key --pool '${pool}' --vol '${cfg.name}'
       then
-        virsh vol-create-as --pool '${pool}' --name '${x.name}' --capacity '${toString x.capacity}' ${strings.optionalString (x.allocation != null) "--allocation '${toString x.allocation}'"} --format qcow2 ${strings.optionalString (x.backing != null) "--backing-vol '${x.backing}' --backing-vol-format qcow2"} 
+        virsh vol-create-as --pool '${pool}' --name '${cfg.name}' --capacity '${toString (inUnit.B cfg.capacity)}' ${strings.optionalString (cfg.allocation != null) "--allocation '${toString (inUnit.B cfg.allocation)}'"} --format qcow2 ${strings.optionalString (cfg.backing != null) "--backing-vol '${cfg.backing}' --backing-vol-format qcow2"} 
       fi
     '';
 
-    createPool = name: x:
+    createPool = name: cfg:
     let 
-      volumes = sortVolumes x.volumes;
-      xml = writeConfig (mkPoolXML name x);
+      volumes = sortVolumes cfg.volumes;
+      xml = writeConfig (cfg.xml);
     in ''
       : '
       ${indent1 (builtins.readFile xml)}
       '
       virsh pool-define '${xml}'
-      virsh pool-build ${x.uuid}
-      ${if x.start then "virsh pool-start ${x.uuid}" else "virsh pool-destroy ${x.uuid}"}
-      ${if x.autoStart then "virsh pool-autostart ${x.uuid}" else "virsh pool-autostart ${x.uuid} --disable" }
+      virsh pool-build ${cfg.uuid}
+      ${if cfg.start then "virsh pool-start ${cfg.uuid}" else "virsh pool-destroy ${cfg.uuid}"}
+      ${if cfg.autoStart then "virsh pool-autostart ${cfg.uuid}" else "virsh pool-autostart ${cfg.uuid} --disable" }
 
       ${strings.concatStrings (map (createVolume name) volumes)}
     '';
 
-    updateDhcpHost = network: x: ''
-      virsh net-update '${network}' add ip-dhcp-host '${mkDhcpHostXML x}' --live
-      virsh net-update '${network}' modify ip-dhcp-host '${mkDhcpHostXML x}' --live
+    updateDhcpHost = network: cfg: ''
+      virsh net-update '${network}' add ip-dhcp-host '${mkDhcpHostXML cfg}' --live
+      virsh net-update '${network}' modify ip-dhcp-host '${mkDhcpHostXML cfg}' --live
     '';
 
-    createNetwork = name: x:
+    createNetwork = name: cfg:
     let
-      xml = writeConfig (mkNetworkXML name x);
+      xml = writeConfig (cfg.xml);
     in ''
       : '
       ${indent1 (builtins.readFile xml)}
       '
       virsh net-define '${xml}'
-      ${strings.optionalString x.start "virsh net-start ${x.uuid}"}
-      ${strings.optionalString x.autoStart "virsh net-autostart ${x.uuid}"}
+      ${strings.optionalString cfg.start "virsh net-start ${cfg.uuid}"}
+      ${strings.optionalString cfg.autoStart "virsh net-autostart ${cfg.uuid}"}
 
-      ${strings.optionalString (x.dhcp != null) (strings.concatStrings (map (updateDhcpHost x.uuid) x.dhcp.hosts))}
+      ${strings.optionalString (cfg.dhcp != null) (strings.concatStrings (map (updateDhcpHost cfg.uuid) cfg.dhcp.hosts))}
     '';
 
-    createDomain = name: x:
+    createDomain = name: cfg:
     let
-      xml = writeConfig (mkDomainXML name x);
+      xml = writeConfig (cfg.xml);
     in ''
       : '
       ${indent1 (builtins.readFile xml)}
       '
       virsh define '${xml}'
-      ${if x.start then "virsh start ${x.uuid}" else "virsh shutdown ${x.uuid}"}
-      ${if x.autoStart then "virsh autostart ${x.uuid}" else "virsh autostart ${x.uuid} --disable"}
+      ${if cfg.start then "virsh start ${cfg.uuid}" else "virsh shutdown ${cfg.uuid}"}
+      ${if cfg.autoStart then "virsh autostart ${cfg.uuid}" else "virsh autostart ${cfg.uuid} --disable"}
     '';
 
     deploymentScript = pkgs.writeShellScript "builder.sh" ''
@@ -542,12 +558,12 @@ in
     config._module.args = {
       inherit macOf uuidOf;
       unit = {
-        KB = x: 1000 * x;
-        MB = x: 1000000 * x;
-        GB = x: 1000000000 * x;
-        KiB = x: 1024 * x;
-        MiB = x: 1048576 * x;
-        GiB = x: 1073741824 * x;
+        kB = x: x * 1000;
+        MB = x: x * 1000000;
+        GB = x: x * 1000000000;
+        KiB = x: x * 1024;
+        MiB = x: x * 1048576;
+        GiB = x: x * 1073741824;
       };
     };
 

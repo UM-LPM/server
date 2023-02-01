@@ -29,4 +29,6 @@ jobs:
         ssh-add - <<< "${{secrets.serversshkey}}"
         cd infra
         nix-build -A config.toplevel gen.nix -I infra=./infra.nix
+        nix-env -iA nixpkgs.libvirt
         bash result/deploy
+        exit 0

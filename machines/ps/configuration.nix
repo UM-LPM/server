@@ -8,7 +8,7 @@
     ../../modules/docker-auto-clean.nix 
     ../../modules/backup.nix
     ../../users/root.nix
-    ../../users/user.nix
+    ../../users/rescue.nix
     ../../users/ps.nix
   ];
 

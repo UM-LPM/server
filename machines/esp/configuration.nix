@@ -6,7 +6,7 @@
     ../../modules/base.nix
     ../../modules/docker-host.nix
     ../../users/root.nix
-    ../../users/user.nix
+    ../../users/rescue.nix
     ../../users/esp.nix
   ];
   

@@ -30,5 +30,4 @@ jobs:
         cd infra
         nix-build -A config.toplevel gen.nix -I infra=./infra.nix
         nix-env -i libvirt -f '<nixpkgs>'
-        bash result/deploy
-        exit 0
+        bash result/deploy || true

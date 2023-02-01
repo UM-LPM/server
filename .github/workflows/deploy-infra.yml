@@ -2,10 +2,6 @@ name: Deploy infra
 
 on:
   workflow_call:
-    inputs:
-      machine:
-        required: true
-        type: string
     secrets:
       serversshkey:
         required: true

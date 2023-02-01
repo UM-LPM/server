@@ -234,8 +234,8 @@
           hostname = "proxy.l";
           address = "10.17.3.221";
           bandwidth = {
-            inbound = {average = unit.MB 1; burst = unit.MiB 5;};
-            outbound = {average = unit.MB 1; burst = unit.MiB 5;};
+            inbound = {average = unit.MB 4; burst = unit.MiB 10;};
+            outbound = {average = unit.MB 4; burst = unit.MiB 10;};
           };
         }
       ];

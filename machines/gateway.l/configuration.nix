@@ -30,15 +30,32 @@
 
   #security.acme.email = "zigaleber7@gmail.com";
 
-  security.acme.certs = {
-    "bioma2022.um.si".email = "zigaleber7@gmail.com"; 
-    "umplatforma.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
-    "test.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
-    "ps.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
-    "collab.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
-    "gb.lpm.feri.um.si".email = "zigaleber7@gmail.com"; 
-  };
-  security.acme.acceptTerms = true;
+  security.acme.certs =
+    let email = "ziga.leber@um.si"; in
+    {
+      "bioma2022.um.si" = {
+        inherit email;
+      };
+      "umplatforma.lpm.feri.um.si" = {
+        inherit email;
+      };
+      "test.lpm.feri.um.si" = {
+        inherit email;
+      };
+      "ps.lpm.feri.um.si" = {
+        inherit email;
+      };
+      "collab.lpm.feri.um.si" = {
+        inherit email;
+      };
+      "gb.lpm.feri.um.si" = {
+        inherit email;
+      };
+      "sso-test.lpm.feri.um.si" = {
+        inherit email;
+      };
+    };
+    security.acme.acceptTerms = true;
 
   networking.firewall.allowedTCPPorts = [80 443 1883 5050];
   networking.firewall.interfaces.ens2.allowedTCPPorts = [22 9100];
@@ -137,6 +154,16 @@
             return 444;
           }
         '';
+      };
+      "sso-test.lpm.feri.um.si" = {
+        #forceSSL = true;
+        addSSL = true;
+        enableACME = true; 
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://sso-test.l:8080/";
+        };
       };
       "gb.lpm.feri.um.si" = {
         #forceSSL = true;

@@ -25,7 +25,7 @@ jobs:
   machines:
     strategy:
       matrix:
-        machine: [green, gateway.l, builder.l, calendar.l, prometheus.l, proxy.l, sso-test.l, spum-platform, grades, ps, esp, usatour, bioma, gb, ears, collab]
+        machine: [green, gateway.l, builder.l, calendar.l, prometheus.l, proxy.l, spum-platform, grades, ps, esp, usatour, bioma, gb, ears, collab]
 
     needs: bastion
 

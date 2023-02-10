@@ -1,10 +1,10 @@
-{config, lib, pkgs, ...}:
+{config, lib, pkgs, inputs, ...}:
 
 with lib;
 
 {
   imports = [
-    <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
+    "${inputs.nixpkgs}/nixos/modules/profiles/qemu-guest.nix"
   ];
 
   fileSystems."/" = {
@@ -44,7 +44,7 @@ with lib;
 
   system.stateVersion = "21.05";
 
-  system.build.image = import <nixpkgs/nixos/lib/make-disk-image.nix> {
+  system.build.image = import "${inputs.nixpkgs}/nixos/lib/make-disk-image.nix" {
     inherit lib config pkgs;
     diskSize = 8192;
     format = "qcow2";

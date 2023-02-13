@@ -18,8 +18,8 @@
     samlCertificate = ./saml.crt;
     samlCertificateKey = config.age.secrets.saml-key.path;
     idpMetadata = builtins.fetchurl {
-      url = "https://ds.aai.arnes.si/metadata/aai.arnes.si.sha256.xml";
-      sha256 = "0w6ww213cjzxlya8bb47gdx8vqcp1wif6ycsymlxggvi1i8gc87i";
+      url = "https://ds.aai.arnes.si/metadata/test-fed.arnes.si.signed.xml";
+      sha256 = "1k7mzp516q0xap83aajpm72ykl4a8p4f036gzplczllps6pf6826";
     };
   };
 }

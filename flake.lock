@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1675176355,
-        "narHash": "sha256-Qjxh5cmN56siY97mzmBLI1+cdjXSPqmfPVsKxBvHmwI=",
+        "lastModified": 1676153903,
+        "narHash": "sha256-uetRyjgMiZCs6srmZ10M764Vn7F53M9mVuqnzHmyBqU=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "b7ffcfe77f817d9ee992640ba1f270718d197f28",
+        "rev": "ea17cc71b4e1bc5b2601f210a1c85db9453ad723",
         "type": "github"
       },
       "original": {
@@ -317,11 +317,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1675918889,
-        "narHash": "sha256-hy7re4F9AEQqwZxubct7jBRos6md26bmxnCjxf5utJA=",
+        "lastModified": 1676177817,
+        "narHash": "sha256-OQnBnuKkpwkfNY31xQyfU5hNpLs1ilWt+hVY6ztEEOM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "49efda9011e8cdcd6c1aad30384cb1dc230c82fe",
+        "rev": "1b82144edfcd0c86486d2e07c7298f85510e7fb8",
         "type": "github"
       },
       "original": {
@@ -452,11 +452,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1676059786,
-        "narHash": "sha256-CxdXoQ6UuVlqPuky3n2UQnaU3zL/yfCb5YtnD0FiwME=",
+        "lastModified": 1676285715,
+        "narHash": "sha256-gBvfFPbWPDH94QDLUeOa7zVJBWWXG/BwVHBnvhKj2Uk=",
         "owner": "UM-LPM",
         "repo": "sso-test",
-        "rev": "0588b5da5020ba79181bd170e8b3605ef2ad097b",
+        "rev": "73a09bee180ae9ede521791a4dad724f8dedaccd",
         "type": "github"
       },
       "original": {

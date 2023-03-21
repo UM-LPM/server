@@ -201,7 +201,7 @@ let
         <vcpu>${toString cfg.vcpu}</vcpu>
         <uuid>${cfg.uuid}</uuid>
         <os>
-          <type arch="cfg86_64">hvm</type>
+          <type arch="x86_64">hvm</type>
         </os>
         <features>
             <acpi/>

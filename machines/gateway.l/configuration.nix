@@ -21,6 +21,10 @@
         address = "164.8.230.210";
         prefixLength = 24;
       }
+      {
+        address = "164.8.230.211";
+        prefixLength = 24;
+      }
     ];
 
     defaultGateway = {
@@ -57,7 +61,7 @@
     };
     security.acme.acceptTerms = true;
 
-  networking.firewall.allowedTCPPorts = [80 443 1883 5050];
+  networking.firewall.allowedTCPPorts = [80 443 1883 5050 8080];
   networking.firewall.interfaces.ens2.allowedTCPPorts = [22 9100];
 
   services.nginx = {
@@ -68,6 +72,10 @@
         server {
           listen 164.8.230.210:1883;
           proxy_pass spum-mqtt:1883;
+        }
+        server {
+          listen 164.8.230.211:1883;
+          proxy_pass student-mqtt.l:1883;
         }
       }
     '';
@@ -134,6 +142,17 @@
           }
         '';
       };
+      "student-mqtt.lpm.feri.um.si" = {
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://student-mqtt.l:8080";
+          extraConfig = ''
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "Upgrade";
+          '';
+        };
+      };
       "collab.lpm.feri.um.si" = {
         #forceSSL = true;
         addSSL = true;
@@ -163,6 +182,10 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://sso-test.l:8080/";
+          extraConfig = ''
+            allow 164.8.230.192/26;
+            deny all;
+          '';
         };
       };
       "gb.lpm.feri.um.si" = {

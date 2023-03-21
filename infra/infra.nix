@@ -280,7 +280,7 @@
         {
           network = "private-network";
           hostname = "student-mqtt.l";
-          address = "10.17.3.101";
+          address = "10.17.3.230";
         }
       ];
     };

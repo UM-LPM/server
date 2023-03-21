@@ -14,21 +14,24 @@
     };
   in
   {
-    nixosConfigurations = 
+    nixosConfigurations =
     let
-      mkSystem = hostname: nixpkgs.lib.nixosSystem {
+      mkSystem = hostname: extraModules: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
+        modules = extraModules ++ [
           agenix.nixosModules.default
           ./modules/secrets.nix
           ./machines/${hostname}/configuration.nix
-          {nixpkgs.overlays = [sso-test-overlay];}
-          sso-test.nixosModules.service
         ];
         specialArgs = {inherit inputs;};
       };
     in {
-      "sso-test.l" = mkSystem "sso-test.l";
+      "gateway.l" = mkSystem "gateway.l" [];
+      "student-mqtt.l" = mkSystem "student-mqtt.l" [];
+      "sso-test.l" = mkSystem "sso-test.l" [
+        {nixpkgs.overlays = [sso-test-overlay];}
+        sso-test.nixosModules.service
+      ];
     };
 
     packages."x86_64-linux" = {

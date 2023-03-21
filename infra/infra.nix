@@ -54,6 +54,11 @@
           backing = "minimal-base-v2";
           capacity = unit.GiB 8;
         }
+        {
+          name = "student-mqtt";
+          backing = "minimal-base-v2";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -71,7 +76,6 @@
         end = "10.17.3.254";
         hosts = [
           {mac = "02:a2:cd:0c:46:78"; hostname = "spum-platform"; address = "10.17.3.110";}
-          {mac = "02:38:60:94:88:cc"; hostname = "spum-mqtt";     address = "10.17.3.111";}
           {mac = "02:c4:28:97:46:27"; hostname = "grades";        address = "10.17.3.120";}
           {mac = "02:17:14:14:5a:c4"; hostname = "ps";            address = "10.17.3.130";}
           {mac = "02:aa:bc:09:52:6d"; hostname = "esp";           address = "10.17.3.140";}
@@ -257,6 +261,26 @@
           network = "private-network";
           hostname = "calendar.l";
           address = "10.17.3.160";
+        }
+      ];
+    };
+    "student-mqtt" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "default";
+          volume = "student-mqtt";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "student-mqtt.l";
+          address = "10.17.3.101";
         }
       ];
     };

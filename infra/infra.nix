@@ -59,6 +59,11 @@
           backing = "minimal-base-v2";
           capacity = unit.GiB 8;
         }
+        {
+          name = "kaze";
+          backing = "minimal-base-v2";
+          capacity = unit.GiB 16;
+        }
       ];
     };
   };
@@ -281,6 +286,26 @@
           network = "private-network";
           hostname = "student-mqtt.l";
           address = "10.17.3.230";
+        }
+      ];
+    };
+    "kaze" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 100;
+      vcpu = 32;
+      disks = [
+        {
+          device = "vda";
+          pool = "default";
+          volume = "kaze";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "kaze.l";
+          address = "10.17.3.240";
         }
       ];
     };

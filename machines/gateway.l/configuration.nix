@@ -58,27 +58,43 @@
       "sso-test.lpm.feri.um.si" = {
         inherit email;
       };
+      "student-mqtt.lpm.feri.um.si" = {
+        inherit email;
+      };
     };
     security.acme.acceptTerms = true;
 
-  networking.firewall.allowedTCPPorts = [80 443 1883 5050 8080];
+  networking.firewall.allowedTCPPorts = [80 443 1883 5050 8080 8883];
   networking.firewall.interfaces.ens2.allowedTCPPorts = [22 9100];
 
   services.nginx = {
     enable = true;
 
-    appendConfig = ''
-      stream {
-        server {
-          listen 164.8.230.210:1883;
-          proxy_pass spum-mqtt:1883;
+    appendConfig =
+      let
+        certs = config.security.acme.certs;
+        certName = "student-mqtt.lpm.feri.um.si";
+        sslCertificate = "${certs.${certName}.directory}/fullchain.pem";
+        sslCertificateKey = "${certs.${certName}.directory}/key.pem";
+      in
+      ''
+        stream {
+          server {
+            listen 164.8.230.210:1883;
+            proxy_pass spum-mqtt:1883;
+          }
+          server {
+            listen 164.8.230.211:1883;
+            proxy_pass student-mqtt.l:1883;
+          }
+          server {
+            listen 164.8.230.211:8883 ssl;
+            proxy_pass student-mqtt.l:1883;
+            ssl_certificate ${sslCertificate};
+            ssl_certificate_key ${sslCertificateKey};
+          }
         }
-        server {
-          listen 164.8.230.211:1883;
-          proxy_pass student-mqtt.l:1883;
-        }
-      }
-    '';
+      '';
     virtualHosts = {
       "umplatforma.lpm.feri.um.si" = {
         #forceSSL = true;
@@ -143,6 +159,9 @@
         '';
       };
       "student-mqtt.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://student-mqtt.l:8080";

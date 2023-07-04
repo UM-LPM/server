@@ -4,6 +4,6 @@
     isNormalUser = true;
     description = "Collaboration platform user";
     extraGroups = ["docker"];
-    openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [mario ziga matej];
+    openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [mario ziga matej marko];
   };
 }

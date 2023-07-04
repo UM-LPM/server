@@ -54,8 +54,6 @@ in
     kbdInteractiveAuthentication = false;
   };
   
-
-  
   services.prometheus.exporters.node = {
     enable = true;
     enabledCollectors = [
@@ -78,6 +76,7 @@ in
     description = "Start the green service";
     environment = {
       JAVA_HOME = "${pkgs.jdk}/lib/openjdk";
+      GREEN_OPTS = "-Xmx12G";
     };
     serviceConfig = {
       Type = "simple";

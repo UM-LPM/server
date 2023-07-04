@@ -28,6 +28,7 @@
     in {
       "gateway.l" = mkSystem "gateway.l" [];
       "student-mqtt.l" = mkSystem "student-mqtt.l" [];
+      "kaze.l" = mkSystem "kaze.l" [];
       "sso-test.l" = mkSystem "sso-test.l" [
         {nixpkgs.overlays = [sso-test-overlay];}
         sso-test.nixosModules.service

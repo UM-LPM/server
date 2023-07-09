@@ -17,7 +17,7 @@ jobs:
   bastion:
     uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master
     with:
-      machine: bastion.l
+      machine: "bastion.l"
     secrets: inherit
     
    # needs: infra
@@ -25,7 +25,7 @@ jobs:
   machines:
     strategy:
       matrix:
-        machine: [gateway.l, builder.l, calendar.l, prometheus.l, proxy.l, collab.l]
+        machine: ["gateway.l", "builder.l", "calendar.l", "prometheus.l", "proxy.l", "collab.l"]
 
     needs: bastion
 

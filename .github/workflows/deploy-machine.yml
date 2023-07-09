@@ -31,6 +31,7 @@ jobs:
         
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
+        nix flake update
         ./deploy.sh ${{inputs.machine}}
 
 

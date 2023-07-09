@@ -1,0 +1,17 @@
+Host bastion
+    User root
+    HostName bastion.lpm.feri.um.si
+
+Host green
+    User root
+    HostName green.lpm.feri.um.si
+
+Host *.l
+    User root
+    HostName %h
+    ProxyJump bastion@bastion
+
+Host builder grades spum-platform spum-mqtt spum-docker-registry ps esp usatour prometheus bioma gb ears collab
+    User root
+    HostName %h
+    ProxyJump bastion

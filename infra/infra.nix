@@ -64,6 +64,16 @@
           backing = "minimal-base-v2";
           capacity = unit.GiB 16;
         }
+        {
+          name = "collab";
+          backing = "minimal-base-v2";
+          capacity = unit.GiB 16;
+        }
+        {
+          name = "collab-dev";
+          backing = "minimal-base-v2";
+          capacity = unit.GiB 16;
+        }
       ];
     };
   };
@@ -88,7 +98,6 @@
           {mac = "02:a5:f8:7e:1d:b3"; hostname = "bioma";         address = "10.17.3.180";}
           {mac = "02:af:e7:1b:e5:de"; hostname = "gb";            address = "10.17.3.190";} 
           {mac = "02:33:74:0c:86:ee"; hostname = "ears";          address = "10.17.3.200";}
-          {mac = "02:da:bb:9f:f8:54"; hostname = "collab";        address = "10.17.3.210";}
         ];
       };
     };
@@ -306,6 +315,46 @@
           network = "private-network";
           hostname = "kaze.l";
           address = "10.17.3.240";
+        }
+      ];
+    };
+    "collab" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "default";
+          volume = "collab";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "collab.l";
+          address = "10.17.3.210";
+        }
+      ];
+    };
+    "collab-dev" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "default";
+          volume = "collab-dev";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "collab-dev.l";
+          address = "10.17.3.211";
         }
       ];
     };

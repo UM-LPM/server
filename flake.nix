@@ -1,11 +1,12 @@
 {
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-22.11;
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-23.05;
     agenix.url = github:ryantm/agenix;
     sso-test.url = github:UM-LPM/sso-test;
+    collab.url = github:UM-LPM/QA;
   };
 
-  outputs = {self, nixpkgs, agenix, sso-test}@inputs:
+  outputs = {self, nixpkgs, agenix, sso-test, collab, ...}@inputs:
   let 
     pkgs = nixpkgs.legacyPackages.x86_64-linux; 
 
@@ -26,12 +27,16 @@
         specialArgs = {inherit inputs;};
       };
     in {
+      "bastion.l" = mkSystem "bastion.l" [];
       "gateway.l" = mkSystem "gateway.l" [];
       "student-mqtt.l" = mkSystem "student-mqtt.l" [];
       "kaze.l" = mkSystem "kaze.l" [];
       "sso-test.l" = mkSystem "sso-test.l" [
         {nixpkgs.overlays = [sso-test-overlay];}
         sso-test.nixosModules.service
+      ];
+      "collab.l" = mkSystem "collab.l" [
+        collab.nixosModules.default
       ];
     };
 

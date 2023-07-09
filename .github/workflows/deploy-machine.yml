@@ -19,7 +19,7 @@ jobs:
       with:
         github_access_token: ${{secrets.GITHUB_TOKEN}}
         extra_nix_config: |
-         access-tokens = github.com=${{secrets.GITHUB_TOKEN}}
+         access-tokens = github.com=${{secrets.PAT}}
     
     - name: Deploy
       run: |

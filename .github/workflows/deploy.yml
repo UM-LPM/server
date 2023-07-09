@@ -10,9 +10,9 @@ on:
 concurrency: deploy
 
 jobs:
-  infra:
-    uses: UM-LPM/server/.github/workflows/deploy-infra.yml@master
-    secrets: inherit
+  #infra:
+  #  uses: UM-LPM/server/.github/workflows/deploy-infra.yml@master
+  #  secrets: inherit
     
   bastion:
     uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master
@@ -20,12 +20,12 @@ jobs:
       machine: bastion
     secrets: inherit
     
-    needs: infra
+   # needs: infra
 
   machines:
     strategy:
       matrix:
-        machine: [green, gateway.l, builder.l, calendar.l, prometheus.l, proxy.l, spum-platform, grades, ps, esp, usatour, bioma, gb, ears, collab]
+        machine: [gateway.l, builder.l, calendar.l, prometheus.l, proxy.l, collab.l]
 
     needs: bastion
 

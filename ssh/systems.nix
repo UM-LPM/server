@@ -1,4 +1,5 @@
 {
+  "bastion" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1p6tEwRxVlTFWfb/pGbAp6jwKIXcD7qyvpYsGjL0W3";
   "bastion.l" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1p6tEwRxVlTFWfb/pGbAp6jwKIXcD7qyvpYsGjL0W3";
   "sso-test.l" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJlDx9wxreroWOqxj4JiuvKsuPxKB2wFkEbzy+IMKvQ/";
   "gateway.l" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPn6rWbPYE7lZHVJldIBie/hn1de/4o4dozGTl1SQ/Ea";

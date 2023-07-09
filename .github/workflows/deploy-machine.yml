@@ -31,6 +31,5 @@ jobs:
       run: |
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
-        cd machines
         ./deploy.sh ${{inputs.machine}}
 

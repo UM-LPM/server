@@ -18,6 +18,8 @@ jobs:
     - uses: cachix/install-nix-action@v22
       with:
         github_access_token: ${{secrets.GITHUB_TOKEN}}
+        extra_nix_config: |
+         access-tokens github.com=${{secrets.GITHUB_TOKEN}}
     
     - name: Deploy
       run: |
@@ -30,6 +32,6 @@ jobs:
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
         host=${{inputs.machine}}
-        nix --access-tokens github.com=${{secrets.GITHUB_TOKEN}} run -- 'nixpkgs#nixos-rebuild' switch --target-host "$host" --flake ".#$host"  
+        nix run -- 'nixpkgs#nixos-rebuild' switch --target-host "$host" --flake ".#$host"  
 
 

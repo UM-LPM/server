@@ -29,5 +29,7 @@ jobs:
         
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
-        ./deploy.sh ${{inputs.machine}} ${{secrets.GITHUB_TOKEN}}
+        host=${{inputs.machine}}
+        nix --access-tokens github.com=${{secrets.GITHUB_TOKEN}} run -- 'nixpkgs#nixos-rebuild' switch --target-host "$host" --flake ".#$host"  
+
 

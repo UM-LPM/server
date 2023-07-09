@@ -25,7 +25,7 @@ jobs:
   machines:
     strategy:
       matrix:
-        machine: ["gateway.l", "builder.l", "calendar.l", "prometheus.l", "proxy.l", "collab.l"]
+        machine: ["gateway.l", "collab.l"]
 
     needs: bastion
 

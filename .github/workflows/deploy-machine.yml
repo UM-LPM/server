@@ -13,19 +13,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v22
       with:
-        repository: UM-LPM/known_hosts
-        path: known_hosts
-    - uses: cachix/install-nix-action@v18
-      with: 
-        nix_path: nixpkgs=channel:nixos-23.05
-
-    - name: Set known hosts
-      run: install -D -m 600 known_hosts/known_hosts ~/.ssh/known_hosts
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Deploy
       run: |

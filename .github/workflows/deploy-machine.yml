@@ -31,7 +31,7 @@ jobs:
         
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
-        host=${{inputs.machine}}
-        nix run -- 'nixpkgs#nixos-rebuild' switch --target-host "$host" --flake ".#$host"  
+        ./deploy.sh ${{inputs.machine}}
+
 
 

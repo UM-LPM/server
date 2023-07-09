@@ -178,11 +178,11 @@
         enableACME = true; 
 
         locations."/api/" = {
-          proxyPass = "http://collab:8080/api/";
+          proxyPass = "http://collab.l:8080/api/";
         }; 
         
         locations."/" = {
-          proxyPass = "http://collab:8000/";
+          proxyPass = "http://collab.l/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

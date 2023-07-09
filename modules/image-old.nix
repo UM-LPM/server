@@ -1,10 +1,10 @@
-{config, lib, pkgs, inputs, ...}:
+{config, lib, pkgs, ...}:
 
 with lib;
 
 {
   imports = [
-    "${inputs.nixpkgs}/nixos/modules/profiles/qemu-guest.nix"
+    <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
   ];
 
   fileSystems."/" = {
@@ -42,9 +42,9 @@ with lib;
   # Disable fonts (we don't have X)
   fonts.fontconfig.enable = mkDefault false;
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "21.05";
 
-  system.build.image = import "${inputs.nixpkgs}/nixos/lib/make-disk-image.nix" {
+  system.build.image = import <nixpkgs/nixos/lib/make-disk-image.nix> {
     inherit lib config pkgs;
     diskSize = 8192;
     format = "qcow2";

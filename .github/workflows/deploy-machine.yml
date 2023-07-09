@@ -21,7 +21,13 @@ jobs:
     
     - name: Deploy
       run: |
+        build() {
+          nix build --no-link "$@"
+          nix path-info "$@"
+        }
+
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
+        install -D -m 400 $(build '.#known-hosts') ~/.ssh/known_hosts
         ./deploy.sh ${{inputs.machine}}
 

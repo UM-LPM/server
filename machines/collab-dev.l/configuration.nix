@@ -13,6 +13,7 @@
 
   noo.services.collab = {
     enable = true;
+    isDevelopment = true;
     jwtSecret = "mysecret";
     adminDefaultPassword = "myadmindefaultpass";
   };

@@ -186,17 +186,6 @@
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';
         };
-        extraConfig = ''
-          if ($host != $server_name) {
-            return 444;
-          }
-        '';
-      };
-      "collab.lpm.feri.um.si" = {
-        #forceSSL = true;
-        addSSL = true;
-        enableACME = true; 
-
         locations."/dev/api/" = {
           proxyPass = "http://collab-dev.l:8080/api/";
         };

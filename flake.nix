@@ -4,9 +4,10 @@
     agenix.url = github:ryantm/agenix;
     sso-test.url = github:UM-LPM/sso-test;
     collab.url = github:UM-LPM/QA;
+    collab-dev.url = github:UM-LPM/QA/development;
   };
 
-  outputs = {self, nixpkgs, agenix, sso-test, collab, ...}@inputs:
+  outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, ...}@inputs:
   let 
     pkgs = nixpkgs.legacyPackages.x86_64-linux; 
 
@@ -37,6 +38,9 @@
       ];
       "collab.l" = mkSystem "collab.l" [
         collab.nixosModules.default
+      ];
+      "collab-dev.l" = mkSystem "collab-dev.l" [
+        collab-dev.nixosModules.default
       ];
     };
 

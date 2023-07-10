@@ -52,6 +52,9 @@
       "collab.lpm.feri.um.si" = {
         inherit email;
       };
+      "dev.collab.lpm.feri.um.si" = {
+        inherit email;
+      };
       "gb.lpm.feri.um.si" = {
         inherit email;
       };
@@ -186,10 +189,21 @@
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';
         };
-        locations."/dev/api/" = {
+        extraConfig = ''
+          if ($host != $server_name) {
+            return 444;
+          }
+        '';
+      };
+      "dev.collab.lpm.feri.um.si" = {
+        #forceSSL = true;
+        addSSL = true;
+        enableACME = true; 
+
+        locations."/api/" = {
           proxyPass = "http://collab-dev.l:8080/api/";
         };
-        locations."/dev/" = {
+        locations."/" = {
           proxyPass = "http://collab-dev.l/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";

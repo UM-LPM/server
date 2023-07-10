@@ -3,8 +3,8 @@
     nixpkgs.url = github:NixOS/nixpkgs/nixos-23.05;
     agenix.url = github:ryantm/agenix;
     sso-test.url = github:UM-LPM/sso-test;
-    collab.url = github:UM-LPM/QA;
-    collab-dev.url = github:UM-LPM/QA/development;
+    collab.url = github:UM-LPM/QA/production;
+    collab-dev.url = github:UM-LPM/QA;
   };
 
   outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, ...}@inputs:

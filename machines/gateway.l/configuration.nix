@@ -179,10 +179,29 @@
 
         locations."/api/" = {
           proxyPass = "http://collab.l:8080/api/";
-        }; 
-        
+        };
         locations."/" = {
           proxyPass = "http://collab.l/";
+          extraConfig = ''
+            add_header Cache-Control "no-store, no-cache, must-revalidate";
+          '';
+        };
+        extraConfig = ''
+          if ($host != $server_name) {
+            return 444;
+          }
+        '';
+      };
+      "collab.lpm.feri.um.si" = {
+        #forceSSL = true;
+        addSSL = true;
+        enableACME = true; 
+
+        locations."/dev/api/" = {
+          proxyPass = "http://collab-dev.l:8080/api/";
+        };
+        locations."/dev/" = {
+          proxyPass = "http://collab-dev.l/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

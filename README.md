@@ -13,3 +13,10 @@
 ## Bass
 
 - [setup](doc/bass_setup.md)
+
+## Binary cache
+
+Public key
+```
+cache.lpm.feri.um.si:mRrqApyiZICyeWfyiEoJPy+Cz50YAJhN9Gpe49Bhmos=
+```

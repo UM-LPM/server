@@ -64,6 +64,9 @@
       "student-mqtt.lpm.feri.um.si" = {
         inherit email;
       };
+      "cache.lpm.feri.um.si" = {
+        inherit email;
+      };
     };
     security.acme.acceptTerms = true;
 
@@ -227,6 +230,15 @@
             allow 164.8.230.192/26;
             deny all;
           '';
+        };
+      };
+      "cache.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true; 
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://sso-test.l:8080/";
         };
       };
       "gb.lpm.feri.um.si" = {

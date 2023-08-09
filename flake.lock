@@ -67,15 +67,16 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1689000352,
-        "narHash": "sha256-F1MS4U6p0gSvN52NPCsYv1tx/5xGNFyY/IAj7QEYBfA=",
+        "lastModified": 1689005190,
+        "narHash": "sha256-N7NYlq3o+/i2QwKNenP0IBoSPrx+ioh+pDoIYvb6go8=",
         "owner": "UM-LPM",
         "repo": "QA",
-        "rev": "fb0bcc1b36c53d99861e1103ac0f76b739211774",
+        "rev": "9e3d28c2c7d416c61640beb60f9dd9aaae65c32a",
         "type": "github"
       },
       "original": {
         "owner": "UM-LPM",
+        "ref": "production",
         "repo": "QA",
         "type": "github"
       }
@@ -86,16 +87,15 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1689000511,
-        "narHash": "sha256-uU1WSXLj8Nbku7e2AAj26r6f3JBHFFhhOrFseZXuoYo=",
+        "lastModified": 1691496884,
+        "narHash": "sha256-i5LGGERxIvf7YDlXLDUcTS3IAMcr32cL+t5ki19r0yU=",
         "owner": "UM-LPM",
         "repo": "QA",
-        "rev": "83bfc653f3e544a6063ca8dc65a280cbdffc4fbf",
+        "rev": "83f9fb6d7211556a14f58a550d276cab0bebaa2a",
         "type": "github"
       },
       "original": {
         "owner": "UM-LPM",
-        "ref": "development",
         "repo": "QA",
         "type": "github"
       }
@@ -425,13 +425,17 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "narHash": "sha256-FsvK+tIvelCI0tWwlMDKfiyb7P/KfxpGbXMrdCKiT8s=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/nixos-23.05.tar.gz"
+        "lastModified": 1691579193,
+        "narHash": "sha256-qjDe7GviPz/GVv/IGOK1gAWsjx5LWDO5/48dk1UziTk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9ae97d9a19ce89b61a4877b1c8097d0dac6456e3",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/nixos-23.05.tar.gz"
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs_4": {

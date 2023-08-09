@@ -30,6 +30,7 @@
     in {
       "bastion.l" = mkSystem "bastion.l" [];
       "gateway.l" = mkSystem "gateway.l" [];
+      "builder.l" = mkSystem "builder.l" [];
       "student-mqtt.l" = mkSystem "student-mqtt.l" [];
       "kaze.l" = mkSystem "kaze.l" [];
       "sso-test.l" = mkSystem "sso-test.l" [

@@ -158,7 +158,7 @@
       start = true;
       autoStart = true;
       memory = unit.GiB 10;
-      vcpu = 1;
+      vcpu = 16;
       disks = [
         {
           device = "vda";

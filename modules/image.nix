@@ -7,6 +7,8 @@ with lib;
     "${inputs.nixpkgs}/nixos/modules/profiles/qemu-guest.nix"
   ];
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     autoResize = true;
@@ -18,7 +20,6 @@ with lib;
   services.acpid.enable = true;
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/vda";
   boot.loader.timeout = 0;
 
@@ -26,8 +27,8 @@ with lib;
   services.udisks2.enable = false;
 
   services.openssh.enable = true;
-  services.openssh.passwordAuthentication = false;
-  services.openssh.kbdInteractiveAuthentication = false;
+  services.openssh.settings.PasswordAuthentication = false;
+  services.openssh.settings.KbdInteractiveAuthentication = false;
   services.openssh.openFirewall = false;
 
   # Prevent rescue user from logging in via SSH

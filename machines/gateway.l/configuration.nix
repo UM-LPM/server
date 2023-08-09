@@ -238,7 +238,7 @@
 
         locations."/" = {
           recommendedProxySettings = true;
-          proxyPass = "http://sso-test.l:8080/";
+          proxyPass = "http://builder.l/";
         };
       };
       "gb.lpm.feri.um.si" = {

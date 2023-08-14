@@ -10,4 +10,4 @@ deploy() {
 
 machine=${1:?Machine not specified}
 
-deploy "$machine" "./$machine/configuration.nix"
+deploy "$machine" "./$machine.l/configuration.nix"

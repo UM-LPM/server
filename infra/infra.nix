@@ -27,7 +27,12 @@
         {
           name = "builder";
           backing = "minimal-base-v2";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 32;
+        }
+        {
+          name = "runner2";
+          backing = "minimal-base-v2";
+          capacity = unit.GiB 32;
         }
         {
           name = "prometheus";
@@ -76,6 +81,22 @@
         }
       ];
     };
+    "alternative" = {
+      start = true;
+      autoStart = true;
+      path = "/ssd1/libvirt/images";
+      volumes = [
+        {
+          name = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
+        {
+          name = "runner1";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 64;
+        }
+      ];
+    };
   };
 
   networks = {
@@ -90,6 +111,7 @@
         start = "10.17.3.2";
         end = "10.17.3.254";
         hosts = [
+          {mac = "02:38:60:94:88:cc"; hostname = "spum-mqtt";     address = "10.17.3.111";}
           {mac = "02:a2:cd:0c:46:78"; hostname = "spum-platform"; address = "10.17.3.110";}
           {mac = "02:c4:28:97:46:27"; hostname = "grades";        address = "10.17.3.120";}
           {mac = "02:17:14:14:5a:c4"; hostname = "ps";            address = "10.17.3.130";}
@@ -157,7 +179,7 @@
     "builder" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 10;
+      memory = unit.GiB 32;
       vcpu = 16;
       disks = [
         {
@@ -191,6 +213,46 @@
           network = "private-network";
           hostname = "prometheus.l";
           address = "10.17.3.103";
+        }
+      ];
+    };
+    "runner1" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 32;
+      vcpu = 8;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "runner1";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "runner1.l";
+          address = "10.17.3.104";
+        }
+      ];
+    };
+    "runner2" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 32;
+      vcpu = 8;
+      disks = [
+        {
+          device = "vda";
+          pool = "default";
+          volume = "runner2";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "runner2.l";
+          address = "10.17.3.105";
         }
       ];
     };

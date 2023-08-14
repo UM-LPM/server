@@ -9,7 +9,7 @@
 
   outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, ...}@inputs:
   let 
-    pkgs = nixpkgs.legacyPackages.x86_64-linux; 
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
     sso-test-overlay = self: super: {
       service = sso-test.packages.x86_64-linux.service;
@@ -28,9 +28,11 @@
         specialArgs = {inherit inputs;};
       };
     in {
+      "minimal" = mkSystem "minimal.l" [];
       "bastion.l" = mkSystem "bastion.l" [];
       "gateway.l" = mkSystem "gateway.l" [];
       "builder.l" = mkSystem "builder.l" [];
+      "runner1.l" = mkSystem "runner1.l" [];
       "student-mqtt.l" = mkSystem "student-mqtt.l" [];
       "kaze.l" = mkSystem "kaze.l" [];
       "sso-test.l" = mkSystem "sso-test.l" [

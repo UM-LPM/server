@@ -11,6 +11,7 @@
   let 
     pkgs = import nixpkgs {
       system = "x86_64-linux";
+      config.allowUnfree = true;
       config.permittedInsecurePackages = [
         "nodejs-16.20.2"
       ];
@@ -21,6 +22,7 @@
     };
   in
   {
+    packages.x86_64-linux.mongo_exporter = pkgs.callPackage ./pkgs/mongo_exporter.nix {};
     nixosConfigurations =
     let
       mkSystem = hostname: extraModules: nixpkgs.lib.nixosSystem {
@@ -40,6 +42,7 @@
       "gateway.l" = mkSystem "gateway.l" [];
       "builder.l" = mkSystem "builder.l" [];
       "runner1.l" = mkSystem "runner1.l" [];
+      "prometheus.l" = mkSystem "prometheus.l" [];
       "student-mqtt.l" = mkSystem "student-mqtt.l" [];
       "kaze.l" = mkSystem "kaze.l" [];
       "sso-test.l" = mkSystem "sso-test.l" [

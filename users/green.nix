@@ -5,6 +5,6 @@
     description = "Green project user";
     extraGroups = ["wheel"];
 
-    openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [mario ziga matej server-actions miha];
+    openssh.authorizedKeys.keys = with import ../ssh/users.nix; [mario ziga ziga-green matej server-actions miha];
   };
 }

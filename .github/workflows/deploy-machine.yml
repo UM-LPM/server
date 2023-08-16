@@ -20,7 +20,7 @@ jobs:
         github_access_token: ${{secrets.GITHUB_TOKEN}}
         extra_nix_config: |
           access-tokens = github.com=${{secrets.PAT}}
-          extra-substituters = https://cache.lpm.feri.um.si
+          extra-substituters = https://cache.lpm.feri.um.si?priority=100
           extra-trusted-public-keys = cache.lpm.feri.um.si:mRrqApyiZICyeWfyiEoJPy+Cz50YAJhN9Gpe49Bhmos=
           trusted-substituters = https://cache.lpm.feri.um.si
 

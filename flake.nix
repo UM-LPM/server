@@ -9,7 +9,12 @@
 
   outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, ...}@inputs:
   let 
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config.permittedInsecurePackages = [
+        "nodejs-16.20.2"
+      ];
+    };
 
     sso-test-overlay = self: super: {
       service = sso-test.packages.x86_64-linux.service;
@@ -20,6 +25,8 @@
     let
       mkSystem = hostname: extraModules: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        inherit pkgs;
+
         modules = extraModules ++ [
           agenix.nixosModules.default
           ./modules/secrets.nix

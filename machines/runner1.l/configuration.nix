@@ -1,5 +1,4 @@
 {config, pkgs, ...}:
-
 {
   imports = [
     ../../modules/image.nix
@@ -11,7 +10,7 @@
 
   nixpkgs.config.allowUnfreePredicate = _: true;
   nixpkgs.config.permittedInsecurePackages = [
-    "nodejs-16.20.1"
+    "nodejs-16.20.0"
   ];
   nix.settings = {
     substituters = [
@@ -21,7 +20,6 @@
       "cache.lpm.feri.um.si:mRrqApyiZICyeWfyiEoJPy+Cz50YAJhN9Gpe49Bhmos="
     ];
   };
-
 
   security.polkit.enable = true;
   boot.kernelModules = ["kvm-intel"];

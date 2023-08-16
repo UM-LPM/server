@@ -19,8 +19,11 @@ jobs:
       with:
         github_access_token: ${{secrets.GITHUB_TOKEN}}
         extra_nix_config: |
-         access-tokens = github.com=${{secrets.PAT}}
-    
+          access-tokens = github.com=${{secrets.PAT}}
+          extra-substituters = https://cache.lpm.feri.um.si
+          extra-trusted-public-keys = cache.lpm.feri.um.si:mRrqApyiZICyeWfyiEoJPy+Cz50YAJhN9Gpe49Bhmos=
+          trusted-substituters = https://cache.lpm.feri.um.si
+
     - name: Deploy
       run: |
         build() {

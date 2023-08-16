@@ -23,6 +23,7 @@ extra-trusted-public-keys = ${pubKey}
 trusted-substituters = https://cache.lpm.feri.um.si</code></pre>
           </p>
           <p>Restart the Nix daemon: <code>sudo pkill nix-daemon</code></p>
+          <p>Reset negative caching: <code>rm $HOME/.cache/nix/binary-cache-v*.sqlite*</code></p>
         </body>
       </html>
     '';

@@ -8,6 +8,8 @@
   dragana = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOr63eEb+Vz7PEdvm/h0jFRIvPeDSUBG9o7Uh3XaQ1VE ostoj@DR-LAPTOP";
   
   matej = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINyxpJW2YEfE02KfHVNmqg07x+pBxTJYcINOdYI+r442 matej@DESKTOP-RAEL084";
+
+  matej-extra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILZRdvYLdbJ/87gw2RiNRfZUNUCnrVEOjutQetSZCNTu mir@Mirs-MacBook-Pro.local";
   
   mario = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPA/LJdq7+/N7svDvmkeHZex6QO2lykjmx6hinuGe/EH test@lpmgigab";
 

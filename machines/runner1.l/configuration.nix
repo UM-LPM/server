@@ -29,20 +29,30 @@
   networking.firewall.interfaces.ens2.allowedTCPPorts = [9100];
 
   age.secrets."collab-runner-token".file = ../../secrets/collab-runner-token.age;
+  age.secrets."login-runner-token".file = ../../secrets/login-runner-token.age;
 
   services.github-runners =
   let
-    mkRunner = name: {
+    mkCollabRunner = name: {
       inherit name;
       enable = true;
       user = "runner";
       tokenFile = config.age.secrets.collab-runner-token.path;
       url = "https://github.com/UM-LPM/QA";
     };
+    mkLoginRunner = name: {
+      inherit name;
+      enable = true;
+      user = "runner";
+      tokenFile = config.age.secrets.login-runner-token.path;
+      url = "https://github.com/UM-LPM/login";
+    };
   in {
-    collab1 = mkRunner "collab1";
-    collab2 = mkRunner "collab2";
-    collab3 = mkRunner "collab3";
-    collab4 = mkRunner "collab4";
+    collab1 = mkCollabRunner "collab1";
+    collab2 = mkCollabRunner "collab2";
+    collab3 = mkCollabRunner "collab3";
+    collab4 = mkCollabRunner "collab4";
+    login1 = mkLoginRunner "login1";
+    login2 = mkLoginRunner "login2";
   };
 }

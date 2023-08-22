@@ -3,6 +3,7 @@
   "bastion" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1p6tEwRxVlTFWfb/pGbAp6jwKIXcD7qyvpYsGjL0W3";
   "bastion.l" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1p6tEwRxVlTFWfb/pGbAp6jwKIXcD7qyvpYsGjL0W3";
   "builder.l" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWHNlVuViBUOe35zJNO4g+C9H/RDZ8LEGeUNdIy0jtN";
+  "prometheus.l" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHczCezO9MYp9a8CWq/6xI8s3bguAqoxuqYgPhoXEfqS";
   "runner1.l" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDiQKJCUO8PHxaR2Q0AbeBaniODcFtSe310oasEIL6C/";
   "runner2.l" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILub+nPv2n69XEDidopa01yuT6U9q53n8yMVzx63Upwa";
   "sso-test.l" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJlDx9wxreroWOqxj4JiuvKsuPxKB2wFkEbzy+IMKvQ/";

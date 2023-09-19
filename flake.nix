@@ -1,13 +1,14 @@
 {
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-23.05;
+    nixpkgs-unstable.url = github:NixOS/nixpkgs;
     agenix.url = github:ryantm/agenix;
     sso-test.url = github:UM-LPM/sso-test;
     collab.url = github:UM-LPM/QA/production;
     collab-dev.url = github:UM-LPM/QA;
   };
 
-  outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-unstable, agenix, sso-test, collab, collab-dev, ...}@inputs:
   let 
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -16,7 +17,13 @@
         "nodejs-16.20.2"
       ];
     };
-
+    pkgs-unstable = import nixpkgs-unstable {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+      config.permittedInsecurePackages = [
+        "nodejs-16.20.2"
+      ];
+    };
     sso-test-overlay = self: super: {
       service = sso-test.packages.x86_64-linux.service;
     };
@@ -34,7 +41,7 @@
           ./modules/secrets.nix
           ./machines/${hostname}/configuration.nix
         ];
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs pkgs-unstable;};
       };
     in {
       "minimal" = mkSystem "minimal.l" [];

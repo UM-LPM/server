@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, pkgs, pkgs-unstable, ...}:
 {
   imports = [
     ../../modules/image.nix
@@ -36,6 +36,7 @@
     mkCollabRunner = name: {
       inherit name;
       enable = true;
+      package = pkgs-unstable.github-runner;
       user = "runner";
       tokenFile = config.age.secrets.collab-runner-token.path;
       url = "https://github.com/UM-LPM/QA";
@@ -43,6 +44,7 @@
     mkLoginRunner = name: {
       inherit name;
       enable = true;
+      package = pkgs-unstable.github-runner;
       user = "runner";
       tokenFile = config.age.secrets.login-runner-token.path;
       url = "https://github.com/UM-LPM/login";

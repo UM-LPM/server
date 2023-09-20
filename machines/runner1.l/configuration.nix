@@ -1,4 +1,7 @@
 {config, pkgs, pkgs-unstable, ...}:
+let
+  github-runner = pkgs-unstable.github-runner.override { nodeRuntimes = [ "node16" "node20" ]; };
+in
 {
   imports = [
     ../../modules/image.nix
@@ -36,7 +39,7 @@
     mkCollabRunner = name: {
       inherit name;
       enable = true;
-      package = pkgs-unstable.github-runner;
+      package = github-runner;
       user = "runner";
       tokenFile = config.age.secrets.collab-runner-token.path;
       url = "https://github.com/UM-LPM/QA";
@@ -44,7 +47,7 @@
     mkLoginRunner = name: {
       inherit name;
       enable = true;
-      package = pkgs-unstable.github-runner;
+      package = github-runner;
       user = "runner";
       tokenFile = config.age.secrets.login-runner-token.path;
       url = "https://github.com/UM-LPM/login";

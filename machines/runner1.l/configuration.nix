@@ -25,6 +25,7 @@ in
   };
 
   security.polkit.enable = true;
+  boot.tmp.cleanOnBoot = true;
   boot.kernelModules = ["kvm-intel"];
   virtualisation.libvirtd.enable = true;
 

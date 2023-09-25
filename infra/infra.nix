@@ -95,6 +95,15 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 64;
         }
+        {
+          name = "ears-legacy-base";
+          capacity = unit.GiB 8;
+        }
+        {
+          name = "ears-legacy";
+          backing = "ears-legacy-base";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -417,6 +426,26 @@
           network = "private-network";
           hostname = "collab-dev.l";
           address = "10.17.3.211";
+        }
+      ];
+    };
+    "ears-legacy" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 10;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "ears-legacy";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "ears-legacy.l";
+          address = "10.17.3.201";
         }
       ];
     };

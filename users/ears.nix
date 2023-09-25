@@ -3,6 +3,6 @@
   users.users.ears = {
     isNormalUser = true;
     description = "EARS user";
-    openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [mario ziga];
+    openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [mario ziga miha];
   };
 }

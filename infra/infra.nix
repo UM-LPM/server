@@ -104,6 +104,11 @@
           backing = "ears-legacy-base";
           capacity = unit.GiB 8;
         }
+        {
+          name = "ears";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -128,7 +133,6 @@
           {mac = "02:59:e1:4f:03:bf"; hostname = "usatour";       address = "10.17.3.150";}
           {mac = "02:a5:f8:7e:1d:b3"; hostname = "bioma";         address = "10.17.3.180";}
           {mac = "02:af:e7:1b:e5:de"; hostname = "gb";            address = "10.17.3.190";} 
-          {mac = "02:33:74:0c:86:ee"; hostname = "ears";          address = "10.17.3.200";}
         ];
       };
     };
@@ -426,6 +430,26 @@
           network = "private-network";
           hostname = "collab-dev.l";
           address = "10.17.3.211";
+        }
+      ];
+    };
+    "ears" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 10;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "ears";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "ears.l";
+          address = "10.17.3.200";
         }
       ];
     };

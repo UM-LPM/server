@@ -49,6 +49,7 @@
       "gateway.l" = mkSystem "gateway.l" [];
       "builder.l" = mkSystem "builder.l" [];
       "runner1.l" = mkSystem "runner1.l" [];
+      "ears.l" = mkSystem "ears.l" [];
       "prometheus.l" = mkSystem "prometheus.l" [];
       "student-mqtt.l" = mkSystem "student-mqtt.l" [];
       "kaze.l" = mkSystem "kaze.l" [];

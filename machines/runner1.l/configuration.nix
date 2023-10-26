@@ -41,6 +41,7 @@ in
       inherit name;
       enable = true;
       package = github-runner;
+      extraPackages = [pkgs.curl];
       user = "runner";
       tokenFile = config.age.secrets.collab-runner-token.path;
       url = "https://github.com/UM-LPM/QA";
@@ -49,6 +50,7 @@ in
       inherit name;
       enable = true;
       package = github-runner;
+      extraPackages = [pkgs.curl];
       user = "runner";
       tokenFile = config.age.secrets.login-runner-token.path;
       url = "https://github.com/UM-LPM/login";

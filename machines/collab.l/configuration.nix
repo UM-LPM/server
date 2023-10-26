@@ -30,7 +30,7 @@
 
   noo.services.collab = {
     enable = true;
-    jwtSecret = "mysecret";
+    jwtSecret = "ZYhOrjLhOsF9rr7LZUx0aTsm5H7ZlrxA0dmPKDPmXgZQoQ7nSY7IOOSlrHuCEtcB"; # XXX this is public
     adminDefaultPassword = "myadmindefaultpass";
   };
 }

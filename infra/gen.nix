@@ -168,7 +168,7 @@ let
       </disk>
     '';
 
-    mkDhcpHostXML = cfg: 
+    mkDhcpHostXML = cfg:
     ''<host mac="${cfg.mac}" name="${cfg.hostname}" ip="${cfg.address}" />'';
 
     mkDhcpXML = cfg: ''
@@ -178,6 +178,22 @@ let
       </dhcp>
     '';
 
+    mkDnsHostnameXML = name:
+    ''<hostname>${name}</hostname>'';
+
+    mkDnsHostXML = cfg: ''
+      <host ip="${cfg.address}">
+      ${indent1 (strings.concatStringsSep "\n" (map mkDnsHostnameXML cfg.hostnames))}
+      </host>
+    '';
+
+    mkDnsXML = cfg: ''
+      <dns>
+        <forwarder addr="${cfg.address}"/>
+      ${indent1 (strings.concatStringsSep "\n" (map mkDnsHostXML cfg.hosts))}
+      </dns>
+    '';
+
     mkNetworkXML = name: cfg: ''
       <network>
         <name>${name}</name>
@@ -185,9 +201,7 @@ let
         <bridge name="${cfg.bridge}" />
         <domain name="l" localOnly="yes" />
         <forward mode="nat" />
-        <dns>
-            <forwarder addr="${cfg.dns}"/>
-        </dns>
+        ${strings.optionalString (cfg.dns != null) (indent1 (mkDnsXML cfg.dns))}
         <ip address="${cfg.address}" prefix="${toString cfg.prefixLength}">
         ${strings.optionalString (cfg.dhcp != null) (indent1 (mkDhcpXML cfg.dhcp))}
         </ip>
@@ -301,6 +315,30 @@ let
       };
     };
 
+    dnsHostOptions = {
+      options.address = mkOption {
+        type = types.str;
+        description = "IP";
+      };
+      options.hostnames = mkOption {
+        type = with types; listOf str;
+        description = "Hostname";
+        default = [];
+      };
+    };
+
+    dnsOptions = {
+      options.address = mkOption {
+        type = types.str;
+        description = "DNS IP address";
+      };
+      options.hosts = mkOption {
+        type = with types; listOf (submodule dnsHostOptions);
+        description = "Hosts";
+        default = [];
+      };
+    };
+
     networkOptions = {name, config, ...}: {
       options.uuid = mkOption {
         type = types.str;
@@ -323,11 +361,12 @@ let
       };
       options.prefixLength = mkOption {
         type = with types; addCheck int  (n: n >= 0 && n <= 32);
-        description = lib.mdDoc "Subnet mask";
+        description = "Subnet mask";
       };
       options.dns = mkOption {
-        type = types.str;
-        description = "DNS IP address";
+        type = with types; nullOr (submodule dnsOptions);
+        description = "DNS";
+        default = null;
       };
       options.bridge = mkOption {
         type = types.str;
@@ -335,7 +374,7 @@ let
       };
       options.dhcp = mkOption {
         type = with types; nullOr (submodule dhcpOptions);
-        description = lib.mdDoc "DHCP";
+        description = "DHCP";
         default = null;
       };
       options.xml = mkOption {

@@ -6,9 +6,10 @@
     sso-test.url = github:UM-LPM/sso-test;
     collab.url = github:UM-LPM/QA/production;
     collab-dev.url = github:UM-LPM/QA;
+    login.url = github:UM-LPM/login;
   };
 
-  outputs = {self, nixpkgs, nixpkgs-unstable, agenix, sso-test, collab, collab-dev, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-unstable, agenix, sso-test, collab, collab-dev, login, ...}@inputs:
   let 
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -62,6 +63,9 @@
       ];
       "collab-dev.l" = mkSystem "collab-dev.l" [
         collab-dev.nixosModules.default
+      ];
+      "login.l" = mkSystem "login.l" [
+        login.nixosModules.default
       ];
     };
 

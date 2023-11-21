@@ -67,6 +67,9 @@
       "cache.lpm.feri.um.si" = {
         inherit email;
       };
+      "login.lpm.feri.um.si" = {
+        inherit email;
+      };
     };
     security.acme.acceptTerms = true;
 
@@ -217,6 +220,15 @@
             return 444;
           }
         '';
+      };
+      "login.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://login.l:3000/";
+        };
       };
       "sso-test.lpm.feri.um.si" = {
         #forceSSL = true;

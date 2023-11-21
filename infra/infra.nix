@@ -109,6 +109,11 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
         }
+        {
+          name = "login";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -119,7 +124,15 @@
       autoStart = true;
       bridge = "vprivate";
       address = "10.17.3.1";
-      dns = "8.8.8.8";
+      dns = {
+        address = "8.8.8.8";
+        hosts = [
+          {
+            address = "10.17.3.101";
+            hostnames = ["login.lpm.feri.um.si"];
+          }
+        ];
+      };
       prefixLength = 24;
       dhcp = {
         start = "10.17.3.2";
@@ -430,6 +443,26 @@
           network = "private-network";
           hostname = "collab-dev.l";
           address = "10.17.3.211";
+        }
+      ];
+    };
+    "login" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "login";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "login.l";
+          address = "10.17.3.212";
         }
       ];
     };

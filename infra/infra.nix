@@ -114,6 +114,11 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
         }
+        {
+          name = "gc";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -443,6 +448,26 @@
           network = "private-network";
           hostname = "collab-dev.l";
           address = "10.17.3.211";
+        }
+      ];
+    };
+    "gc" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "gc";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "gc.l";
+          address = "10.17.3.191";
         }
       ];
     };

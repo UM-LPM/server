@@ -257,18 +257,17 @@
         #forceSSL = true;
         addSSL = true;
         enableACME = true;
-        
+
+        locations."/api/" = {
+          proxyPass = "http://gc.l:8080/";
+        };
         locations."/" = {
-          proxyPass = "http://gb:8080/";
+          recommendedProxySettings = true;
+          proxyPass = "http://gc.l/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';
         };
-        extraConfig = ''
-          if ($host != $server_name) {
-            return 444;
-          }
-        '';
       };
       "1.lpm.feri.um.si" = {
         locations."/" = {

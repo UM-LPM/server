@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-23.05;
+    nixpkgs-23_11.url = github:NixOS/nixpkgs/nixos-23.11;
     nixpkgs-unstable.url = github:NixOS/nixpkgs;
     agenix.url = github:ryantm/agenix;
     sso-test.url = github:UM-LPM/sso-test;
@@ -10,14 +11,18 @@
     gc.url = github:Mir1001/gc_mv_backend;
   };
 
-  outputs = {self, nixpkgs, nixpkgs-unstable, agenix, sso-test, collab, collab-dev, login, gc, ...}@inputs:
-  let 
+  outputs = {self, nixpkgs, nixpkgs-23_11, nixpkgs-unstable, agenix, sso-test, collab, collab-dev, login, gc, ...}@inputs:
+  let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
       config.permittedInsecurePackages = [
         "nodejs-16.20.2"
       ];
+    };
+    pkgs-23_11 = import nixpkgs-23_11 {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
     };
     pkgs-unstable = import nixpkgs-unstable {
       system = "x86_64-linux";
@@ -43,7 +48,7 @@
           ./modules/secrets.nix
           ./machines/${hostname}/configuration.nix
         ];
-        specialArgs = {inherit inputs pkgs-unstable;};
+        specialArgs = {inherit inputs pkgs-unstable pkgs-23_11;};
       };
     in {
       "minimal" = mkSystem "minimal.l" [];

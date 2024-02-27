@@ -286,7 +286,7 @@
           root = "/var/serve/";
         };
       };
-      "calendar.brokenpylons.com" = {
+      "calendar.rwx.si" = {
         locations."/" = {
           proxyPass = "http://calendar.l:8080/";
         };

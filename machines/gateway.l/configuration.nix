@@ -55,7 +55,7 @@
       "dev.collab.lpm.feri.um.si" = {
         inherit email;
       };
-      "gb.lpm.feri.um.si" = {
+      "gc.lpm.feri.um.si" = {
         inherit email;
       };
       "sso-test.lpm.feri.um.si" = {
@@ -253,7 +253,7 @@
           proxyPass = "http://builder.l/";
         };
       };
-      "gb.lpm.feri.um.si" = {
+      "gc.lpm.feri.um.si" = {
         #forceSSL = true;
         addSSL = true;
         enableACME = true;

@@ -261,6 +261,9 @@
         locations."/api/" = {
           proxyPass = "http://gc.l:8080/api/";
         };
+        locations."/documentation/" = {
+          proxyPass = ""http://gc.l:8080/documentation/;
+        };
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://gc.l/";

@@ -259,7 +259,7 @@
         enableACME = true;
 
         locations."/api/" = {
-          proxyPass = "http://gc.l:8080/";
+          proxyPass = "http://gc.l:8080/api/";
         };
         locations."/" = {
           recommendedProxySettings = true;

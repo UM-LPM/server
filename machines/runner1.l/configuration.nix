@@ -47,7 +47,7 @@ in
       url = "https://github.com/UM-LPM/QA";
       serviceOverrides = {
         RestrictNamespaces = false;
-      }
+      };
     };
     mkLoginRunner = name: {
       inherit name;

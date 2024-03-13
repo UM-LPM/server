@@ -47,7 +47,18 @@ in
       url = "https://github.com/UM-LPM/QA";
       serviceOverrides = {
         RestrictNamespaces = false;
-        SystemCallFilter = [];
+        SystemCallFilter = [
+          "@clock"
+          "@cpu-emulation"
+          "@module"
+          "@mount"
+          "@obsolete"
+          "@raw-io"
+          "@reboot"
+          "capset"
+          "setdomainname"
+          "sethostname"
+        ];
       };
     };
     mkLoginRunner = name: {

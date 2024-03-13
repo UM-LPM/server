@@ -45,6 +45,9 @@ in
       user = "runner";
       tokenFile = config.age.secrets.collab-runner-token.path;
       url = "https://github.com/UM-LPM/QA";
+      serviceOverrides = {
+        RestrictNamespaces = false;
+      }
     };
     mkLoginRunner = name: {
       inherit name;

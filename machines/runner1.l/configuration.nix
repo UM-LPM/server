@@ -45,7 +45,6 @@ in
       user = "runner";
       tokenFile = config.age.secrets.collab-runner-token.path;
       url = "https://github.com/UM-LPM/QA";
-      ephemeral = true;
       serviceOverrides = {
         RestrictNamespaces = false;
         SystemCallFilter = [

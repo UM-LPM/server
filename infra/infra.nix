@@ -119,6 +119,11 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
         }
+        {
+          name = "pmd-catalog";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -468,6 +473,26 @@
           network = "private-network";
           hostname = "gc.l";
           address = "10.17.3.191";
+        }
+      ];
+    };
+    "pmd-catalog" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "pmd-catalog";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "pmd-catalog.l";
+          address = "10.17.3.192";
         }
       ];
     };

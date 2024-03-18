@@ -73,6 +73,8 @@
       "login.l" = mkSystem "login.l" [
         login.nixosModules.default
       ];
+      "pmd-catalog.l" = mkSystem "pmd-catalog.l" [
+      ];
       "gc.l" = mkSystem "gc.l" [
         gc.nixosModules.default
       ];

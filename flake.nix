@@ -8,10 +8,11 @@
     collab.url = github:UM-LPM/QA/production;
     collab-dev.url = github:UM-LPM/QA;
     login.url = github:UM-LPM/login;
+    pmd-catalog.url = github:UM-LPM/short-courses-catalog;
     gc.url = github:Mir1001/gc_mv_backend;
   };
 
-  outputs = {self, nixpkgs, nixpkgs-23_11, nixpkgs-unstable, agenix, sso-test, collab, collab-dev, login, gc, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-23_11, nixpkgs-unstable, agenix, sso-test, collab, collab-dev, login, pmd-catalog, gc, ...}@inputs:
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -74,6 +75,7 @@
         login.nixosModules.default
       ];
       "pmd-catalog.l" = mkSystem "pmd-catalog.l" [
+        pmd-catalog.nixosModules.default
       ];
       "gc.l" = mkSystem "gc.l" [
         gc.nixosModules.default

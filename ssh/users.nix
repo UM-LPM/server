@@ -25,6 +25,8 @@
 
   viktor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDt1UMKMh2IQZrVBluHNBU2ENFa8XVaS2aQ1sbJlxnoA ekaeo@libroam204.uni-mb.si";
 
+  cvetanka = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPowag5f95aL4VuhR+6WNmEO5v/ViWBBMXF4WNg0posA cvetanka.pasinechka@student.um.si";
+
   # GitHub Actions keys
   server-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMBhy/17XIqRbkTyMhz1ckNYiVXEexcAvgG6QT7blP2 ziga@archlinux";
   

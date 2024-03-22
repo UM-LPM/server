@@ -12,4 +12,5 @@ in
   "mqtt-passwords.age".publicKeys = [systems."student-mqtt.l"] ++ (with users; [mario ziga matej]);
   "login-secrets.age".publicKeys = [systems."login.l"] ++ (with users; [mario ziga matej marko]);
   "gc-secrets.age".publicKeys = [systems."gc.l"] ++ (with users; [mario ziga matej marko]);
+  "pmd-catalog-secrets.age".publicKeys = [systems."pmd-catalog.l"] ++ (with users; [mario ziga marko matej cvetanka]);
 }

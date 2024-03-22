@@ -55,6 +55,9 @@
       "dev.collab.lpm.feri.um.si" = {
         inherit email;
       };
+      "catalog.pmd.lpm.feri.um.si" = {
+        inherit email;
+      };
       "gc.lpm.feri.um.si" = {
         inherit email;
       };
@@ -228,6 +231,18 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://login.l:3000/";
+        };
+      };
+      "catalog.pmd.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://pmd-catalog.l:8080/api/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://pmd-catalog.l/";
         };
       };
       "sso-test.lpm.feri.um.si" = {

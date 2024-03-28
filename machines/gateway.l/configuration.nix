@@ -129,10 +129,7 @@
         enableACME = true;
 
         locations."/" = {
-          proxyPass = "http://bioma:8080";
-          extraConfig = ''
-            add_header Cache-Control "no-store, no-cache, must-revalidate";
-          '';
+          proxyPass = "http://bioma.l:8080";
         };
       };
       "esp.lpm.feri.um.si" = {

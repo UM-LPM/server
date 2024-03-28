@@ -52,7 +52,7 @@
         specialArgs = {inherit inputs pkgs-unstable pkgs-23_11;};
       };
     in {
-      "minimal" = mkSystem "minimal.l" [];
+      "minimal.l" = mkSystem "minimal.l" [];
       "bastion.l" = mkSystem "bastion.l" [];
       "gateway.l" = mkSystem "gateway.l" [];
       "builder.l" = mkSystem "builder.l" [];

@@ -14,7 +14,7 @@ let
     "login.l:9100"
     "gc.l:9100"
     "pmd-catalog.l:9100"
-    "gtpmas.l:9100"
+    "gtpmas.l:9182"
 
     #"grades:9100"
     #"spum-platform:9100"

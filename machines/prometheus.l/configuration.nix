@@ -9,10 +9,10 @@ let
     "prometheus.l:9100"
     "runner1.l:9100"
     "calendar.l:9100"
-    "collab.l",
-    "collab-dev.l",
-    "login.l",
-    "gc.l",
+    "collab.l"
+    "collab-dev.l"
+    "login.l"
+    "gc.l"
     "pmd-catalog.l"
 
     #"grades:9100"

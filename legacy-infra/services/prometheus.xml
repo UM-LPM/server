@@ -3,11 +3,11 @@
 <!DOCTYPE domain SYSTEM '../domain.dtd'>
 
 <domain>
-    <name>prometheus</name>
+    <name>prometheus-old</name>
     <memory unit="G">1</memory>
     <vcpu>1</vcpu>
     <disk pool='images' volume='prometheus.qcow2'/>
     <network-interface
-        network='private-network' 
-        mac='02:e7:8b:d7:4e:8a'/>
+        network='private-network'
+        mac='02:94:78:76:bd:6b'/>
 </domain>

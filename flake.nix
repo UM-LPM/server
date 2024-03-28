@@ -56,6 +56,7 @@
       "bastion.l" = mkSystem "bastion.l" [];
       "gateway.l" = mkSystem "gateway.l" [];
       "builder.l" = mkSystem "builder.l" [];
+      "proxy.l" = mkSystem "proxy.l" [];
       "runner1.l" = mkSystem "runner1.l" [];
       "ears.l" = mkSystem "ears.l" [];
       "prometheus.l" = mkSystem "prometheus.l" [];

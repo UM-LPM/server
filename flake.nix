@@ -62,6 +62,7 @@
       "prometheus.l" = mkSystem "prometheus.l" [];
       "student-mqtt.l" = mkSystem "student-mqtt.l" [];
       "kaze.l" = mkSystem "kaze.l" [];
+      "bioma.l" = mkSystem "bioma.l" [];
       "sso-test.l" = mkSystem "sso-test.l" [
         {nixpkgs.overlays = [sso-test-overlay];}
         sso-test.nixosModules.service

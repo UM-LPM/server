@@ -2,7 +2,6 @@
 
 let
   targets = [
-    #"localhost:9100"
     "gateway.l:9100"
     "bastion.l:9100"
     "builder.l:9100"
@@ -15,6 +14,9 @@ let
     "gc.l:9100"
     "pmd-catalog.l:9100"
     "proxy.l:9100"
+    "minimal.l:9100"
+    "bioma.l:9100"
+    "student-mqtt.l:9100"
     "gtpmas.l:9182"
 
     #"grades:9100"

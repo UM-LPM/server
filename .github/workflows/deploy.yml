@@ -23,17 +23,17 @@ jobs:
     
    # needs: infra
 
-  machines:
-    strategy:
-      matrix:
-        machine: ["minimal.l", "collab.l", "collab-dev.l", "builder.l", "prometheus.l", "runner1.l", "login.l", "gc.l", "proxy.l", "pmd-catalog.l", "student-mqtt.l", "bioma.l"]
+  #machines:
+  #  strategy:
+  #    matrix:
+  #      machine: ["minimal.l", "collab.l", "collab-dev.l", "builder.l", "prometheus.l", "runner1.l", "login.l", "gc.l", "proxy.l", "pmd-catalog.l", "student-mqtt.l", "bioma.l"]
 
-    needs: bastion
+  #  needs: bastion
 
-    uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master
-    with:
-      machine: ${{matrix.machine}}
-    secrets: inherit
+  #  uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master
+  #  with:
+  #    machine: ${{matrix.machine}}
+  #  secrets: inherit
 
 
 

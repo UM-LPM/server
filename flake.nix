@@ -34,7 +34,6 @@
     let
       mkSystem = hostname: extraModules: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        inherit pkgs;
 
         modules = extraModules ++ [
           agenix.nixosModules.default

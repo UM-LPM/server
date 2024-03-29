@@ -1,8 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-23.05;
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-23.11;
     nixpkgs-23_11.url = github:NixOS/nixpkgs/nixos-23.11;
-    nixpkgs-unstable.url = github:NixOS/nixpkgs;
     agenix.url = github:ryantm/agenix;
     sso-test.url = github:UM-LPM/sso-test;
     collab.url = github:UM-LPM/QA/production;
@@ -12,7 +11,7 @@
     gc.url = github:Mir1001/gc_mv_backend;
   };
 
-  outputs = {self, nixpkgs, nixpkgs-23_11, nixpkgs-unstable, agenix, sso-test, collab, collab-dev, login, pmd-catalog, gc, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, login, pmd-catalog, gc, ...}@inputs:
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -24,13 +23,6 @@
     pkgs-23_11 = import nixpkgs-23_11 {
       system = "x86_64-linux";
       config.allowUnfree = true;
-    };
-    pkgs-unstable = import nixpkgs-unstable {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
-      config.permittedInsecurePackages = [
-        "nodejs-16.20.2"
-      ];
     };
     sso-test-overlay = self: super: {
       service = sso-test.packages.x86_64-linux.service;
@@ -49,7 +41,7 @@
           ./modules/secrets.nix
           ./machines/${hostname}/configuration.nix
         ];
-        specialArgs = {inherit inputs pkgs-unstable pkgs-23_11;};
+        specialArgs = {inherit inputs pkgs-23_11;};
       };
     in {
       "minimal.l" = mkSystem "minimal.l" [];
@@ -57,6 +49,7 @@
       "gateway.l" = mkSystem "gateway.l" [];
       "builder.l" = mkSystem "builder.l" [];
       "proxy.l" = mkSystem "proxy.l" [];
+      "ps.l" = mkSystem "ps.l" [];
       "runner1.l" = mkSystem "runner1.l" [];
       "ears.l" = mkSystem "ears.l" [];
       "prometheus.l" = mkSystem "prometheus.l" [];

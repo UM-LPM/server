@@ -129,6 +129,11 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
         }
+        {
+          name = "ps";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -156,10 +161,8 @@
           {mac = "02:38:60:94:88:cc"; hostname = "spum-mqtt";        address = "10.17.3.111";}
           {mac = "02:a2:cd:0c:46:78"; hostname = "spum-platform";    address = "10.17.3.110";}
           {mac = "02:c4:28:97:46:27"; hostname = "grades";           address = "10.17.3.120";}
-          {mac = "02:17:14:14:5a:c4"; hostname = "ps";               address = "10.17.3.130";}
-          {mac = "02:aa:bc:09:52:6d"; hostname = "esp";              address = "10.17.3.140";}
+          {mac = "02:b2:a8:b4:1a:fd"; hostname = "ps-old";           address = "10.17.3.130";}
           {mac = "02:59:e1:4f:03:bf"; hostname = "usatour";          address = "10.17.3.150";}
-          {mac = "02:a5:f8:7e:1d:b3"; hostname = "bioma";            address = "10.17.3.180";}
           {mac = "02:2a:89:07:ca:ef"; hostname = "gtpmas.l";         address = "10.17.3.173";}
           {mac = "02:94:78:76:bd:6b"; hostname = "prometheus-old.l"; address = "10.17.3.107";}
         ];
@@ -499,6 +502,26 @@
           network = "private-network";
           hostname = "gc.l";
           address = "10.17.3.191";
+        }
+      ];
+    };
+    "ps" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "ps";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "ps.l";
+          address = "10.17.3.131";
         }
       ];
     };

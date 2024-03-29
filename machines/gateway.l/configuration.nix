@@ -132,15 +132,15 @@
           proxyPass = "http://bioma.l:8080";
         };
       };
-      "esp.lpm.feri.um.si" = {
-        addSSL = true;
-        sslCertificate = "/var/ssl/esp.lpm.feri.um.si.crt";
-        sslCertificateKey = "/var/ssl/esp.lpm.feri.um.si.key";
-        
-        locations."/" = {
-          proxyPass = "http://esp";
-        };
-      };
+      #"esp.lpm.feri.um.si" = {
+      #  addSSL = true;
+      #  sslCertificate = "/var/ssl/esp.lpm.feri.um.si.crt";
+      #  sslCertificateKey = "/var/ssl/esp.lpm.feri.um.si.key";
+
+      #  locations."/" = {
+      #    proxyPass = "http://esp";
+      #  };
+      #};
        "usatour.lpm.feri.um.si" = {
         locations."/" = {
           proxyPass = "http://usatour";
@@ -150,13 +150,13 @@
         #forceSSL = true;
         addSSL = true;
         enableACME = true;
-        
+
         locations."/api/" = {
-          proxyPass = "http://ps:5050/";
-        }; 
-        
+          proxyPass = "http://ps.l:5050/";
+        };
+
         locations."/" = {
-          proxyPass = "http://ps";
+          proxyPass = "http://ps.l";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

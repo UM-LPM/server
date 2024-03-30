@@ -10,4 +10,4 @@ deploy() {
 
 machine=${1:?Machine not specified}
 
-deploy "$machine" "./$machine.l/configuration.nix"
+NIXOS_SWITCH_USE_DIRTY_ENV=true deploy "$machine" "./$machine.l/configuration.nix"

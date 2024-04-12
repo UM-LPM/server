@@ -125,6 +125,16 @@
           capacity = unit.GiB 8;
         }
         {
+          name = "catalog";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
+        {
+          name = "catalog-dev";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
+        {
           name = "bioma";
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
@@ -525,7 +535,7 @@
         }
       ];
     };
-    "pmd-catalog" = {
+    "catalog-dev" = {
       start = true;
       autoStart = true;
       memory = unit.GiB 1;
@@ -534,14 +544,34 @@
         {
           device = "vda";
           pool = "alternative";
-          volume = "pmd-catalog";
+          volume = "catalog-dev";
         }
       ];
       networkInterfaces = [
         {
           network = "private-network";
-          hostname = "pmd-catalog.l";
-          address = "10.17.3.192";
+          hostname = "catalog-dev.l";
+          address = "10.17.3.193";
+        }
+      ];
+    };
+    "catalog" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "catalog";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog.l";
+          address = "10.17.3.194";
         }
       ];
     };

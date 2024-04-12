@@ -31,10 +31,10 @@ jobs:
           nix path-info "$@"
         }
         install -D -m 400 $(build '.#known-hosts') ~/.ssh/known_hosts
-        
+
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
-        nix flake lock --update-input collab --update-input collab-dev --update-input login --update-input gc --update-input pmd-catalog
+        nix flake lock --update-input collab --update-input collab-dev --update-input login --update-input gc --update-input catalog
         ./deploy.sh ${{inputs.machine}}
 
 

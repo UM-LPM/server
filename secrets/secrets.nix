@@ -13,4 +13,5 @@ in
   "login-secrets.age".publicKeys = [systems."login.l"] ++ (with users; [mario ziga matej marko]);
   "gc-secrets.age".publicKeys = [systems."gc.l"] ++ (with users; [mario ziga matej marko]);
   "pmd-catalog-secrets.age".publicKeys = [systems."pmd-catalog.l"] ++ (with users; [mario ziga marko matej cvetanka]);
+  "catalog-secrets.age".publicKeys = [systems."catalog.l" systems."catalog-dev.l"] ++ (with users; [mario ziga marko matej cvetanka]);
 }

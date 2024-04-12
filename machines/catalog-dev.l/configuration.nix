@@ -11,8 +11,8 @@
 
   networking.firewall.allowedTCPPorts = [22 80 8080 9100];
 
-  age.secrets."pmd-catalog-secrets" = {
-    file = ../../secrets/pmd-catalog-secrets.age;
+  age.secrets."catalog-secrets" = {
+    file = ../../secrets/catalog-secrets.age;
     mode = "600";
     owner = "catalog";
     group = "users";
@@ -20,6 +20,6 @@
 
   noo.services.pmdCatalog = {
     enable = true;
-    secrets = config.age.secrets."pmd-catalog-secrets".path;
+    secrets = config.age.secrets."catalog-secrets".path;
   };
 }

@@ -120,11 +120,6 @@
           capacity = unit.GiB 8;
         }
         {
-          name = "pmd-catalog";
-          backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
-        }
-        {
           name = "catalog";
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;

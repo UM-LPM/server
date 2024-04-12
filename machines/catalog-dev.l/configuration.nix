@@ -20,6 +20,7 @@
 
   noo.services.pmdCatalog = {
     enable = true;
+    isDevelopment = true;
     secrets = config.age.secrets."catalog-secrets".path;
   };
 }

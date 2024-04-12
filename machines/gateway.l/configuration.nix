@@ -58,6 +58,9 @@
       "catalog.pmd.lpm.feri.um.si" = {
         inherit email;
       };
+      "katalog.krajsa-izobrazevanja.feri.um.si" = {
+        inherit email;
+      };
       "gc.lpm.feri.um.si" = {
         inherit email;
       };
@@ -235,11 +238,23 @@
         enableACME = true;
 
         locations."/api/" = {
-          proxyPass = "http://pmd-catalog.l:8080/api/";
+          proxyPass = "http://catalog-dev.l:8080/api/";
         };
         locations."/" = {
           recommendedProxySettings = true;
-          proxyPass = "http://pmd-catalog.l/";
+          proxyPass = "http://catalog-dev.l/";
+        };
+      };
+      "katalog.krajsa-izobrazevanja.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://catalog.l:8080/api/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog.l/";
         };
       };
       "sso-test.lpm.feri.um.si" = {

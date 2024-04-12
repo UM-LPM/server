@@ -34,7 +34,7 @@ in
 
   age.secrets."collab-runner-token".file = ../../secrets/collab-runner-token.age;
   age.secrets."login-runner-token".file = ../../secrets/login-runner-token.age;
-  age.secrets."catalog-runner-token".file = ../../secrets/pmd-catalog-runner-token.age;
+  age.secrets."pmd-catalog-runner-token".file = ../../secrets/pmd-catalog-runner-token.age;
 
   services.github-runners =
   let
@@ -62,13 +62,13 @@ in
         ];
       };
     };
-    mkCatalogRunner = name: {
+    mkPmdCatalogRunner = name: {
       inherit name;
       enable = true;
       package = github-runner;
       extraPackages = [pkgs.curl];
       user = "runner";
-      tokenFile = config.age.secrets.catalog-runner-token.path;
+      tokenFile = config.age.secrets.pmd-catalog-runner-token.path;
       url = "https://github.com/UM-LPM/short-courses-catalog";
       serviceOverrides = {
         RestrictNamespaces = false;
@@ -102,7 +102,7 @@ in
     collab4 = mkCollabRunner "collab4";
     login1 = mkLoginRunner "login1";
     login2 = mkLoginRunner "login2";
-    catalog1 = mkCatalogRunner "pmd-catalog1";
-    catalog2 = mkCatalogRunner "pmd-catalog2";
+    pmdCatalog1 = mkPmdCatalogRunner "pmd-catalog1";
+    pmdCatalog2 = mkPmdCatalogRunner "pmd-catalog2";
   };
 }

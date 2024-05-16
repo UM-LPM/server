@@ -1,6 +1,6 @@
 {config, pkgs, pkgs-unstable, pkgs-23_11, ...}:
 let
-  github-runner = pkgs-23_11.github-runner; #.override { nodeRuntimes = [ "node16" "node20" ]; };
+  github-runner = pkgs.github-runner; #.override { nodeRuntimes = [ "node16" "node20" ]; };
 in
 {
   imports = [

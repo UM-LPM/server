@@ -61,7 +61,7 @@
       "katalog.krajsa-izobrazevanja.feri.um.si" = {
         inherit email;
       };
-      "gc.lpm.feri.um.si" = {
+      "okkoreboot.com" = {
         inherit email;
       };
       "sso-test.lpm.feri.um.si" = {
@@ -280,7 +280,7 @@
           proxyPass = "http://builder.l/";
         };
       };
-      "gc.lpm.feri.um.si" = {
+      "okkoreboot.com" = {
         #forceSSL = true;
         addSSL = true;
         enableACME = true;

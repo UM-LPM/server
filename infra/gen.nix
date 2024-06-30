@@ -616,9 +616,10 @@ in
     ];
 
     config.toplevel =
-      pkgs.linkFarm "virsh-scripts" {
-        deploy = deploymentScript;
-      };
+      pkgs.linkFarm "virsh-scripts" [{
+        name = "deploy";
+        path = deploymentScript;
+      }];
   };
 in
 (import <nixpkgs/lib>).evalModules {

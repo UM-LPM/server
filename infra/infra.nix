@@ -120,6 +120,11 @@
           capacity = unit.GiB 8;
         }
         {
+          name = "gc-dev";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
+        {
           name = "catalog";
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
@@ -507,6 +512,26 @@
           network = "private-network";
           hostname = "gc.l";
           address = "10.17.3.191";
+        }
+      ];
+    };
+    "gc-dev" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "gc-dev";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "gc-dev.l";
+          address = "10.17.3.192";
         }
       ];
     };

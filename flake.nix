@@ -77,6 +77,9 @@
       "gc.l" = mkSystem "gc.l" [
         gc.nixosModules.default
       ];
+      "gc-dev.l" = mkSystem "gc-dev.l" [
+        gc.nixosModules.default
+      ];
     };
 
     packages."x86_64-linux" = {

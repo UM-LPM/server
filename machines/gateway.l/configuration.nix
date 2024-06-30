@@ -64,6 +64,9 @@
       "okkoreboot.com" = {
         inherit email;
       };
+      "gc.lpm.feri.um.si" = {
+        inherit email;
+      };
       "sso-test.lpm.feri.um.si" = {
         inherit email;
       };
@@ -280,7 +283,7 @@
           proxyPass = "http://builder.l/";
         };
       };
-      "okkoreboot.com" = {
+      "gc.lpm.feri.um.si" = {
         #forceSSL = true;
         addSSL = true;
         enableACME = true;
@@ -294,6 +297,25 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://gc.l/";
+          extraConfig = ''
+            add_header Cache-Control "no-store, no-cache, must-revalidate";
+          '';
+        };
+      };
+      "okkoreboot.com" = {
+        #forceSSL = true;
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://gc-dev.l:8080/api/";
+        };
+        locations."/documentation/" = {
+          proxyPass = "http://gc-dev.l:8080/documentation/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://gc-dev.l/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

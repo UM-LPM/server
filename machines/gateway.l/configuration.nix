@@ -289,14 +289,14 @@
         enableACME = true;
 
         locations."/api/" = {
-          proxyPass = "http://gc.l:8080/api/";
+          proxyPass = "http://gc-dev.l:8080/api/";
         };
         locations."/documentation/" = {
-          proxyPass = "http://gc.l:8080/documentation/";
+          proxyPass = "http://gc-dev.l:8080/documentation/";
         };
         locations."/" = {
           recommendedProxySettings = true;
-          proxyPass = "http://gc.l/";
+          proxyPass = "http://gc-dev.l/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';
@@ -308,14 +308,14 @@
         enableACME = true;
 
         locations."/api/" = {
-          proxyPass = "http://gc-dev.l:8080/api/";
+          proxyPass = "http://gc.l:8080/api/";
         };
         locations."/documentation/" = {
-          proxyPass = "http://gc-dev.l:8080/documentation/";
+          proxyPass = "http://gc.l:8080/documentation/";
         };
         locations."/" = {
           recommendedProxySettings = true;
-          proxyPass = "http://gc-dev.l/";
+          proxyPass = "http://gc.l/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';

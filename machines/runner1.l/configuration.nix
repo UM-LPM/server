@@ -67,7 +67,7 @@ in
       inherit name;
       tokenFile = config.age.secrets.collab-runner-token.path;
       url = "https://github.com/UM-LPM/QA";
-    }
+    };
     mkPmdCatalogRunner = name: laxRunner {
       inherit name;
       tokenFile = config.age.secrets.pmd-catalog-runner-token.path;

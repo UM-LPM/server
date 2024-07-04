@@ -40,13 +40,11 @@ in
   services.github-runners =
   let
     laxRunner = {name, tokenFile, url}: {
-      inherit name;
+      inherit name tokenFile url;
       enable = true;
       package = github-runner;
       extraPackages = [pkgs.curl];
       user = "runner";
-      tokenFile = config.age.secrets.collab-runner-token.path;
-      url = "https://github.com/UM-LPM/QA";
       serviceOverrides = {
         RestrictNamespaces = false;
         SystemCallFilter = [

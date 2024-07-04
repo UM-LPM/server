@@ -58,7 +58,7 @@
       "catalog.pmd.lpm.feri.um.si" = {
         inherit email;
       };
-      "grades.pmd.lpm.feri.um.si" = {
+      "grades.lpm.feri.um.si" = {
         inherit email;
       };
       "katalog.krajsa-izobrazevanja.feri.um.si" = {

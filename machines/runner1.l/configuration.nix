@@ -39,7 +39,7 @@ in
 
   services.github-runners =
   let
-    laxRunner = {name, tokenFile, url} {
+    laxRunner = {name, tokenFile, url}: {
       inherit name;
       enable = true;
       package = github-runner;

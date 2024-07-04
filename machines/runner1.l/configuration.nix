@@ -35,7 +35,7 @@ in
   age.secrets."collab-runner-token".file = ../../secrets/collab-runner-token.age;
   age.secrets."login-runner-token".file = ../../secrets/login-runner-token.age;
   age.secrets."pmd-catalog-runner-token".file = ../../secrets/pmd-catalog-runner-token.age;
-  age.secrets."grades-runner-token".file = ../../secrets/grades.age;
+  age.secrets."grades-runner-token".file = ../../secrets/grades-runner-token.age;
 
   services.github-runners =
   let

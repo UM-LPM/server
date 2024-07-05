@@ -27,6 +27,8 @@
 
   cvetanka = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPowag5f95aL4VuhR+6WNmEO5v/ViWBBMXF4WNg0posA cvetanka.pasinechka@student.um.si";
 
+  domen = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdULj7ttOTxQG2BwERf0iW3VbvXFUc7sdc6GQWaA7iQ domen.onassis@gmail.com";
+
   # GitHub Actions keys
   server-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMBhy/17XIqRbkTyMhz1ckNYiVXEexcAvgG6QT7blP2 ziga@archlinux";
   

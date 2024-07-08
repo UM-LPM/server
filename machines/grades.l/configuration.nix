@@ -14,6 +14,7 @@
 
   noo.services.grades = {
     enable = true;
+    frontend.enable = true;
     backend.enable = true;
     database.enable = true;
   };

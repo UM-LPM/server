@@ -21,7 +21,7 @@ jobs:
         extra_nix_config: |
           access-tokens = github.com=${{secrets.PAT}}
           extra-substituters = https://cache.lpm.feri.um.si?priority=100
-          extra-trusted-public-keys = cache.lpm.feri.um.si:mRrqApyiZICyeWfyiEoJPy+Cz50YAJhN9Gpe49Bhmos=
+          extra-trusted-public-keys = cache.lpm.feri.um.si:TwiF0KOXmbNihiysjGaH7EZOMHUvuwy+1mI/EHGc56M=
           trusted-substituters = https://cache.lpm.feri.um.si
 
     - name: Deploy

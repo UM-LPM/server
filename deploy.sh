@@ -5,7 +5,7 @@
 deploy() {
     local host=$1
     local config=$2
-    nix run -- 'nixpkgs#nixos-rebuild' switch -v --target-host "$host" --flake ".#$host" 
+    nix run -- 'nixpkgs#nixos-rebuild' switch -v --target-host "$host" --flake ".#$host" --option narinfo-cache-negative-ttl 0
 }
 
 machine=${1:?Machine not specified}

@@ -1,0 +1,28 @@
+name: Update
+on:
+  workflow_dispatch:
+    inputs:
+      input:
+        required: true
+        type: string
+
+jobs:
+  run:
+    runs-on: [self-hosted, linux, x64]
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        token: ${{ secrets.PUSH_PAT }}
+    
+    - name: Update
+      run: nix flake lock --update-input ${{inputs.input}}
+
+    - name: Commit
+      run: |
+        git config user.name lpm-automaton
+        git config user.email lpm-automaton@protonmail.com
+        git add -u
+        git commit -m "Update ${{inputs.input}}"
+        git push

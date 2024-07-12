@@ -70,11 +70,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
-        "lastModified": 1711133910,
-        "narHash": "sha256-186dJh4OgAfHSwHWlriuYb8izLKqiwValzHYzuGBIbM=",
+        "lastModified": 1720700371,
+        "narHash": "sha256-GjAD6XM9yUxw4YEG0ZF1oxTkmRqbypUdCexYoAzn4oU=",
         "owner": "UM-LPM",
         "repo": "short-courses-catalog",
-        "rev": "a756a3f8977f59b7c3087591713f08ffcce25f06",
+        "rev": "5135df8f790cd80c3fd316f70d24f2b9b758b953",
         "type": "github"
       },
       "original": {
@@ -113,11 +113,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_3"
       },
       "locked": {
-        "lastModified": 1710962586,
-        "narHash": "sha256-yEQ6C+vwmt1IMIwJgKHIoYczj9j7kWjNmiASBGHrOx8=",
+        "lastModified": 1720443515,
+        "narHash": "sha256-BuLmiYv+p0FUk51yFMBF7Ex82EQz0Th0U82H+ikqg84=",
         "owner": "UM-LPM",
         "repo": "QA",
-        "rev": "91ca43feca59f67a3028020c7227943257c595de",
+        "rev": "f7b9775bc99f7bbcd2c9b29c4c7b317631063209",
         "type": "github"
       },
       "original": {
@@ -731,11 +731,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_4"
       },
       "locked": {
-        "lastModified": 1711536415,
-        "narHash": "sha256-9RZzZ8TLWoabUCF6VsEpbzxp0TbXA0U85inWtnBiftk=",
+        "lastModified": 1720701080,
+        "narHash": "sha256-4R+BXpHkzjEnC/AwcJqaJ9HM20LIiS+WkkgOx3gaUec=",
         "owner": "Mir1001",
         "repo": "gc_mv_backend",
-        "rev": "8869ed83961fc114e2740a01a99c0ee58a5db39f",
+        "rev": "51eb2d649c78bd656269ec4adecc6263266da9f0",
         "type": "github"
       },
       "original": {
@@ -922,11 +922,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_5"
       },
       "locked": {
-        "lastModified": 1720116752,
-        "narHash": "sha256-XQm9yG26cvXN6HXsAopK4HptepI8q2Yr3NWdX1cz8WA=",
+        "lastModified": 1720709045,
+        "narHash": "sha256-nnRIlFLVCuNtcYZYqGDl4WHIzm84iei8PzePEmTshnM=",
         "owner": "UM-LPM",
         "repo": "grades",
-        "rev": "d9ddbebcf3a59e0c9c90ce0910335f6d32414b1c",
+        "rev": "b46d96f44e71c6986c86221086ec138c91daec6f",
         "type": "github"
       },
       "original": {

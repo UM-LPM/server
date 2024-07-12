@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: cachix/install-nix-action@v25
+    - uses: cachix/install-nix-action@v27
       with:
         github_access_token: ${{secrets.GITHUB_TOKEN}}
         extra_nix_config: |
@@ -35,7 +35,6 @@ jobs:
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
         
-        rm $HOME/.cache/nix/binary-cache-v*.sqlite*
         nix path-info -r /nix/store/fz59zs6awmm3xflkfvwpg7546y7pyjz8-mongodb-4.4.25 --store https://cache.lpm.feri.um.si
         
         ./deploy.sh ${{inputs.machine}}

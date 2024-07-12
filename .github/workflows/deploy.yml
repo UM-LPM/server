@@ -26,8 +26,24 @@ jobs:
   machines:
     strategy:
       matrix:
-        machine: ["minimal.l", "collab.l", "gateway.l", "collab-dev.l", "builder.l", "runner1.l", "login.l", "gc.l", "gc-dev.l", "proxy.l", "catalog.l", "catalog-dev.l", "grades.l", "student-mqtt.l", "bioma.l", "ps.l"]
-
+        machine:
+          - "minimal.l"
+          - "gateway.l"
+          - "builder.l"
+          - "runner1.l"
+          - "proxy.l"
+          - "collab.l"
+          - "collab-dev.l"
+          - "login.l"
+          - "gc.l"
+          - "gc-dev.l"
+          - "catalog.l"
+          - "catalog-dev.l"
+          - "grades.l"
+          - "student-mqtt.l"
+          - "bioma.l"
+          - "ps.l"
+      fail-fast: false
     needs: bastion
 
     uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master

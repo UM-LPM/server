@@ -34,7 +34,8 @@ jobs:
 
         eval "$(ssh-agent)"
         ssh-add - <<< "${{secrets.sshkey}}"
-
+        
+        rm $HOME/.cache/nix/binary-cache-v*.sqlite*
         nix path-info -r /nix/store/fz59zs6awmm3xflkfvwpg7546y7pyjz8-mongodb-4.4.25 --store https://cache.lpm.feri.um.si
         
         ./deploy.sh ${{inputs.machine}}

@@ -20,7 +20,7 @@ in
       "http://builder.l"
     ];
     trusted-public-keys = [
-      "cache.lpm.feri.um.si:mRrqApyiZICyeWfyiEoJPy+Cz50YAJhN9Gpe49Bhmos="
+      "cache.lpm.feri.um.si:TwiF0KOXmbNihiysjGaH7EZOMHUvuwy+1mI/EHGc56M="
     ];
   };
 

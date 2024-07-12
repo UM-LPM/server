@@ -24,9 +24,6 @@ jobs:
           extra-trusted-public-keys = cache.lpm.feri.um.si:TwiF0KOXmbNihiysjGaH7EZOMHUvuwy+1mI/EHGc56M=
           trusted-substituters = https://cache.lpm.feri.um.si
 
-    - name: Check
-      run: nix store verify /nix/store/fz59zs6awmm3xflkfvwpg7546y7pyjz8-mongodb-4.4.25 --store https://cache.lpm.feri.um.si --trusted-public-keys cache.lpm.feri.um.si:TwiF0KOXmbNihiysjGaH7EZOMHUvuwy+1mI/EHGc56M=
-
     - name: Deploy
       run: |
         build() {

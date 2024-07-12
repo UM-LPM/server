@@ -1,7 +1,7 @@
 {config, pkgs, ...}:
 
 let
-  pubKey = "cache.lpm.feri.um.si:mRrqApyiZICyeWfyiEoJPy+Cz50YAJhN9Gpe49Bhmos=";
+  pubKey = "cache.lpm.feri.um.si:TwiF0KOXmbNihiysjGaH7EZOMHUvuwy+1mI/EHGc56M=";
   index = pkgs.writeTextFile {
     name = "index.html";
 

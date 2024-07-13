@@ -922,11 +922,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_5"
       },
       "locked": {
-        "lastModified": 1720787566,
-        "narHash": "sha256-uNEOijWd1m6nNz9M9cwy638yO4ipHcaoxhMfAksCq58=",
+        "lastModified": 1720891649,
+        "narHash": "sha256-21bux3UN8nhONePusaIovZla0SrSMCN6GpxubhxSd64=",
         "owner": "UM-LPM",
         "repo": "grades",
-        "rev": "f6ac3843dfaab3a8a1e908a3c6a1d9f3ad586dca",
+        "rev": "b1eb8996ff5b4e276ae963c333ef7f261e73f58c",
         "type": "github"
       },
       "original": {

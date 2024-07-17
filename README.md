@@ -8,6 +8,7 @@
 - [monitoring](doc/monitoring.md)
 - [adding machines](doc/adding_machines.md)
 - [adding users](doc/adding_users.md)
+- [updating nix cache keys](doc/updating_nix_cache_keys.md)
 - [getting access](doc/getting_access.md)
 
 ## Bass

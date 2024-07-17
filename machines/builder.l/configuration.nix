@@ -24,6 +24,14 @@ trusted-substituters = https://cache.lpm.feri.um.si</code></pre>
           </p>
           <p>Restart the Nix daemon: <code>sudo pkill nix-daemon</code></p>
           <p>Reset negative caching: <code>rm $HOME/.cache/nix/binary-cache-v*.sqlite*</code></p>
+
+          <h2>GitHub actions</h2>
+<pre><code>- uses: cachix/install-nix-action@v25
+  with:
+    extra_nix_config: |
+      extra-substituters = https://cache.lpm.feri.um.si?priority=100
+      extra-trusted-public-keys = ${pubKey}
+      trusted-substituters = https://cache.lpm.feri.um.si</code></pre>
         </body>
       </html>
     '';

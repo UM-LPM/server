@@ -964,11 +964,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_6"
       },
       "locked": {
-        "lastModified": 1721120585,
-        "narHash": "sha256-UtAtgcrdCj9YvSC4PMxxxrAaFWypAcYqvJe4H0UMCA8=",
+        "lastModified": 1721299403,
+        "narHash": "sha256-MUYeMGd4Oy8PFzO5u0mHiGOFcRbqtISebGgRuDgAO9c=",
         "owner": "UM-LPM",
         "repo": "login",
-        "rev": "74c664c82eca2265b7bf1e533bf16e10fa641117",
+        "rev": "1ee592a1374c53af6dd9f2237c1cde35c87f3aa6",
         "type": "github"
       },
       "original": {

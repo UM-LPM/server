@@ -82,6 +82,9 @@
       "login.lpm.feri.um.si" = {
         inherit email;
       };
+      "dev.login.lpm.feri.um.si" = {
+        inherit email;
+      };
     };
     security.acme.acceptTerms = true;
 
@@ -237,6 +240,15 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://login.l:3000/";
+        };
+      };
+      "dev.login.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://login-dev.l:3000/";
         };
       };
       "catalog.pmd.lpm.feri.um.si" = {

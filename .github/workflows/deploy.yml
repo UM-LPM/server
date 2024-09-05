@@ -18,13 +18,13 @@ jobs:
   #infra:
   #  uses: UM-LPM/server/.github/workflows/deploy-infra.yml@master
   #  secrets: inherit
-    
+
   bastion:
     uses: UM-LPM/server/.github/workflows/deploy-machine.yml@master
     with:
       machine: "bastion.l"
     secrets: inherit
-    
+
    # needs: infra
 
   machines:
@@ -39,6 +39,7 @@ jobs:
           - "collab.l"
           - "collab-dev.l"
           - "login.l"
+          - "login-dev.l"
           - "gc.l"
           - "gc-dev.l"
           - "catalog.l"

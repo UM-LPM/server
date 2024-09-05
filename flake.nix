@@ -4,15 +4,16 @@
     nixpkgs-23_11.url = github:NixOS/nixpkgs/nixos-23.11;
     agenix.url = github:ryantm/agenix;
     sso-test.url = github:UM-LPM/sso-test;
-    collab.url = github:UM-LPM/QA/production;
     grades.url = github:UM-LPM/grades;
+    collab.url = github:UM-LPM/QA/production;
     collab-dev.url = github:UM-LPM/QA;
-    login.url = github:UM-LPM/login;
+    login.url = github:UM-LPM/login/production;
+    login-dev.url = github:UM-LPM/login;
     catalog.url = github:UM-LPM/short-courses-catalog;
     gc.url = github:Mir1001/gc_mv_backend;
   };
 
-  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, grades, login, catalog, gc, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, grades, login, login-dev, catalog, gc, ...}@inputs:
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -68,6 +69,9 @@
       ];
       "login.l" = mkSystem "login.l" [
         login.nixosModules.default
+      ];
+      "login-dev.l" = mkSystem "login-dev.l" [
+        login-dev.nixosModules.default
       ];
       "catalog.l" = mkSystem "catalog.l" [
         catalog.nixosModules.default

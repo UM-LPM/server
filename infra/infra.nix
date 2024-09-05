@@ -115,6 +115,11 @@
           capacity = unit.GiB 8;
         }
         {
+          name = "login-dev";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
+        {
           name = "gc";
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
@@ -636,6 +641,26 @@
           network = "private-network";
           hostname = "login.l";
           address = "10.17.3.212";
+        }
+      ];
+    };
+    "login-dev" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "login-dev";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "login-dev.l";
+          address = "10.17.3.213";
         }
       ];
     };

@@ -1,6 +1,7 @@
 name: Deploy infra
 
 on:
+  workflow_dispatch:
   workflow_call:
     secrets:
       serversshkey:

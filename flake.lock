@@ -802,11 +802,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_4"
       },
       "locked": {
-        "lastModified": 1725976543,
-        "narHash": "sha256-6mXqNx1DGGZGU2v+Xhc92IkjdvoGd51cZPTaoswGkvA=",
+        "lastModified": 1726132993,
+        "narHash": "sha256-Q8uKYpV2V30MtuzgJkTjI9LgvtM8GrpKuUNuHc5HN8k=",
         "owner": "Mir1001",
         "repo": "gc_mv_backend",
-        "rev": "1030bfbd70a473465b06f38b713a46bd3a86d582",
+        "rev": "c5ac4ca84268e7f4ae89f5756ac83be70d1b98b8",
         "type": "github"
       },
       "original": {

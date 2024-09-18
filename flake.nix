@@ -11,9 +11,10 @@
     login-dev.url = github:UM-LPM/login;
     catalog.url = github:UM-LPM/short-courses-catalog;
     gc.url = github:Mir1001/gc_mv_backend;
+    feriusa.url = github:cecepasinechka/USA;
   };
 
-  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, grades, login, login-dev, catalog, gc, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, grades, login, login-dev, catalog, gc, feriusa, ...}@inputs:
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -57,6 +58,9 @@
       "student-mqtt.l" = mkSystem "student-mqtt.l" [];
       "kaze.l" = mkSystem "kaze.l" [];
       "bioma.l" = mkSystem "bioma.l" [];
+      "feriusa.l" = mkSystem "feriusa.l" [
+        feriusa.nixosModules.wordpress
+      ];
       "sso-test.l" = mkSystem "sso-test.l" [
         {nixpkgs.overlays = [sso-test-overlay];}
         sso-test.nixosModules.service

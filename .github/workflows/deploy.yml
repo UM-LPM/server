@@ -48,6 +48,7 @@ jobs:
           - "student-mqtt.l"
           - "bioma.l"
           - "ps.l"
+          - "feriusa.l"
       fail-fast: false
     needs: bastion
 

@@ -85,6 +85,9 @@
       "dev.login.lpm.feri.um.si" = {
         inherit email;
       };
+      #"feriusa.um.si" = {
+      #  inherit email;
+      #};
     };
     security.acme.acceptTerms = true;
 
@@ -153,11 +156,11 @@
       #    proxyPass = "http://esp";
       #  };
       #};
-       "usatour.lpm.feri.um.si" = {
-        locations."/" = {
-          proxyPass = "http://usatour";
-        };
-      };
+      #"usatour.lpm.feri.um.si" = {
+      #  locations."/" = {
+      #    proxyPass = "http://usatour";
+      #  };
+      #};
       "ps.lpm.feri.um.si" = {
         #forceSSL = true;
         addSSL = true;
@@ -240,6 +243,15 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://login.l:3000/";
+        };
+      };
+      "feriusa.um.si" = {
+        #addSSL = true;
+        #enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://feriusa.l/";
         };
       };
       "dev.login.lpm.feri.um.si" = {

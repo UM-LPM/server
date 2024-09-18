@@ -154,6 +154,11 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
         }
+        {
+          name = "feriusa";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -169,7 +174,10 @@
         hosts = [
           {
             address = "10.17.3.101";
-            hostnames = ["login.lpm.feri.um.si"];
+            hostnames = [
+              "dev.login.lpm.feri.um.si"
+              "login.lpm.feri.um.si"
+            ];
           }
         ];
       };
@@ -181,7 +189,6 @@
           {mac = "02:38:60:94:88:cc"; hostname = "spum-mqtt";        address = "10.17.3.111";}
           {mac = "02:a2:cd:0c:46:78"; hostname = "spum-platform";    address = "10.17.3.110";}
           {mac = "02:b2:a8:b4:1a:fd"; hostname = "ps-old";           address = "10.17.3.130";}
-          {mac = "02:59:e1:4f:03:bf"; hostname = "usatour";          address = "10.17.3.150";}
           {mac = "02:2a:89:07:ca:ef"; hostname = "gtpmas.l";         address = "10.17.3.173";}
           {mac = "02:94:78:76:bd:6b"; hostname = "prometheus-old.l"; address = "10.17.3.107";}
         ];
@@ -421,6 +428,26 @@
           network = "private-network";
           hostname = "calendar.l";
           address = "10.17.3.160";
+        }
+      ];
+    };
+    "feriusa" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "feriusa";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "feriusa.l";
+          address = "10.17.3.151";
         }
       ];
     };

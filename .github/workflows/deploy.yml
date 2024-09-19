@@ -49,6 +49,7 @@ jobs:
           - "bioma.l"
           - "ps.l"
           - "feriusa.l"
+          - "usatour.l"
       fail-fast: false
     needs: bastion
 

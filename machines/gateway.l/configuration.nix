@@ -88,6 +88,9 @@
       "feriusa.um.si" = {
         inherit email;
       };
+      "students.lpm.feri.um.si" = {
+        inherit email;
+      };
     };
     security.acme.acceptTerms = true;
 
@@ -252,6 +255,15 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://feriusa.l/";
+        };
+      };
+      "students.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://usatour.l/";
         };
       };
       "dev.login.lpm.feri.um.si" = {

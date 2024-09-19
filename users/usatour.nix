@@ -1,8 +1,8 @@
 {config, lib, ...}:
 {
-  users.users.feriusa = {
+  users.users.usatour = {
     isNormalUser = true;
-    description = "FERI USA user";
+    description = "Legacy FERI USA user";
     openssh.authorizedKeys.keys = with import ../ssh/users.nix; [mario ziga matej marko cvetanka];
   };
 }

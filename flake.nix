@@ -61,6 +61,9 @@
       "feriusa.l" = mkSystem "feriusa.l" [
         feriusa.nixosModules.wordpress
       ];
+      "usatour.l" = mkSystem "usatour.l" [
+        feriusa.nixosModules.wordpress
+      ];
       "sso-test.l" = mkSystem "sso-test.l" [
         {nixpkgs.overlays = [sso-test-overlay];}
         sso-test.nixosModules.service

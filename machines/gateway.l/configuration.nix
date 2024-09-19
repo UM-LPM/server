@@ -85,9 +85,9 @@
       "dev.login.lpm.feri.um.si" = {
         inherit email;
       };
-      #"feriusa.um.si" = {
-      #  inherit email;
-      #};
+      "feriusa.um.si" = {
+        inherit email;
+      };
     };
     security.acme.acceptTerms = true;
 
@@ -246,8 +246,8 @@
         };
       };
       "feriusa.um.si" = {
-        #addSSL = true;
-        #enableACME = true;
+        addSSL = true;
+        enableACME = true;
 
         locations."/" = {
           recommendedProxySettings = true;

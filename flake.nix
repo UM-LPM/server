@@ -9,12 +9,13 @@
     collab-dev.url = github:UM-LPM/QA;
     login.url = github:UM-LPM/login/production;
     login-dev.url = github:UM-LPM/login;
-    catalog.url = github:UM-LPM/short-courses-catalog;
+    catalog.url = github:UM-LPM/short-courses-catalog/production;
+    catalog-dev.url = github:UM-LPM/short-courses-catalog;
     gc.url = github:Mir1001/gc_mv_backend;
     feriusa.url = github:cecepasinechka/USA;
   };
 
-  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, grades, login, login-dev, catalog, gc, feriusa, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, grades, login, login-dev, catalog, catalog-dev, gc, feriusa, ...}@inputs:
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -84,7 +85,7 @@
         catalog.nixosModules.default
       ];
       "catalog-dev.l" = mkSystem "catalog-dev.l" [
-        catalog.nixosModules.default
+        catalog-dev.nixosModules.default
       ];
       "grades.l" = mkSystem "grades.l" [
         grades.nixosModules.default

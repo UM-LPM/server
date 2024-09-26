@@ -16,6 +16,7 @@
     host = "0.0.0.0";
     isDevelopment = true;
     jwtSecret = "mysecret";
+    oidcIssuer = "https://dev.login.lpm.feri.um.si/oidc";
     adminDefaultPassword = "myadmindefaultpass";
   };
 }

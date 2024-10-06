@@ -48,6 +48,15 @@
   "collab-dev.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBLT+XpN1s87xczLMz1doTgF4EVfILFad36v/o+0MgD4";
   };
+  "collab-pora.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEm2I0i92c3yrWZQsqE2woeEcc9GdXQBGQz1ZBVz3eU0";
+  };
+  "collab-rri.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIElC+YBrWW2ihn2/MZQJ3MALZaDTXrXCro0196FgQRay";
+  };
+  "collab-catalog-dev.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG9KT4VVzmR9hQu5mR45GAbekTVuGexomPkCkXiMj87U";
+  };
   "grades.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFW3/5HorTekiOAhKzpFhPOidiGl4xVOqkZBTRoR4rMo";
   };

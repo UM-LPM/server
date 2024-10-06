@@ -55,6 +55,15 @@
       "dev.collab.lpm.feri.um.si" = {
         inherit email;
       };
+      "pora.collab.lpm.feri.um.si" = {
+        inherit email;
+      };
+      "rri.collab.lpm.feri.um.si" = {
+        inherit email;
+      };
+      "collab.pmd.lpm.feri.um.si" = {
+        inherit email;
+      };
       "catalog.pmd.lpm.feri.um.si" = {
         inherit email;
       };
@@ -238,6 +247,42 @@
             return 444;
           }
         '';
+      };
+      "pora.collab.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://collab-pora.l:8080/api/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://collab-pora.l/";
+        };
+      };
+      "rri.collab.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://collab-rri.l:8080/api/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://collab-rri.l/";
+        };
+      };
+      "collab.pmd.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://collab-catalog-dev.l:8080/api/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://collab-catalog-dev.l/";
+        };
       };
       "login.lpm.feri.um.si" = {
         addSSL = true;

@@ -606,7 +606,7 @@
         {
           network = "private-network";
           hostname = "collab-pora.l";
-          address = "10.17.3.212";
+          address = "10.17.3.214";
         }
       ];
     };
@@ -626,7 +626,7 @@
         {
           network = "private-network";
           hostname = "collab-rri.l";
-          address = "10.17.3.213";
+          address = "10.17.3.215";
         }
       ];
     };
@@ -646,7 +646,7 @@
         {
           network = "private-network";
           hostname = "collab-catalog-dev.l";
-          address = "10.17.3.214";
+          address = "10.17.3.216";
         }
       ];
     };

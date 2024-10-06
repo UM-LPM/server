@@ -164,6 +164,21 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
         }
+        {
+          name = "collab-pora";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
+        {
+          name = "collab-rri";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
+        {
+          name = "collab-catalog-dev";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -572,6 +587,66 @@
           network = "private-network";
           hostname = "collab-dev.l";
           address = "10.17.3.211";
+        }
+      ];
+    };
+    "collab-pora" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "collab-pora";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "collab-pora.l";
+          address = "10.17.3.212";
+        }
+      ];
+    };
+    "collab-rri" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "collab-rri";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "collab-rri.l";
+          address = "10.17.3.213";
+        }
+      ];
+    };
+    "collab-catalog-dev" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "collab-catalog-dev";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "collab-catalog-dev.l";
+          address = "10.17.3.214";
         }
       ];
     };

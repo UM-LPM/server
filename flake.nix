@@ -75,6 +75,15 @@
       "collab-dev.l" = mkSystem "collab-dev.l" [
         collab-dev.nixosModules.default
       ];
+      "collab-pora.l" = mkSystem "collab-pora.l" [
+        collab-dev.nixosModules.default
+      ];
+      "collab-rri.l" = mkSystem "collab-rri.l" [
+        collab-dev.nixosModules.default
+      ];
+      "collab-catalog-dev.l" = mkSystem "collab-catalog-dev.l" [
+        collab-dev.nixosModules.default
+      ];
       "login.l" = mkSystem "login.l" [
         login.nixosModules.default
       ];

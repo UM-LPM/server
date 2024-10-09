@@ -29,6 +29,8 @@
 
   domen = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdULj7ttOTxQG2BwERf0iW3VbvXFUc7sdc6GQWaA7iQ domen.onassis@gmail.com";
 
+  merisa = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK3NPmwDIjyhcPR/NPvIdGhYLi/okZlqkc2XjAWyrb7D mjork@mjorks-Air";
+
   # GitHub Actions keys
   server-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMBhy/17XIqRbkTyMhz1ckNYiVXEexcAvgG6QT7blP2 ziga@archlinux";
   

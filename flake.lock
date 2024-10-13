@@ -1426,11 +1426,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_10"
       },
       "locked": {
-        "lastModified": 1728841764,
-        "narHash": "sha256-0Wn50DYEKfNt/4ka/Bc+/pAy5/wH9hRk0ex8YQ4/pTk=",
+        "lastModified": 1728844049,
+        "narHash": "sha256-mjdZsGGYY3HRu1VGWNhX9Efp9zeeW3xAQKnRHppOLcg=",
         "owner": "UM-LPM",
         "repo": "login",
-        "rev": "bd6c0776f6a32780031a6b90c4431c84df32fa77",
+        "rev": "4ac94ccd025c9096cb55ec935e4c2bd8234a505b",
         "type": "github"
       },
       "original": {

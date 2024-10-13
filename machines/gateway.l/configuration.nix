@@ -320,6 +320,11 @@
           proxyPass = "http://login-dev.l/login-images/";
         };
 
+        locations."/images/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://login-dev.l/";
+        };
+
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://login-dev.l:3000/";

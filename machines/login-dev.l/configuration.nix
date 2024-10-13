@@ -28,13 +28,14 @@
   noo.services.login = {
     enable = true;
 
+    profilePictures = {
+      enable = true;
+      address = "https://dev.login.lpm.feri.um.si";
+    };
+
     service = {
       enable = true;
       address = "https://dev.login.lpm.feri.um.si";
-      profilePictures = {
-        enable = true;
-        address = "https://dev.login.lpm.feri.um.si";
-      };
       internalSecretsFile = config.age.secrets.login-dev-internal-secrets.path;
       externalSecretsFile = config.age.secrets.login-dev-external-secrets.path;
     };

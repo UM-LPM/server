@@ -9,7 +9,7 @@
     ../../users/login.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [22 3000 9100];
+  networking.firewall.allowedTCPPorts = [22 80 3000 9100];
 
   age.secrets."login-internal-secrets" = {
     file = ../../secrets/login-internal-secrets.age;
@@ -27,6 +27,11 @@
 
   noo.services.login = {
     enable = true;
+
+    profilePictures = {
+      enable = true;
+      address = "https://login.lpm.feri.um.si";
+    };
 
     service = {
       enable = true;

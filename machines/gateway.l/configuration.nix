@@ -317,7 +317,7 @@
 
         locations."/login-images/" = {
           recommendedProxySettings = true;
-          proxyPass = "http://login-dev.l:2999/login-images/";
+          proxyPass = "http://login-dev.l/login-images/";
         };
 
         locations."/" = {

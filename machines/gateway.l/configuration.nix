@@ -288,6 +288,16 @@
         addSSL = true;
         enableACME = true;
 
+        locations."/login-images/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://login.l/login-images/";
+        };
+
+        locations."/images/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://login.l/images/";
+        };
+
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://login.l:3000/";

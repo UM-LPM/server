@@ -9,7 +9,7 @@
     ../../users/login.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [22 3000 9100];
+  networking.firewall.allowedTCPPorts = [22 2999 3000 9100];
 
   age.secrets."login-dev-internal-secrets" = {
     file = ../../secrets/login-dev-internal-secrets.age;

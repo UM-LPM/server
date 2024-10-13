@@ -315,6 +315,11 @@
         addSSL = true;
         enableACME = true;
 
+        locations."/login-images/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://login-dev.l:2999/login-images/";
+        };
+
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://login-dev.l:3000/";

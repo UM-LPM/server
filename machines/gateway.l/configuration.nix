@@ -322,7 +322,7 @@
 
         locations."/images/" = {
           recommendedProxySettings = true;
-          proxyPass = "http://login-dev.l/";
+          proxyPass = "http://login-dev.l/images/";
         };
 
         locations."/" = {

@@ -27,7 +27,7 @@
 
   cvetanka = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPowag5f95aL4VuhR+6WNmEO5v/ViWBBMXF4WNg0posA cvetanka.pasinechka@student.um.si";
 
-  domen = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdULj7ttOTxQG2BwERf0iW3VbvXFUc7sdc6GQWaA7iQ domen.onassis@gmail.com";
+  domen = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGXsE6wKEEOA83H/ngCXynV6b/pQDf+EkUMo3/6uXG61 domen.onassis@gmail.com";
 
   merisa = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK3NPmwDIjyhcPR/NPvIdGhYLi/okZlqkc2XjAWyrb7D mjork@mjorks-Air";
 

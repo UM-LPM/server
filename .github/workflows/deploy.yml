@@ -53,6 +53,7 @@ jobs:
           - "ps.l"
           - "feriusa.l"
           - "usatour.l"
+          - "ears.l"
       fail-fast: false
     needs: bastion
 

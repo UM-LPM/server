@@ -10,6 +10,7 @@ in
   "login-runner-token.age".publicKeys = [systems."runner1.l"] ++ (with users; [mario ziga marko matej]);
   "grades-runner-token.age".publicKeys = [systems."runner1.l"] ++ (with users; [mario ziga marko matej]);
   "catalog-runner-token.age".publicKeys = [systems."runner1.l"] ++ (with users; [mario ziga marko matej]);
+  "ears-runner-token.age".publicKeys = [systems."ears.l"] ++ (with users; [mario ziga marko matej miha]);
   "mqtt-passwords.age".publicKeys = [systems."student-mqtt.l"] ++ (with users; [mario ziga matej]);
   "login-internal-secrets.age".publicKeys = [systems."login.l"] ++ (with users; [mario ziga matej marko]);
   "login-external-secrets.age".publicKeys = [systems."login.l"] ++ (with users; [mario ziga matej marko]);

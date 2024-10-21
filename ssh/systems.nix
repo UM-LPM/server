@@ -30,6 +30,9 @@
   "runner2.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILub+nPv2n69XEDidopa01yuT6U9q53n8yMVzx63Upwa";
   };
+  "ears.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICfp0u3dM4WfK2DLmh3JVGX4asaYyXjJqKzWYK53jS7d";
+  };
   "sso-test.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJlDx9wxreroWOqxj4JiuvKsuPxKB2wFkEbzy+IMKvQ/";
   };

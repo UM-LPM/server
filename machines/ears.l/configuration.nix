@@ -27,5 +27,5 @@
       runner1 = mkRunner "runner1";
       runner2 = mkRunner "runner2";
       runner3 = mkRunner "runner3";
-    }
+    };
   }

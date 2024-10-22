@@ -56,7 +56,7 @@
       "ps.l" = mkSystem "ps.l" [];
       "runner1.l" = mkSystem "runner1.l" [];
       "ears.l" = mkSystem "ears.l" [
-        ears.nixosModules.default
+        #ears.nixosModules.default
       ];
       "prometheus.l" = mkSystem "prometheus.l" [];
       "student-mqtt.l" = mkSystem "student-mqtt.l" [];

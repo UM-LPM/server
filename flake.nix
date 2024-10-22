@@ -13,7 +13,7 @@
     catalog-dev.url = github:UM-LPM/short-courses-catalog;
     gc.url = github:Mir1001/gc_mv_backend;
     feriusa.url = github:cecepasinechka/USA;
-    ears.url = github:UM-LPM/ears;
+    ears.url = github:UM-LPM/tournaments;
   };
 
   outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, grades, login, login-dev, catalog, catalog-dev, gc, feriusa, ears, ...}@inputs:

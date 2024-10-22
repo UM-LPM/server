@@ -514,11 +514,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1729615262,
-        "narHash": "sha256-CcUGwEHAWOo9M+F41bj50ZJMc3MzJ3fJjCWs3d7Go9U=",
+        "lastModified": 1729621638,
+        "narHash": "sha256-JSN26At/VPbk8EPGZN8c0ZAEYdxVgAPkXJLRJyD0T3c=",
         "owner": "UM-LPM",
         "repo": "tournaments",
-        "rev": "c46b0fd061db00782305ba317749aab2b83ee877",
+        "rev": "6c34f1f3b4505c7c34f4c412cec89e46c91f9637",
         "type": "github"
       },
       "original": {

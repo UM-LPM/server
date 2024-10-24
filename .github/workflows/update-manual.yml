@@ -1,0 +1,14 @@
+name: Update manually
+
+on:
+  workflow_dispatch:
+    inputs:
+      input:
+        required: true
+        type: string
+
+jobs:
+  machine:
+    uses: ./.github/workflows/update.yml
+    with:
+      machine: ${{inputs.input}}

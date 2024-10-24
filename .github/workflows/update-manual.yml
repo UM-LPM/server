@@ -12,3 +12,4 @@ jobs:
     uses: ./.github/workflows/update.yml
     with:
       input: ${{inputs.input}}
+    secrets: inherit

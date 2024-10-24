@@ -8,7 +8,7 @@ on:
         type: string
 
 jobs:
-  machine:
+  update:
     uses: ./.github/workflows/update.yml
     with:
-      machine: ${{inputs.input}}
+      input: ${{inputs.input}}

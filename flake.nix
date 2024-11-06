@@ -108,6 +108,9 @@
       "gc-dev.l" = mkSystem "gc-dev.l" [
         gc.nixosModules.default
       ];
+      "lpm.rwx.si" = mkSystem "aws" [
+        login-dev.nixosModules.default
+      ];
     };
 
     packages."x86_64-linux" = {

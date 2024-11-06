@@ -6,6 +6,9 @@
   "bastion.lpm.feri.um.si" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1p6tEwRxVlTFWfb/pGbAp6jwKIXcD7qyvpYsGjL0W3";
   };
+  "lpm.rwx.si" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtiHVVTwv+mN+q/z/QBH0EtxaS+tHLxiaocoiyHmJdn";
+  };
   "bastion" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1p6tEwRxVlTFWfb/pGbAp6jwKIXcD7qyvpYsGjL0W3";
   };

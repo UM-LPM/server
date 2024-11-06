@@ -31,7 +31,7 @@ in
 
   networking = {
     firewall.allowedTCPPorts = [9100];
-  
+
     hostName = "green";
     nameservers = ["1.1.1.1"];
 
@@ -41,7 +41,7 @@ in
         {address = "164.8.230.240"; prefixLength = 24;}
       ];
     };
-    
+
     defaultGateway = {
       address = "164.8.230.1";
       interface = "eno1";
@@ -53,7 +53,7 @@ in
     passwordAuthentication = false;
     kbdInteractiveAuthentication = false;
   };
-  
+
   services.prometheus.exporters.node = {
     enable = true;
     enabledCollectors = [

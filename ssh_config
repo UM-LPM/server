@@ -15,3 +15,7 @@ Host builder grades spum-platform spum-mqtt spum-docker-registry ps esp usatour 
     User root
     HostName %h
     ProxyJump bastion
+
+Host lpm.rwx.si
+    Hostname 18.196.240.233
+    User root

@@ -37,9 +37,9 @@
   security.acme.certs =
     let email = "ziga.leber@um.si"; in
     {
-      "bioma2022.um.si" = {
-        inherit email;
-      };
+      #"bioma2022.um.si" = {
+      #  inherit email;
+      #};
       "umplatforma.lpm.feri.um.si" = {
         inherit email;
       };
@@ -55,6 +55,9 @@
       "dev.collab.lpm.feri.um.si" = {
         inherit email;
       };
+      #"test.collab.lpm.feri.um.si" = {
+      #  inherit email;
+      #};
       "pora.collab.lpm.feri.um.si" = {
         inherit email;
       };
@@ -150,15 +153,16 @@
           '';
         };
       };
-      "bioma2022.um.si" = {
-        #forceSSL = true;
-        addSSL = true;
-        enableACME = true;
+      ##"bioma2022.um.si" = {
+      ##  #forceSSL = true;
+      ##  addSSL = true;
+      ##  enableACME = true;
 
-        locations."/" = {
-          proxyPass = "http://bioma.l:8080";
-        };
-      };
+      ##  locations."/" = {
+      ##    proxyPass = "http://bioma.l:8080";
+      ##  };
+      ##};
+
       #"esp.lpm.feri.um.si" = {
       #  addSSL = true;
       #  sslCertificate = "/var/ssl/esp.lpm.feri.um.si.crt";
@@ -188,11 +192,6 @@
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';
         };
-        extraConfig = ''
-          if ($host != $server_name) {
-            return 444;
-          }
-        '';
       };
       "student-mqtt.lpm.feri.um.si" = {
         addSSL = true;
@@ -242,11 +241,6 @@
             add_header Cache-Control "no-store, no-cache, must-revalidate";
           '';
         };
-        extraConfig = ''
-          if ($host != $server_name) {
-            return 444;
-          }
-        '';
       };
       "pora.collab.lpm.feri.um.si" = {
         addSSL = true;

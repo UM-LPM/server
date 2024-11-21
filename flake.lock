@@ -557,11 +557,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_5"
       },
       "locked": {
-        "lastModified": 1728068369,
-        "narHash": "sha256-OEJxQBFFg/DSxhBMsmgbSTeUinfRuxaWo9xTv6CxEPw=",
+        "lastModified": 1732219567,
+        "narHash": "sha256-QzwtMoxrdCPYutOc7gFEiThbc1qJfTYWVatd9n2r6pQ=",
         "owner": "cecepasinechka",
         "repo": "USA",
-        "rev": "218b4aeeb4bd6a10f01bfb2f74d3d884736203ab",
+        "rev": "52b18bac021ce7b950be46f46e9cb69d91ab951b",
         "type": "github"
       },
       "original": {

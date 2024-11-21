@@ -100,6 +100,9 @@
       "feriusa.um.si" = {
         inherit email;
       };
+      "feriusa.rwx.si" = {
+        inherit email;
+      };
       "students.lpm.feri.um.si" = {
         inherit email;
       };
@@ -298,6 +301,15 @@
         };
       };
       "feriusa.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://feriusa.l/";
+        };
+      };
+      "feriusa.rwx.si" = {
         addSSL = true;
         enableACME = true;
 

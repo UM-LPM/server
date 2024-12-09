@@ -55,9 +55,9 @@
       "dev.collab.lpm.feri.um.si" = {
         inherit email;
       };
-      #"test.collab.lpm.feri.um.si" = {
-      #  inherit email;
-      #};
+      "test.collab.lpm.feri.um.si" = {
+        inherit email;
+      };
       "pora.collab.lpm.feri.um.si" = {
         inherit email;
       };
@@ -85,9 +85,9 @@
       "sso-test.lpm.feri.um.si" = {
         inherit email;
       };
-      "student-mqtt.lpm.feri.um.si" = {
-        inherit email;
-      };
+      #"student-mqtt.lpm.feri.um.si" = {
+      #  inherit email;
+      #};
       "cache.lpm.feri.um.si" = {
         inherit email;
       };
@@ -115,31 +115,31 @@
   services.nginx = {
     enable = true;
 
-    appendConfig =
-      let
-        certs = config.security.acme.certs;
-        certName = "student-mqtt.lpm.feri.um.si";
-        sslCertificate = "${certs.${certName}.directory}/fullchain.pem";
-        sslCertificateKey = "${certs.${certName}.directory}/key.pem";
-      in
-      ''
-        stream {
-          server {
-            listen 164.8.230.210:1883;
-            proxy_pass spum-mqtt:1883;
-          }
-          server {
-            listen 164.8.230.211:1883;
-            proxy_pass student-mqtt.l:1883;
-          }
-          server {
-            listen 164.8.230.211:8883 ssl;
-            proxy_pass student-mqtt.l:1883;
-            ssl_certificate ${sslCertificate};
-            ssl_certificate_key ${sslCertificateKey};
-          }
-        }
-      '';
+    #appendConfig =
+    #  let
+    #    certs = config.security.acme.certs;
+    #    certName = "student-mqtt.lpm.feri.um.si";
+    #    sslCertificate = "${certs.${certName}.directory}/fullchain.pem";
+    #    sslCertificateKey = "${certs.${certName}.directory}/key.pem";
+    #  in
+    #  ''
+    #    stream {
+    #      server {
+    #        listen 164.8.230.210:1883;
+    #        proxy_pass spum-mqtt:1883;
+    #      }
+    #      server {
+    #        listen 164.8.230.211:1883;
+    #        proxy_pass student-mqtt.l:1883;
+    #      }
+    #      server {
+    #        listen 164.8.230.211:8883 ssl;
+    #        proxy_pass student-mqtt.l:1883;
+    #        ssl_certificate ${sslCertificate};
+    #        ssl_certificate_key ${sslCertificateKey};
+    #      }
+    #    }
+    #  '';
     virtualHosts = {
       "umplatforma.lpm.feri.um.si" = {
         #forceSSL = true;
@@ -156,15 +156,15 @@
           '';
         };
       };
-      ##"bioma2022.um.si" = {
-      ##  #forceSSL = true;
-      ##  addSSL = true;
-      ##  enableACME = true;
+      #"bioma2022.um.si" = {
+      #  #forceSSL = true;
+      #  addSSL = true;
+      #  enableACME = true;
 
-      ##  locations."/" = {
-      ##    proxyPass = "http://bioma.l:8080";
-      ##  };
-      ##};
+      #  locations."/" = {
+      #    proxyPass = "http://bioma.l:8080";
+      #  };
+      #};
 
       #"esp.lpm.feri.um.si" = {
       #  addSSL = true;
@@ -196,20 +196,20 @@
           '';
         };
       };
-      "student-mqtt.lpm.feri.um.si" = {
-        addSSL = true;
-        enableACME = true;
+      #"student-mqtt.lpm.feri.um.si" = {
+      #  addSSL = true;
+      #  enableACME = true;
 
-        locations."/" = {
-          recommendedProxySettings = true;
-          proxyPass = "http://student-mqtt.l:8080";
-          extraConfig = ''
-            proxy_http_version 1.1;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection "Upgrade";
-          '';
-        };
-      };
+      #  locations."/" = {
+      #    recommendedProxySettings = true;
+      #    proxyPass = "http://student-mqtt.l:8080";
+      #    extraConfig = ''
+      #      proxy_http_version 1.1;
+      #      proxy_set_header Upgrade $http_upgrade;
+      #      proxy_set_header Connection "Upgrade";
+      #    '';
+      #  };
+      #};
       "collab.lpm.feri.um.si" = {
         #forceSSL = true;
         addSSL = true;
@@ -267,6 +267,18 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://collab-rri.l/";
+        };
+      };
+      "test.collab.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://collab-test.l:8080/api/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://collab-test.l/";
         };
       };
       "collab.pmd.lpm.feri.um.si" = {

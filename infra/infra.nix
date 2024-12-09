@@ -179,6 +179,11 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
         }
+        {
+          name = "collab-test";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -647,6 +652,26 @@
           network = "private-network";
           hostname = "collab-catalog-dev.l";
           address = "10.17.3.216";
+        }
+      ];
+    };
+    "collab-test" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "collab-test";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "collab-test.l";
+          address = "10.17.3.217";
         }
       ];
     };

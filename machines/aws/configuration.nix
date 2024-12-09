@@ -3,6 +3,7 @@
     "${modulesPath}/virtualisation/amazon-image.nix"
     ../../users/root.nix
     ../../users/login.nix
+    ../../users/collab.nix
   ];
 
   networking.firewall.allowedTCPPorts = [22 80 443];
@@ -25,6 +26,9 @@
     let email = "ziga.leber@um.si"; in
     {
       "login.lpm.rwx.si" = {
+        inherit email;
+      };
+      "collab.lpm.rwx.si" = {
         inherit email;
       };
     };
@@ -65,6 +69,21 @@
           proxyPass = "http://localhost:3000/";
         };
       };
+      "collab.lpm.rwx.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://localhost:8080/api/";
+        };
+        locations."/" = {
+          proxyPass = "http://localhost/";
+          extraConfig = ''
+            include ${proxySelfConfig "collab-frontend"};
+          '';
+        };
+      };
     };
   };
 
@@ -83,7 +102,19 @@
       internalSecretsFile = config.age.secrets.login-aws-internal-secrets.path;
       externalSecretsFile = config.age.secrets.login-aws-external-secrets.path;
     };
+
     database.enable = true;
+  };
+
+  noo.services.collab = {
+    enable = true;
+    host = "0.0.0.0";
+    frontendHostname = "collab-frontend";
+    variant = "test";
+    oidcIssuer = "https://login.lpm.rwx.si/oidc";
+
+    jwtSecret = "";
+    adminDefaultPassword = "";
   };
 
   system.stateVersion = "24.05";

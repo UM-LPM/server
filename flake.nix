@@ -7,6 +7,7 @@
     grades.url = github:UM-LPM/grades;
     collab.url = github:UM-LPM/QA/production;
     collab-dev.url = github:UM-LPM/QA;
+    collab-test.url = github:UM-LPM/QA/test;
     login.url = github:UM-LPM/login/production;
     login-dev.url = github:UM-LPM/login;
     catalog.url = github:UM-LPM/short-courses-catalog/production;
@@ -16,7 +17,7 @@
     ears.url = github:UM-LPM/tournaments;
   };
 
-  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, grades, login, login-dev, catalog, catalog-dev, gc, feriusa, ears, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, collab-test, grades, login, login-dev, catalog, catalog-dev, gc, feriusa, ears, ...}@inputs:
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -78,6 +79,9 @@
       "collab-dev.l" = mkSystem "collab-dev.l" [
         collab-dev.nixosModules.default
       ];
+      "collab-test.l" = mkSystem "collab-test.l" [
+        collab-test.nixosModules.default
+      ];
       "collab-pora.l" = mkSystem "collab-pora.l" [
         collab-dev.nixosModules.default
       ];
@@ -109,6 +113,7 @@
         gc.nixosModules.default
       ];
       "lpm.rwx.si" = mkSystem "aws" [
+        collab-test.nixosModules.default
         login-dev.nixosModules.default
       ];
     };

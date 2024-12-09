@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-24.05;
-    nixpkgs-23_11.url = github:NixOS/nixpkgs/nixos-23.11;
     agenix.url = github:ryantm/agenix;
     sso-test.url = github:UM-LPM/sso-test;
     grades.url = github:UM-LPM/grades;
@@ -17,7 +16,7 @@
     ears.url = github:UM-LPM/tournaments;
   };
 
-  outputs = {self, nixpkgs, nixpkgs-23_11, agenix, sso-test, collab, collab-dev, collab-test, grades, login, login-dev, catalog, catalog-dev, gc, feriusa, ears, ...}@inputs:
+  outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, collab-test, grades, login, login-dev, catalog, catalog-dev, gc, feriusa, ears, ...}@inputs:
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -25,10 +24,6 @@
       config.permittedInsecurePackages = [
         "nodejs-16.20.2"
       ];
-    };
-    pkgs-23_11 = import nixpkgs-23_11 {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
     };
     sso-test-overlay = self: super: {
       service = sso-test.packages.x86_64-linux.service;
@@ -46,7 +41,7 @@
           ./modules/secrets.nix
           ./machines/${hostname}/configuration.nix
         ];
-        specialArgs = {inherit inputs pkgs-23_11;};
+        specialArgs = {inherit inputs;};
       };
     in {
       "minimal.l" = mkSystem "minimal.l" [];

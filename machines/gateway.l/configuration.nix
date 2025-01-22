@@ -76,6 +76,9 @@
       "katalog.krajsa-izobrazevanja.feri.um.si" = {
         inherit email;
       };
+      "catalog.lpm.rwx.si" = {
+        inherit email;
+      };
       "okkoreboot.com" = {
         inherit email;
       };
@@ -328,6 +331,15 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://feriusa.l/";
+        };
+      };
+      "catalog.lpm.rwx.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-view.l/";
         };
       };
       "students.lpm.feri.um.si" = {

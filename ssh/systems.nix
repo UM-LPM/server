@@ -87,6 +87,9 @@
   "catalog-dev.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIME4hIZHdTiTRsbIQ8crDxHTtkckFq+A3iF4G5Dda8bM";
   };
+  "catalog-view.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBFr8ExHLDlAxJ6LsjLMfaPNWxBR0r420lCaOu5RXRsF";
+  };
   "bioma.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN0BPLzPl5TRejsLDME22k824mfyaBlEt9tK7BYSBgZg";
   };

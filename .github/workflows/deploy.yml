@@ -47,6 +47,7 @@ jobs:
           - "gc-dev.l"
           - "catalog.l"
           - "catalog-dev.l"
+          - "catalog-view.l"
           - "grades.l"
           - "student-mqtt.l"
           - "bioma.l"

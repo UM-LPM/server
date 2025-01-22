@@ -98,6 +98,7 @@
       "catalog-dev.l" = mkSystem "catalog-dev.l" [
         catalog-dev.nixosModules.default
       ];
+      "catalog-view.l" = mkSystem "catalog-view.l" [];
       "grades.l" = mkSystem "grades.l" [
         grades.nixosModules.default
       ];

@@ -5,7 +5,7 @@
 deploy() {
     local host=$1
     local config=$2
-    nix run -- 'nixpkgs#nixos-rebuild' switch -v --target-host "builder.l" --build-host "$host" --flake ".#$host"
+    nix run -- 'nixpkgs#nixos-rebuild' switch -v --target-host "$host" --build-host "builder.l" --flake ".#$host"
 }
 
 machine=${1:?Machine not specified}

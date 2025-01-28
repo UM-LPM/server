@@ -207,6 +207,7 @@
             hostnames = [
               "dev.login.lpm.feri.um.si"
               "login.lpm.feri.um.si"
+              "catalog.pmd.lpm.feri.um.si"
             ];
           }
         ];
@@ -216,10 +217,10 @@
         start = "10.17.3.2";
         end = "10.17.3.254";
         hosts = [
-          {mac = "02:38:60:94:88:cc"; hostname = "spum-mqtt";        address = "10.17.3.111";}
-          {mac = "02:a2:cd:0c:46:78"; hostname = "spum-platform";    address = "10.17.3.110";}
-          {mac = "02:b2:a8:b4:1a:fd"; hostname = "ps-old";           address = "10.17.3.130";}
-          {mac = "02:2a:89:07:ca:ef"; hostname = "gtpmas.l";         address = "10.17.3.173";}
+          {mac = "02:38:60:94:88:cc"; hostname = "spum-mqtt";     address = "10.17.3.111";}
+          {mac = "02:a2:cd:0c:46:78"; hostname = "spum-platform"; address = "10.17.3.110";}
+          {mac = "02:b2:a8:b4:1a:fd"; hostname = "ps-old";        address = "10.17.3.130";}
+          {mac = "02:2a:89:07:ca:ef"; hostname = "gtpmas.l";      address = "10.17.3.173";}
         ];
       };
     };
@@ -743,7 +744,7 @@
     "catalog-dev" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 1;
+      memory = unit.GiB 2;
       vcpu = 1;
       disks = [
         {

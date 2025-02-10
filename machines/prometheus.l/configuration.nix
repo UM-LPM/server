@@ -19,6 +19,7 @@ let
     "bioma.l:9100"
     "student-mqtt.l:9100"
     "gtpmas.l:9182"
+    "feriusa.l:9100"
 
     #"grades:9100"
     #"spum-platform:9100"

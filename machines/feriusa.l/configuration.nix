@@ -3,10 +3,11 @@
 {
   imports = [
     ../../modules/image.nix
+    ../../modules/base.nix
     ../../users/root.nix
     ../../users/feriusa.nix
     ../../users/rescue.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [22 80];
+  networking.firewall.allowedTCPPorts = [22 80 9100];
 }

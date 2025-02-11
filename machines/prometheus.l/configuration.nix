@@ -20,6 +20,7 @@ let
     "student-mqtt.l:9100"
     "gtpmas.l:9182"
     "feriusa.l:9100"
+    "feriusa.l:9113"
 
     #"grades:9100"
     #"spum-platform:9100"
@@ -44,7 +45,7 @@ in
   ];
 
   networking.firewall.allowedTCPPorts = [22];
-  
+
   services.grafana = {
     enable = true;
 
@@ -53,7 +54,7 @@ in
 
   services.prometheus = {
     enable = true;
-    
+
     globalConfig = {
       scrape_interval = "15s";
     };

@@ -1951,11 +1951,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_12"
       },
       "locked": {
-        "lastModified": 1738750350,
-        "narHash": "sha256-2qh60dujX9CNqXmyTus/GugOjW7ULjFChl+Z69/gckA=",
+        "lastModified": 1739457769,
+        "narHash": "sha256-Wd2QHGbTyt0dcj3/FRBqkgpMRkE+WYTnvYE131N/msQ=",
         "owner": "UM-LPM",
         "repo": "login",
-        "rev": "1b597599c7d22dfc6124dadf6fd98e28822f6ff3",
+        "rev": "da272e47c2c5438d262ceb5c8cdc5ec5c7ef404f",
         "type": "github"
       },
       "original": {

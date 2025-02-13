@@ -11,6 +11,8 @@
       "loadavg"
       "netdev"
       "diskstats"
+      "logind"
+      "systemd"
     ];
   };
 }

@@ -14,7 +14,7 @@
   noo.services.collab = {
     enable = true;
     host = "0.0.0.0";
-    variant = "catalog-dev";
+    package = pkgs.collab-catalog-dev;
     jwtSecret = "mysecret";
     oidcIssuer = "https://login.lpm.feri.um.si/oidc";
     adminDefaultPassword = "myadmindefaultpass";

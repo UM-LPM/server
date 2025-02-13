@@ -14,7 +14,7 @@
   noo.services.collab = {
     enable = true;
     host = "0.0.0.0";
-    variant = "pora";
+    package = pkgs.collab-pora;
     jwtSecret = "mysecret";
     oidcIssuer = "https://login.lpm.feri.um.si/oidc";
     adminDefaultPassword = "myadmindefaultpass";

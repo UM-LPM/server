@@ -72,18 +72,22 @@
         collab.nixosModules.default
       ];
       "collab-dev.l" = mkSystem "collab-dev.l" [
+        {nixpkgs.overlays = [collab-dev.overlays.default];}
         collab-dev.nixosModules.default
       ];
       "collab-test.l" = mkSystem "collab-test.l" [
         collab-test.nixosModules.default
       ];
       "collab-pora.l" = mkSystem "collab-pora.l" [
+        {nixpkgs.overlays = [collab-dev.overlays.default];}
         collab-dev.nixosModules.default
       ];
       "collab-rri.l" = mkSystem "collab-rri.l" [
+        {nixpkgs.overlays = [collab-dev.overlays.default];}
         collab-dev.nixosModules.default
       ];
       "collab-catalog-dev.l" = mkSystem "collab-catalog-dev.l" [
+        {nixpkgs.overlays = [collab-dev.overlays.default];}
         collab-dev.nixosModules.default
       ];
       "login.l" = mkSystem "login.l" [

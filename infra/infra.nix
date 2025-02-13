@@ -604,7 +604,7 @@
     "collab-pora" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 1;
+      memory = unit.GiB 2;
       vcpu = 1;
       disks = [
         {
@@ -624,7 +624,7 @@
     "collab-rri" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 1;
+      memory = unit.GiB 2;
       vcpu = 1;
       disks = [
         {

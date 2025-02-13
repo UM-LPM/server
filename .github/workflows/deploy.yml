@@ -55,6 +55,7 @@ jobs:
           - "feriusa.l"
           - "usatour.l"
           - "ears.l"
+          - "prometheus.l"
       fail-fast: false
     needs: bastion
 

@@ -3,6 +3,7 @@
 let
   targets = [
     "gateway.l:9100"
+    "gateway.l:9113"
     "bastion.l:9100"
     "builder.l:9100"
     "prometheus.l:9100"

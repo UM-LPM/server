@@ -113,7 +113,10 @@
     security.acme.acceptTerms = true;
 
   networking.firewall.allowedTCPPorts = [80 443 1883 5050 8080 8883];
-  networking.firewall.interfaces.ens2.allowedTCPPorts = [22 9100];
+  networking.firewall.interfaces.ens2.allowedTCPPorts = [22 9100 9113];
+
+  services.prometheus.exporters.nginx.enable = true;
+  services.nginx.statusPage = true;
 
   services.nginx = {
     enable = true;

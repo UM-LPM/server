@@ -189,6 +189,11 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
         }
+        {
+          name = "collab-vr";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -678,6 +683,26 @@
           network = "private-network";
           hostname = "collab-test.l";
           address = "10.17.3.217";
+        }
+      ];
+    };
+    "collab-vr" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 1;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "collab-vr";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "collab-vr.l";
+          address = "10.17.3.218";
         }
       ];
     };

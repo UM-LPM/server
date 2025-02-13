@@ -86,6 +86,10 @@
         {nixpkgs.overlays = [collab-dev.overlays.default];}
         collab-dev.nixosModules.default
       ];
+      "collab-vr.l" = mkSystem "collab-vr.l" [
+        {nixpkgs.overlays = [collab-dev.overlays.default];}
+        collab-dev.nixosModules.default
+      ];
       "collab-catalog-dev.l" = mkSystem "collab-catalog-dev.l" [
         {nixpkgs.overlays = [collab-dev.overlays.default];}
         collab-dev.nixosModules.default

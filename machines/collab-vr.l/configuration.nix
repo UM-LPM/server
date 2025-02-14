@@ -11,12 +11,12 @@
 
   networking.firewall.allowedTCPPorts = [22 80 8080 9100];
 
-  noo.services.collab = {
-    enable = true;
-    host = "0.0.0.0";
-    package = pkgs.collab-vr;
-    jwtSecret = "mysecret";
-    oidcIssuer = "https://login.lpm.feri.um.si/oidc";
-    adminDefaultPassword = "myadmindefaultpass";
-  };
+  #noo.services.collab = {
+  #  enable = true;
+  #  host = "0.0.0.0";
+  #  package = pkgs.collab-vr;
+  #  jwtSecret = "mysecret";
+  #  oidcIssuer = "https://login.lpm.feri.um.si/oidc";
+  #  adminDefaultPassword = "myadmindefaultpass";
+  #};
 }

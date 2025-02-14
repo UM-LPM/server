@@ -137,7 +137,7 @@
         {
           name = "catalog-dev";
           backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "catalog-view";
@@ -172,17 +172,17 @@
         {
           name = "collab-pora";
           backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "collab-rri";
           backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "collab-catalog-dev";
           backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "collab-test";
@@ -192,7 +192,7 @@
         {
           name = "collab-vr";
           backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
       ];
     };
@@ -589,7 +589,7 @@
     "collab-dev" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 1;
+      memory = unit.GiB 2;
       vcpu = 1;
       disks = [
         {
@@ -649,7 +649,7 @@
     "collab-catalog-dev" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 1;
+      memory = unit.GiB 2;
       vcpu = 1;
       disks = [
         {
@@ -689,7 +689,7 @@
     "collab-vr" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 1;
+      memory = unit.GiB 2;
       vcpu = 1;
       disks = [
         {

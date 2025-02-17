@@ -64,6 +64,9 @@
       "rri.collab.lpm.feri.um.si" = {
         inherit email;
       };
+      "vr.collab.lpm.feri.um.si" = {
+        inherit email;
+      };
       "collab.pmd.lpm.feri.um.si" = {
         inherit email;
       };
@@ -273,6 +276,18 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://collab-rri.l/";
+        };
+      };
+      "vr.collab.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://collab-vr.l:8080/api/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://collab-vr.l/";
         };
       };
       "test.collab.lpm.feri.um.si" = {

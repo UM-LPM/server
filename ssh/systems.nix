@@ -63,6 +63,9 @@
   "collab-vr.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJZe0St5C2V336eFqqvUvHrvez4pNGZlmsLNOXq/jJh7";
   };
+  "collab-test.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPJxSNk/WRfh4hbmI3U//L6zIUxmiFym0e9wSj1yVoR0";
+  };
   "collab-catalog-dev.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG9KT4VVzmR9hQu5mR45GAbekTVuGexomPkCkXiMj87U";
   };

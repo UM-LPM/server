@@ -76,6 +76,7 @@
         collab-dev.nixosModules.default
       ];
       "collab-test.l" = mkSystem "collab-test.l" [
+        {nixpkgs.overlays = [collab-test.overlays.default];}
         collab-test.nixosModules.default
       ];
       "collab-pora.l" = mkSystem "collab-pora.l" [

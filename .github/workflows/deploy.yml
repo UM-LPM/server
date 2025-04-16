@@ -38,6 +38,7 @@ jobs:
           - "proxy.l"
           - "collab.l"
           - "collab-dev.l"
+          - "collab-test.l"
           - "collab-pora.l"
           - "collab-rri.l"
           - "collab-vr.l"

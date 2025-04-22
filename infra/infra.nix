@@ -37,17 +37,17 @@
         {
           name = "prometheus";
           backing = "minimal-base-v2";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "minimal";
           backing = "minimal-base-v2";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "proxy";
           backing = "minimal-base-v2";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "calendar";

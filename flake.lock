@@ -685,11 +685,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_8"
       },
       "locked": {
-        "lastModified": 1733839700,
-        "narHash": "sha256-4iZLDkqETJN/PWJnHuJR3Tx9r56DO7YIKvb7NtSvaWk=",
+        "lastModified": 1745325737,
+        "narHash": "sha256-iEfYBbNuZ4iT6gbltPYzPcol+haEiy7YK0bZQoDGF00=",
         "owner": "cecepasinechka",
         "repo": "USA",
-        "rev": "fe0d5e0a41b333d06fc33d8473268c55e0d8f961",
+        "rev": "ca9d0c8dbc9e974c5bde507c541b34f678e62adf",
         "type": "github"
       },
       "original": {
@@ -3640,16 +3640,16 @@
     },
     "nixpkgs_34": {
       "locked": {
-        "lastModified": 1733384649,
-        "narHash": "sha256-K5DJ2LpPqht7K76bsxetI+YHhGGRyVteTPRQaIIKJpw=",
+        "lastModified": 1744440957,
+        "narHash": "sha256-FHlSkNqFmPxPJvy+6fNLaNeWnF1lZSgqVCl/eWaJRc4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "190c31a89e5eec80dd6604d7f9e5af3802a58a13",
+        "rev": "26d499fc9f1d567283d5d56fcf367edd815dba1d",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-24.05",
+        "ref": "nixos-24.11",
         "repo": "nixpkgs",
         "type": "github"
       }

@@ -685,11 +685,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_8"
       },
       "locked": {
-        "lastModified": 1745325737,
-        "narHash": "sha256-iEfYBbNuZ4iT6gbltPYzPcol+haEiy7YK0bZQoDGF00=",
+        "lastModified": 1745326382,
+        "narHash": "sha256-48sWsctGcXNBd1lj7USBkQwToX8Z4unU81ObZQkwB6g=",
         "owner": "cecepasinechka",
         "repo": "USA",
-        "rev": "ca9d0c8dbc9e974c5bde507c541b34f678e62adf",
+        "rev": "00214eb263225dfd197c5e812c8e376abccf277a",
         "type": "github"
       },
       "original": {

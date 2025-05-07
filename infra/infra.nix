@@ -709,7 +709,7 @@
     "gc" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 1;
+      memory = unit.GiB 2;
       vcpu = 1;
       disks = [
         {
@@ -729,7 +729,7 @@
     "gc-dev" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 1;
+      memory = unit.GiB 2;
       vcpu = 1;
       disks = [
         {

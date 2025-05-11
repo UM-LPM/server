@@ -142,7 +142,7 @@
         {
           name = "catalog-view";
           backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "catalog-manage";
@@ -814,7 +814,7 @@
     "catalog-view" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 1;
+      memory = unit.GiB 2;
       vcpu = 1;
       disks = [
         {

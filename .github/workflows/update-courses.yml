@@ -1,4 +1,4 @@
-name: Update
+name: Update courses
 on:
   workflow_dispatch:
     inputs:

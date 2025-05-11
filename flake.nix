@@ -51,12 +51,12 @@
           nix-prefetch -I 'nixpkgs=${nixpkgs}' --option extra-experimental-features flakes "$@"
         }
 
-        backendHash=$(prefetch '
+        hash=$(prefetch '
           { sha256 }:
           let flake = builtins.getFlake (toString ${./.}); in
           flake.packages.x86_64-linux.courses.overrideAttrs (_: { npmDepsHash = sha256; })
         ')
-        replace_sha npmDepsHash "$backendHash" ./machines/catalog-view.l/courses.nix
+        replace_sha hash "$hash" ./machines/catalog-view.l/courses.nix
       '';
     };
 

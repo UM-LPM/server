@@ -32,6 +32,34 @@
   in
   {
     packages.x86_64-linux.mongo_exporter = pkgs.callPackage ./pkgs/mongo_exporter.nix {};
+
+    packages.x86_64-linux.courses = pkgs.callPackage ./machines/catalog-view.l/courses.nix {};
+
+    packages.x86_64-linux.updateCourses = pkgs.writeShellApplication {
+      name = "update";
+
+      runtimeInputs = [ pkgs.nix-prefetch pkgs.gnused ];
+
+      text = ''
+        set -euo pipefail
+
+        # from https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/security/vault/update-bin.sh
+        replace_sha() {
+          sed -i "s#$1 = \"sha256-.\{44\}\"#$1 = \"$2\"#" "$3"
+        }
+        prefetch() {
+          nix-prefetch -I 'nixpkgs=${nixpkgs}' --option extra-experimental-features flakes "$@"
+        }
+
+        backendHash=$(prefetch '
+          { sha256 }:
+          let flake = builtins.getFlake (toString ${./.}); in
+          flake.packages.x86_64-linux.courses.overrideAttrs (_: { npmDepsHash = sha256; })
+        ')
+        replace_sha npmDepsHash "$backendHash" ./machines/catalog-view.l/courses.nix
+      '';
+    };
+
     nixosConfigurations =
     let
       mkSystem = hostname: extraModules: nixpkgs.lib.nixosSystem {

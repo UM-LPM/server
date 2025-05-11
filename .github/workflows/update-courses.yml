@@ -23,7 +23,7 @@ jobs:
     
     - name: Update
       run: |
-        echo "${{inputs.revision}}" >> ./machines/catalog-view.l/revision
+        echo -n "${{inputs.revision}}" > ./machines/catalog-view.l/revision
         nix run .#updateCourses
 
     - name: Commit

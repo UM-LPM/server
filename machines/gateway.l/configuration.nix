@@ -82,6 +82,12 @@
       "catalog.lpm.rwx.si" = {
         inherit email;
       };
+      "scms.catalog.lpm.rwx.si" = {
+        inherit email;
+      };
+      "catalog.catalog.lpm.rwx.si" = {
+        inherit email;
+      };
       "okkoreboot.com" = {
         inherit email;
       };
@@ -359,6 +365,9 @@
           recommendedProxySettings = true;
           proxyPass = "http://catalog-view.l/";
         };
+        extraConfig = ''
+          add_header Access-Control-Allow-Origin https://scms.catalog.lpm.rwx.si;
+        '';
       };
       "students.lpm.feri.um.si" = {
         addSSL = true;
@@ -410,6 +419,30 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://catalog.l/";
+        };
+      };
+      "scms.catalog.lpm.rwx.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://catalog-manage.l:8080/api/";
+        };
+        locations."/images/" = {
+          proxyPass = "http://catalog-manage.l:8081/images/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-manage.l:8000/";
+        };
+      };
+      "catalog.catalog.lpm.rwx.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-view.l:8001/";
         };
       };
       "grades.lpm.feri.um.si" = {

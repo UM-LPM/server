@@ -145,6 +145,11 @@
           capacity = unit.GiB 8;
         }
         {
+          name = "catalog-manage";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 16;
+        }
+        {
           name = "bioma";
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
@@ -823,6 +828,26 @@
           network = "private-network";
           hostname = "catalog-view.l";
           address = "10.17.3.195";
+        }
+      ];
+    };
+    "catalog-manage" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "catalog-manage";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog-manage.l";
+          address = "10.17.3.196";
         }
       ];
     };

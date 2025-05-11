@@ -20,5 +20,5 @@ in
   "login-aws-external-secrets.age".publicKeys = [systems."lpm.rwx.si"] ++ (with users; [mario ziga matej marko]);
   "gc-secrets.age".publicKeys = [systems."gc.l" systems."gc-dev.l"] ++ (with users; [mario ziga matej marko]);
   "pmd-catalog-secrets.age".publicKeys = [systems."pmd-catalog.l"] ++ (with users; [mario ziga marko matej cvetanka]);
-  "catalog-secrets.age".publicKeys = [systems."catalog.l" systems."catalog-dev.l"] ++ (with users; [mario ziga marko matej cvetanka]);
+  "catalog-secrets.age".publicKeys = [systems."catalog.l" systems."catalog-dev.l" systems."catalog-manage.l"] ++ (with users; [mario ziga marko matej cvetanka]);
 }

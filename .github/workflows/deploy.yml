@@ -50,6 +50,7 @@ jobs:
           - "catalog.l"
           - "catalog-dev.l"
           - "catalog-view.l"
+          - "catalog-manage.l"
           - "grades.l"
           - "student-mqtt.l"
           - "bioma.l"

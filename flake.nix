@@ -54,7 +54,7 @@
         hash=$(prefetch '
           { sha256 }:
           let flake = builtins.getFlake (toString ${./.}); in
-          flake.packages.x86_64-linux.courses.overrideAttrs (_: { npmDepsHash = sha256; })
+          flake.packages.x86_64-linux.courses.overrideAttrs (_: { hash = sha256; })
         ')
         replace_sha hash "$hash" ./machines/catalog-view.l/courses.nix
       '';

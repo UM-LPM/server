@@ -5,8 +5,8 @@ let
   src = fetchFromGitHub {
     owner = "UM-LPM";
     repo = "short-courses";
-    rev = "44cd1bf44a1bd6e5f2ea0f24184910b2f338ba95";
-    hash = "sha256-Y6X94w7QaXWSooL7cYOnfsYprTYS2Zyhe38dzdue1FM=";
+    rev = "3f939d4ab7a3acd05939e15f9485f5e4bfb590d3";
+    hash = "sha256-+YszHsvOKq4nS6KbbenR5+o0GtmwF7/Yo/dv+7sW6lw=";
   };
 
   courses = callPackage ./courses.nix {};

@@ -2004,11 +2004,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_14"
       },
       "locked": {
-        "lastModified": 1745842989,
-        "narHash": "sha256-JFLFfwOn7ZbPqAo02P92mCRePT8+qhGlmzkvs0Fttdg=",
+        "lastModified": 1747221898,
+        "narHash": "sha256-jUsyqGjqjsANFSgzkYfBI7YZ9nRYkhwrZRqT7apFi/w=",
         "owner": "UM-LPM",
         "repo": "login",
-        "rev": "4e62d1e98c30e9883c468cf72b44555750d084a7",
+        "rev": "1ce7a91014ca9a2e083b9482bb5eea322cb5f19c",
         "type": "github"
       },
       "original": {

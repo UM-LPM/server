@@ -2,11 +2,17 @@ name: Update courses
 on:
   workflow_dispatch:
     inputs:
+      catalog:
+        required: true
+        type: string
       revision:
         required: true
         type: string
   workflow_call:
     inputs:
+      catalog:
+        required: true
+        type: string
       revision:
         required: true
         type: string
@@ -23,7 +29,7 @@ jobs:
     
     - name: Update
       run: |
-        echo -n "${{inputs.revision}}" > ./machines/catalog-view.l/revision
+        jq ".\"${{inputs.catalog}}\".hash = \"${{inputs.revision}}\"" <courses.json | sponge courses.json
         nix run .#updateCourses
 
     - name: Commit

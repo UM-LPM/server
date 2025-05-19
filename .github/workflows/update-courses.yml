@@ -31,7 +31,7 @@ jobs:
       run: |
         jq ".\"${{inputs.catalog}}\".hash = \"${{inputs.revision}}\"" <courses.json >courses.new.json
         mv courses.new.json courses.json 
-        nix run .#updateCourses
+        nix run .#updateCourses.${{inputs.catalog}}
 
     - name: Commit
       run: |

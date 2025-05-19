@@ -29,7 +29,7 @@ jobs:
     
     - name: Update
       run: |
-        jq ".\"${{inputs.catalog}}\".hash = \"${{inputs.revision}}\"" <courses.json >courses.new.json
+        jq ".\"${{inputs.catalog}}\".revision = \"${{inputs.revision}}\"" <courses.json >courses.new.json
         mv courses.new.json courses.json 
         nix run .#updateCourses.${{inputs.catalog}}
 

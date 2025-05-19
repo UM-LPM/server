@@ -26,39 +26,50 @@
         "nodejs-16.20.2"
       ];
     };
+    lib = pkgs.lib;
     sso-test-overlay = self: super: {
       service = sso-test.packages.x86_64-linux.service;
     };
+
+    mkCourses = pkgs.callPackage ./packages/make-courses.nix {};
+
+    updateCourses = catalog:
+      pkgs.writeShellApplication {
+        name = "update";
+
+        runtimeInputs = [ pkgs.nix-prefetch pkgs.jq ];
+
+        text = ''
+          set -euo pipefail
+
+          # from https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/security/vault/update-bin.sh
+          replace_sha() {
+            jq ".\"${catalog}\".hash = \"$1\"" <courses.json >courses.new.json
+            mv courses.new.json courses.json
+          }
+          prefetch() {
+            nix-prefetch -I 'nixpkgs=${nixpkgs}' --option extra-experimental-features flakes "$@"
+          }
+
+          hash=$(prefetch '
+            { sha256 }:
+            let flake = builtins.getFlake (toString ${./.}); in
+            flake.packages.x86_64-linux.courses."${catalog}".overrideAttrs (_: { hash = sha256; })
+          ')
+          replace_sha "$hash"
+        '';
+      };
   in
   {
     packages.x86_64-linux.mongo_exporter = pkgs.callPackage ./pkgs/mongo_exporter.nix {};
 
-    packages.x86_64-linux.courses = pkgs.callPackage ./machines/catalog-view.l/courses.nix {};
+    packages.x86_64-linux.courses = builtins.mapAttrs (catalog: {revision, hash}:
+        mkCourses {inherit catalog revision hash;})
+      (lib.importJSON ./courses.json);
 
-    packages.x86_64-linux.updateCourses = pkgs.writeShellApplication {
-      name = "update";
-
-      runtimeInputs = [ pkgs.nix-prefetch pkgs.gnused ];
-
-      text = ''
-        set -euo pipefail
-
-        # from https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/security/vault/update-bin.sh
-        replace_sha() {
-          sed -i "s#$1 = \"sha256-.\{44\}\"#$1 = \"$2\"#" "$3"
-        }
-        prefetch() {
-          nix-prefetch -I 'nixpkgs=${nixpkgs}' --option extra-experimental-features flakes "$@"
-        }
-
-        hash=$(prefetch '
-          { sha256 }:
-          let flake = builtins.getFlake (toString ${./.}); in
-          flake.packages.x86_64-linux.courses.overrideAttrs (_: { hash = sha256; })
-        ')
-        replace_sha hash "$hash" ./machines/catalog-view.l/courses.nix
-      '';
-    };
+    packages.x86_64-linux.updateCourses = builtins.mapAttrs (catalog: _:
+        updateCourses catalog)
+      (lib.importJSON ./courses.json);
 
     nixosConfigurations =
     let

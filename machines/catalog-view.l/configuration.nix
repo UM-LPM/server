@@ -1,7 +1,8 @@
 {config, pkgs, ...}:
 
 let
-  view = pkgs.callPackage ./view.nix {};
+  catalog = "3b88bf36-eb8b-4c9f-bd29-545451665e87";
+  view = pkgs.callPackage ./view.nix {} {inherit catalog;};
 in
 {
   imports = [
@@ -27,7 +28,7 @@ in
       serverUrl = "https://scms.catalog.lpm.rwx.si/api";
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
       shortCoursesUrl = "https://catalog.lpm.rwx.si";
-      catalogId = "3b88bf36-eb8b-4c9f-bd29-545451665e87";
+      catalogId = catalog;
     };
 
     coursePictures = {

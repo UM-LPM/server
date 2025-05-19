@@ -37,15 +37,14 @@
       pkgs.writeShellApplication {
         name = "update";
 
-        runtimeInputs = [ pkgs.nix-prefetch pkgs.jq ];
+        runtimeInputs = [ pkgs.nix-prefetch pkgs.jq pkgs.moreutils ];
 
         text = ''
           set -euo pipefail
 
           # from https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/security/vault/update-bin.sh
           replace_sha() {
-            jq ".\"${catalog}\".hash = \"$1\"" <courses.json >courses.new.json
-            mv courses.new.json courses.json
+            jq ".\"${catalog}\".hash = \"$1\"" <courses.json | sponge courses.json
           }
           prefetch() {
             nix-prefetch -I 'nixpkgs=${nixpkgs}' --option extra-experimental-features flakes "$@"

@@ -29,7 +29,8 @@ jobs:
     
     - name: Update
       run: |
-        jq ".\"${{inputs.catalog}}\".hash = \"${{inputs.revision}}\"" <courses.json | sponge courses.json
+        jq ".\"${{inputs.catalog}}\".hash = \"${{inputs.revision}}\"" <courses.json >courses.new.json
+        mv courses.new.json courses.json 
         nix run .#updateCourses
 
     - name: Commit

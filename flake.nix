@@ -67,7 +67,6 @@
 
         modules = extraModules ++ [
           agenix.nixosModules.default
-          ./modules/secrets.nix
           ./machines/${hostname}/configuration.nix
         ];
         specialArgs = {inherit inputs;};

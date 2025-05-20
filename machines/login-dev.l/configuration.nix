@@ -42,30 +42,6 @@
         origin = "https://dev.login.lpm.feri.um.si";
       }
       {
-        client_id = "documentation-test-local";
-        application_type = "native";
-        grant_types = ["authorization_code"];
-        redirect_uris = [
-          "http://localhost:3000/access-control/documentation/static/oauth2-redirect.html"
-        ];
-        post_logout_redirect_uris = [
-          "http://localhost:3000/access-control/documentation/static/oauth2-redirect.html"
-        ];
-        uuid = "acfd7160-3139-44b1-9c94-1afabbeae815";
-        token_endpoint_auth_method = "none";
-        origin = "http://localhost:3000";
-      }
-      {
-        client_id = "login-test";
-        application_type = "native";
-        grant_types = ["authorization_code"];
-        redirect_uris = ["si.um.feri.lpm://login-test" "http://localhost:18000"];
-        post_logout_redirect_uris = ["si.um.feri.lpm://login-test" "http://localhost:18000"];
-        uuid = "6bfc2116-f375-4844-8d60-7c99b7c71f8a";
-        token_endpoint_auth_method = "none";
-        origin = "http://localhost:18000";
-      }
-      {
         client_id = "qaferi";
         grant_types = ["authorization_code"];
         redirect_uris = ["https://dev.collab.lpm.feri.um.si"];
@@ -145,54 +121,6 @@
         uuid = "75a75d33-0b67-4928-a957-49ab895ed095";
         token_endpoint_auth_method = "none";
         origin = "https://catalog.pmd.lpm.feri.um.si";
-      }
-      {
-        client_id = "catalog-local";
-        application_type = "native";
-        grant_types = ["authorization_code"];
-        redirect_uris = ["http://localhost:18000/login" "si.um.feri.lpm.pmd.catalog://login"];
-        post_logout_redirect_uris = ["http://localhost:18000/login" "si.um.feri.lpm.pmd.catalog://login"];
-        uuid = "58fc9150-b40c-42b5-b57a-26b19307b7b4";
-        token_endpoint_auth_method = "none";
-        origin = "http://localhost:18000";
-      }
-      {
-        client_id = "catalog-backend";
-        redirect_uris = [];
-        response_types = [];
-        grant_types = [];
-        uuid = "3bee67dc-bcac-4160-99ee-bc3e2aff13a2";
-        client_secret = "dXnTKT0qTqZHQxFwMKX5u8wOnyTO7zASgAw0tf4biagaI1aGDy";
-        origin = "http://localhost:3000";
-      }
-      {
-        client_id = "qaferi-test";
-        redirect_uris = [];
-        response_types = [];
-        grant_types = [];
-        client_secret = "dXnTKT0qTqZHQxFwMKX5u8wOnyTO7zASgAw0tf4biagaI1aGDy";
-        uuid = "e0bb2ea3-a105-405d-9d9b-0a6ce02439d3";
-        origin = "http://localhost:3000";
-      }
-      {
-        client_id = "grades-backend";
-        redirect_uris = [];
-        response_types = [];
-        grant_types = ["client_credentials"];
-        uuid = "59f00876-4ecd-4d52-a30b-c645ce2c0658";
-        client_secret = "dXnTKT0qTqZHQxFwMKX5u8wOnyTO7zASgAw0tf4biagaI1aGDy";
-        scope = "delegated";
-        origin = "http://localhost:3000";
-      }
-      {
-        client_id = "grades-local";
-        application_type = "native";
-        grant_types = ["authorization_code"];
-        redirect_uris = ["http://localhost:18000"];
-        post_logout_redirect_uris = ["http://localhost:18000"];
-        uuid = "78794601-71e3-424d-b7aa-6d243890c97b";
-        token_endpoint_auth_method = "none";
-        origin = "http://localhost:18000";
       }
     ];
     profilePictures = {

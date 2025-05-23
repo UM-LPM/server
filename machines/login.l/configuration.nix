@@ -116,13 +116,13 @@
       {
         client_id = "catalog-web-scms";
         grant_types = ["authorization_code"];
-        redirect_uris = ["https://scms.catalog.lpm.rwx.si/login"];
+        redirect_uris = ["https://upravljanje-katalog.lpm.feri.um.si/login"];
         post_logout_redirect_uris = [
-          "https://scms.catalog.lpm.rwx.si/login"
+          "https://upravljanje-katalog.lpm.feri.um.si/login"
         ];
         uuid = "0dad4170-2024-4a96-badb-7a80f9bb42f8";
         token_endpoint_auth_method = "none";
-        origin = "https://scms.catalog.lpm.rwx.si";
+        origin = "https://upravljanje-katalog.lpm.feri.um.si";
       }
       {
         client_id = "catalog-backend";

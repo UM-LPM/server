@@ -25,14 +25,14 @@ in
 
     frontendSubscribe = {
       enable = true;
-      serverUrl = "https://scms.catalog.lpm.rwx.si/api";
+      serverUrl = "https://upravljanje-katalog.lpm.feri.um.si/api";
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
-      shortCoursesUrl = "https://catalog.lpm.rwx.si";
+      shortCoursesUrl = "https://poletne-sole.feri.um.si";
       catalogId = catalog;
     };
 
     coursePictures = {
-      address = "https://scms.catalog.lpm.rwx.si/images/";
+      address = "https://upravljanje-katalog.lpm.feri.um.si/images/";
     };
   };
 }

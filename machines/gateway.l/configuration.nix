@@ -82,9 +82,6 @@
       "catalog.lpm.rwx.si" = {
         inherit email;
       };
-      "scms.catalog.lpm.rwx.si" = {
-        inherit email;
-      };
       "catalog.catalog.lpm.rwx.si" = {
         inherit email;
       };
@@ -116,6 +113,15 @@
         inherit email;
       };
       "students.lpm.feri.um.si" = {
+        inherit email;
+      };
+      "poletne-sole.feri.um.si" = {
+        inherit email;
+      };
+      "upravljanje.poletne-sole.feri.um.si" = {
+        inherit email;
+      };
+      "upravljanje-katalog.lpm.feri.um.si" = {
         inherit email;
       };
     };
@@ -421,7 +427,7 @@
           proxyPass = "http://catalog.l/";
         };
       };
-      "scms.catalog.lpm.rwx.si" = {
+      "upravljanje-katalog.lpm.feri.um.si" = {
         addSSL = true;
         enableACME = true;
 
@@ -434,6 +440,27 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://catalog-manage.l:8000/";
+        };
+      };
+      "poletne-sole.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-summer-schools.l/";
+        };
+        extraConfig = ''
+          add_header Access-Control-Allow-Origin upravljanje-katalog.lpm.feri.um.si;
+        '';
+      };
+      "upravljanje.poletne-sole.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-summer-schools.l:8001/";
         };
       };
       "catalog.catalog.lpm.rwx.si" = {

@@ -23,13 +23,13 @@
 
     frontendManage = {
       enable = true;
-      serverUrl = "https://scms.catalog.lpm.rwx.si/api";
+      serverUrl = "https://upravljanje-katalog.lpm.feri.um.si/api";
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
-      coursesUrl = "https://catalog.lpm.rwx.si/course-data.json";
-      shortCoursesUrl = "https://catalog.lpm.rwx.si";
+      coursesUrl = "https://upravljanje.poletne-sole.feri.um.si/course-data.json";
+      shortCoursesUrl = "https://poletne-sole.feri.um.si";
       clientId = "catalog-web-scms";
       issuerUri = "https://login.lpm.feri.um.si/oidc";
-      redirectUriWeb = "https://scms.catalog.lpm.rwx.si/login";
+      redirectUriWeb = "https://upravljanje-katalog.lpm.feri.um.si/login";
 
       catalog = "katalog";
       getAll = "vse";
@@ -37,12 +37,12 @@
     };
     coursePictures = {
       enable = true;
-      address = "https://scms.catalog.lpm.rwx.si/images/";
+      address = "https://upravljanje-katalog.lpm.feri.um.si/images/";
     };
     backend = {
       enable = true;
       secrets = config.age.secrets."catalog-secrets".path;
-      frontend = "https://scms.catalog.lpm.rwx.si";
+      frontend = "https://upravljanje-katalog.lpm.feri.um.si";
 
       catalog = "katalog";
       login = "prijava";

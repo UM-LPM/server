@@ -19,6 +19,7 @@ stdenvNoCC.mkDerivation {
   buildInputs = [
     jekyll_env
     nodejs
+    courses
   ];
 
   buildPhase = ''

@@ -102,7 +102,7 @@
         post_logout_redirect_uris = ["https://katalog.krajsa-izobrazevanja.feri.um.si/login"];
         uuid = "53740745-b742-4a68-8340-33eecf863692";
         token_endpoint_auth_method = "none";
-        origin = "https://katalog.krajsa-izobrazevanja.feri.um.si/login";
+        origin = "https://katalog.krajsa-izobrazevanja.feri.um.si";
       }
       {
         client_id = "catalog-web";

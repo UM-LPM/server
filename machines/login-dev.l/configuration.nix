@@ -33,7 +33,7 @@
   };
 
   age.secrets."catalog-client-secret" = {
-    file = ../../secrets/grades-client-secret.age;
+    file = ../../secrets/catalog-client-secret.age;
     mode = "600";
     owner = "login";
     group = "users";

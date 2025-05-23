@@ -272,11 +272,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_6"
       },
       "locked": {
-        "lastModified": 1748017395,
-        "narHash": "sha256-Hp15zaQjV9F66RUrHkAAN47PNDUxZQnQSyEYPkwvBz4=",
+        "lastModified": 1748015872,
+        "narHash": "sha256-ow1xYl2kDXdlQMY+dIWWWtvjCdK0djjwlCfvjg34oSk=",
         "owner": "UM-LPM",
         "repo": "QA",
-        "rev": "4c6954b770ef51955962cad2f54cb549e6c2e9c8",
+        "rev": "4a89503e0973723f37159fb6a97aad4e8e21d3e8",
         "type": "github"
       },
       "original": {
@@ -2070,11 +2070,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_13"
       },
       "locked": {
-        "lastModified": 1748007901,
-        "narHash": "sha256-RjJ5ma8Vj0jPrsstln/oJuXEzX6kLIhvQsa8ybnBFfA=",
+        "lastModified": 1748013663,
+        "narHash": "sha256-acU0CMCyz+E1+UYwwfO+6M0IOkQggLRyhbwgMFpu9T4=",
         "owner": "UM-LPM",
         "repo": "login",
-        "rev": "2a398d6e9cf743dbd7fb0356154badbd645187c6",
+        "rev": "47deeaf42a1145cedd28becd6a775c50ba206e65",
         "type": "github"
       },
       "original": {

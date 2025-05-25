@@ -73,7 +73,7 @@
         origin = "https://dev.collab.lpm.feri.um.si";
       }
       {
-        client_id = "qaferi-test2";
+        client_id = "qaferi-test";
         grant_types = ["authorization_code"];
         redirect_uris = ["https://test.collab.lpm.feri.um.si"];
         post_logout_redirect_uris = ["https://test.collab.lpm.feri.um.si"];
@@ -103,7 +103,7 @@
         client_secret_path = config.age.secrets.catalog-client-secret.path;
       }
       {
-        client_id = "qaferi-test";
+        client_id = "qaferi-backend";
         redirect_uris = [];
         response_types = [];
         grant_types = [];

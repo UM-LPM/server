@@ -9,13 +9,6 @@
     ../../users/collab.nix
   ];
 
-  age.secrets."collab-external-secrets" = {
-    file = ../../secrets/collab-external-secrets.age;
-    mode = "600";
-    owner = "collab";
-    group = "users";
-  };
-
   networking.firewall.allowedTCPPorts = [22 80 8080 9100];
 
   noo.services.collab = {
@@ -25,6 +18,5 @@
     jwtSecret = "mysecret";
     oidcIssuer = "https://login.lpm.feri.um.si/oidc";
     adminDefaultPassword = "myadmindefaultpass";
-    externalSecretsFile = config.age.secrets."collab-external-secrets".path;
   };
 }

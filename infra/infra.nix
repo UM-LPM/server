@@ -117,7 +117,7 @@
         {
           name = "login-dev";
           backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "gc";

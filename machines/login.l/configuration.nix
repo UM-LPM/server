@@ -152,6 +152,22 @@
         scope = "delegated";
         origin = "http://localhost:3000";
       }
+      {
+        client_id = "catalog-local";
+        application_type = "native";
+        grant_types = ["authorization_code"];
+        redirect_uris = [
+          "http://localhost:18000/login"
+          "si.um.feri.lpm.pmd.catalog://login"
+        ];
+        post_logout_redirect_uris = [
+          "http://localhost:18000/login"
+          "si.um.feri.lpm.pmd.catalog://login"
+        ];
+        uuid = "58fc9150-b40c-42b5-b57a-26b19307b7b4";
+        token_endpoint_auth_method = "none";
+        origin = "http://localhost:18000";
+      }
     ];
 
     profilePictures = {

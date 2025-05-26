@@ -1,6 +1,6 @@
 {lib, callPackage, fetchFromGitHub}:
 
-{catalog}:
+{catalog, revision, hash}:
 let
   mkCourses = callPackage ../../packages/make-courses.nix {};
   mkView = callPackage ../../packages/make-view.nix {};
@@ -14,8 +14,7 @@ mkView {
     hash = "sha256-+YszHsvOKq4nS6KbbenR5+o0GtmwF7/Yo/dv+7sW6lw=";
   };
   courses = mkCourses {
-    inherit catalog;
-    inherit (lock) revision hash;
+    inherit catalog revision hash;
   };
 }
 

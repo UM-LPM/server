@@ -1,8 +1,13 @@
-{config, pkgs, ...}:
+{config, pkgs, lib, ...}:
 
 let
-  catalog = "3b88bf36-eb8b-4c9f-bd29-545451665e87";
-  view = pkgs.callPackage ./view.nix {} {inherit catalog;};
+  catalog = "277b8f71-87e7-45ab-92bf-027fcee1d392";
+  lock = (lib.importJSON ../../courses.json).${catalog};
+
+  view = pkgs.callPackage ./view.nix {} {
+    inherit catalog;
+    inherit (lock) revision hash;
+  };
 in
 {
   imports = [
@@ -29,6 +34,8 @@ in
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
       shortCoursesUrl = "https://poletne-sole.feri.um.si";
       catalogId = catalog;
+      reqireDateOfBirth = true;
+      timestamp = lock.revision;
     };
 
     coursePictures = {

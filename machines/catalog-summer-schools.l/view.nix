@@ -1,6 +1,6 @@
 {lib, callPackage, fetchFromGitHub}:
 
-{catalog}:
+{catalog, revision, hash}:
 let
   mkCourses = callPackage ../../packages/make-courses.nix {};
   mkView = callPackage ../../packages/make-view.nix {};
@@ -10,12 +10,11 @@ mkView {
   src = fetchFromGitHub {
     owner = "UM-LPM";
     repo = "short-courses";
-    rev = "3f939d4ab7a3acd05939e15f9485f5e4bfb590d3";
-    hash = "sha256-+YszHsvOKq4nS6KbbenR5+o0GtmwF7/Yo/dv+7sW6lw=";
+    rev = "1269474a57f13369dde02dfa421ef3f74e8d541a";
+    hash = "sha256-qud7M7rstZW6apWStIzyVYzWeqKfYNpQrBTVNXylSRo=";
   };
   courses = mkCourses {
-    inherit catalog;
-    inherit (lock) revision hash;
+    inherit catalog revision hash;
   };
 }
 

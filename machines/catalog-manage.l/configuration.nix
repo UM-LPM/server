@@ -30,10 +30,6 @@
       clientId = "catalog-web-scms";
       issuerUri = "https://login.lpm.feri.um.si/oidc";
       redirectUriWeb = "https://upravljanje-katalog.lpm.feri.um.si/login";
-
-      catalog = "katalog";
-      getAll = "vse";
-      login = "prijava";
     };
     coursePictures = {
       enable = true;

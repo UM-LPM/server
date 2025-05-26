@@ -1,8 +1,13 @@
-{config, pkgs, ...}:
+{config, pkgs, lib, ...}:
 
 let
   catalog = "3b88bf36-eb8b-4c9f-bd29-545451665e87";
-  view = pkgs.callPackage ./view.nix {} {inherit catalog;};
+  lock = (lib.importJSON ../../courses.json).${catalog};
+
+  view = pkgs.callPackage ./view.nix {} {
+    inherit catalog;
+    inherit (lock) revision hash;
+  };
 in
 {
   imports = [
@@ -25,14 +30,16 @@ in
 
     frontendSubscribe = {
       enable = true;
-      serverUrl = "https://scms.catalog.lpm.rwx.si/api";
+      serverUrl = "https://upravljanje-katalog.lpm.feri.um.si/api";
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
       shortCoursesUrl = "https://catalog.lpm.rwx.si";
       catalogId = catalog;
+      reqireDateOfBirth = true;
+      timestamp = lock.revision;
     };
 
     coursePictures = {
-      address = "https://scms.catalog.lpm.rwx.si/images/";
+      address = "https://upravljanje-katalog.lpm.feri.um.si/images/";
     };
   };
 }

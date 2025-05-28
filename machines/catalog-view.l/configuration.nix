@@ -34,7 +34,7 @@ in
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
       shortCoursesUrl = "https://catalog.lpm.rwx.si";
       catalogId = catalog;
-      reqireDateOfBirth = true;
+      requireDateOfBirth = true;
       timestamp = lock.revision;
     };
 

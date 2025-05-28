@@ -51,6 +51,7 @@ jobs:
           - "catalog-dev.l"
           - "catalog-view.l"
           - "catalog-manage.l"
+          - "catalog-summer-schools.l"
           - "grades.l"
           - "student-mqtt.l"
           - "bioma.l"

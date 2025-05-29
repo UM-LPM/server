@@ -15,11 +15,11 @@ stdenvNoCC.mkDerivation {
   pname = "view";
   version = "1.0.0";
   inherit src;
+  inherit courses;
 
   buildInputs = [
     jekyll_env
     nodejs
-    courses
   ];
 
   buildPhase = ''

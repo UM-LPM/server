@@ -58,6 +58,32 @@
           replace_sha "$hash"
         '';
       };
+
+    updateSummerSchoolsView =
+      pkgs.writeShellApplication {
+        name = "update";
+
+        runtimeInputs = [ pkgs.nix-prefetch pkgs.gnused ];
+
+        text = ''
+          set -euo pipefail
+
+          # from https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/security/vault/update-bin.sh
+          replace_sha() {
+            sed -i "s#$1 = \"sha256-.\{44\}\"#$1 = \"$2\"#" "$3"
+          }
+          prefetch() {
+            nix-prefetch -I 'nixpkgs=${nixpkgs}' --option extra-experimental-features flakes "$@"
+          }
+
+          hash=$(prefetch '
+            { sha256 }:
+            let flake = builtins.getFlake (toString ${./.}); in
+            flake.packages.x86_64-linux.summerSchoolsView.src.overrideAttrs (_: { hash = sha256; })
+          ')
+          replace_sha hash "$hash" ./machines/catalog-summer-schools.l/view.nix
+        '';
+      };
   in
   {
     packages.x86_64-linux.mongo_exporter = pkgs.callPackage ./pkgs/mongo_exporter.nix {};
@@ -69,6 +95,18 @@
     packages.x86_64-linux.updateCourses = builtins.mapAttrs (catalog: _:
         updateCourses catalog)
       (lib.importJSON ./courses.json);
+
+    packages.x86_64-linux.summerSchoolsView =
+    let
+      catalog = "277b8f71-87e7-45ab-92bf-027fcee1d392";
+      lock = (lib.importJSON ./courses.json).${catalog};
+    in
+    pkgs.callPackage ./machines/catalog-summer-schools.l/view.nix {} {
+      inherit catalog;
+      inherit (lock) revision hash;
+    };
+
+    packages.x86_64-linux.updateSummerSchoolsView = updateSummerSchoolsView;
 
     nixosConfigurations =
     let

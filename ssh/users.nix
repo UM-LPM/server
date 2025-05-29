@@ -31,7 +31,7 @@
 
   merisa = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK3NPmwDIjyhcPR/NPvIdGhYLi/okZlqkc2XjAWyrb7D mjork@mjorks-Air";
 
-  nina = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKDZ+s+6SnZkLq5/NXpawkUWwTr+XzRYrCy1/YSX5h1d nina@LAPTOP-9BTL1UF8"
+  nina = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKDZ+s+6SnZkLq5/NXpawkUWwTr+XzRYrCy1/YSX5h1d nina@LAPTOP-9BTL1UF8";
   # GitHub Actions keys
   server-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMBhy/17XIqRbkTyMhz1ckNYiVXEexcAvgG6QT7blP2 ziga@archlinux";
   

@@ -23,7 +23,7 @@ jobs:
     
     - name: Update
       run: |
-        sed -i "s#rev = \".*\"#rev = \"${{inputs.rev}}\"#" ./machines/catalog-summer-schools.l/view.nix
+        sed -i "s#rev = \"[^\"]*\"#rev = \"${{inputs.rev}}\"#" ./machines/catalog-summer-schools.l/view.nix
         nix run .#updateSummerSchoolsView
 
     - name: Commit

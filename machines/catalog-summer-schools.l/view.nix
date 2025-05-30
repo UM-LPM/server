@@ -10,8 +10,8 @@ mkView {
   src = fetchFromGitHub {
     owner = "UM-LPM";
     repo = "short-courses";
-    rev = "22406f11bdf3cb8a55ab25c71145809164c42384";
-    hash = "sha256-2qviaLKHeP9U1hAkdGYSxqXtCZ9h5u9O5plxerWop9U=";
+    rev = "44cd1bf44a1bd6e5f2ea0f24184910b2f338ba95";
+    hash = "sha256-Y6X94w7QaXWSooL7cYOnfsYprTYS2Zyhe38dzdue1FM=";
   };
   courses = mkCourses {
     inherit catalog revision hash;

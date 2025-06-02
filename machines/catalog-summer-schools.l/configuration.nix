@@ -32,7 +32,7 @@ in
       enable = true;
       serverUrl = "https://upravljanje-katalog.lpm.feri.um.si/api";
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
-      shortCoursesUrl = "https://poletne-sole.feri.um.si";
+      shortCoursesUrl = "https://pocitniske-sole.feri.um.si";
       catalogId = catalog;
       requireDateOfBirth = true;
       timestamp = lock.revision;

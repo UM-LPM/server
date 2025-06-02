@@ -115,10 +115,10 @@
       "students.lpm.feri.um.si" = {
         inherit email;
       };
-      "poletne-sole.feri.um.si" = {
+      "pocitniske-sole.feri.um.si" = {
         inherit email;
       };
-      "upravljanje.poletne-sole.feri.um.si" = {
+      "upravljanje.pocitniske-sole.feri.um.si" = {
         inherit email;
       };
       "upravljanje-katalog.lpm.feri.um.si" = {
@@ -442,7 +442,7 @@
           proxyPass = "http://catalog-manage.l:8000/";
         };
       };
-      "poletne-sole.feri.um.si" = {
+      "pocitniske-sole.feri.um.si" = {
         addSSL = true;
         enableACME = true;
 
@@ -454,7 +454,7 @@
           add_header Access-Control-Allow-Origin upravljanje-katalog.lpm.feri.um.si;
         '';
       };
-      "upravljanje.poletne-sole.feri.um.si" = {
+      "upravljanje.pocitniske-sole.feri.um.si" = {
         addSSL = true;
         enableACME = true;
 

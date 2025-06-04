@@ -463,6 +463,9 @@
           recommendedProxySettings = true;
           proxyPass = "http://catalog-summer-schools.l:8001/";
         };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+        '';
       };
       "catalog.catalog.lpm.rwx.si" = {
         addSSL = true;

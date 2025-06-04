@@ -452,6 +452,7 @@
         };
         extraConfig = ''
           add_header Access-Control-Allow-Origin upravljanje-katalog.lpm.feri.um.si;
+          add_header Cache-Control "no-cache, must-revalidate";
         '';
       };
       "upravljanje.pocitniske-sole.feri.um.si" = {

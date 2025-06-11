@@ -114,5 +114,8 @@
   "ps.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHxFqBJfEHXRPmsfOScLzKCYFD9kls/tzSJSXzSrpdX3";
   };
+  "school-project.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKvI6gZo90mbaTDI44m6MiMIoTkFcGEgmHMFxykfifd2";
+  };
 }
 

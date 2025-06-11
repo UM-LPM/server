@@ -60,6 +60,7 @@ jobs:
           - "usatour.l"
           - "ears.l"
           - "prometheus.l"
+          - "school-project.l"
       fail-fast: false
     needs: bastion
 

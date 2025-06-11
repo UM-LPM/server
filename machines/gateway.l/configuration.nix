@@ -124,6 +124,9 @@
       "upravljanje-katalog.lpm.feri.um.si" = {
         inherit email;
       };
+      "school-project.rwx.si" = {
+        inherit email;
+      };
     };
     security.acme.acceptTerms = true;
 
@@ -474,6 +477,15 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://catalog-view.l:8001/";
+        };
+      };
+      "school-project.rwx.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://school-project.l/";
         };
       };
       "grades.lpm.feri.um.si" = {

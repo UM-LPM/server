@@ -204,6 +204,11 @@
           backing = "minimal-base-v3";
           capacity = unit.GiB 16;
         }
+        {
+          name = "school-project";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
       ];
     };
   };
@@ -913,6 +918,26 @@
           network = "private-network";
           hostname = "login-dev.l";
           address = "10.17.3.213";
+        }
+      ];
+    };
+    "school-project" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "school-project";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "school-project.l";
+          address = "10.17.3.223";
         }
       ];
     };

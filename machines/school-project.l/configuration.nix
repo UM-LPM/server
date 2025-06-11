@@ -27,6 +27,9 @@
     };
   };
 
+  users.groups.schoolproject.members = [ "schoolproject" ];
+  users.users.nginx.extraGroups = [ "schoolproject" ];
+
   services.nginx = {
     enable = true;
 
@@ -37,7 +40,7 @@
           index index.php;
       '';
 
-      locations."~ ^(.+\\.php)(.*)$"  = {
+      locations."~ ^(.+\\.php)(.*)$" = {
         extraConfig = ''
           try_files $fastcgi_script_name =404;
           include ${config.services.nginx.package}/conf/fastcgi_params;

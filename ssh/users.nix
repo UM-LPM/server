@@ -42,5 +42,6 @@
   matej-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrih3C4okDkz4bMe7FTej2kWKyN7U2dNq/VooSHu7mu matej@DESKTOP-BT2IIE9"; #FIXME: Replace with per service keys
 
   dragana-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPDbRBeqE7/bFLkVvYg7XYjtmXeedArf2j7z08LkS243 ostoj@DR-LAPTOP"; #FIXME: Replace with per service keys
-
+  
+  martin = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDt22Nqg2CAwgcKXm0BCVKLCmn9an1i7pAqVHvLX7d15 mc@MM.local";
 }

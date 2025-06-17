@@ -1977,11 +1977,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_12"
       },
       "locked": {
-        "lastModified": 1726853668,
-        "narHash": "sha256-/tjJhepQjxQ9zgYSpZ2oQJ20Xocvp33FjygCmjxz054=",
+        "lastModified": 1750170236,
+        "narHash": "sha256-wYSDHZgFUtGpYYYb7zVDDzBSLGlZsCo9EizGicuWu/4=",
         "owner": "UM-LPM",
         "repo": "grades",
-        "rev": "18426d90fa39d3f973985f7856fec177b84ce08a",
+        "rev": "f6a99eb7118175cf14727121d30914005e0ba865",
         "type": "github"
       },
       "original": {

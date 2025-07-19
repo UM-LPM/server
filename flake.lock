@@ -1621,11 +1621,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_10"
       },
       "locked": {
-        "lastModified": 1752771858,
-        "narHash": "sha256-ftaaaJoizkhBWK2BIR+TaFi3u01cbBxKk8ICsG4uWX8=",
+        "lastModified": 1752943879,
+        "narHash": "sha256-AkwVQHKuLNgmIC26xnD8fRkGNOHcI4tR5f9KbHx9gs0=",
         "owner": "Mir1001",
         "repo": "gc_mv_backend",
-        "rev": "8e1e87ad9d39ab6686f1424b2f31385d3b7a8f5a",
+        "rev": "6a1d0e469f9f581accb4b625c15b510147b2554d",
         "type": "github"
       },
       "original": {

@@ -131,16 +131,14 @@
         grant_types = [];
         uuid = "3bee67dc-bcac-4160-99ee-bc3e2aff13a2";
         client_secret_path = config.age.secrets.catalog-client-secret.path;
-        origin = "http://localhost:3000";
       }
       {
-        client_id = "qaferi-test";
+        client_id = "qaferi-backend";
         redirect_uris = [];
         response_types = [];
         grant_types = [];
         client_secret_path = config.age.secrets.collab-client-secret.path;
         uuid = "e0bb2ea3-a105-405d-9d9b-0a6ce02439d3";
-        origin = "http://localhost:3000";
       }
       {
         client_id = "grades-backend";
@@ -150,7 +148,6 @@
         uuid = "59f00876-4ecd-4d52-a30b-c645ce2c0658";
         client_secret_path = config.age.secrets.grades-client-secret.path;
         scope = "delegated";
-        origin = "http://localhost:3000";
       }
       {
         client_id = "catalog-local";

@@ -23,8 +23,8 @@
     host = "0.0.0.0";
     package = pkgs.collab-pora;
     jwtSecret = "mysecret";
-    oidcIssuer = "https://dev.login.lpm.feri.um.si/oidc";
     oidcIssuer = "https://login.lpm.feri.um.si/oidc";
     adminDefaultPassword = "myadmindefaultpass";
+    externalSecretsFile = config.age.secrets.collab-external-secrets.path;
   };
 }

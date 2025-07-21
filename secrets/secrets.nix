@@ -22,6 +22,7 @@ in
   "pmd-catalog-secrets.age".publicKeys = [systems."pmd-catalog.l"] ++ (with users; [mario ziga marko matej cvetanka]);
   "catalog-secrets.age".publicKeys = [systems."catalog.l" systems."catalog-dev.l" systems."catalog-manage.l"] ++ (with users; [mario ziga marko matej cvetanka]);
   "collab-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
+  "collab-external-secrets.age".publicKeys = [systems."collab-dev.l" systems."collab-pora.l" systems."collab-rri.l" systems."collab-vr.l" systems."collab-catalog-dev.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "catalog-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "grades-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
 }

@@ -9,7 +9,7 @@
     ../../users/gc.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [22 80 8080 9100];
+  networking.firewall.allowedTCPPorts = [22 80  1883 8883 8080 9100];
 
   age.secrets."gc-secrets" = {
     file = ../../secrets/gc-secrets.age;

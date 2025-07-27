@@ -749,11 +749,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_9"
       },
       "locked": {
-        "lastModified": 1745326382,
-        "narHash": "sha256-48sWsctGcXNBd1lj7USBkQwToX8Z4unU81ObZQkwB6g=",
+        "lastModified": 1753624880,
+        "narHash": "sha256-0DRFdBu6EoyioQmwud0Lteuxz9PKuuCbpOVVH/3Jsfg=",
         "owner": "cecepasinechka",
         "repo": "USA",
-        "rev": "00214eb263225dfd197c5e812c8e376abccf277a",
+        "rev": "0de92999e50f94d8af303ae6f8bb235817dd0dc6",
         "type": "github"
       },
       "original": {

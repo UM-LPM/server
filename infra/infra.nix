@@ -162,7 +162,7 @@
         {
           name = "ps";
           backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "grades";
@@ -172,7 +172,7 @@
         {
           name = "feriusa";
           backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "usatour";

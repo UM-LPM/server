@@ -129,7 +129,7 @@
         ];
         uuid = "78794601-71e3-424d-b7aa-6d243890c97b";
         token_endpoint_auth_method = "none";
-        origin = "http://localhost:18000/";
+        origin = "http://localhost:18000";
       }
       {
         client_id = "grades";
@@ -141,7 +141,7 @@
         ];
         uuid = "7384a521-1dd3-4e0a-84d0-26917b33ec1c";
         token_endpoint_auth_method = "none";
-        origin = "https://grades.lpm.feri.um.si/";
+        origin = "https://grades.lpm.feri.um.si";
       }
     ];
 

@@ -123,12 +123,25 @@
         client_id = "grades-local";
         application_type = "native";
         grant_types = ["authorization_code"];
-        redirect_uris = ["http://localhost:18000"];
+        redirect_uris = ["http://localhost:18000/auth.html" "si.um.feri.lpm.grades://oauthredirect"];
         post_logout_redirect_uris = [
-          "http://localhost:18000"
+          "http://localhost:18000/auth.html"
         ];
         uuid = "78794601-71e3-424d-b7aa-6d243890c97b";
         token_endpoint_auth_method = "none";
+        origin = "http://localhost:18000/";
+      }
+      {
+        client_id = "grades";
+        application_type = "native";
+        grant_types = ["authorization_code"];
+        redirect_uris = ["https://grades.lpm.feri.um.si/auth.html" "si.um.feri.lpm.grades://oauthredirect"];
+        post_logout_redirect_uris = [
+          "https://grades.lpm.feri.um.si/auth.html"
+        ];
+        uuid = "7384a521-1dd3-4e0a-84d0-26917b33ec1c";
+        token_endpoint_auth_method = "none";
+        origin = "https://grades.lpm.feri.um.si/";
       }
     ];
 

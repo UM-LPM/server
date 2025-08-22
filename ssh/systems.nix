@@ -70,7 +70,7 @@
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG9KT4VVzmR9hQu5mR45GAbekTVuGexomPkCkXiMj87U";
   };
   "grades.l" = {
-    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFW3/5HorTekiOAhKzpFhPOidiGl4xVOqkZBTRoR4rMo";
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFRwz01f1Srf+4yW5afmD986a4JoeNr2rK0IV4HvSqbS";
   };
   "login.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBdeB5rPe3sOeqZh43wEXor3Ny3G4WWtnF9VMW6wuX/p";

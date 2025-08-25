@@ -155,6 +155,11 @@
           capacity = unit.GiB 16;
         }
         {
+          name = "catalog-mini-academy";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 16;
+        }
+        {
           name = "bioma";
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
@@ -878,6 +883,26 @@
           network = "private-network";
           hostname = "catalog-summer-schools.l";
           address = "10.17.3.197";
+        }
+      ];
+    };
+    "catalog-mini-academy" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 4;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "catalog-mini-academy";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog-mini-academy.l";
+          address = "10.17.3.198";
         }
       ];
     };

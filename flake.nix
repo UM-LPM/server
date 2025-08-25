@@ -190,6 +190,9 @@
       "catalog-summer-schools.l" = mkSystem "catalog-summer-schools.l" [
         catalog-manage.nixosModules.default
       ];
+      "catalog-mini-academy.l" = mkSystem "catalog-mini-academy.l" [
+        catalog-manage.nixosModules.default
+      ];
       "catalog-manage.l" = mkSystem "catalog-manage.l" [
         catalog-manage.nixosModules.default
       ];

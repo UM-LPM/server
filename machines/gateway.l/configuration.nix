@@ -121,6 +121,12 @@
       "upravljanje.pocitniske-sole.feri.um.si" = {
         inherit email;
       };
+      "mini-akademija.feri.um.si" = {
+        inherit email;
+      };
+      "upravljanje.mini-akademija.feri.um.si" = {
+        inherit email;
+      };
       "upravljanje-katalog.lpm.feri.um.si" = {
         inherit email;
       };
@@ -465,6 +471,31 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://catalog-summer-schools.l:8001/";
+        };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+        '';
+      };
+      "mini-akademija.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-mini-academy.l/";
+        };
+        extraConfig = ''
+          add_header Access-Control-Allow-Origin upravljanje-katalog.lpm.feri.um.si;
+          add_header Cache-Control "no-cache, must-revalidate";
+        '';
+      };
+      "upravljanje.mini-akademija.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-mini-academy.l:8001/";
         };
         extraConfig = ''
           add_header Cache-Control "no-cache, must-revalidate";

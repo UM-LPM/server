@@ -5,7 +5,6 @@
     sso-test.url = github:UM-LPM/sso-test;
     grades.url = github:UM-LPM/grades;
     collab.url = github:UM-LPM/QA/production;
-    collab-legacy.url = github:UM-LPM/QA/production-legacy;
     collab-dev.url = github:UM-LPM/QA;
     collab-test.url = github:UM-LPM/QA/test;
     login.url = github:UM-LPM/login/production;
@@ -147,7 +146,7 @@
         sso-test.nixosModules.service
       ];
       "collab.l" = mkSystem "collab.l" [
-        collab-legacy.nixosModules.default
+        collab.nixosModules.default
       ];
       "collab-dev.l" = mkSystem "collab-dev.l" [
         {nixpkgs.overlays = [collab-dev.overlays.default];}

@@ -1,7 +1,7 @@
 {config, pkgs, lib, ...}:
 
 let
-  catalog = "277b8f71-87e7-45ab-92bf-027fcee1d392";
+  catalog = "8f2cfd82-c470-43d2-9dfb-7dc67c6d9f2e";
   lock = (lib.importJSON ../../courses.json).${catalog};
 
   view = pkgs.callPackage ./view.nix {} {
@@ -39,7 +39,7 @@ in
     };
 
     coursePictures = {
-      address = "https://upravljanje-katalog.lpm.feri.um.si/images/";
+      address = "https://upravljanje-katalog.lpm.feri.um.si/course/";
     };
   };
 }

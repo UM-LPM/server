@@ -443,8 +443,17 @@
         locations."/api/" = {
           proxyPass = "http://catalog-manage.l:8080/api/";
         };
-        locations."/images/" = {
-          proxyPass = "http://catalog-manage.l:8081/images/";
+        locations."/course/" = {
+          proxyPass = "http://catalog-manage.l:8081/course/";
+          extraConfig = ''
+            add_header Access-Control-Allow-Origin *;
+          '';
+        };
+        locations."/catalog/" = {
+          proxyPass = "http://catalog-manage.l:8081/catalog/";
+          extraConfig = ''
+            add_header Access-Control-Allow-Origin *;
+          '';
         };
         locations."/" = {
           recommendedProxySettings = true;
@@ -460,7 +469,6 @@
           proxyPass = "http://catalog-summer-schools.l/";
         };
         extraConfig = ''
-          add_header Access-Control-Allow-Origin upravljanje-katalog.lpm.feri.um.si;
           add_header Cache-Control "no-cache, must-revalidate";
         '';
       };
@@ -485,7 +493,6 @@
           proxyPass = "http://catalog-mini-academy.l/";
         };
         extraConfig = ''
-          add_header Access-Control-Allow-Origin upravljanje-katalog.lpm.feri.um.si;
           add_header Cache-Control "no-cache, must-revalidate";
         '';
       };

@@ -11,7 +11,7 @@
     login-dev.url = github:UM-LPM/login;
     catalog.url = github:UM-LPM/short-courses-catalog/production;
     catalog-dev.url = github:UM-LPM/short-courses-catalog;
-    catalog-manage.url = github:UM-LPM/short-courses-catalog/cms_implementation;
+    catalog-manage.url = github:UM-LPM/short-courses-catalog/upravljanje-katalog;
     gc.url = github:Mir1001/gc_mv_backend;
     feriusa.url = github:cecepasinechka/USA;
     ears.url = github:UM-LPM/tournaments;

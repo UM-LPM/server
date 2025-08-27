@@ -2015,11 +2015,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_12"
       },
       "locked": {
-        "lastModified": 1755858125,
-        "narHash": "sha256-Qrguh3a+ZRxwQvnP1dCLLm9Ytn1Xj00KJSDLdz48p5g=",
+        "lastModified": 1756312339,
+        "narHash": "sha256-gL+wyKDdC9JKPdNzIkWWS0RMvHHdBPeYjB23qPkYngs=",
         "owner": "UM-LPM",
         "repo": "grades",
-        "rev": "641fe775b3506cb7c58df3a8175f34ba10b6d80f",
+        "rev": "738b34ce7e09acc6d425fe52c6c0b59bf8e68443",
         "type": "github"
       },
       "original": {
@@ -3378,11 +3378,11 @@
     },
     "nixpkgs-unstable_12": {
       "locked": {
-        "lastModified": 1753533986,
-        "narHash": "sha256-+rkN5l0f3UwVBs2Rz0letk2hj5UO5E+0WlvacUh1IRg=",
+        "lastModified": 1753964166,
+        "narHash": "sha256-23bwVNV2ICBTW62u5RTYX7Y2L2OUdPo5e1RZVBwqXw8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "cc8570fe837c22809e6bb56c7ef8d26f358ae680",
+        "rev": "644342709a9066728a3787ef251372de287d2159",
         "type": "github"
       },
       "original": {

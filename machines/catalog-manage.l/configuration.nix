@@ -33,7 +33,7 @@
     };
     coursePictures = {
       enable = true;
-      address = "https://upravljanje-katalog.lpm.feri.um.si/images/";
+      address = "https://upravljanje-katalog.lpm.feri.um.si/";
     };
     backend = {
       enable = true;

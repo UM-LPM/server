@@ -39,7 +39,7 @@ in
     };
 
     coursePictures = {
-      address = "https://upravljanje-katalog.lpm.feri.um.si/course/";
+      address = "https://upravljanje-katalog.lpm.feri.um.si/";
     };
   };
 }

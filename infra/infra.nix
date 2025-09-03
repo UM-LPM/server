@@ -22,7 +22,7 @@
         {
           name = "gateway";
           backing = "minimal-base-v2";
-          capacity = unit.GiB 8;
+          capacity = unit.GiB 16;
         }
         {
           name = "builder";

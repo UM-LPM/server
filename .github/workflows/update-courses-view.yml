@@ -1,4 +1,4 @@
-name: Update summer schools
+name: Update courses view
 on:
   workflow_dispatch:
     inputs:

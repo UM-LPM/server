@@ -11,6 +11,17 @@
 
   networking.firewall.allowedTCPPorts = [22 8000 8080 8081 9100];
 
+   systemd.tmpfiles.settings = mkIf cfg.service.enable {
+    "10-backup" = {
+      "/var/lib/backup" = {
+        d = {
+          group = "users";
+          mode = "0755";
+          user = "catalog";
+        };
+      };
+    };
+  };
   systemd.timers.backup = {
     wantedBy = [ "timers.target" ];
     partOf = [ "backup.service" ];
@@ -20,7 +31,6 @@
     serviceConfig.Type = "oneshot";
     serviceConfig.User = "catalog";
     script = ''
-      mkdir -p /var/lib/backup
       ${pkgs.postgresql}/bin/pg_dump catalog > /var/lib/backup/$(date --iso-8601=seconds).sql
     '';
   };

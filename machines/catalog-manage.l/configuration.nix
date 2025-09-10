@@ -18,6 +18,7 @@
   };
   systemd.services.backup = {
     serviceConfig.Type = "oneshot";
+    serviceConfig.User = "catalog";
     script = ''
       mkdir -p /var/lib/backup
       ${pkgs.postgresql}/bin/pg_dump catalog > /var/lib/backup/$(date --iso-8601=seconds).sql

@@ -26,7 +26,7 @@ jobs:
 
     - name: Update
       run: |
-        sed -i "s#rev = \"[^\"]*\"#rev = \"${{inputs.rev}}\"#" ./machines/$(jq -r ".\"${{inputs.catalog}}\".machine")/view.nix
+        sed -i "s#rev = \"[^\"]*\"#rev = \"${{inputs.rev}}\"#" ./machines/$(jq -r ".\"${{inputs.catalog}}\".machine" <courses.json)/view.nix
         nix run .#updateCoursesView.${{inputs.catalog}}
 
     - name: Commit

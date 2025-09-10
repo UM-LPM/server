@@ -4,7 +4,6 @@
 let
   mkCourses = callPackage ../../packages/make-courses.nix {};
   mkView = callPackage ../../packages/make-view.nix {};
-  lock = (lib.importJSON ../../courses.json).${catalog};
 in
 mkView {
   src = fetchFromGitHub {

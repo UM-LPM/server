@@ -59,7 +59,7 @@
         '';
       };
 
-    updateSummerSchoolsView =
+    updateCoursesView = catalog: machine:
       pkgs.writeShellApplication {
         name = "update";
 
@@ -79,16 +79,16 @@
           hash=$(prefetch '
             { sha256 }:
             let flake = builtins.getFlake (toString ${./.}); in
-            flake.packages.x86_64-linux.summerSchoolsView.src.overrideAttrs (_: { hash = sha256; })
+            flake.packages.x86_64-linux.coursesView."${catalog}".src.overrideAttrs (_: { hash = sha256; })
           ')
-          replace_sha hash "$hash" ./machines/catalog-summer-schools.l/view.nix
+          replace_sha hash "$hash" ./machines/${machine}/view.nix
         '';
       };
   in
   {
     packages.x86_64-linux.mongo_exporter = pkgs.callPackage ./pkgs/mongo_exporter.nix {};
 
-    packages.x86_64-linux.courses = builtins.mapAttrs (catalog: {revision, hash}:
+    packages.x86_64-linux.courses = builtins.mapAttrs (catalog: {revision, hash, ...}:
         mkCourses {inherit catalog revision hash;})
       (lib.importJSON ./courses.json);
 
@@ -96,17 +96,19 @@
         updateCourses catalog)
       (lib.importJSON ./courses.json);
 
-    packages.x86_64-linux.summerSchoolsView =
-    let
-      catalog = "277b8f71-87e7-45ab-92bf-027fcee1d392";
-      lock = (lib.importJSON ./courses.json).${catalog};
-    in
-    pkgs.callPackage ./machines/catalog-summer-schools.l/view.nix {} {
-      inherit catalog;
-      inherit (lock) revision hash;
-    };
+    packages.x86_64-linux.coursesView = builtins.mapAttrs (catalog: {machine, ...}:
+        let
+          lock = (lib.importJSON ./courses.json).${catalog};
+        in
+        pkgs.callPackage ./machines/${machine}/view.nix {} {
+          inherit catalog;
+          inherit (lock) revision hash;
+        })
+      (lib.importJSON ./courses.json);
 
-    packages.x86_64-linux.updateSummerSchoolsView = updateSummerSchoolsView;
+    packages.x86_64-linux.updateCoursesView = builtins.mapAttrs (catalog: {machine, ...}:
+      updateCoursesView catalog machine)
+      (lib.importJSON ./courses.json);
 
     nixosConfigurations =
     let

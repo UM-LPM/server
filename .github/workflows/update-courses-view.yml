@@ -2,6 +2,9 @@ name: Update summer schools
 on:
   workflow_dispatch:
     inputs:
+      catalog:
+        required: true
+        type: string
       rev:
         required: true
         type: string
@@ -20,16 +23,16 @@ jobs:
         github_access_token: ${{secrets.GITHUB_TOKEN}}
         extra_nix_config: |
           access-tokens = github.com=${{secrets.PAT}}
-    
+
     - name: Update
       run: |
-        sed -i "s#rev = \"[^\"]*\"#rev = \"${{inputs.rev}}\"#" ./machines/catalog-summer-schools.l/view.nix
-        nix run .#updateSummerSchoolsView
+        sed -i "s#rev = \"[^\"]*\"#rev = \"${{inputs.rev}}\"#" ./machines/$(jq -r ".\"${{inputs.catalog}}\".machine")/view.nix
+        nix run .#updateCoursesView.${{inputs.catalog}}
 
     - name: Commit
       run: |
         git config user.name lpm-automaton
         git config user.email lpm-automaton@protonmail.com
         git add -u
-        git commit -m "Update summer schools"
+        git commit -m "Update courses view"
         git push

@@ -11,6 +11,19 @@
 
   networking.firewall.allowedTCPPorts = [22 8000 8080 8081 9100];
 
+  systemd.timers.backup = {
+    wantedBy = [ "timers.target" ];
+    partOf = [ "backup.service" ];
+    timerConfig.OnCalendar = "daily";
+  };
+  systemd.services.backup = {
+    serviceConfig.Type = "oneshot";
+    script = ''
+      mkdir -p /var/lib/backup
+      ${pkgs.postgresql}/bin/pg_dump catalog > /var/lib/backup/$(date --iso-8601=seconds).sql
+    ''
+  };
+
   age.secrets."catalog-secrets" = {
     file = ../../secrets/catalog-secrets.age;
     mode = "600";

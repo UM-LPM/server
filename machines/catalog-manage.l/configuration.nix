@@ -11,7 +11,7 @@
 
   networking.firewall.allowedTCPPorts = [22 8000 8080 8081 9100];
 
-   systemd.tmpfiles.settings = mkIf cfg.service.enable {
+   systemd.tmpfiles.settings = {
     "10-backup" = {
       "/var/lib/backup" = {
         d = {

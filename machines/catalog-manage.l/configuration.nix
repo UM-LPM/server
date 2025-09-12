@@ -82,6 +82,7 @@
     ];
 
     paths = [
+      "/var/lib/pictures/"
       "/var/lib/restic/database.sql"
     ];
     backupPrepareCommand = ''

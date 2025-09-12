@@ -26,4 +26,6 @@ in
   "catalog-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "grades-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "grades-external-secrets.age".publicKeys = [systems."grades.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
+  "backup-rclone-config.age".publicKeys = [systems."catalog-manage.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
+  "backup-password.age".publicKeys = [systems."catalog-manage.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
 }

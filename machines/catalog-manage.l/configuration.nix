@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, pkgs, lib, ...}:
 
 {
   imports = [
@@ -40,6 +40,56 @@
     mode = "600";
     owner = "catalog";
     group = "users";
+  };
+
+  age.secrets."backup-rclone-config" = {
+    file = ../../secrets/backup-rclone-config.age;
+    mode = "600";
+    owner = "catalog";
+    group = "users";
+  };
+
+  age.secrets."backup-password" = {
+    file = ../../secrets/backup-password.age;
+    mode = "600";
+    owner = "catalog";
+    group = "users";
+  };
+
+   systemd.tmpfiles.settings = {
+    "10-restic" = {
+      "/var/lib/restic" = {
+        d = {
+          group = "users";
+          mode = "0755";
+          user = "catalog";
+        };
+      };
+    };
+  };
+  services.restic.backups.remote = {
+    passwordFile = config.age.secrets."backup-password".path;
+    rcloneConfigFile = config.age.secrets."backup-rclone-config".path;
+    initialize = true;
+    repository = "rclone:database-backup:catalog-manage";
+
+    timerConfig.OnCalendar = "daily";
+
+    pruneOpts = [
+      "--keep-daily 14"
+      "--keep-weekly 4"
+      "--keep-monthly 2"
+    ];
+
+    paths = [
+      "/var/lib/restic/database.sql"
+    ];
+    backupPrepareCommand = ''
+      ${lib.getExe pkgs.sudo} -u catalog ${pkgs.postgresql}/bin/pg_dump > /var/lib/restic/database.sql
+    '';
+    backupCleanupCommand = ''
+      rm /var/lib/restic/database.sql
+    '';
   };
 
   noo.services.catalog = {

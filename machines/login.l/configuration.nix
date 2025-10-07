@@ -165,6 +165,33 @@
         token_endpoint_auth_method = "none";
         origin = "http://localhost:18000";
       }
+      {
+        client_id = "catalog-manage";
+        grant_types = ["authorization_code"];
+        redirect_uris = [
+          "https://upravljanje-katalog.lpm.feri.um.si"
+        ];
+        post_logout_redirect_uris = [
+          "https://upravljanje-katalog.lpm.feri.um.si"
+        ];
+        uuid = "ef82d04b-0b3e-4201-b1ce-57376317cde2";
+        token_endpoint_auth_method = "none";
+        origin = "https://upravljanje-katalog.lpm.feri.um.si";
+      }
+      {
+        client_id = "catalog-manage-local";
+        application_type = "native";
+        grant_types = ["authorization_code"];
+        redirect_uris = [
+          "http://localhost:18000"
+        ];
+        post_logout_redirect_uris = [
+          "http://localhost:18000"
+        ];
+        uuid = "f05e6b2f-1326-4a8b-881d-21f9d6844b76";
+        token_endpoint_auth_method = "none";
+        origin = "http://localhost:18000";
+      }
     ];
 
     profilePictures = {

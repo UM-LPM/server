@@ -2015,11 +2015,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_12"
       },
       "locked": {
-        "lastModified": 1759401736,
-        "narHash": "sha256-DHlvNwsiJdi8g64OLqHHewiOJ/uSI3Yy/zVDYtWN3+4=",
+        "lastModified": 1760091374,
+        "narHash": "sha256-LLavbcpwllSFIaBc2z3ug0ISbIrcUG0EiNcpHR+z1Ok=",
         "owner": "UM-LPM",
         "repo": "grades",
-        "rev": "5ba6f614f6bc395dcbacac7b3253c750c2cab432",
+        "rev": "6d467638447839aabe280c629b81206b6aef9c23",
         "type": "github"
       },
       "original": {
@@ -2124,11 +2124,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_11"
       },
       "locked": {
-        "lastModified": 1753196658,
-        "narHash": "sha256-d4O++NeH+l5HjuMCfhhaQmdp1W3pEW+PkfmowE4QeZw=",
+        "lastModified": 1759571870,
+        "narHash": "sha256-RHcgPc1P/azKIhCrU25fmCLUqbafqks3MPtsI9RQWJo=",
         "ref": "refs/heads/master",
-        "rev": "935297b793eb894d29d84de06e18c7a956591ddb",
-        "revCount": 802,
+        "rev": "763d70306f4c24bd9bb944192ba3d03816cabe79",
+        "revCount": 807,
         "type": "git",
         "url": "ssh://git@github.com/UM-LPM/login.git"
       },

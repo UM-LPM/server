@@ -268,6 +268,9 @@
         locations."/api/" = {
           proxyPass = "http://collab-dev.l:8080/api/";
         };
+        locations."/documentation/" = {
+          proxyPass = "http://collab-dev.l:8080/documentation/";
+        };
         locations."/" = {
           proxyPass = "http://collab-dev.l/";
           extraConfig = ''
@@ -282,6 +285,9 @@
         locations."/api/" = {
           proxyPass = "http://collab-pora.l:8080/api/";
         };
+        locations."/documentation/" = {
+          proxyPass = "http://collab-pora.l:8080/documentation/";
+        };
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://collab-pora.l/";
@@ -293,6 +299,9 @@
 
         locations."/api/" = {
           proxyPass = "http://collab-rri.l:8080/api/";
+        };
+        locations."/documentation/" = {
+          proxyPass = "http://collab-rri.l:8080/documentation/";
         };
         locations."/" = {
           recommendedProxySettings = true;
@@ -306,6 +315,9 @@
         locations."/api/" = {
           proxyPass = "http://collab-vr.l:8080/api/";
         };
+        locations."/documentation/" = {
+          proxyPass = "http://collab-vr.l:8080/documentation/";
+        };
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://collab-vr.l/";
@@ -318,6 +330,9 @@
         locations."/api/" = {
           proxyPass = "http://collab-test.l:8080/api/";
         };
+        locations."/documentation/" = {
+          proxyPass = "http://collab-test.l:8080/documentation/";
+        };
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://collab-test.l/";
@@ -329,6 +344,9 @@
 
         locations."/api/" = {
           proxyPass = "http://collab-catalog-dev.l:8080/api/";
+        };
+        locations."/documentation/" = {
+          proxyPass = "http://collab-catalog-dev.l:8080/documentation/";
         };
         locations."/" = {
           recommendedProxySettings = true;

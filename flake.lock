@@ -311,11 +311,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_6"
       },
       "locked": {
-        "lastModified": 1760600811,
-        "narHash": "sha256-+/DoWCVi/vEG2zMpXzl/yjqaRNH5O5A/x20de8qO/9U=",
+        "lastModified": 1760606379,
+        "narHash": "sha256-/8f3wtJog5bRZKktkGayonqeQ52TIn4TxZks8Ud4cqA=",
         "owner": "UM-LPM",
         "repo": "QA",
-        "rev": "918ac21ffa7a379f729ff4a414c4d7d890d2f859",
+        "rev": "e6a238dcf9880a7d4cd7694b534c102c188499db",
         "type": "github"
       },
       "original": {

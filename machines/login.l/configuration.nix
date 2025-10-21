@@ -217,6 +217,22 @@
         token_endpoint_auth_method = "none";
         origin = "https://grades.lpm.feri.um.si";
       }
+   {
+        client_id = "grades-dev";
+        application_type = "native";
+        grant_types = ["authorization_code"];
+        redirect_uris = [
+          "https://dev.grades.lpm.feri.um.si/auth.html"
+          "si.um.feri.lpm.grades://oauthredirect"
+          "https://login.lpm.feri.um.si/app/grades"
+        ];
+        post_logout_redirect_uris = [
+          "https://dev.grades.lpm.feri.um.si/auth.html"
+        ];
+        uuid = "7384a521-1dd3-4e0a-84d0-26917b33ec1c";
+        token_endpoint_auth_method = "none";
+        origin = "https://dev.grades.lpm.feri.um.si";
+      }
       {
         client_id = "grades-local";
         application_type = "native";

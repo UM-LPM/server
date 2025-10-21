@@ -21,7 +21,13 @@
 
   noo.services.grades = {
     enable = true;
-    frontend.enable = true;
+    frontend = {
+      enable = true;
+      serverUrl = "https://grades.lpm.feri.um.si/api";
+      clientId = "grades";
+      issuerUri = "https://login.lpm.feri.um.si/oidc";
+      redirectUri = "https://grades.lpm.feri.um.si/auth.html";
+    };
     backend.enable = true;
     database.enable = true;
     externalSecretsFile = config.age.secrets.grades-external-secrets.path;

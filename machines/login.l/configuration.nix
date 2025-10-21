@@ -196,7 +196,11 @@
         client_id = "grades";
         application_type = "native";
         grant_types = ["authorization_code"];
-        redirect_uris = ["https://grades.lpm.feri.um.si/auth.html" "si.um.feri.lpm.grades://oauthredirect"];
+        redirect_uris = [
+          "https://grades.lpm.feri.um.si/auth.html"
+          "si.um.feri.lpm.grades://oauthredirect"
+          "https://login.lpm.feri.um.si/app/grades"
+        ];
         post_logout_redirect_uris = [
           "https://grades.lpm.feri.um.si/auth.html"
         ];

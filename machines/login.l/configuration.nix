@@ -217,7 +217,7 @@
         token_endpoint_auth_method = "none";
         origin = "https://grades.lpm.feri.um.si";
       }
-   {
+      {
         client_id = "grades-dev";
         application_type = "native";
         grant_types = ["authorization_code"];

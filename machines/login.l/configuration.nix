@@ -78,6 +78,15 @@
         origin = "https://vr.collab.lpm.feri.um.si";
       }
       {
+        client_id = "qaferi-rsasm";
+        grant_types = ["authorization_code"];
+        redirect_uris = ["https://rsasm.collab.lpm.feri.um.si"];
+        post_logout_redirect_uris = ["https://rsasm.collab.lpm.feri.um.si"];
+        uuid = "f9393531-919c-4a66-a58e-3eb88566e36d";
+        token_endpoint_auth_method = "none";
+        origin = "https://rsasm.collab.lpm.feri.um.si";
+      }
+      {
         client_id = "qaferi-rwx";
         grant_types = ["authorization_code"];
         redirect_uris = ["https://collab.lpm.rwx.si"];

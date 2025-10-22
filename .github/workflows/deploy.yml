@@ -42,6 +42,7 @@ jobs:
           - "collab-pora.l"
           - "collab-rri.l"
           - "collab-vr.l"
+          - "collab-rsasm.l"
           - "collab-catalog-dev.l"
           - "login.l"
           - "login-dev.l"

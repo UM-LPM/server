@@ -55,6 +55,7 @@ jobs:
           - "catalog-summer-schools.l"
           - "catalog-mini-academy.l"
           - "grades.l"
+          - "grades-dev.l"
           - "student-mqtt.l"
           - "bioma.l"
           - "ps.l"

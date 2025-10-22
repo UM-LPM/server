@@ -170,6 +170,10 @@
         {nixpkgs.overlays = [collab-dev.overlays.default];}
         collab-dev.nixosModules.default
       ];
+      "collab-rsasm.l" = mkSystem "collab-rsasm.l" [
+        {nixpkgs.overlays = [collab-dev.overlays.default];}
+        collab-dev.nixosModules.default
+      ];
       "collab-catalog-dev.l" = mkSystem "collab-catalog-dev.l" [
         {nixpkgs.overlays = [collab-dev.overlays.default];}
         collab-dev.nixosModules.default

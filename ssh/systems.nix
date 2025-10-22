@@ -63,6 +63,9 @@
   "collab-vr.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJZe0St5C2V336eFqqvUvHrvez4pNGZlmsLNOXq/jJh7";
   };
+  "collab-rsasm.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIARR/P+Q2fz7Pf8ll5xwi6aRpvQRt/L+xSIoF745WjfU";
+  };
   "collab-test.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPJxSNk/WRfh4hbmI3U//L6zIUxmiFym0e9wSj1yVoR0";
   };
@@ -71,6 +74,9 @@
   };
   "grades.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFRwz01f1Srf+4yW5afmD986a4JoeNr2rK0IV4HvSqbS";
+  };
+  "grades-dev.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJSpFrt/udk4bdD98H8aZK2m81QH+UOKs+CNKngY/9A0";
   };
   "login.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBdeB5rPe3sOeqZh43wEXor3Ny3G4WWtnF9VMW6wuX/p";

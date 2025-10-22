@@ -175,6 +175,11 @@
           capacity = unit.GiB 16;
         }
         {
+          name = "grades-dev";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 16;
+        }
+        {
           name = "feriusa";
           backing = "minimal-base-v3";
           capacity = unit.GiB 16;
@@ -191,6 +196,11 @@
         }
         {
           name = "collab-rri";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 16;
+        }
+        {
+          name = "collab-rsasm";
           backing = "minimal-base-v3";
           capacity = unit.GiB 16;
         }
@@ -606,6 +616,26 @@
         }
       ];
     };
+    "grades-dev" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "grades-dev";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "grades-dev.l";
+          address = "10.17.3.122";
+        }
+      ];
+    };
     "collab-dev" = {
       start = true;
       autoStart = true;
@@ -723,6 +753,26 @@
           network = "private-network";
           hostname = "collab-vr.l";
           address = "10.17.3.218";
+        }
+      ];
+    };
+    "collab-rsasm" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative";
+          volume = "collab-rsasm";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "collab-rsasm.l";
+          address = "10.17.3.219";
         }
       ];
     };

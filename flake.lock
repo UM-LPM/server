@@ -2015,11 +2015,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_12"
       },
       "locked": {
-        "lastModified": 1761067334,
-        "narHash": "sha256-W4rYwVXFWjfsFVarZbmsDp5yiGqh3fqZc7mnlmNd2G0=",
+        "lastModified": 1761139895,
+        "narHash": "sha256-x6+0FX7wGjdKthnUhXt/0GpSYNEpC8+pmoMrVMC5xcU=",
         "owner": "UM-LPM",
         "repo": "grades",
-        "rev": "74d5753635c6407e1d98bcbaac60d8cc56cd8ad5",
+        "rev": "b9d562631d2d8399769e4487d13f1bc2fe9aba72",
         "type": "github"
       },
       "original": {

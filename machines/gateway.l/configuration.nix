@@ -79,6 +79,9 @@
       "grades.lpm.feri.um.si" = {
         inherit email;
       };
+      "dev.grades.lpm.feri.um.si" = {
+        inherit email;
+      };
       "katalog.krajsa-izobrazevanja.feri.um.si" = {
         inherit email;
       };
@@ -572,6 +575,18 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://grades.l/";
+        };
+      };
+      "dev.grades.lpm.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://grades-dev.l:3003/";
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://grades-dev.l/";
         };
       };
       "sso-test.lpm.feri.um.si" = {

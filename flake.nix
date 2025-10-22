@@ -205,6 +205,9 @@
       "grades.l" = mkSystem "grades.l" [
         grades.nixosModules.default
       ];
+      "grades-dev.l" = mkSystem "grades-dev.l" [
+        grades.nixosModules.default
+      ];
       "gc.l" = mkSystem "gc.l" [
         gc.nixosModules.default
       ];

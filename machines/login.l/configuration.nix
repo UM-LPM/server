@@ -46,6 +46,13 @@
     group = "users";
   };
 
+  age.secrets."grades-dev-client-secret" = {
+    file = ../../secrets/grades-dev-client-secret.age;
+    mode = "600";
+    owner = "login";
+    group = "users";
+  };
+
   noo.services.login = {
     enable = true;
 
@@ -156,6 +163,15 @@
         grant_types = ["client_credentials"];
         uuid = "59f00876-4ecd-4d52-a30b-c645ce2c0658";
         client_secret_path = config.age.secrets.grades-client-secret.path;
+        scope = "delegated";
+      }
+      {
+        client_id = "grades-dev-backend";
+        redirect_uris = [];
+        response_types = [];
+        grant_types = ["client_credentials"];
+        uuid = "b07f4e69-f5d8-4182-9049-7eab38ce4a20";
+        client_secret_path = config.age.secrets.grades-dev-client-secret.path;
         scope = "delegated";
       }
       {

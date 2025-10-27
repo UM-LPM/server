@@ -228,6 +228,7 @@
         ];
         post_logout_redirect_uris = [
           "https://grades.lpm.feri.um.si/auth.html"
+          "si.um.feri.lpm.grades://oauthredirect"
         ];
         uuid = "7384a521-1dd3-4e0a-84d0-26917b33ec1c";
         token_endpoint_auth_method = "none";
@@ -244,6 +245,7 @@
         ];
         post_logout_redirect_uris = [
           "https://dev.grades.lpm.feri.um.si/auth.html"
+          "si.um.feri.lpm.grades://oauthredirect"
         ];
         uuid = "7384a521-1dd3-4e0a-84d0-26917b33ec1c";
         token_endpoint_auth_method = "none";

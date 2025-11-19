@@ -37,9 +37,9 @@
   security.acme.certs =
     let email = "ziga.leber@um.si"; in
     {
-      #"bioma2022.um.si" = {
-      #  inherit email;
-      #};
+      "bioma2022.um.si" = {
+        inherit email;
+      };
       "umplatforma.lpm.feri.um.si" = {
         inherit email;
       };
@@ -192,15 +192,15 @@
           '';
         };
       };
-      #"bioma2022.um.si" = {
-      #  #forceSSL = true;
-      #  addSSL = true;
-      #  enableACME = true;
+      "bioma2022.um.si" = {
+        #forceSSL = true;
+        addSSL = true;
+        enableACME = true;
 
-      #  locations."/" = {
-      #    proxyPass = "http://bioma.l:8080";
-      #  };
-      #};
+        locations."/" = {
+          proxyPass = "http://bioma.l:8080";
+        };
+      };
 
       #"esp.lpm.feri.um.si" = {
       #  addSSL = true;

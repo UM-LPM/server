@@ -52,6 +52,7 @@ jobs:
           - "catalog-dev.l"
           - "catalog-view.l"
           - "catalog-manage.l"
+          - "catalog-manage-dev.l"
           - "catalog-summer-schools.l"
           - "catalog-mini-academy.l"
           - "grades.l"

@@ -111,6 +111,9 @@
   "catalog-manage.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG2sXPLrDPYasSCOiZ9+gqD+xk4m7ktjzl/K1yM+pZ3t";
   };
+  "catalog-manage-dev.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGn8VlX/zttnGNogwPQZt3CtxZqFUoVxUnO/T59703Ck";
+  };
   "bioma.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN0BPLzPl5TRejsLDME22k824mfyaBlEt9tK7BYSBgZg";
   };

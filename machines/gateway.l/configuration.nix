@@ -136,6 +136,9 @@
       "upravljanje-katalog.lpm.feri.um.si" = {
         inherit email;
       };
+      "upravljanje-katalog.rwx.si" = {
+        inherit email;
+      };
       "school-project.rwx.si" = {
         inherit email;
       };
@@ -497,6 +500,30 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://catalog-manage.l:8000/";
+        };
+      };
+      "upravljanje-katalog.rwx.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://catalog-manage-dev.l:8080/api/";
+        };
+        locations."/course/" = {
+          proxyPass = "http://catalog-manage-dev.l:8081/course/";
+          extraConfig = ''
+            add_header Access-Control-Allow-Origin *;
+          '';
+        };
+        locations."/catalog/" = {
+          proxyPass = "http://catalog-manage-dev.l:8081/catalog/";
+          extraConfig = ''
+            add_header Access-Control-Allow-Origin *;
+          '';
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-manage-dev.l:8000/";
         };
       };
       "pocitniske-sole.feri.um.si" = {

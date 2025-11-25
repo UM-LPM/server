@@ -141,6 +141,17 @@
         origin = "https://upravljanje-katalog.lpm.feri.um.si";
       }
       {
+        client_id = "catalog-web-scms-dev";
+        grant_types = ["authorization_code"];
+        redirect_uris = ["https://upravljanje-katalog.rwx.si/login"];
+        post_logout_redirect_uris = [
+          "https://upravljanje-katalog.rwx.si/login"
+        ];
+        uuid = "f1bbc2c4-cd90-4614-8ca8-32199aefb879";
+        token_endpoint_auth_method = "none";
+        origin = "https://upravljanje-katalog.rwx.si";
+      }
+      {
         client_id = "catalog-backend";
         redirect_uris = [];
         response_types = [];

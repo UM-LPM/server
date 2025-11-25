@@ -136,7 +136,7 @@
       "upravljanje-katalog.lpm.feri.um.si" = {
         inherit email;
       };
-      "upravljanje-katalog.rwx.si" = {
+      "dev.upravljanje-katalog.lpm.feri.um.si" = {
         inherit email;
       };
       "school-project.rwx.si" = {
@@ -502,7 +502,7 @@
           proxyPass = "http://catalog-manage.l:8000/";
         };
       };
-      "upravljanje-katalog.rwx.si" = {
+      "dev.upravljanje-katalog.lpm.feri.um.si" = {
         addSSL = true;
         enableACME = true;
 

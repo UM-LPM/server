@@ -1,12 +1,12 @@
 {config, pkgs, lib, ...}:
 
 let
-  catalog = "3b88bf36-eb8b-4c9f-bd29-545451665e87";
-  lock = (lib.importJSON ../../courses.json).${catalog};
+  catalogId = "16a9b89c-ccea-4deb-a112-b91652057cfe";
+  courses = (lib.importJSON ../../courses.json).${catalogId};
+  catalog = (lib.importJSON ../../catalogs.json).${catalogId};
 
   view = pkgs.callPackage ./view.nix {} {
-    inherit catalog;
-    inherit (lock) revision hash;
+    inherit catalogId courses catalog;
   };
 in
 {
@@ -29,13 +29,13 @@ in
     enable = true;
 
     frontendSubscribe = {
+      inherit catalogId;
       enable = true;
       serverUrl = "https://upravljanje-katalog.lpm.feri.um.si/api";
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
       shortCoursesUrl = "https://catalog.lpm.rwx.si";
-      catalogId = catalog;
       requireDateOfBirth = true;
-      timestamp = lock.revision;
+      timestamp = courses.revision;
     };
 
     coursePictures = {

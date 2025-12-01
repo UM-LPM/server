@@ -35,6 +35,8 @@
 
     mkCourses = pkgs.callPackage ./packages/make-courses.nix {};
 
+    mkCatalog = pkgs.callPackage ./packages/make-catalog.nix {};
+
     updateCourses = catalog:
       pkgs.writeShellApplication {
         name = "update";
@@ -56,6 +58,32 @@
             { sha256 }:
             let flake = builtins.getFlake (toString ${./.}); in
             flake.packages.x86_64-linux.courses."${catalog}".overrideAttrs (_: { hash = sha256; })
+          ')
+          replace_sha "$hash"
+        '';
+      };
+
+    updateCatalog = catalog:
+      pkgs.writeShellApplication {
+        name = "update";
+
+        runtimeInputs = [ pkgs.nix-prefetch pkgs.jq pkgs.moreutils ];
+
+        text = ''
+          set -euo pipefail
+
+          # from https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/security/vault/update-bin.sh
+          replace_sha() {
+            jq ".\"${catalog}\".hash = \"$1\"" <catalogs.json | sponge catalogs.json
+          }
+          prefetch() {
+            nix-prefetch -I 'nixpkgs=${nixpkgs}' --option extra-experimental-features flakes "$@"
+          }
+
+          hash=$(prefetch '
+            { sha256 }:
+            let flake = builtins.getFlake (toString ${./.}); in
+            flake.packages.x86_64-linux.catalog."${catalog}".overrideAttrs (_: { hash = sha256; })
           ')
           replace_sha "$hash"
         '';
@@ -97,6 +125,14 @@
     packages.x86_64-linux.updateCourses = builtins.mapAttrs (catalog: _:
         updateCourses catalog)
       (lib.importJSON ./courses.json);
+
+    packages.x86_64-linux.catalog = builtins.mapAttrs (catalog: {revision, hash, ...}:
+        mkCatalog {inherit catalog revision hash;})
+      (lib.importJSON ./catalogs.json);
+
+    packages.x86_64-linux.updateCatalog = builtins.mapAttrs (catalog: _:
+        updateCatalog catalog)
+      (lib.importJSON ./catalogs.json);
 
     packages.x86_64-linux.coursesView = builtins.mapAttrs (catalog: {machine, ...}:
         let

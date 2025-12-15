@@ -325,11 +325,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_4"
       },
       "locked": {
-        "lastModified": 1764177163,
-        "narHash": "sha256-T2VyZrcsBxFLHHcJYWM0XF/x8FlU1F/xtATR1rufXYE=",
+        "lastModified": 1764592974,
+        "narHash": "sha256-bZmlU5cDLXblHEBhVtzF4CwHkhzzWnHqC9PJXwk50dk=",
         "owner": "UM-LPM",
         "repo": "short-courses-catalog",
-        "rev": "7bd1f1542bd97d2e18756edbf68f169590d72956",
+        "rev": "20a866de61c04af1748298c174f5ac3c1e5cc3b6",
         "type": "github"
       },
       "original": {
@@ -4896,16 +4896,16 @@
     },
     "nixpkgs_46": {
       "locked": {
-        "lastModified": 1760862643,
-        "narHash": "sha256-PXwG0TM7Ek87DNx4LbGWuD93PbFeKAJs4FfALtp7Wo0=",
+        "lastModified": 1765762245,
+        "narHash": "sha256-3iXM/zTqEskWtmZs3gqNiVtRTsEjYAedIaLL0mSBsrk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "33c6dca0c0cb31d6addcd34e90a63ad61826b28c",
+        "rev": "c8cfcd6ccd422e41cc631a0b73ed4d5a925c393d",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-25.05",
+        "ref": "nixos-25.11",
         "repo": "nixpkgs",
         "type": "github"
       }

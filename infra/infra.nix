@@ -20,11 +20,6 @@
           capacity = unit.GiB 8;
         }
         {
-          name = "gateway";
-          backing = "minimal-base-v2";
-          capacity = unit.GiB 16;
-        }
-        {
           name = "builder";
           backing = "minimal-base-v2";
           capacity = unit.GiB 32;
@@ -231,6 +226,22 @@
         }
       ];
     };
+    "alternative2" = {
+      start = true;
+      autoStart = true;
+      path = "/ssd2/libvirt/images";
+      volumes = [
+        {
+          name = "minimal-base-v2";
+          capacity = unit.GiB 8;
+        }
+        {
+          name = "gateway";
+          backing = "minimal-base-v2";
+          capacity = unit.GiB 32;
+        }
+      ];
+    };
   };
 
   networks = {
@@ -300,7 +311,7 @@
       disks = [
         {
           device = "vda";
-          pool = "default";
+          pool = "alternative2";
           volume = "gateway";
         }
       ];

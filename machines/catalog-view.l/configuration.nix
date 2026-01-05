@@ -1,7 +1,7 @@
 {config, pkgs, lib, ...}:
 
 let
-  catalogId = "16a9b89c-ccea-4deb-a112-b91652057cfe";
+  catalogId = "ad429018-8888-4404-84b5-79fec9c91600";
   courses = (lib.importJSON ../../courses.json).${catalogId};
   catalog = (lib.importJSON ../../catalogs.json).${catalogId};
 
@@ -23,6 +23,13 @@ in
   services.nginx.enable = true;
   services.nginx.virtualHosts."$hostname" = {
     root = view;
+
+    extraConfig = ''
+      default_type "text/html";
+      rewrite ^/(.*)/$ /$1 permanent;
+      error_page 404 /404.html;
+      try_files $uri $uri.html $uri/index.html index.html =404;
+    '';
   };
 
   noo.services.catalog = {
@@ -31,7 +38,7 @@ in
     frontendSubscribe = {
       inherit catalogId;
       enable = true;
-      serverUrl = "https://upravljanje-katalog.lpm.feri.um.si/api";
+      serverUrl = "https://dev.upravljanje-katalog.lpm.feri.um.si/api";
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
       shortCoursesUrl = "https://catalog.lpm.rwx.si";
       requireDateOfBirth = true;
@@ -39,7 +46,7 @@ in
     };
 
     coursePictures = {
-      address = "https://upravljanje-katalog.lpm.feri.um.si/course/";
+      address = "https://dev.upravljanje-katalog.lpm.feri.um.si/";
     };
   };
 }

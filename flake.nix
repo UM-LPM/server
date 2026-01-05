@@ -229,7 +229,7 @@
         catalog-dev.nixosModules.default
       ];
       "catalog-view.l" = mkSystem "catalog-view.l" [
-        catalog-manage.nixosModules.default
+        catalog-manage-dev.nixosModules.default
       ];
       "catalog-summer-schools.l" = mkSystem "catalog-summer-schools.l" [
         catalog-manage.nixosModules.default

@@ -113,7 +113,7 @@
     backend = {
       enable = true;
       secrets = config.age.secrets."catalog-secrets".path;
-      frontend = "https://dev.upravljanje-katalog.lpm.feri.um.si";
+      frontendManage = "https://dev.upravljanje-katalog.lpm.feri.um.si";
 
       catalog = "katalog";
       login = "prijava";

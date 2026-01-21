@@ -139,6 +139,15 @@
       "dev.upravljanje-katalog.lpm.feri.um.si" = {
         inherit email;
       };
+      "upravljanje-katalog.um.si" = {
+        inherit email;
+      };
+      "krajsa-izobrazevanja.um.si" = {
+        inherit email;
+      };
+      "upravljanje.krajsa-izobrazevanja.um.si" = {
+        inherit email;
+      };
       "school-project.rwx.si" = {
         inherit email;
       };
@@ -582,6 +591,54 @@
           recommendedProxySettings = true;
           proxyPass = "http://catalog-view.l:8001/";
         };
+      };
+      "upravljanje-katalog.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/api/" = {
+          proxyPass = "http://catalog-manage-um.l:8080/api/";
+        };
+        locations."/course/" = {
+          proxyPass = "http://catalog-manage-um.l:8081/course/";
+          extraConfig = ''
+            add_header Access-Control-Allow-Origin *;
+          '';
+        };
+        locations."/catalog/" = {
+          proxyPass = "http://catalog-manage-um.l:8081/catalog/";
+          extraConfig = ''
+            add_header Access-Control-Allow-Origin *;
+          '';
+        };
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-manage-um.l:8000/";
+        };
+      };
+      "krajsa-izobrazevanja.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-view-um.l/";
+        };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+        '';
+      };
+      "upravljanje.krajsa-izobrazevanja.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-view-um.l:8001/";
+        };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+        '';
       };
       "school-project.rwx.si" = {
         addSSL = true;

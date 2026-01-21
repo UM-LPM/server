@@ -141,6 +141,17 @@
         origin = "https://upravljanje-katalog.lpm.feri.um.si";
       }
       {
+        client_id = "catalog-web-scms-um";
+        grant_types = ["authorization_code"];
+        redirect_uris = ["https://upravljanje-katalog.um.si/login"];
+        post_logout_redirect_uris = [
+          "https://upravljanje-katalog.um.si/login"
+        ];
+        uuid = "646e4dac-0f9a-4788-88f0-bc216fa5152a";
+        token_endpoint_auth_method = "none";
+        origin = "https://upravljanje-katalog.um.si";
+      }
+      {
         client_id = "catalog-web-scms-dev";
         grant_types = ["authorization_code"];
         redirect_uris = ["https://dev.upravljanje-katalog.lpm.feri.um.si/login"];

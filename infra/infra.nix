@@ -240,6 +240,20 @@
           backing = "minimal-base-v2";
           capacity = unit.GiB 32;
         }
+        {
+          name = "minimal-base-v4";
+          capacity = unit.GiB 8;
+        }
+        {
+          name = "catalog-manage-um";
+          backing = "minimal-base-v4";
+          capacity = unit.GiB 16;
+        }
+        {
+          name = "catalog-view-um";
+          backing = "minimal-base-v4";
+          capacity = unit.GiB 16;
+        }
       ];
     };
   };
@@ -949,6 +963,46 @@
           network = "private-network";
           hostname = "catalog-manage-dev.l";
           address = "10.17.3.250";
+        }
+      ];
+    };
+    "catalog-manage-um" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative2";
+          volume = "catalog-manage-um";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog-manage-um.l";
+          address = "10.17.3.251";
+        }
+      ];
+    };
+    "catalog-view-um" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative2";
+          volume = "catalog-view-um";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog-view-um.l";
+          address = "10.17.3.252";
         }
       ];
     };

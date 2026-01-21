@@ -114,6 +114,12 @@
   "catalog-manage-dev.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGn8VlX/zttnGNogwPQZt3CtxZqFUoVxUnO/T59703Ck";
   };
+  "catalog-manage-um.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHwWdx8S8P/fQJc/7xH4D7Ku3W+CAwVU1O4Xw4wAFl/a";
+  };
+  "catalog-view-um.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICbJX2sEmrESCxfdDh6ViOgjnCiuF0vDz95uqBP7jOqR";
+  };
   "bioma.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN0BPLzPl5TRejsLDME22k824mfyaBlEt9tK7BYSBgZg";
   };

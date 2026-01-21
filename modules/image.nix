@@ -1,10 +1,10 @@
-{config, lib, pkgs, inputs, ...}:
+{config, lib, pkgs, modulesPath, ...}:
 
 with lib;
 
 {
   imports = [
-    "${inputs.nixpkgs}/nixos/modules/profiles/qemu-guest.nix"
+    "${toString modulesPath}/profiles/qemu-guest.nix"
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -45,7 +45,7 @@ with lib;
 
   system.stateVersion = "22.05";
 
-  system.build.image = import "${inputs.nixpkgs}/nixos/lib/make-disk-image.nix" {
+  system.build.image = import "${modulesPath}/../lib/make-disk-image.nix" {
     inherit lib config pkgs;
     diskSize = 8192;
     format = "qcow2";

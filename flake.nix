@@ -247,6 +247,9 @@
       "catalog-manage-um.l" = mkSystem "catalog-manage-um.l" [
         catalog-manage-um.nixosModules.default
       ];
+      "catalog-view-um.l" = mkSystem "catalog-view-um.l" [
+        catalog-manage-um.nixosModules.default
+      ];
       "grades.l" = mkSystem "grades.l" [
         grades.nixosModules.default
       ];

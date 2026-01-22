@@ -55,6 +55,8 @@ jobs:
           - "catalog-manage-dev.l"
           - "catalog-summer-schools.l"
           - "catalog-mini-academy.l"
+          - "catalog-manage-um.l"
+          - "catalog-view-um.l"
           - "grades.l"
           - "grades-dev.l"
           - "student-mqtt.l"

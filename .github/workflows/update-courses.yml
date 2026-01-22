@@ -16,6 +16,9 @@ on:
       revision:
         required: true
         type: string
+
+concurrency: update
+
 jobs:
   run:
     runs-on: ubuntu-latest

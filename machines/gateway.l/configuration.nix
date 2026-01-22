@@ -603,12 +603,14 @@
           proxyPass = "http://catalog-manage-um.l:8081/course/";
           extraConfig = ''
             add_header Access-Control-Allow-Origin *;
+            add_header Cache-Control "no-cache, must-revalidate";
           '';
         };
         locations."/catalog/" = {
           proxyPass = "http://catalog-manage-um.l:8081/catalog/";
           extraConfig = ''
             add_header Access-Control-Allow-Origin *;
+            add_header Cache-Control "no-cache, must-revalidate";
           '';
         };
         locations."/" = {

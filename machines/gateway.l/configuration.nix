@@ -614,6 +614,9 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://catalog-manage-um.l:8000/";
+          extraConfig = ''
+            add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+          '';
         };
       };
       "krajsa-izobrazevanja.um.si" = {
@@ -626,6 +629,7 @@
         };
         extraConfig = ''
           add_header Cache-Control "no-cache, must-revalidate";
+          add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
         '';
       };
       "upravljanje.krajsa-izobrazevanja.um.si" = {
@@ -638,6 +642,7 @@
         };
         extraConfig = ''
           add_header Cache-Control "no-cache, must-revalidate";
+          add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
         '';
       };
       "school-project.rwx.si" = {

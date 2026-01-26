@@ -38,6 +38,7 @@ jobs:
 
     - name: Commit
       run: |
+        git pull
         git config user.name lpm-automaton
         git config user.email lpm-automaton@protonmail.com
         git add -u

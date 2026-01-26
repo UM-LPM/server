@@ -24,6 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: main
     - uses: cachix/install-nix-action@v25
       with:
         github_access_token: ${{secrets.GITHUB_TOKEN}}
@@ -38,7 +40,6 @@ jobs:
 
     - name: Commit
       run: |
-        git pull
         git config user.name lpm-automaton
         git config user.email lpm-automaton@protonmail.com
         git add -u

@@ -12,7 +12,7 @@
     login-dev.url = github:UM-LPM/login;
     catalog.url = github:UM-LPM/short-courses-catalog/production;
     catalog-dev.url = github:UM-LPM/short-courses-catalog;
-    catalog-manage.url = github:UM-LPM/short-courses-catalog/upravljanje-katalog;
+    catalog-manage.url = github:UM-LPM/short-courses-catalog/upravljanje-katalog-fix;
     catalog-manage-dev.url = github:UM-LPM/short-courses-catalog/101-backend-rewrite;
     catalog-manage-um.url = github:UM-LPM/short-courses-catalog/cvu-catalog;
     gc.url = github:Mir1001/gc_mv_backend;

@@ -2066,11 +2066,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_12"
       },
       "locked": {
-        "lastModified": 1770648696,
-        "narHash": "sha256-VaBTU45eQzBwsaXRgMeOxufeI/CV0Exb59xgtu6d0X0=",
+        "lastModified": 1770656692,
+        "narHash": "sha256-nKI69Bx4qXkgZ0TH6yC8OviV4MdLRaS6DiALK9SxJto=",
         "owner": "Mir1001",
         "repo": "gc_mv_backend",
-        "rev": "c23b42fc83f60f3f57be67faf8155bb9c8fe12b6",
+        "rev": "1b5cb36fceb1f129d9da273c22c304c416cf2aa2",
         "type": "github"
       },
       "original": {

@@ -23,6 +23,13 @@ in
   services.nginx.enable = true;
   services.nginx.virtualHosts."$hostname" = {
     root = view;
+
+    extraConfig = ''
+      default_type "text/html";
+      rewrite ^/(.*)/$ /$1 permanent;
+      error_page 404 /404.html;
+      try_files $uri $uri.html $uri/index.html index.html =404;
+    '';
   };
 
   noo.services.catalog = {

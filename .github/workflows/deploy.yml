@@ -57,6 +57,8 @@ jobs:
           - "catalog-mini-academy.l"
           - "catalog-manage-um.l"
           - "catalog-view-um.l"
+          - "catalog-view-um.l"
+          - "catalog-professional-activities.l"
           - "grades.l"
           - "grades-dev.l"
           - "student-mqtt.l"

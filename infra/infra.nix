@@ -254,6 +254,11 @@
           backing = "minimal-base-v4";
           capacity = unit.GiB 16;
         }
+        {
+          name = "catalog-professional-activities";
+          backing = "minimal-base-v4";
+          capacity = unit.GiB 16;
+        }
       ];
     };
   };
@@ -1003,6 +1008,26 @@
           network = "private-network";
           hostname = "catalog-view-um.l";
           address = "10.17.3.252";
+        }
+      ];
+    };
+    "catalog-professional-activities" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative2";
+          volume = "catalog-professional-activities";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog-professional-activities.l";
+          address = "10.17.3.253";
         }
       ];
     };

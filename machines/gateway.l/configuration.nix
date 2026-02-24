@@ -148,6 +148,12 @@
       "upravljanje.krajsa-izobrazevanja.um.si" = {
         inherit email;
       };
+      "strokovne-dejavnosti.feri.um.si" = {
+        inherit email;
+      };
+      "upravljanje.strokovne-dejavnosti.feri.um.si" = {
+        inherit email;
+      };
       "school-project.rwx.si" = {
         inherit email;
       };
@@ -572,6 +578,30 @@
         '';
       };
       "upravljanje.mini-akademija.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-mini-academy.l:8001/";
+        };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+        '';
+      };
+      "strokovne-dejavnosti.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-mini-academy.l/";
+        };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+        '';
+      };
+      "upravljanje.strokovne-dejavnosti.feri.um.si" = {
         addSSL = true;
         enableACME = true;
 

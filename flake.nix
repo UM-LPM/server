@@ -250,6 +250,9 @@
       "catalog-view-um.l" = mkSystem "catalog-view-um.l" [
         catalog-manage-um.nixosModules.default
       ];
+      "catalog-professional-activities.l" = mkSystem "catalog-professional-activities.l" [
+        catalog-manage.nixosModules.default
+      ];
       "grades.l" = mkSystem "grades.l" [
         grades.nixosModules.default
       ];

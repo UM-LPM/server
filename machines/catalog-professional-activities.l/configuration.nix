@@ -1,7 +1,7 @@
 {config, pkgs, lib, ...}:
 
 let
-  catalog = "277b8f71-87e7-45ab-92bf-027fcee1d392";
+  catalog = "cc62de00-01e9-49a3-9109-00208f504aec";
   lock = (lib.importJSON ../../courses.json).${catalog};
 
   view = pkgs.callPackage ./view.nix {} {

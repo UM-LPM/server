@@ -595,7 +595,7 @@
 
         locations."/" = {
           recommendedProxySettings = true;
-          proxyPass = "http://catalog-mini-academy.l/";
+          proxyPass = "http://catalog-professional-activities.l/";
         };
         extraConfig = ''
           add_header Cache-Control "no-cache, must-revalidate";
@@ -607,7 +607,7 @@
 
         locations."/" = {
           recommendedProxySettings = true;
-          proxyPass = "http://catalog-mini-academy.l:8001/";
+          proxyPass = "http://catalog-professional-activities.l:8001/";
         };
         extraConfig = ''
           add_header Cache-Control "no-cache, must-revalidate";

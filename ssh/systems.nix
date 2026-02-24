@@ -120,7 +120,7 @@
   "catalog-view-um.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICbJX2sEmrESCxfdDh6ViOgjnCiuF0vDz95uqBP7jOqR";
   };
-  "catalog-professional-activities.l" =
+  "catalog-professional-activities.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHq7iMZl98t62fIkdb10+Ze6WzdnVR2oU4k5qMInXBq4";
   };
   "bioma.l" = {

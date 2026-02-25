@@ -41,7 +41,7 @@ in
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
       shortCoursesUrl = "https://strokovne-dejavnosti.feri.um.si ";
       catalogId = catalog;
-      requireDateOfBirth = true;
+      requireDateOfBirth = false;
       timestamp = lock.revision;
     };
 

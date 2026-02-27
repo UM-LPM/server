@@ -15,10 +15,10 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
+    - uses: softprops/turnstyle@v3
     - uses: actions/checkout@v4
       with:
         ref: master
-    - uses: softprops/turnstyle@v3
     - uses: cachix/install-nix-action@v25
       with:
         github_access_token: ${{secrets.GITHUB_TOKEN}}

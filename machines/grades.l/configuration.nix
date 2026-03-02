@@ -12,6 +12,30 @@
   environment.systemPackages = [];
   networking.firewall.allowedTCPPorts = [22 80 3003 9100];
 
+  systemd.tmpfiles.settings = {
+    "10-backup" = {
+      "/var/lib/backup" = {
+        d = {
+          group = "users";
+          mode = "0755";
+          user = "grades";
+        };
+      };
+    };
+  };
+  systemd.timers.backup = {
+    wantedBy = [ "timers.target" ];
+    partOf = [ "backup.service" ];
+    timerConfig.OnCalendar = "daily";
+  };
+  systemd.services.backup = {
+    serviceConfig.Type = "oneshot";
+    serviceConfig.User = "grades";
+    script = ''
+      ${pkgs.postgresql}/bin/pg_dump grades > /var/lib/backup/$(date --iso-8601=seconds).sql
+    '';
+  };
+
   age.secrets."grades-external-secrets" = {
     file = ../../secrets/grades-external-secrets.age;
     mode = "600";

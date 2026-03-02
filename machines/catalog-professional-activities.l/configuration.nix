@@ -39,7 +39,7 @@ in
       enable = true;
       serverUrl = "https://upravljanje-katalog.lpm.feri.um.si/api";
       privacyPolicyUrl = "https://feri.um.si/o-nas/dokumentno-sredisce/zasebnost/";
-      shortCoursesUrl = "https://strokovne-dejavnosti.feri.um.si ";
+      shortCoursesUrl = "https://strokovne-dejavnosti.feri.um.si";
       catalogId = catalog;
       requireDateOfBirth = false;
       timestamp = lock.revision;

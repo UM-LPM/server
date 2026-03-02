@@ -28,6 +28,6 @@ in
   "grades-dev-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "grades-external-secrets.age".publicKeys = [systems."grades.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "grades-dev-external-secrets.age".publicKeys = [systems."grades-dev.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
-  "backup-rclone-config.age".publicKeys = [systems."catalog-manage.l" systems."catalog-manage-dev.l" systems."catalog-manage-um.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
-  "backup-password.age".publicKeys = [systems."catalog-manage.l" systems."catalog-manage-dev.l" systems."catalog-manage-um.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
+  "backup-rclone-config.age".publicKeys = [systems."catalog-manage.l" systems."catalog-manage-dev.l" systems."catalog-manage-um.l" systems."grades.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
+  "backup-password.age".publicKeys = [systems."catalog-manage.l" systems."catalog-manage-dev.l" systems."catalog-manage-um.l" systems."grades.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
 }

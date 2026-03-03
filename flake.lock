@@ -391,11 +391,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_7"
       },
       "locked": {
-        "lastModified": 1772189427,
-        "narHash": "sha256-F0aBTP3QcB5Qbip929Bpq35ILvejfo1b21jWMnPf9FY=",
+        "lastModified": 1772557568,
+        "narHash": "sha256-EQd1UD90azhKQMVB4GisNSwHZYKeu0nyLM/lU9CuG84=",
         "owner": "UM-LPM",
         "repo": "short-courses-catalog",
-        "rev": "ca2df8e3bccec6a1eb708bbb070c1accadadf565",
+        "rev": "ab5464210e9ca5288d6c84c095b49557f464ca35",
         "type": "github"
       },
       "original": {

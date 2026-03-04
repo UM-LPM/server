@@ -693,6 +693,9 @@
         locations."/api/" = {
           proxyPass = "http://grades.l:3003/";
         };
+        locations."/documentation/" = {
+          proxyPass = "http://grades.l:3003/documentation/";
+        };
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://grades.l/";
@@ -704,6 +707,9 @@
 
         locations."/api/" = {
           proxyPass = "http://grades-dev.l:3003/";
+        };
+        locations."/documentation/" = {
+          proxyPass = "http://grades-dev.l:3003/documentation/";
         };
         locations."/" = {
           recommendedProxySettings = true;

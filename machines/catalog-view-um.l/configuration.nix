@@ -43,10 +43,7 @@ in
       shortCoursesUrl = "https://krajsa-izobrazevanja.um.si";
       requireDateOfBirth = true;
       timestamp = courses.revision;
-    };
-
-    coursePictures = {
-      address = "https://upravljanje-katalog.um.si/";
+      coursePicturesAddress = "https://upravljanje-katalog.um.si/";
     };
   };
 }

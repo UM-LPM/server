@@ -17,12 +17,13 @@
     catalog-manage-summer-schools.url = github:UM-LPM/short-courses-catalog/upravljanje-katalog-fix-pocitniske-sole;
     catalog-manage-dev.url = github:UM-LPM/short-courses-catalog/101-backend-rewrite;
     catalog-manage-um.url = github:UM-LPM/short-courses-catalog/cvu-catalog;
+    catalog-registration.url = github:UM-LPM/short-courses-registration;
     gc.url = github:Mir1001/gc_mv_backend;
     feriusa.url = github:cecepasinechka/USA;
     ears.url = github:UM-LPM/tournaments;
   };
 
-  outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, collab-test, grades, grades-dev, login, login-dev, catalog, catalog-dev, catalog-manage, catalog-manage-mini-academy, catalog-manage-summer-schools, catalog-manage-dev, catalog-manage-um, gc, feriusa, ears, ...}@inputs:
+  outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, collab-test, grades, grades-dev, login, login-dev, catalog, catalog-dev, catalog-manage, catalog-manage-mini-academy, catalog-manage-summer-schools, catalog-manage-dev, catalog-manage-um, catalog-registration, gc, feriusa, ears, ...}@inputs:
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -250,7 +251,7 @@
         catalog-manage-um.nixosModules.default
       ];
       "catalog-view-um.l" = mkSystem "catalog-view-um.l" [
-        catalog-manage-um.nixosModules.default
+        catalog-registration.nixosModules.default
       ];
       "catalog-professional-activities.l" = mkSystem "catalog-professional-activities.l" [
         catalog-manage.nixosModules.default

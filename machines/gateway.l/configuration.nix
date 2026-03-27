@@ -157,6 +157,15 @@
       "school-project.rwx.si" = {
         inherit email;
       };
+      "mini-academy.rwx.si" = {
+        inherit email;
+      };
+      "summer-schools.rwx.si" = {
+        inherit email;
+      };
+      "professional-activities.rwx.si" = {
+        inherit email;
+      };
     };
     security.acme.acceptTerms = true;
 
@@ -658,6 +667,45 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://catalog-view-um.l/";
+        };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+          add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+        '';
+      };
+      "mini-academy.rwx.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-view-mini-academy.l/";
+        };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+          add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+        '';
+      };
+      "summer-schools.rwx.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-view-summer-schools.l/";
+        };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+          add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";
+        '';
+      };
+      "professional-activities.rwx.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-view-professional-activities.l/";
         };
         extraConfig = ''
           add_header Cache-Control "no-cache, must-revalidate";

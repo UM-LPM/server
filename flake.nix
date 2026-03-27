@@ -253,6 +253,15 @@
       "catalog-view-um.l" = mkSystem "catalog-view-um.l" [
         catalog-registration.nixosModules.default
       ];
+      "catalog-view-summer-schools.l" = mkSystem "catalog-view-summer-schools.l" [
+        catalog-registration.nixosModules.default
+      ];
+      "catalog-view-mini-academy.l" = mkSystem "catalog-view-mini-academy.l" [
+        catalog-registration.nixosModules.default
+      ];
+      "catalog-view-professional-activities.l" = mkSystem "catalog-view-professional-activities.l" [
+        catalog-registration.nixosModules.default
+      ];
       "catalog-professional-activities.l" = mkSystem "catalog-professional-activities.l" [
         catalog-manage.nixosModules.default
       ];

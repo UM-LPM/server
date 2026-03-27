@@ -259,6 +259,21 @@
           backing = "minimal-base-v4";
           capacity = unit.GiB 16;
         }
+        {
+          name = "catalog-view-summer-schools";
+          backing = "minimal-base-v4";
+          capacity = unit.GiB 16;
+        }
+        {
+          name = "catalog-view-mini-academy";
+          backing = "minimal-base-v4";
+          capacity = unit.GiB 16;
+        }
+        {
+          name = "catalog-view-professional-activities";
+          backing = "minimal-base-v4";
+          capacity = unit.GiB 16;
+        }
       ];
     };
   };
@@ -1008,6 +1023,66 @@
           network = "private-network";
           hostname = "catalog-view-um.l";
           address = "10.17.3.252";
+        }
+      ];
+    };
+    "catalog-view-summer-schools" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative2";
+          volume = "catalog-view-summer-schools";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog-view-summer-schools.l";
+          address = "10.17.3.241";
+        }
+      ];
+    };
+    "catalog-view-mini-academy" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative2";
+          volume = "catalog-view-mini-academy";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog-view-mini-academy.l";
+          address = "10.17.3.242";
+        }
+      ];
+    };
+    "catalog-view-professional-activities" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative2";
+          volume = "catalog-view-professional-activities";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog-view-professional-activities.l";
+          address = "10.17.3.243";
         }
       ];
     };

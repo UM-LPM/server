@@ -120,6 +120,15 @@
   "catalog-view-um.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICbJX2sEmrESCxfdDh6ViOgjnCiuF0vDz95uqBP7jOqR";
   };
+  "catalog-view-mini-academy.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICFZ4dtor//ve+IlZVe70ej5anXIgkeA8YUG5imGeaCZ";
+  };
+  "catalog-view-summer-schools.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHn8qq/9g3q9BmTtthjC6uTqyVV479D7tGL6YDvCfrAA";
+  };
+  "catalog-view-professional-activities.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFzQguLsg0Zy8XuzKgc+TgFv1VeVuUzvQIN+dtsJShiZ";
+  };
   "catalog-professional-activities.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHq7iMZl98t62fIkdb10+Ze6WzdnVR2oU4k5qMInXBq4";
   };

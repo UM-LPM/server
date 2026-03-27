@@ -25,6 +25,7 @@ in
   "collab-external-secrets.age".publicKeys = [systems."collab-dev.l" systems."collab-pora.l" systems."collab-rri.l" systems."collab-vr.l" systems."collab-rsasm.l" systems."collab-catalog-dev.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "catalog-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "grades-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
+  "cms-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka]);
   "grades-dev-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "grades-external-secrets.age".publicKeys = [systems."grades.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "grades-dev-external-secrets.age".publicKeys = [systems."grades-dev.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);

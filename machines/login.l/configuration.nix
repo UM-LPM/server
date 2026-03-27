@@ -53,6 +53,13 @@
     group = "users";
   };
 
+  age.secrets."cms-client-secret" = {
+    file = ../../secrets/cms-client-secret.age;
+    mode = "600";
+    owner = "login";
+    group = "users";
+  };
+
   noo.services.login = {
     enable = true;
 
@@ -161,6 +168,15 @@
         uuid = "f1bbc2c4-cd90-4614-8ca8-32199aefb879";
         token_endpoint_auth_method = "none";
         origin = "https://dev.upravljanje-katalog.lpm.feri.um.si";
+      }
+      {
+        client_id = "cms-create-course";
+        redirect_uris = [];
+        response_types = [];
+        grant_types = ["client_credentials"];
+        uuid = "5803c874-beea-48a5-a9e6-fea48a7d2098";
+        client_secret_path = config.age.secrets.cms-client-secret.path;
+        scope = "create_course";
       }
       {
         client_id = "catalog-backend";

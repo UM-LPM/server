@@ -33,8 +33,7 @@
 
   nina = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKDZ+s+6SnZkLq5/NXpawkUWwTr+XzRYrCy1/YSX5h1d nina@LAPTOP-9BTL1UF8";
   # GitHub Actions keys
-  # server-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMBhy/17XIqRbkTyMhz1ckNYiVXEexcAvgG6QT7blP2 ziga@archlinux";
-  server-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrih3C4okDkz4bMe7FTej2kWKyN7U2dNq/VooSHu7mu matej@DESKTOP-BT2IIE9";
+  server-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILMBhy/17XIqRbkTyMhz1ckNYiVXEexcAvgG6QT7blP2 ziga@archlinux";
   
   bioma-actions = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKzmi/imWoJJoSFG5GJhozhv0sYUm+Ln4nNTUKAClyny ziga@nixos";
 

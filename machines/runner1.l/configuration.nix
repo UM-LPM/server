@@ -35,6 +35,7 @@ in
   age.secrets."collab-runner-token".file = ../../secrets/collab-runner-token.age;
   age.secrets."login-runner-token".file = ../../secrets/login-runner-token.age;
   age.secrets."catalog-runner-token".file = ../../secrets/catalog-runner-token.age;
+  age.secrets."catalog-registration-runner-token".file = ../../secrets/catalog-registration-runner-token.age;
   age.secrets."grades-runner-token".file = ../../secrets/grades-runner-token.age;
 
   services.github-runners =
@@ -71,6 +72,11 @@ in
       tokenFile = config.age.secrets.catalog-runner-token.path;
       url = "https://github.com/UM-LPM/short-courses-catalog";
     };
+    mkCatalogRegistrationRunner = name: laxRunner {
+      inherit name;
+      tokenFile = config.age.secrets.catalog-registration-runner-token.path;
+      url = "https://github.com/UM-LPM/short-courses-registration";
+    };
     mkGradesRunner = name: laxRunner {
       inherit name;
       tokenFile = config.age.secrets.grades-runner-token.path;
@@ -94,6 +100,8 @@ in
     login2 = mkLoginRunner "login2";
     catalog1 = mkCatalogRunner "catalog1";
     catalog2 = mkCatalogRunner "catalog2";
+    registration1 = mkCatalogRegistrationRunner "registration1";
+    registration2 = mkCatalogRegistrationRunner "registration2";
     grades1 = mkGradesRunner "grades1";
     grades2 = mkGradesRunner "grades2";
   };

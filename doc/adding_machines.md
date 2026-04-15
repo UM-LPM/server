@@ -1,121 +1,101 @@
-# Adding machines
+## Access to Server
 
-Meta variables:
-- ```{{project}}```: name of the project
-- ```{{domain}}```: name of the machine
-- ```{{image}}```: name of the machine image
-- ```{{hostname}}```: host-name of the machine
-- ```{{mac}}```: MAC address of the machine
-- ```{{ip}}```: IP address of the machine
-
-## Deploy with minimal image
-
-### Infrastructure
-
-1. Run ```infra/shell.sh```
-2. Create a new folder ```infra/{{project}}```
-3. Create a MAC address by running ```infra/mac.sh {{hostname}}```
-4. Create ```infra/images/{{project}}.sh``` based on the following template and *run* it:
-```
-. ../lib.sh
-volume-create-backing images {{image}}}.qcow2 8G minimal-base-v1.qcow2
-```
-
-5. Add the following line to ```infra/networks/private-network.xml```:
-```
-  <host mac="{{mac}}" name="{{hostname}}" ip="{{ip}}"/>
-```
-
-6. Create ```infra/{{project}}/{{domain}}.xml``` based on the following template:
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../domain.xsl"?>
-<!DOCTYPE domain SYSTEM '../domain.dtd'>
-
-<domain>
-  <name>{{domain}}</name>
-    <memory unit="G">1</memory>
-    <vcpu>1</vcpu>
-    <disk pool='images' volume='{{image}}.qcow2'/>
-    <network-interface
-        network='private-network' 
-        mac='{{mac}}'/>
-</domain>
-```
-
-7. Create ```infra/{{project}}/inventory.txt```, which should contain one domain per line.
-
-8. Create the domain by running: ```domain-create {{domain}}.xml```
-
-9. Refresh the network by running: ```infra/networks/refresh.sh```
-
-### Configuration
-
-1. Create a new folder ```machines/<project>```
-2. Write ```machines/<project>/configuration.nix```
-3. Add the following to ```ssh_config```:
-```
- Host {{hostname}}
-      User root
-      HostName {{hostname}}
-      ProxyJump bastion
-```
-3. Add the following to ```machines/deploy.sh``` and *run* it:
-```
-deploy {{hostname}} './<project>/configure.nix'
-```
-4. After accepting the server key commit and push the ```known_hosts``` repository
+Access to the server is required before proceeding with any of the steps below.
 
 
-## Deploy with custom image
 
-### Configuration
+## 1. Infrastructure Setup
 
-1. Create a new folder ```machines/<project>```
-2. Write ```machines/<project>/configuration.nix```
+### Adding a Volume to a Pool
 
-3. Build the image by running (in the directory):
-```
-nix-build '<nixpkgs/nixos>' -A config.system.build.image -I nixos-config=configure.nix
+There are three existing pools — each is a disk with an image set at a specific path. Each pool contains multiple volumes.
+
+| Pool | Status |
+|------|--------|
+| `default` | Nearly full — limited space to increase size |
+| `alternative` | Nearly full — limited space to increase size |
+| `alternative2` | Free pool — use this if needed |
+
+- If volumes need to be moved, migrate them to `alternative2`.
+
+### Choosing a Base Image
+
+- Use **v4** (recommended) — v2 is the older image.
+- The VM operates using the base image and applies overlay image changes on top.
+- The backing image **must be in the same pool** as the VM — it cannot reference a pool that differs.
+- Generate the base image inside the target pool before creating the VM.
+- Different pools use different version naming to keep images organized.
+- A new image version = new version of NixOS packages.
+
+**Relevant scripts:**
+
+| Script | Purpose |
+|--------|---------|
+| `build.sh` | Builds an image for the NixOS configuration |
+| `deploy.sh` | Downloads and installs new packages (deploys NixOS configuration) |
+
+### Uploading the Volume
+
+After building the image, upload it to the pool:
+
+```bash
+vol-upload --pool alternative2 minimal-base-v4 --file result/nixos.qcow2
 ```
 
-### Infrastructure
 
-1. Run ```infra/shell.sh```
-2. Create a new folder ```infra/{{project}}```
-3. Create a MAC address by running ```infra/mac.sh {{hostname}}```
-4. Create ```infra/images/{{project}}.sh``` based on the following template and *run* it:
-```
-. ../lib.sh
-volume-create images {{image}}-base-v1.qcow2 8G
-volume-upload images {{image}}-base-v1.qcow2 '../../machines/<project>/result/nixos.qcow2'
-volume-create-backing images {{image}}}.qcow2 8G {{image}}-base-v1.qcow2
-```
+## 2. Network Configuration
 
-5. Add the following line to ```infra/networks/private-network.xml```:
-```
-  <host mac="{{mac}}" name="{{hostname}}" ip="{{ip}}"/>
-```
+- To resolve URLs inside the VM, add the domain to **network hosts** in the private network section of the config.
+- Each VM's address in **Network Interfaces must be unique**.
 
-6. Create ```infra/{{project}}/{{domain}}.xml``` based on the following template:
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../domain.xsl"?>
-<!DOCTYPE domain SYSTEM '../domain.dtd'>
 
-<domain>
-  <name>{{domain}}</name>
-    <memory unit="G">1</memory>
-    <vcpu>1</vcpu>
-    <disk pool='images' volume='{{image}}.qcow2'/>
-    <network-interface
-        network='private-network' 
-        mac='{{mac}}'/>
-</domain>
+
+## 3. VM Configuration (`infra.nix`)
+
+1. Add the VM configuration under `domains` in `infra.nix`.
+2. Set a unique address in **Network Interfaces**.
+3. After editing, generate the deployment bash script:
+
+```bash
+nix-build -A config.toplevel gen.nix -I infra=./infra.nix
 ```
 
-7. Create ```infra/{{project}}/inventory.txt```, which should contain one domain per line.
 
-8. Create the domain by running: ```domain-create {{domain}}.xml```
+## 4. Deployment
 
-9. Refresh the network by running: ```infra/networks/refresh.sh```
+### SSH Access
+
+Assign server SSH access to the user deploying the script (inside `infra/result`).
+
+Set up the SSH agent and add your key:
+
+```bash
+eval $(ssh-agent)
+ssh-add ~/.ssh/lpm
+```
+
+### Machine Configuration
+
+1. Once the script is built, create a config for the new machine inside the `machines/` folder.
+2. Use the **same name as the hostname** defined in `infra.nix`.
+3. Create a folder with that hostname and add the proper NixOS configuration.
+
+### Systems — SSH Public Key
+
+In `systems`, add the SSH public key for the VM's hostname.
+
+### GitHub Access Token
+
+Add the access token to the NixOS config with the `github:` prefix:
+
+```
+access-tokens = github.com=TOKEN
+```
+
+### Verification
+
+Before committing changes, SSH into the VM to verify it was created successfully.
+
+### Deploy Script
+
+Add the hostname to the deploy script on the server so the VM is deployed alongside other machines.

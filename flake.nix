@@ -16,7 +16,7 @@
     catalog-manage-mini-academy.url = github:UM-LPM/short-courses-catalog/upravljanje-katalog-fix-mini-akademija;
     catalog-manage-summer-schools.url = github:UM-LPM/short-courses-catalog/upravljanje-katalog-fix-pocitniske-sole;
     catalog-manage-dev.url = github:UM-LPM/short-courses-catalog/101-backend-rewrite;
-    catalog-manage-um.url = github:UM-LPM/short-courses-catalog/cvu-catalog;
+    catalog-manage-um.url = github:UM-LPM/short-courses-catalog/upravljanje-katalog-master;
     catalog-registration.url = github:UM-LPM/short-courses-registration;
     gc.url = github:Mir1001/gc_mv_backend;
     feriusa.url = github:cecepasinechka/USA;

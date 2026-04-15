@@ -129,6 +129,9 @@
   "catalog-view-professional-activities.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFzQguLsg0Zy8XuzKgc+TgFv1VeVuUzvQIN+dtsJShiZ";
   };
+  "catalog-view-science-technology-days.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK13SRfyfRUQY6ic/O/4pMAkET/ElOcvTmjSIU8BU3xR";
+  };
   "catalog-professional-activities.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHq7iMZl98t62fIkdb10+Ze6WzdnVR2oU4k5qMInXBq4";
   };

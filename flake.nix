@@ -262,6 +262,9 @@
       "catalog-view-professional-activities.l" = mkSystem "catalog-view-professional-activities.l" [
         catalog-registration.nixosModules.default
       ];
+      "catalog-view-science-technology-days.l" = mkSystem "catalog-view-science-technology-days.l" [
+        catalog-registration.nixosModules.default
+      ];
       "catalog-professional-activities.l" = mkSystem "catalog-professional-activities.l" [
         catalog-manage.nixosModules.default
       ];

@@ -274,6 +274,11 @@
           backing = "minimal-base-v4";
           capacity = unit.GiB 16;
         }
+        {
+          name = "catalog-view-science-technology-days";
+          backing = "minimal-base-v4";
+          capacity = unit.GiB 16;
+        }
       ];
     };
   };
@@ -1083,6 +1088,26 @@
           network = "private-network";
           hostname = "catalog-view-professional-activities.l";
           address = "10.17.3.243";
+        }
+      ];
+    };
+    "catalog-view-science-technology-days" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 2;
+      vcpu = 1;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative2";
+          volume = "catalog-view-science-technology-days";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "catalog-view-science-technology-days.l";
+          address = "10.17.3.244";
         }
       ];
     };

@@ -60,6 +60,7 @@ jobs:
           - "catalog-view-mini-academy.l"
           - "catalog-view-summer-schools.l"
           - "catalog-view-professional-activities.l"
+          - "catalog-view-science-technology-days.l"
           - "catalog-professional-activities.l"
           - "grades.l"
           - "grades-dev.l"

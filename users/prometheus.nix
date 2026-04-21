@@ -3,6 +3,6 @@
   users.users.monitor = {
     isNormalUser = true;
     description = "Monitoring user";
-    openssh.authorizedKeys.keys = with import ../ssh-keys.nix; [mario ziga miha matej];
+    openssh.authorizedKeys.keys = with import ../ssh/users.nix; [mario ziga miha matej];
   };
 }

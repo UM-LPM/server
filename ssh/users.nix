@@ -11,7 +11,7 @@
 
   matej-extra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILZRdvYLdbJ/87gw2RiNRfZUNUCnrVEOjutQetSZCNTu mir@Mirs-MacBook-Pro.local";
   
-  mario = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPA/LJdq7+/N7svDvmkeHZex6QO2lykjmx6hinuGe/EH test@lpmgigab";
+  mario = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICHCXo/qWW3yaIwY2N3B+pPi4jS/2WUiXwO3BiXz2wcJ mario@lpmgigab";
 
   bostjan = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEEiifyyqfzZaKXcrCkjI8qCPr6xUpG6eE3fG79xf/mn bosti@deb10-vpn";
 

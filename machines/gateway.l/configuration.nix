@@ -154,6 +154,9 @@
       "upravljanje.strokovne-dejavnosti.feri.um.si" = {
         inherit email;
       };
+      "upravljanje.naravoslovno-tehniski-dnevi.feri.um.si" = {
+        inherit email;
+      };
       "school-project.rwx.si" = {
         inherit email;
       };
@@ -617,6 +620,18 @@
         locations."/" = {
           recommendedProxySettings = true;
           proxyPass = "http://catalog-professional-activities.l:8001/";
+        };
+        extraConfig = ''
+          add_header Cache-Control "no-cache, must-revalidate";
+        '';
+      };
+      "upravljanje.naravoslovno-tehniski-dnevi.feri.um.si" = {
+        addSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://catalog-view-science-technology-days.l:8001/";
         };
         extraConfig = ''
           add_header Cache-Control "no-cache, must-revalidate";

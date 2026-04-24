@@ -4,10 +4,6 @@ let
   catalogId = "430bbc71-f251-475a-8759-7665a8b7b119";
   courses = (lib.importJSON ../../courses.json).${catalogId};
   catalog = (lib.importJSON ../../catalogs.json).${catalogId};
-
-  view = pkgs.callPackage ./view.nix {} {
-    inherit catalogId courses catalog;
-  };
 in
 {
   imports = [
@@ -19,18 +15,6 @@ in
   ];
 
   networking.firewall.allowedTCPPorts = [22 80 8001];
-
-  services.nginx.enable = true;
-  services.nginx.virtualHosts."$hostname" = {
-    root = view;
-
-    extraConfig = ''
-      default_type "text/html";
-      rewrite ^/(.*)/$ /$1 permanent;
-      error_page 404 /404.html;
-      try_files $uri $uri.html $uri/index.html index.html =404;
-    '';
-  };
 
   noo.services.catalog = {
     enable = true;

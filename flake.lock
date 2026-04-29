@@ -2350,11 +2350,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_15"
       },
       "locked": {
-        "lastModified": 1777406522,
-        "narHash": "sha256-B/nWFTOnTn3KV+YA/ma7A+sLAt3OtalpXZnNDs14+i4=",
+        "lastModified": 1777447215,
+        "narHash": "sha256-a7J7lh9FRlsCUHltzlNA7eKpuuZ+ik8LMORvBsL3wpE=",
         "owner": "Mir1001",
         "repo": "gc_mv_backend",
-        "rev": "dbcc0e90fa4e28a0e5607ac5fc45fc54a23702dc",
+        "rev": "4896e4d6a1f004d675ebe0dd6dacb5d5f4320881",
         "type": "github"
       },
       "original": {

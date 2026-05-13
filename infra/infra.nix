@@ -89,11 +89,7 @@
           name = "runner1";
           backing = "minimal-base-v3";
           capacity = unit.GiB 64;
-        }
-        {
-          name = "ears-legacy-base";
-          capacity = unit.GiB 8;
-        }
+        }        
         {
           name = "ears-legacy";
           backing = "ears-legacy-base";

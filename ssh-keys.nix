@@ -7,7 +7,7 @@
   
   matej = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINyxpJW2YEfE02KfHVNmqg07x+pBxTJYcINOdYI+r442 matej@DESKTOP-RAEL084";
   
-  mario = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPA/LJdq7+/N7svDvmkeHZex6QO2lykjmx6hinuGe/EH test@lpmgigab";
+  mario = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII0zulubMwxcw6Cg6wfv/0dxDwIwcbvpVrYbEZMlsVVc mario@lpmgigab";
 
   bostjan = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEEiifyyqfzZaKXcrCkjI8qCPr6xUpG6eE3fG79xf/mn bosti@deb10-vpn";
 

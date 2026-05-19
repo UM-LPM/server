@@ -91,11 +91,6 @@
           capacity = unit.GiB 64;
         }        
         {
-          name = "ears-legacy";
-          backing = "ears-legacy-base";
-          capacity = unit.GiB 8;
-        }
-        {
           name = "ears";
           backing = "minimal-base-v3";
           capacity = unit.GiB 8;
@@ -1244,26 +1239,6 @@
           network = "private-network";
           hostname = "ears.l";
           address = "10.17.3.200";
-        }
-      ];
-    };
-    "ears-legacy" = {
-      start = true;
-      autoStart = true;
-      memory = unit.GiB 1;
-      vcpu = 10;
-      disks = [
-        {
-          device = "vda";
-          pool = "alternative";
-          volume = "ears-legacy";
-        }
-      ];
-      networkInterfaces = [
-        {
-          network = "private-network";
-          hostname = "ears-legacy.l";
-          address = "10.17.3.201";
         }
       ];
     };

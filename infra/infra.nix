@@ -1234,7 +1234,7 @@
       disks = [
         {
           device = "vda";
-          pool = "alternative";
+          pool = "alternative2";
           volume = "ears";
         }
       ];

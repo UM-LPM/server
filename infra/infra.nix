@@ -91,11 +91,6 @@
           capacity = unit.GiB 64;
         }        
         {
-          name = "ears";
-          backing = "minimal-base-v3";
-          capacity = unit.GiB 8;
-        }
-        {
           name = "login";
           backing = "minimal-base-v3";
           capacity = unit.GiB 16;
@@ -230,6 +225,15 @@
           name = "gateway";
           backing = "minimal-base-v2";
           capacity = unit.GiB 32;
+        }
+        {
+          name = "minimal-base-v3";
+          capacity = unit.GiB 8;
+        }
+        {
+          name = "ears";
+          backing = "minimal-base-v3";
+          capacity = unit.GiB 8;
         }
         {
           name = "minimal-base-v4";

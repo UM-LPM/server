@@ -1,7 +1,7 @@
 {config, pkgs, lib, ...}:
 
 let
-  catalogId = "221f1cc4-1607-4418-a6a5-4b3fb897d82c";
+  catalogId = "e86c38bb-2a79-4327-9075-f8ae8cf26e82";
   courses = (lib.importJSON ../../courses.json).${catalogId};
   catalog = (lib.importJSON ../../catalogs.json).${catalogId};
 

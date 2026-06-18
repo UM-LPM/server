@@ -10,7 +10,7 @@ mkView {
     owner = "UM-LPM";
     repo = "short-courses";
     rev = "1080412b9098bbb0aa85c1dfb0acb8b42b979080";
-    hash = lib.fakeHash;
+    hash = "sha256-YHkW2WALwDggHL+mO5CdMumQNaLSDDjbP2Bvk5/mtcA=";
   };
   courses = mkCourses {
     inherit catalog revision hash;

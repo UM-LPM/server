@@ -3046,11 +3046,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_20"
       },
       "locked": {
-        "lastModified": 1772017020,
-        "narHash": "sha256-dJ/YHHPSiLl/CYiP7LBDxaNiYIGXKYUnGYMEgZSeZpg=",
+        "lastModified": 1784228268,
+        "narHash": "sha256-d61S2w2LtmnxB9xXWUPVHD7dV3ez5oZ7a4OUZY3lgVE=",
         "owner": "UM-LPM",
         "repo": "login",
-        "rev": "79217b3ef2ed56152181177e2ac5bf8285c47d12",
+        "rev": "52072d634ccb3c712cc9689c2cdd0d38cbee4ebf",
         "type": "github"
       },
       "original": {

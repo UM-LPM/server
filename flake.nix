@@ -146,11 +146,19 @@
 
     packages.x86_64-linux.coursesView = builtins.mapAttrs (catalog: attrs:
         let
-          lock = (lib.importJSON ./courses.json).${catalog};
+          coursesLock = (lib.importJSON ./courses.json).${catalog};
+          catalogLock = (lib.importJSON ./catalogs.json).${catalog};
         in
         pkgs.callPackage ./machines/${attrs.machine}/view.nix {} {
-          inherit catalog;
-          inherit (lock) revision hash;
+          catalogId = catalog;
+          courses = {
+            revision = coursesLock.revision;
+            hash = coursesLock.hash;
+          };
+          catalog = {
+            revision = catalogLock.revision;
+            hash = catalogLock.hash;
+          };
         })
       (lib.importJSON ./courses.json);
 

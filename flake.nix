@@ -122,27 +122,33 @@
   {
     packages.x86_64-linux.mongo_exporter = pkgs.callPackage ./pkgs/mongo_exporter.nix {};
 
-    packages.x86_64-linux.courses = builtins.mapAttrs (catalog: {revision, hash, ...}:
-        mkCourses {inherit catalog revision hash;})
+    packages.x86_64-linux.courses = builtins.mapAttrs (catalog: attrs:
+        mkCourses {
+          inherit catalog;
+          inherit (attrs) revision hash;
+        })
       (lib.importJSON ./courses.json);
 
     packages.x86_64-linux.updateCourses = builtins.mapAttrs (catalog: _:
         updateCourses catalog)
       (lib.importJSON ./courses.json);
 
-    packages.x86_64-linux.catalog = builtins.mapAttrs (catalog: {revision, hash, ...}:
-        mkCatalog {inherit catalog revision hash;})
+    packages.x86_64-linux.catalog = builtins.mapAttrs (catalog: attrs:
+        mkCatalog {
+          inherit catalog;
+          inherit (attrs) revision hash;
+        })
       (lib.importJSON ./catalogs.json);
 
     packages.x86_64-linux.updateCatalog = builtins.mapAttrs (catalog: _:
         updateCatalog catalog)
       (lib.importJSON ./catalogs.json);
 
-    packages.x86_64-linux.coursesView = builtins.mapAttrs (catalog: {machine, ...}:
+    packages.x86_64-linux.coursesView = builtins.mapAttrs (catalog: attrs:
         let
           lock = (lib.importJSON ./courses.json).${catalog};
         in
-        pkgs.callPackage ./machines/${machine}/view.nix {} {
+        pkgs.callPackage ./machines/${attrs.machine}/view.nix {} {
           inherit catalog;
           inherit (lock) revision hash;
         })

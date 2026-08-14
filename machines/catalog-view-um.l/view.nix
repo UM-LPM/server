@@ -11,7 +11,7 @@ mkView {
     owner = "UM-LPM";
     repo = "short-courses";
     rev = "6530a1c824ffd92dc36220c8425624ba2e1b704b";
-    hash = "sha256-r+m5hsh0XARfhDV6E9GySGVdGt/OXZ6akmUkT6zNLu4=";
+    hash = "sha256-1i7UfnvdKVjZVaE++hz0/v4Q0kbWQjPD9U5K5jTjU4Q=";
   };
   courses = mkCourses {
     catalog = catalogId;

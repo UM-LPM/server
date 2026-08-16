@@ -112,7 +112,7 @@
     };
     backend = {
       enable = true;
-      address = "https://upravljanje-katalog.um.si/api";
+      address = "https://upravljanje-katalog.um.si";
       secrets = config.age.secrets."catalog-secrets".path;
       frontendManage = "https://upravljanje-katalog.um.si";
 

@@ -989,7 +989,7 @@
     "catalog-manage-um" = {
       start = true;
       autoStart = true;
-      memory = unit.GiB 2;
+      memory = unit.GiB 4;
       vcpu = 1;
       disks = [
         {

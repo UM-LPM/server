@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-25.11;
+    nixpkgs-unstable.url = github:NixOS/nixpkgs/nixos-unstable;
     agenix.url = github:ryantm/agenix;
     sso-test.url = github:UM-LPM/sso-test;
     grades.url = github:UM-LPM/grades/production;

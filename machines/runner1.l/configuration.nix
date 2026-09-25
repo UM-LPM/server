@@ -1,6 +1,7 @@
-{config, pkgs, pkgs-unstable, pkgs-23_11, ...}:
+{config, pkgs, inputs, ...}:
 let
-  github-runner = pkgs.github-runner; #.override { nodeRuntimes = [ "node16" "node20" ]; };
+  github-runner = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.github-runner;
+  #github-runner = pkgs.github-runner; #.override { nodeRuntimes = [ "node16" "node20" ]; };
 in
 {
   imports = [
@@ -44,6 +45,7 @@ in
       inherit name tokenFile url;
       enable = true;
       package = github-runner;
+      nodeRuntimes = ["node24"];
       extraPackages = [pkgs.curl];
       user = "runner";
       serviceOverrides = {
@@ -86,6 +88,7 @@ in
       inherit name;
       enable = true;
       package = github-runner;
+      nodeRuntimes = ["node24"];
       extraPackages = [pkgs.curl];
       user = "runner";
       tokenFile = config.age.secrets.login-runner-token.path;

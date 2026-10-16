@@ -31,5 +31,6 @@ in
   "grades-external-secrets.age".publicKeys = [systems."grades.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "grades-dev-external-secrets.age".publicKeys = [systems."grades-dev.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "backup-rclone-config.age".publicKeys = [systems."catalog-manage.l" systems."catalog-manage-dev.l" systems."catalog-manage-um.l" systems."grades.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
+  "backup-env.age".publicKeys = [systems."catalog-manage.l" systems."catalog-manage-dev.l" systems."catalog-manage-um.l" systems."grades.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
   "backup-password.age".publicKeys = [systems."catalog-manage.l" systems."catalog-manage-dev.l" systems."catalog-manage-um.l" systems."grades.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);
 }

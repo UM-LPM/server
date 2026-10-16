@@ -68,10 +68,10 @@
     };
   };
   services.restic.backups.remote = {
-    passwordFile = config.age.secrets."backup-password".path;
+    passwordFile = config.age.secrets."backup-password".path;s
     environmentFile = config.age.secrets."backup-env".path;
     initialize = true;
-    repository = "s3:https://shramba.arnes.si";
+    repository = "s3:https://shramba.arnes.si/arnes-shramba/catalog-manage";
 
     timerConfig.OnCalendar = "daily";
 

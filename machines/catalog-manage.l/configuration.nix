@@ -71,7 +71,7 @@
     passwordFile = config.age.secrets."backup-password".path;
     environmentFile = config.age.secrets."backup-env".path;
     initialize = true;
-    repository = "s3:https://shramba.arnes.si/catalog-manage";
+    repository = "s3:https://shramba.arnes.si";
 
     timerConfig.OnCalendar = "daily";
 

@@ -38,6 +38,7 @@ in
   age.secrets."catalog-runner-token".file = ../../secrets/catalog-runner-token.age;
   age.secrets."catalog-registration-runner-token".file = ../../secrets/catalog-registration-runner-token.age;
   age.secrets."grades-runner-token".file = ../../secrets/grades-runner-token.age;
+  age.secrets."sloncek-runner-token".file = ../../secrets/sloncek-runner-token.age;
 
   services.github-runners =
   let
@@ -84,6 +85,11 @@ in
       tokenFile = config.age.secrets.grades-runner-token.path;
       url = "https://github.com/UM-LPM/grades";
     };
+    mkSloncekRunner = name: laxRunner {
+      inherit name;
+      tokenFile = config.age.secrets.sloncek-runner-token.path;
+      url = "https://github.com/UM-LPM/sloncek";
+    };
     mkLoginRunner = name: {
       inherit name;
       enable = true;
@@ -107,5 +113,7 @@ in
     registration2 = mkCatalogRegistrationRunner "registration2";
     grades1 = mkGradesRunner "grades1";
     grades2 = mkGradesRunner "grades2";
+    sloncek1 = mkSloncekRunner "sloncek1";
+    sloncek2 = mkSloncekRunner "sloncek2";
   };
 }

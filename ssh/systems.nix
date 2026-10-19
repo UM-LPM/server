@@ -90,6 +90,9 @@
   "gc-dev.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDPKWYVJrFohEiarDker8M131g1Iono9TtmSI9BEr2q";
   };
+  "sloncek.l" = {
+    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP99Tp2UrEm0jnzdeIiwi0hBG14Cj1GK4ARRtFO3dt1t";
+  };
   "pmd-catalog.l" = {
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGy/1ArAsF/OTTe8mrYTgqE5GW2IheX/OGwLRWIUmPO/";
   };

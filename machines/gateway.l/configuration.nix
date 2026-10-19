@@ -97,6 +97,9 @@
       "gc.lpm.feri.um.si" = {
         inherit email;
       };
+      "sloncek.feri.um.si" = {
+        inherit email;
+      };
       "sso-test.lpm.feri.um.si" = {
         inherit email;
       };
@@ -818,6 +821,18 @@
           proxyPass = "http://gc-dev.l/";
           extraConfig = ''
             add_header Cache-Control "no-store, no-cache, must-revalidate";
+          '';
+        };
+      };
+      "sloncek.feri.um.si" = {
+        forceSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          recommendedProxySettings = true;
+          proxyPass = "http://sloncek.l/";
+          extraConfig = ''
+            client_max_body_size 12m;
           '';
         };
       };

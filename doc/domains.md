@@ -22,3 +22,4 @@
 | dev.collab.lpm.feri.um.si  | 164.8.230.208 |
 | gb.lpm.feri.um.si          | 164.8.230.208 |
 | green.lpm.feri.um.si       | 164.8.230.240 |
+| sloncek.feri.um.si         | 164.8.230.208 |

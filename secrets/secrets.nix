@@ -9,6 +9,7 @@ in
   "collab-runner-token.age".publicKeys = [systems."runner1.l"] ++ (with users; [mario ziga matej cvetanka]);
   "login-runner-token.age".publicKeys = [systems."runner1.l"] ++ (with users; [mario ziga marko matej cvetanka]);
   "grades-runner-token.age".publicKeys = [systems."runner1.l"] ++ (with users; [mario ziga marko matej cvetanka]);
+  "sloncek-runner-token.age".publicKeys = [systems."runner1.l"] ++ (with users; [mario ziga marko matej cvetanka]);
   "catalog-runner-token.age".publicKeys = [systems."runner1.l"] ++ (with users; [mario ziga marko matej cvetanka]);
   "catalog-registration-runner-token.age".publicKeys = [systems."runner1.l"] ++ (with users; [mario ziga marko matej cvetanka]);
   "ears-runner-token.age".publicKeys = [systems."ears.l"] ++ (with users; [mario ziga marko matej miha cvetanka]);
@@ -20,6 +21,7 @@ in
   "login-aws-internal-secrets.age".publicKeys = [systems."lpm.rwx.si"] ++ (with users; [mario ziga matej marko cvetanka]);
   "login-aws-external-secrets.age".publicKeys = [systems."lpm.rwx.si"] ++ (with users; [mario ziga matej marko cvetanka]);
   "gc-secrets.age".publicKeys = [systems."gc.l" systems."gc-dev.l"] ++ (with users; [mario ziga matej marko cvetanka]);
+  "sloncek-secrets.age".publicKeys = [systems."sloncek.l"] ++ (with users; [mario ziga matej marko cvetanka]);
   "pmd-catalog-secrets.age".publicKeys = [systems."pmd-catalog.l"] ++ (with users; [mario ziga marko matej cvetanka]);
   "catalog-secrets.age".publicKeys = [systems."catalog.l" systems."catalog-dev.l" systems."catalog-manage.l" systems."catalog-manage-dev.l" systems."catalog-manage-um.l"] ++ (with users; [mario ziga marko matej cvetanka]);
   "collab-client-secret.age".publicKeys = [systems."login-dev.l" systems."login.l"] ++ (with users; [mario ziga marko matej cvetanka domen]);

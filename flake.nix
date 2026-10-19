@@ -22,9 +22,10 @@
     gc.url = github:Mir1001/gc_mv_backend;
     feriusa.url = github:cecepasinechka/USA;
     ears.url = github:UM-LPM/tournaments;
+    sloncek.url = github:UM-LPM/sloncek/production;
   };
 
-  outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, collab-test, grades, grades-dev, login, login-dev, catalog, catalog-dev, catalog-manage, catalog-manage-mini-academy, catalog-manage-summer-schools, catalog-manage-dev, catalog-manage-um, catalog-registration, gc, feriusa, ears, ...}@inputs:
+  outputs = {self, nixpkgs, agenix, sso-test, collab, collab-dev, collab-test, grades, grades-dev, login, login-dev, catalog, catalog-dev, catalog-manage, catalog-manage-mini-academy, catalog-manage-summer-schools, catalog-manage-dev, catalog-manage-um, catalog-registration, gc, feriusa, ears, sloncek, ...}@inputs:
   let
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -280,6 +281,9 @@
       ];
       "gc-dev.l" = mkSystem "gc-dev.l" [
         gc.nixosModules.default
+      ];
+      "sloncek.l" = mkSystem "sloncek.l" [
+        sloncek.nixosModules.default
       ];
       "lpm.rwx.si" = mkSystem "aws" [
         collab-test.nixosModules.default

@@ -227,6 +227,11 @@
           capacity = unit.GiB 32;
         }
         {
+          name = "sloncek";
+          backing = "minimal-base-v4";
+          capacity = unit.GiB 32;
+        }
+        {
           name = "minimal-base-v3";
           capacity = unit.GiB 8;
         }
@@ -863,6 +868,26 @@
           network = "private-network";
           hostname = "gc-dev.l";
           address = "10.17.3.192";
+        }
+      ];
+    };
+    "sloncek" = {
+      start = true;
+      autoStart = true;
+      memory = unit.GiB 4;
+      vcpu = 2;
+      disks = [
+        {
+          device = "vda";
+          pool = "alternative2";
+          volume = "sloncek";
+        }
+      ];
+      networkInterfaces = [
+        {
+          network = "private-network";
+          hostname = "sloncek.l";
+          address = "10.17.3.224";
         }
       ];
     };

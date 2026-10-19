@@ -48,6 +48,7 @@ jobs:
           - "login-dev.l"
           - "gc.l"
           - "gc-dev.l"
+          - "sloncek.l"
           - "catalog.l"
           - "catalog-dev.l"
           #- "catalog-view.l"

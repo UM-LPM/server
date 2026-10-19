@@ -12,15 +12,15 @@
   environment.systemPackages = [];
   networking.firewall.allowedTCPPorts = [22 80 3003 9100];
 
-  age.secrets."backup-rclone-config" = {
-    file = ../../secrets/backup-rclone-config.age;
+  age.secrets."backup-password" = {
+    file = ../../secrets/backup-password.age;
     mode = "600";
     owner = "grades";
     group = "users";
   };
 
-  age.secrets."backup-password" = {
-    file = ../../secrets/backup-password.age;
+  age.secrets."backup-env" = {
+    file = ../../secrets/backup-env.age;
     mode = "600";
     owner = "grades";
     group = "users";
@@ -63,9 +63,9 @@
   };
   services.restic.backups.remote = {
     passwordFile = config.age.secrets."backup-password".path;
-    rcloneConfigFile = config.age.secrets."backup-rclone-config".path;
+    environmentFile = config.age.secrets."backup-env".path;
     initialize = true;
-    repository = "rclone:database-backup:grades";
+    repository = "s3:https://shramba.arnes.si/arnes-shramba/grades";
 
     timerConfig.OnCalendar = "daily";
 

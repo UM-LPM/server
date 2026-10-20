@@ -6937,11 +6937,11 @@
         "nixpkgs": "nixpkgs_56"
       },
       "locked": {
-        "lastModified": 1792500536,
-        "narHash": "sha256-FMjzB7E5+oOAlDgmEyaHq/k8xRkGyeZIf9bX645XiJM=",
+        "lastModified": 1792502135,
+        "narHash": "sha256-V1pFlG8LwUzNL+scoTf8KUL2mSkoxD7IuRwT3HC5KnY=",
         "owner": "UM-LPM",
         "repo": "sloncek",
-        "rev": "235cc6dba46464ac904bacc22717bcb2485e86d3",
+        "rev": "c35c919ebb76f8b28269b4fa4c1163e7238f59c0",
         "type": "github"
       },
       "original": {

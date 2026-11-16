@@ -10,7 +10,7 @@ mkView {
   src = fetchFromGitHub {
     owner = "UM-LPM";
     repo = "short-courses";
-    rev = "ae1aeb2b71f27ae035384855d2b100011e24eae4";
+    rev = "d3556e08d1534a2f6cd7b1d6487b50bd7b6409af";
     hash = "sha256-g24Z1qVstdgdeszxMFItaZbw7g95XmbM7hOg43ESPlg=";
   };
   courses = mkCourses {

@@ -515,14 +515,8 @@
         locations."/api/" = {
           proxyPass = "http://catalog-manage.l:8080/api/";
         };
-        locations."/course/" = {
-          proxyPass = "http://catalog-manage.l:8081/course/";
-          extraConfig = ''
-            add_header Access-Control-Allow-Origin *;
-          '';
-        };
-        locations."/catalog/" = {
-          proxyPass = "http://catalog-manage.l:8081/catalog/";
+        locations."~* ^/(course|catalog)/.+\\.(png|jpe?g|webp|gif|svg)$" = {
+          proxyPass = "http://catalog-manage.l:8081";
           extraConfig = ''
             add_header Access-Control-Allow-Origin *;
           '';
@@ -539,14 +533,8 @@
         locations."/api/" = {
           proxyPass = "http://catalog-manage-dev.l:8080/api/";
         };
-        locations."/course/" = {
-          proxyPass = "http://catalog-manage-dev.l:8081/course/";
-          extraConfig = ''
-            add_header Access-Control-Allow-Origin *;
-          '';
-        };
-        locations."/catalog/" = {
-          proxyPass = "http://catalog-manage-dev.l:8081/catalog/";
+        locations."~* ^/(course|catalog)/.+\\.(png|jpe?g|webp|gif|svg)$" = {
+          proxyPass = "http://catalog-manage-dev.l:8081";
           extraConfig = ''
             add_header Access-Control-Allow-Origin *;
           '';
@@ -656,15 +644,8 @@
         locations."/api/" = {
           proxyPass = "http://catalog-manage-um.l:8080/api/";
         };
-        locations."/course/" = {
-          proxyPass = "http://catalog-manage-um.l:8081/course/";
-          extraConfig = ''
-            add_header Access-Control-Allow-Origin *;
-            add_header Cache-Control "no-cache, must-revalidate";
-          '';
-        };
-        locations."/catalog/" = {
-          proxyPass = "http://catalog-manage-um.l:8081/catalog/";
+        locations."~* ^/(course|catalog)/.+\\.(png|jpe?g|webp|gif|svg)$" = {
+          proxyPass = "http://catalog-manage-um.l:8081";
           extraConfig = ''
             add_header Access-Control-Allow-Origin *;
             add_header Cache-Control "no-cache, must-revalidate";
